@@ -1,0 +1,18 @@
+{
+  "paid_search": {
+    "enabled": true,
+    "day_of_week": "friday",
+    "hour": 6,
+    "minute": 0,
+    "script": "generate_weekly_report.py",
+    "description": "Pull GA4, GSC, Google Ads, and CLARITY data every Friday at 6 AM"
+  },
+  "ux_expert": {
+    "enabled": true,
+    "day_of_week": "monday",
+    "hour": 8,
+    "minute": 0,
+    "script": "ux_expert_analysis.py",
+    "description": "Analyze landing pages and friction points every Monday at 8 AM"
+  }
+}

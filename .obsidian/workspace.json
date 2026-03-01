@@ -1,0 +1,232 @@
+{
+  "main": {
+    "id": "6b4855c2ca747c03",
+    "type": "split",
+    "children": [
+      {
+        "id": "ddcefb0045a7835f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "beef211ae4b0e354",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "O-output/week1-linkedin-visual-FINAL.png"
+              },
+              "icon": "lucide-image",
+              "title": "week1-linkedin-visual-FINAL"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ef2fd070ef1b6e84",
+    "type": "split",
+    "children": [
+      {
+        "id": "d8e54fdb0089fd4a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e4244a9feac0da05",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": true
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "99a0005819f6256a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "303c98da226eb4f7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4924c3f03bd78061",
+    "type": "split",
+    "children": [
+      {
+        "id": "f2798e1c30a9eef6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9877b11b744db2b6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Welcome.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Welcome"
+            }
+          },
+          {
+            "id": "67e7da4c15d490a2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "ef2d957718159a71",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "8ccf3b036ef5fe26",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "563882b79e687458",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "beef211ae4b0e354",
+  "lastOpenFiles": [
+    "O-output/WEEK1-VISUAL-CREATED.md",
+    "O-output/WEEK1-VISUAL-DESIGN-BRIEF.md",
+    "RESEARCH-PRIORITIES.md.tmp.38316.1772097366231",
+    "B-brain/competitive-analysis-israeli-competitors.md",
+    "B-brain/competitive-analysis-coupa.md",
+    "RESEARCH-PRIORITIES.md",
+    "RESEARCH-FIRST-POLICY.md",
+    "RESEARCH-FIRST-POLICY.md.tmp.40736.1772089286673",
+    "O-output/week1-visual-for-conversion.svg",
+    "O-output/week1-linkedin-visual-FINAL.png",
+    "O-output/generate-linkedin-visual.js",
+    "O-output/week1-visual-base.png",
+    "O-output/week1-visual.svg",
+    "O-output/generate-png.js",
+    "A-agents/AGENT-ROLES.md",
+    "EXECUTION-READY-SUMMARY.md.tmp.17552.1772055376382",
+    "STATUS-UPDATE-WEEK1.md.tmp.17552.1772055367831",
+    "O-output/week1-visual-html.html",
+    "PHASE-1-COMPLETE.md",
+    "O-output/linkedin-post-supplier-portal-week1.md",
+    "STATUS-UPDATE-WEEK1.md",
+    "EXECUTION-READY-SUMMARY.md.tmp.17552.1772054883211",
+    "DIRECTOR-QUICK-START.md.tmp.17552.1772054862841",
+    "O-output/linkedin-post-supplier-portal-week1.md.tmp.17552.1772054832673",
+    "EXECUTION-READY-SUMMARY.md",
+    "CLEAN-STRUCTURE.md",
+    "DIRECTOR-QUICK-START.md",
+    "CLAUDE.md",
+    "T-tools/skills/research-skill/research-skill.md",
+    "O-output/01-briefs/week-8/README-WEEK8.md",
+    "O-output/01-briefs/week-8/2026-02-24-research-agent-brief.md",
+    "A-agents/collaboration-ux-paidearch.md",
+    "M-memory/decisions.md",
+    "O-output/02-deliverables/week-8-deliverables/newsletter/2026-02-24-garden-tomb-email.md",
+    "O-output/03-published/blog-posts/2026-02/week-8/garden-tomb-quiet-morning.md",
+    "O-output/01-briefs/week-8/2026-02-24-week8-garden-tomb-brief.md",
+    "O-output/02-deliverables/week-8-deliverables/PUBLICATION-PACKAGE.md",
+    "O-output/02-deliverables/week-8-deliverables/gatekeeper/2026-02-24-garden-tomb-review.md",
+    "O-output/02-deliverables/week-8-deliverables/visual/2026-02-24-garden-tomb-visual-direction.md",
+    "O-output/05-archive/blog-posts/week-12/images/hero.png",
+    "O-output/12.2-weekly-post-galilee-living-land/images/hero.png",
+    "Untitled.canvas",
+    "Untitled 3.canvas",
+    "Untitled 2.canvas",
+    "Untitled 1.canvas"
+  ]
+}

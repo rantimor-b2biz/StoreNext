@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoreNext Week 1 - LinkedIn Post Visual</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+
+        .linkedin-post {
+            width: 1200px;
+            height: 628px;
+            background: linear-gradient(135deg, #3C2C4C 0%, #2a1f38 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Background network effect (subtle) */
+        .network-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            background-image:
+                radial-gradient(circle at 20% 30%, #7CCBC3 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, #7CCBC3 1px, transparent 1px),
+                radial-gradient(circle at 40% 80%, #7CCBC3 1px, transparent 1px),
+                radial-gradient(circle at 90% 20%, #7CCBC3 1px, transparent 1px);
+            background-size: 200px 200px;
+            background-repeat: repeat;
+        }
+
+        /* Connection lines */
+        .connections {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.08;
+        }
+
+        .connection-line-1 {
+            position: absolute;
+            width: 400px;
+            height: 2px;
+            background: linear-gradient(90deg, #7CCBC3, transparent);
+            top: 20%;
+            left: 5%;
+            transform: rotate(15deg);
+        }
+
+        .connection-line-2 {
+            position: absolute;
+            width: 350px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #7CCBC3, transparent);
+            top: 75%;
+            right: 10%;
+            transform: rotate(-20deg);
+        }
+
+        /* Content sections */
+        .content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 60px 80px;
+        }
+
+        /* Top section - Stat */
+        .top-section {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .stat {
+            font-size: 56px;
+            font-weight: 700;
+            color: #7CCBC3;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        /* Middle section - Problem statement */
+        .middle-section {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .problem-statement {
+            max-width: 900px;
+        }
+
+        .problem-statement h1 {
+            font-size: 64px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .problem-statement p {
+            font-size: 48px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.2;
+            opacity: 0.95;
+        }
+
+        /* Bottom section - Logo and tagline */
+        .bottom-section {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            border-top: 3px solid #E85252;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        .tagline {
+            font-size: 20px;
+            font-weight: 600;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #7CCBC3;
+            letter-spacing: 1px;
+        }
+
+        .logo-accent {
+            width: 30px;
+            height: 30px;
+            background: #E85252;
+            border-radius: 2px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .linkedin-post {
+                width: 100%;
+                max-width: 1200px;
+            }
+
+            .content {
+                padding: 40px 60px;
+            }
+
+            .stat {
+                font-size: 44px;
+            }
+
+            .problem-statement h1 {
+                font-size: 48px;
+            }
+
+            .problem-statement p {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="linkedin-post">
+        <!-- Background effects -->
+        <div class="network-bg"></div>
+        <div class="connections">
+            <div class="connection-line-1"></div>
+            <div class="connection-line-2"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Top: Stat -->
+            <div class="top-section">
+                <div class="stat">500+ Suppliers</div>
+            </div>
+
+            <!-- Middle: Problem Statement -->
+            <div class="middle-section">
+                <div class="problem-statement">
+                    <h1>Email chaos<br>at Enterprise<br>scale</h1>
+                    <p>The system is broken.</p>
+                </div>
+            </div>
+
+            <!-- Bottom: Logo and Tagline -->
+            <div class="bottom-section">
+                <div class="tagline">Rethinking Procurement at Scale</div>
+                <div class="logo-section">
+                    <div class="logo">STORENEXT</div>
+                    <div class="logo-accent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
