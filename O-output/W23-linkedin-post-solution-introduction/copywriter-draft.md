@@ -1,7 +1,7 @@
-# LinkedIn Post: Solution Introduction - 2026-W23
+# LinkedIn Post: Solution Introduction - W23
 
 **Campaign:** StoreNext Supplier Portal Awareness
-**Annual Week:** 2026-W23 (ISO)
+**Annual Week:** W23 (ISO)
 **Campaign Week:** 2 of 13
 **Date:** 2026-06-02
 **Persona:** Procurement Leader

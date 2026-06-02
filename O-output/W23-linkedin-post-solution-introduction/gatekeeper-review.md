@@ -1,7 +1,7 @@
-# Gatekeeper Review: LinkedIn 2026-W23 - Solution Introduction
+# Gatekeeper Review: LinkedIn W23 - Solution Introduction
 
 **Date:** 2026-06-02
-**Annual Week:** 2026-W23 (ISO)
+**Annual Week:** W23 (ISO)
 **Version Reviewed:** v1
 **Campaign:** StoreNext Supplier Portal Awareness (Campaign Week 2 of 13)
 

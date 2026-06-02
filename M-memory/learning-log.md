@@ -383,7 +383,7 @@ Every content sprint is 5 days (Thursday-Monday), not flexible. Plan accordingly
 
 ---
 
-## 2026-06-02 - LinkedIn 2026-W23: Solution Introduction
+## 2026-06-02 - LinkedIn W23: Solution Introduction
 
 ### Gatekeeper Review
 **Status:** APPROVED (v1, no revisions needed)
@@ -402,10 +402,10 @@ Every content sprint is 5 days (Thursday-Monday), not flexible. Plan accordingly
 - **Week 2 should still avoid hard-sell:** Correct to omit StoreNext brand name in the body of the post at this stage. Brand attribution through consistent positioning, not explicit naming
 
 ### Files Created
-- `O-output/2026-W23-linkedin-post-solution-introduction/research-brief.md`
-- `O-output/2026-W23-linkedin-post-solution-introduction/copywriter-draft.md`
-- `O-output/2026-W23-linkedin-post-solution-introduction/gatekeeper-review.md`
-- `O-output/2026-W23-linkedin-post-solution-introduction/final-post.md`
+- `O-output/W23-linkedin-post-solution-introduction/research-brief.md`
+- `O-output/W23-linkedin-post-solution-introduction/copywriter-draft.md`
+- `O-output/W23-linkedin-post-solution-introduction/gatekeeper-review.md`
+- `O-output/W23-linkedin-post-solution-introduction/final-post.md`
 
 ---
 
@@ -413,7 +413,7 @@ Every content sprint is 5 days (Thursday-Monday), not flexible. Plan accordingly
 
 | Date | Update | By |
 |------|--------|-----|
-| 2026-06-02 | LinkedIn 2026-W23: Solution Introduction - approved and published | Claude |
+| 2026-06-02 | LinkedIn W23: Solution Introduction - approved and published | Claude |
 | 2026-02-24 | Operational timeline documented: Monday deadline for Thursday publication | Claude |
 | 2026-02-24 | Critical writing standard: NO EM DASHES - applied to all content | Claude |
 | 2026-02-22 | Weekly post #8: Garden Tomb — full pipeline complete | Claude |
