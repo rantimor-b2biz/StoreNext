@@ -1,0 +1,79 @@
+name: Send Weekly Post Email
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'O-output/W**/final-post.md'
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Find changed final-post.md
+        id: find_post
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD | grep 'O-output/W.*/final-post.md' | head -1)
+          if [ -z "$CHANGED" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "post_file=$CHANGED" >> $GITHUB_OUTPUT
+            WEEK=$(echo "$CHANGED" | sed 's|O-output/\(W[0-9]*\)-.*|\1|')
+            echo "week=$WEEK" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send email with post content
+        if: steps.find_post.outputs.skip == 'false'
+        env:
+          GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
+          POST_FILE: ${{ steps.find_post.outputs.post_file }}
+          WEEK: ${{ steps.find_post.outputs.week }}
+        run: |
+          python3 - <<'EOF'
+          import smtplib, os
+          from email.mime.text import MIMEText
+          from email.mime.multipart import MIMEMultipart
+
+          post_file = os.environ['POST_FILE']
+          week      = os.environ['WEEK']
+          password  = os.environ['GMAIL_APP_PASS']
+          sender    = 'rantimor@gmail.com'
+
+          with open(post_file, encoding='utf-8') as f:
+              post_content = f.read()
+
+          subject = f'StoreNext LinkedIn {week} - מוכן לפרסום היום ב-17:00'
+
+          body = f"""שלום,
+
+          פוסט LinkedIn שבועי ({week}) מוכן לפרסום היום בשעה 17:00 (שעון ישראל).
+
+          {'=' * 50}
+
+          {post_content}
+
+          {'=' * 50}
+
+          קובץ: {post_file}
+          """
+
+          msg = MIMEMultipart('alternative')
+          msg['Subject'] = subject
+          msg['From']    = sender
+          msg['To']      = sender
+          msg.attach(MIMEText(body, 'plain', 'utf-8'))
+
+          with smtplib.SMTP('smtp.gmail.com', 587) as s:
+              s.starttls()
+              s.login(sender, password)
+              s.sendmail(sender, sender, msg.as_string())
+
+          print(f'Email sent: {subject}')
+          EOF
