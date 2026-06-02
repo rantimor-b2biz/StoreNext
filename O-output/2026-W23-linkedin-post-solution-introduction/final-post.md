@@ -1,9 +1,10 @@
-# Final Post: LinkedIn Week 2 - Solution Introduction
+# Final Post: LinkedIn 2026-W23 - Solution Introduction
 
 **Status:** Approved for publication
 **Approved date:** 2026-06-02
+**Annual Week:** 2026-W23 (ISO)
 **Campaign:** StoreNext Supplier Portal Awareness
-**Week:** 2 of 13
+**Campaign Week:** 2 of 13
 **Publish:** Monday 2026-06-02 at 5:00 PM Israel time (IST / UTC+3)
 
 ---
