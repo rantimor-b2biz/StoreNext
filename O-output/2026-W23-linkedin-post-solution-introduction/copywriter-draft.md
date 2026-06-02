@@ -1,7 +1,8 @@
-# LinkedIn Post: Solution Introduction - Week 2
+# LinkedIn Post: Solution Introduction - 2026-W23
 
 **Campaign:** StoreNext Supplier Portal Awareness
-**Week:** 2 of 13
+**Annual Week:** 2026-W23 (ISO)
+**Campaign Week:** 2 of 13
 **Date:** 2026-06-02
 **Persona:** Procurement Leader
 **Objective:** Solution Introduction - shift from problem framing to solution framing

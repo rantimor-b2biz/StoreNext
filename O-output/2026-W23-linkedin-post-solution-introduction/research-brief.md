@@ -1,7 +1,7 @@
-# Research Brief: LinkedIn Week 2 - Solution Introduction
+# Research Brief: LinkedIn 2026-W23 - Solution Introduction
 
-**Week of:** 2026-06-02
-**Campaign:** StoreNext Supplier Portal Awareness (Week 2 of 13)
+**Week of:** 2026-06-02 (ISO Week 23 / 2026)
+**Campaign:** StoreNext Supplier Portal Awareness (Campaign Week 2 of 13)
 **Prepared by:** Research Agent
 **Briefing the:** Copywriter Agent
 
