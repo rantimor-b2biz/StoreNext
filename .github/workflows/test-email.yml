@@ -1,0 +1,46 @@
+name: Test Email
+
+on:
+  workflow_dispatch:  # Allows manual triggering from GitHub UI
+
+jobs:
+  send-test-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send test email
+        env:
+          GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
+        run: |
+          python3 - <<'EOF'
+          import smtplib
+          import os
+          from email.mime.text import MIMEText
+          from email.mime.multipart import MIMEMultipart
+          from datetime import datetime
+
+          password = os.environ['GMAIL_APP_PASS']
+          sender = 'rantimor@gmail.com'
+
+          subject = f'StoreNext Test Email - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}'
+          body = """שלום,
+
+          זה אימייל בדיקה מ-GitHub Actions.
+
+          אם קיבלת את ההודעה הזו, זה אומר שההגדרות של הדוא"ל עובדות כראוי.
+
+          שלחת ב: """ + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """
+          """
+
+          msg = MIMEMultipart('alternative')
+          msg['Subject'] = subject
+          msg['From'] = sender
+          msg['To'] = sender
+          msg.attach(MIMEText(body, 'plain', 'utf-8'))
+
+          with smtplib.SMTP('smtp.gmail.com', 587) as s:
+              s.starttls()
+              s.login(sender, password)
+              s.sendmail(sender, sender, msg.as_string())
+
+          print(f'✅ Test email sent: {subject}')
+          EOF
