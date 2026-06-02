@@ -1,4 +1,4 @@
-name: Test Email
+name: Test Email with W23 Post
 
 on:
   workflow_dispatch:  # Allows manual triggering from GitHub UI
@@ -7,7 +7,10 @@ jobs:
   send-test-email:
     runs-on: ubuntu-latest
     steps:
-      - name: Send test email
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Send test email with W23 post
         env:
           GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
         run: |
@@ -21,14 +24,24 @@ jobs:
           password = os.environ['GMAIL_APP_PASS']
           sender = 'rantimor@gmail.com'
 
-          subject = f'StoreNext Test Email - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}'
-          body = """שלום,
+          # Read the final-post.md from W23
+          post_file = 'O-output/W23-linkedin-post-solution-introduction/final-post.md'
+          with open(post_file, encoding='utf-8') as f:
+              post_content = f.read()
 
-          זה אימייל בדיקה מ-GitHub Actions.
+          subject = f'🧪 בדיקה: StoreNext LinkedIn W23 - Solution Introduction'
+          body = f"""שלום,
 
-          אם קיבלת את ההודעה הזו, זה אומר שההגדרות של הדוא"ל עובדות כראוי.
+          זה אימייל בדיקה של הפוסט מ-W23 שמוכן לפרסום.
 
-          שלחת ב: """ + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """
+          {'=' * 70}
+
+          {post_content}
+
+          {'=' * 70}
+
+          זמן בדיקה: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+          קובץ: {post_file}
           """
 
           msg = MIMEMultipart('alternative')
