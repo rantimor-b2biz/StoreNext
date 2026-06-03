@@ -22,8 +22,6 @@ A company is not its product roadmap. It is the people who show up, the culture 
 
 We are proud of both.
 
-What does your team do to close out a year together?
-
 ---
 
 ## Publication Notes
