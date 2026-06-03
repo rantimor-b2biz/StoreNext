@@ -1,13 +1,14 @@
-name: Send Weekly Post Email
+name: Generate Visual & Send Weekly Post Email
 
 on:
   push:
     branches: [main, master]
     paths:
       - 'O-output/W**/final-post.md'
+      - 'O-output/W**/visual-data.json'
 
 jobs:
-  send-email:
+  visual-and-email:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,60 +16,122 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Find changed final-post.md
+      - name: Find changed week folder
         id: find_post
         run: |
-          CHANGED=$(git diff --name-only HEAD~1 HEAD | grep 'O-output/W.*/final-post.md' | head -1)
+          CHANGED=$(git diff --name-only HEAD~1 HEAD \
+            | grep 'O-output/W[0-9]' \
+            | sed 's|/[^/]*$||' | sort -u | head -1)
+
           if [ -z "$CHANGED" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
-          else
-            echo "skip=false" >> $GITHUB_OUTPUT
-            echo "post_file=$CHANGED" >> $GITHUB_OUTPUT
-            WEEK=$(echo "$CHANGED" | sed 's|O-output/\(W[0-9]*\)-.*|\1|')
-            echo "week=$WEEK" >> $GITHUB_OUTPUT
+            exit 0
           fi
 
-      - name: Send email with post content
+          echo "skip=false"      >> $GITHUB_OUTPUT
+          echo "folder=$CHANGED" >> $GITHUB_OUTPUT
+
+          WEEK=$(echo "$CHANGED" | sed 's|O-output/\(W[0-9]*\)-.*|\1|')
+          echo "week=$WEEK" >> $GITHUB_OUTPUT
+
+          POST="$CHANGED/final-post.md"
+          [ -f "$POST" ] && echo "post_file=$POST" >> $GITHUB_OUTPUT || echo "post_file=" >> $GITHUB_OUTPUT
+
+      # ── Visual generation ──────────────────────────────────────────────────
+      - name: Setup Node.js
         if: steps.find_post.outputs.skip == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install sharp
+        if: steps.find_post.outputs.skip == 'false'
+        run: npm install sharp
+
+      - name: Generate visual PNG
+        if: steps.find_post.outputs.skip == 'false'
+        id: visual
+        run: |
+          FOLDER="${{ steps.find_post.outputs.folder }}"
+          if [ -f "$FOLDER/visual-data.json" ]; then
+            node T-tools/generate-visual.js "$FOLDER"
+            echo "png=$FOLDER/visual.png" >> $GITHUB_OUTPUT
+            echo "generated=true"         >> $GITHUB_OUTPUT
+          else
+            echo "generated=false" >> $GITHUB_OUTPUT
+            echo "No visual-data.json found, skipping visual generation"
+          fi
+
+      - name: Commit visual back to repo
+        if: steps.find_post.outputs.skip == 'false' && steps.visual.outputs.generated == 'true'
+        run: |
+          git config user.name  "StoreNext Agent"
+          git config user.email "rantimor@gmail.com"
+          git add "${{ steps.find_post.outputs.folder }}/visual.svg" \
+                  "${{ steps.find_post.outputs.folder }}/visual.png"
+          git diff --staged --quiet || git commit -m "Add visual for ${{ steps.find_post.outputs.week }}"
+          git push
+
+      # ── Email ──────────────────────────────────────────────────────────────
+      - name: Send email with post + visual
+        if: steps.find_post.outputs.skip == 'false' && steps.find_post.outputs.post_file != ''
         env:
           GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
-          POST_FILE: ${{ steps.find_post.outputs.post_file }}
-          WEEK: ${{ steps.find_post.outputs.week }}
+          POST_FILE:      ${{ steps.find_post.outputs.post_file }}
+          PNG_FILE:       ${{ steps.visual.outputs.png }}
+          WEEK:           ${{ steps.find_post.outputs.week }}
+          VISUAL_GEN:     ${{ steps.visual.outputs.generated }}
         run: |
           python3 - <<'EOF'
           import smtplib, os
-          from email.mime.text import MIMEText
-          from email.mime.multipart import MIMEMultipart
+          from email.mime.text        import MIMEText
+          from email.mime.multipart   import MIMEMultipart
+          from email.mime.base        import MIMEBase
+          from email                  import encoders
 
-          post_file = os.environ['POST_FILE']
-          week      = os.environ['WEEK']
-          password  = os.environ['GMAIL_APP_PASS']
-          sender    = 'rantimor@gmail.com'
+          post_file  = os.environ['POST_FILE']
+          png_file   = os.environ.get('PNG_FILE', '')
+          week       = os.environ['WEEK']
+          password   = os.environ['GMAIL_APP_PASS']
+          visual_gen = os.environ.get('VISUAL_GEN', 'false')
+          sender     = 'rantimor@gmail.com'
 
           with open(post_file, encoding='utf-8') as f:
               post_content = f.read()
 
           subject = f'StoreNext LinkedIn {week} - מוכן לפרסום היום ב-17:00'
 
+          visual_note = 'visual.png מצורף' if visual_gen == 'true' else 'ויזואל לא נוצר (חסר visual-data.json)'
+
           body = f"""שלום,
 
-          פוסט LinkedIn שבועי ({week}) מוכן לפרסום היום בשעה 17:00 (שעון ישראל).
+פוסט LinkedIn שבועי ({week}) מוכן לפרסום היום בשעה 17:00 (שעון ישראל).
+{visual_note}
 
-          {'=' * 50}
+{'=' * 50}
 
-          {post_content}
+{post_content}
 
-          {'=' * 50}
+{'=' * 50}
 
-          קובץ: {post_file}
-          """
+קובץ: {post_file}
+"""
 
-          msg = MIMEMultipart('alternative')
+          msg = MIMEMultipart()
           msg['Subject'] = subject
           msg['From']    = sender
           msg['To']      = sender
           msg.attach(MIMEText(body, 'plain', 'utf-8'))
+
+          if visual_gen == 'true' and png_file and os.path.exists(png_file):
+              with open(png_file, 'rb') as f:
+                  part = MIMEBase('image', 'png')
+                  part.set_payload(f.read())
+              encoders.encode_base64(part)
+              part.add_header('Content-Disposition', f'attachment; filename="{week}-visual.png"')
+              msg.attach(part)
 
           with smtplib.SMTP('smtp.gmail.com', 587) as s:
               s.starttls()
