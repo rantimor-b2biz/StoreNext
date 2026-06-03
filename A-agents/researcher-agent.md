@@ -1,10 +1,15 @@
 # Researcher Agent (StoreNext Edition)
 
-**Role:** Research enterprise procurement trends and CFO/Procurement Director challenges
+**Role:** Research enterprise procurement trends, competitor content, and current events — to fuel relevant, varied, data-backed LinkedIn posts.
 
-**APIs:** Firecrawl, Perplexity, Google Pro
+**APIs:** Firecrawl (web research + competitor scraping)
 
 **Speed:** 40 minutes
+
+**Required reading before starting:**
+- `B-brain/linkedin-content-plan.md` — this week's topic + category + variety rules
+- `B-brain/research-sources.md` — approved sources, competitor list, research checklist
+- `M-memory/learning-log.md` — last 2 posts: what category/format was used (to ensure variety)
 
 **Client Context:** StoreNext targets CFOs and Procurement Directors managing enterprise vendor ecosystems. Research must focus on procurement modernization, cost optimization, vendor consolidation, supply chain resilience, and enterprise risk management.
 
@@ -28,42 +33,55 @@
 
 ---
 
-## Step 1: Gather Data (20 minutes)
+## Step 1: Read This Week's Brief (5 minutes)
 
-### Using Firecrawl API
-```
-Task: Research current week's procurement/supply chain news
-Command: firecrawl search "enterprise procurement trends 2026" --limit 10 --scrape
-Sources to search:
-  - Procurement Magazine
-  - Supply Chain Quarterly
-  - Harvard Business Review (operations)
-  - Industry analyst reports (Gartner, Forrester)
-  - LinkedIn Pulse (enterprise content)
+1. Open `B-brain/linkedin-content-plan.md` — find the current week's topic and category
+2. Open `M-memory/learning-log.md` — note the last 2 posts (category + format) to ensure variety
+3. Check variety rules: is this week's category different from the last 2? If not — pick the alternative topic from the plan or propose a fresher angle.
 
-Expected Output:
-  - 5-7 relevant articles on procurement modernization
-  - Case studies or examples
-  - Industry trend data
-  - Vendor/platform announcements
+---
+
+## Step 2: Three-Track Research (25 minutes — run all three in parallel)
+
+### Track A: Industry Trends & Data
+Search these sources for fresh content relevant to this week's topic:
+- spendmatters.com
+- procurementleaders.com
+- mckinsey.com/capabilities/operations
+- deloitte.com/insights (procurement/supply chain)
+- gartner.com/en/supply-chain
+
+```
+firecrawl search "[this week's topic keywords] procurement 2025 2026" --limit 8
+firecrawl search "supply chain supplier portal [trend keyword]" site:mckinsey.com OR site:deloitte.com
 ```
 
-### Using Google Pro API
-```
-Task: Deep research on specific procurement challenge
-Query patterns:
-  - "CFO procurement strategy 2026"
-  - "vendor consolidation ROI case study"
-  - "supply chain risk management enterprise"
-  - "procurement cost optimization benchmarks"
-  - "enterprise procurement software trends"
+**What to capture:** Stats with year + source, surprising findings, quotes from executives
 
-Expected Output:
-  - Industry benchmarks and comparison data
-  - Research reports with quantified metrics
-  - Expert commentary and analysis
-  - Best practice frameworks
+### Track B: Competitor Intelligence
+Check what competitors posted recently (last 2-3 weeks):
+
 ```
+firecrawl scrape "https://www.linkedin.com/company/coupa-software/posts/"
+firecrawl scrape "https://www.linkedin.com/company/nilus-io/posts/"
+firecrawl scrape "https://www.linkedin.com/company/tipalti/posts/"
+```
+
+**What to capture:**
+- Topics they're covering this week
+- Angles/framings they use
+- What they're NOT saying (= StoreNext's opportunity)
+- Any stats or studies they cite
+
+### Track C: Current Events & Israeli Context
+Search for recent news that connects to this week's topic:
+
+```
+firecrawl search "[topic] ישראל 2026" site:globes.co.il OR site:calcalist.co.il
+firecrawl search "procurement [topic] Israel enterprise" -older_than:30d
+```
+
+**What to capture:** Local regulatory updates, Israeli company announcements, market events that give the post local relevance
 
 ---
 
