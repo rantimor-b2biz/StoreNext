@@ -42,6 +42,7 @@
 | **Tradeshift** | linkedin.com/company/tradeshift | Supplier network, digitization messaging |
 | **Coupa** | linkedin.com/company/coupa-software | Spend management, enterprise procurement |
 | **SAP Ariba** | linkedin.com/company/sap-ariba | ERP integration, enterprise scale |
+| **Tipalti** | linkedin.com/company/tipalti | AP automation, supplier payments, supply chain |
 
 **ישראל:**
 | מתחרה | לינקדאין | מה לחפש |
@@ -53,7 +54,8 @@
 | מתחרה | לינקדאין | מה לחפש |
 |--------|---------|---------|
 | **Nilus** | linkedin.com/company/nilus-io | ישראל, financial ops, treasury |
-| **Tipalti** | linkedin.com/company/tipalti | AP automation, payments |
+| **Finsite (פינסייט)** | linkedin.com/company/finsite | ישראל, financial operations |
+| **Silvernet (סילברנט)** | linkedin.com/company/silvernet | ישראל, bank reconciliation, financial data |
 
 **מה לבדוק אצל מתחרים (פורטל ספקים):**
 - אילו נושאים הם מקדמים עכשיו?

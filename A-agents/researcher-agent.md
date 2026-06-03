@@ -67,6 +67,7 @@ firecrawl search "supply chain supplier portal [trend keyword]" site:mckinsey.co
 firecrawl scrape "https://www.linkedin.com/company/basware/posts/"
 firecrawl scrape "https://www.linkedin.com/company/tradeshift/posts/"
 firecrawl scrape "https://www.linkedin.com/company/coupa-software/posts/"
+firecrawl scrape "https://www.linkedin.com/company/tipalti/posts/"
 ```
 
 **ישראלי — לסרוק:**
