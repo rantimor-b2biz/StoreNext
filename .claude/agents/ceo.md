@@ -59,8 +59,9 @@ Files MUST be in `O-output/W[NN]/final/final-post.md` format or automation won't
 ## Step 1: Read Current State
 
 Run these reads in parallel:
-- `B-brain/content-calendar-supplier-portal-13weeks.md` — campaign schedule
-- `M-memory/learning-log.md` — most recent published week
+- `B-brain/linkedin-content-plan.md` — this week's topic, category, variety rules
+- `B-brain/research-sources.md` — competitor list + approved sources
+- `M-memory/learning-log.md` — last 2 posts (category + format) for variety check
 - `C-core/voice-dna.md` — voice standards (quick refresh)
 - Today's ISO week number → `date +%V`
 - `O-output/W[N]/final/` — does final-post.md exist for this week?
@@ -90,26 +91,42 @@ COMMIT AFTER: YES
 
 ## The Weekly Workflow
 
-### 1. Research (→ `O-output/W[NN]/process/research-brief.md`)
-- Read: `B-brain/research-brief-supplier-portal.md`, `B-brain/messaging-matrix.md`, `C-core/icp-profile.md`
-- Research: current CFO/procurement pain points, supply chain disruptions, enterprise trends
-- Output: structured research brief with 3 angles, key stats, hook ideas
+### 1. Plan the Week (→ decide topic + angle)
+- Open `B-brain/linkedin-content-plan.md` → find this week's planned topic
+- Check `M-memory/learning-log.md` → what were the last 2 posts? Same category? Same format?
+- If variety rules are violated → pick the alternative topic or propose a fresher angle
+- Report: "This week: [topic] | Category: [X] | Format: [data/story/announcement/question] | Why: [variety reason]"
 
-### 2. Write (→ `O-output/W[NN]/process/copywriter-draft.md`)
-- Read: `C-core/voice-dna.md`, `M-memory/learning-log.md`, the research brief
-- Write LinkedIn post in StoreNext voice (professional, data-driven, CFO-focused)
-- Follow LinkedIn best practices: hook in first 2 lines, one idea, engagement question at end
+### 2. Research — 3 tracks in parallel (→ `O-output/W[NN]/process/research-brief.md`)
+Use **researcher-agent** (see `A-agents/researcher-agent.md`) for full workflow.
+Three mandatory tracks:
+- **Track A — Industry trends:** Firecrawl → Spend Matters, McKinsey, Deloitte, Gartner
+- **Track B — Competitor intelligence:** What are Coupa, Nilus, Tipalti posting this week? What are they NOT covering?
+- **Track C — Israeli/local context:** Globes, Calcalist, local regulatory/market news
+Output: research brief with top stat, competitor gap, local hook, 3 content angles
 
-### 3. Gatekeeper Review (→ `O-output/W[NN]/process/gatekeeper-review.md`)
-- Validate voice, hook quality, ICP fit, LinkedIn standards
-- If approved: copy final post to `O-output/W[NN]/final/final-post.md`
-- If rejected: send back with specific notes
+### 3. Write (→ `O-output/W[NN]/process/copywriter-draft.md`)
+Use **copywriter-agent**. Must read:
+- `C-core/voice-dna.md` — StoreNext brand voice
+- `C-core/icp-profile.md` — CFO/Procurement Director perspective
+- The research brief from Step 2
+Write LinkedIn post: hook in first 2 lines, one main idea, stat from research, StoreNext angle, engagement question.
 
-### 4. Process Log (→ `O-output/W[NN]/process/content-process-log.md`)
-- Document: research steps, decisions, tools used, revision history
+### 4. Gatekeeper Review (→ `O-output/W[NN]/process/gatekeeper-review.md`)
+Use **gatekeeper-agent**. Validates:
+- Voice match (formal, data-driven, CFO-focused)
+- Hook quality (would a CFO stop scrolling?)
+- Brand standards (no hype words, no em dashes)
+- Variety: is this post different enough from the previous 2?
+- Stat accuracy: is the cited source real and recent?
+If approved → copy to `O-output/W[NN]/final/final-post.md`
+If rejected → back to Copywriter with specific notes
 
-### 5. Done — files saved locally
-Save all files to the correct local locations. That's it.
+### 5. Process Log (→ `O-output/W[NN]/process/content-process-log.md`)
+Document: topic chosen, alternatives considered, research sources used, competitor insights, revisions, final decision.
+
+### 6. Done — files saved locally
+Save all files to the correct local locations.
 The auto-sync script on this machine pushes to GitHub automatically.
 Do NOT run git commit, git add, or git push.
 
