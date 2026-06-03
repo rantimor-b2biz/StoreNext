@@ -125,10 +125,22 @@ If rejected → back to Copywriter with specific notes
 ### 5. Process Log (→ `O-output/W[NN]/process/content-process-log.md`)
 Document: topic chosen, alternatives considered, research sources used, competitor insights, revisions, final decision.
 
-### 6. Done — files saved locally
-Save all files to the correct local locations.
-The auto-sync script on this machine pushes to GitHub automatically.
-Do NOT run git commit, git add, or git push.
+### 6. Push to routine-drafts (NOT master)
+```bash
+git checkout routine-drafts 2>/dev/null || git checkout -b routine-drafts
+git add O-output/W[NN]/
+git commit -m "W[NN] LinkedIn post draft: [topic]"
+git push origin routine-drafts
+git checkout master
+```
+This triggers a GitHub Action that:
+- Opens a PR from routine-drafts → master
+- Sends a review email to Ran
+- Validates folder naming (W[NN] format)
+
+**Ran reviews → merges PR → email + visual generation fires automatically.**
+
+Do NOT push directly to master.
 
 ---
 

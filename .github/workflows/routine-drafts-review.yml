@@ -1,0 +1,154 @@
+name: Routine Draft — Review Request
+
+on:
+  push:
+    branches: [routine-drafts]
+    paths:
+      - 'O-output/W**/final-post.md'
+
+jobs:
+  open-pr-and-notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Find changed week folder
+        id: find_post
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD \
+            | grep 'O-output/W[0-9]' \
+            | sed 's|/[^/]*$||' | sort -u | head -1)
+
+          if [ -z "$CHANGED" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "skip=false"      >> $GITHUB_OUTPUT
+          echo "folder=$CHANGED" >> $GITHUB_OUTPUT
+
+          WEEK=$(echo "$CHANGED" | grep -oP 'W\d+')
+          echo "week=$WEEK" >> $GITHUB_OUTPUT
+
+          POST="$CHANGED/final-post.md"
+          [ -f "$POST" ] && echo "post_file=$POST" >> $GITHUB_OUTPUT
+
+      - name: Validate folder naming
+        if: steps.find_post.outputs.skip == 'false'
+        id: validate
+        run: |
+          FOLDER="${{ steps.find_post.outputs.folder }}"
+          # Must match O-output/W followed by exactly 2 digits
+          if echo "$FOLDER" | grep -qP '^O-output/W\d{2}$'; then
+            echo "valid=true" >> $GITHUB_OUTPUT
+            echo "✅ Folder name valid: $FOLDER"
+          else
+            echo "valid=false" >> $GITHUB_OUTPUT
+            echo "❌ Invalid folder name: $FOLDER — must be O-output/W[NN]"
+          fi
+
+      - name: Open PR to master
+        if: steps.find_post.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          WEEK="${{ steps.find_post.outputs.week }}"
+          VALID="${{ steps.validate.outputs.valid }}"
+
+          TITLE="[$WEEK] LinkedIn post — ready for review"
+          if [ "$VALID" = "false" ]; then
+            TITLE="⚠️ [$WEEK] LinkedIn post — FOLDER NAME INVALID"
+          fi
+
+          # Check if PR already exists
+          EXISTING=$(gh pr list --head routine-drafts --base master --json number --jq '.[0].number' 2>/dev/null)
+
+          if [ -z "$EXISTING" ]; then
+            gh pr create \
+              --title "$TITLE" \
+              --body "$(cat <<'BODY'
+## תוכן שבועי — ממתין לאישורך
+
+| שדה | ערך |
+|-----|-----|
+| **שבוע** | $WEEK |
+| **קובץ** | ${{ steps.find_post.outputs.post_file }} |
+| **שם תיקייה תקין** | $VALID |
+
+### לפני merge לבדוק:
+- [ ] שם התיקייה בפורמט `O-output/W[NN]/`
+- [ ] final-post.md קיים ב-final/
+- [ ] תוכן תואם קול המותג
+- [ ] קטגוריה שונה מ-2 הפוסטים הקודמים
+
+**Merge → master** יפעיל אוטומטית את שליחת האימייל + יצירת הויזואל.
+BODY
+)" \
+              --base master \
+              --head routine-drafts
+          else
+            echo "PR #$EXISTING already exists — updated with new push"
+          fi
+
+      - name: Send review notification email
+        if: steps.find_post.outputs.skip == 'false' && steps.find_post.outputs.post_file != ''
+        env:
+          GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
+          POST_FILE:      ${{ steps.find_post.outputs.post_file }}
+          WEEK:           ${{ steps.find_post.outputs.week }}
+          VALID:          ${{ steps.validate.outputs.valid }}
+        run: |
+          python3 - <<'EOF'
+          import smtplib, os
+          from email.mime.text      import MIMEText
+          from email.mime.multipart import MIMEMultipart
+
+          post_file = os.environ['POST_FILE']
+          week      = os.environ['WEEK']
+          password  = os.environ['GMAIL_APP_PASS']
+          valid     = os.environ.get('VALID', 'true')
+          sender    = 'rantimor@gmail.com'
+
+          with open(post_file, encoding='utf-8') as f:
+              post_content = f.read()
+
+          warning = ""
+          if valid == "false":
+            warning = "\n⚠️  שם התיקייה לא תקני — יש לתקן לפני merge!\n"
+
+          subject = f"StoreNext {week} — ממתין לאישורך{' ⚠️' if valid == 'false' else ''}"
+
+          body = f"""שלום,
+
+פוסט LinkedIn שבועי ({week}) נוצר על ידי הרוטינה וממתין לאישורך.
+{warning}
+סקור ב-GitHub PR ולחץ Merge כדי לאשר ולהפעיל את שליחת האימייל.
+
+{'=' * 50}
+
+{post_content}
+
+{'=' * 50}
+
+קובץ: {post_file}
+Branch: routine-drafts → master
+"""
+
+          msg = MIMEMultipart()
+          msg['Subject'] = subject
+          msg['From']    = sender
+          msg['To']      = sender
+          msg.attach(MIMEText(body, 'plain', 'utf-8'))
+
+          with smtplib.SMTP('smtp.gmail.com', 587) as s:
+              s.starttls()
+              s.login(sender, password)
+              s.sendmail(sender, sender, msg.as_string())
+
+          print(f'Review email sent: {subject}')
+          EOF

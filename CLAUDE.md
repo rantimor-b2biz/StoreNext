@@ -30,7 +30,16 @@ NAMING — no exceptions:
 
 Get current ISO week number: `date +%V`
 
-### Do NOT run git push. The auto-sync handles it.
+### Push to routine-drafts — NEVER to master directly
+```bash
+git checkout routine-drafts 2>/dev/null || git checkout -b routine-drafts
+git add O-output/W[NN]/
+git commit -m "W[NN] draft: [topic]"
+git push origin routine-drafts
+git checkout master
+```
+→ This opens a PR for Ran to review before content reaches master.
+→ Merge to master triggers email + visual generation automatically.
 
 ---
 
