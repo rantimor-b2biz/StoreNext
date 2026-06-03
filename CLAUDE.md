@@ -1,5 +1,45 @@
 # StoreNext - AI Agent Team for Enterprise B2B Marketing
 
+---
+
+## ⚠️ FILE STRUCTURE RULES — READ THIS BEFORE CREATING ANY FILE
+
+An auto-sync script runs `git reset --hard origin/master` on a schedule.
+Any file that is not committed and pushed will be permanently lost on the next sync.
+
+### Root folder — only these items allowed:
+```
+A-agents/   B-brain/   C-core/   M-memory/   O-output/   T-tools/
+CLAUDE.md   README.md
+```
+NEVER create any file directly at the StoreNext project root.
+
+### O-output — strict structure:
+```
+O-output/
+└── W[NN]/           ← ISO week number ONLY (e.g. W24, W25)
+    ├── final/       ← final-post.md + visual (triggers GitHub Action email)
+    └── process/     ← research-brief.md, copywriter-draft.md, gatekeeper-review.md
+```
+
+NAMING — no exceptions:
+- ✅ O-output/W24/
+- ❌ O-output/04-linkedin-topic-name/
+- ❌ O-output/W24-topic-name/
+- ❌ O-output/week4/
+
+Get current ISO week number: `date +%V`
+
+### Every session MUST end with:
+```bash
+git add O-output/W[NN]/
+git commit -m "Add W[NN] LinkedIn post: [topic]"
+git push origin master
+```
+Without this push, the next sync wipes the work.
+
+---
+
 ## Session Start Protocol (MANDATORY)
 
 When starting ANY new conversation from this folder, ALWAYS read these files first before responding:
