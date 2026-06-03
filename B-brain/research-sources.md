@@ -29,21 +29,37 @@
 
 ## 2. מחקר מתחרים — מה המתחרים מפרסמים
 
-### מתחרים ישירים (לינקדאין שלהם)
-| מתחרה | מה לחפש בפרסומים |
-|--------|-----------------|
-| **Coupa** | linkedin.com/company/coupa-software | טרנדים שהם מדגישים, אנגלים |
-| **SAP Ariba** | linkedin.com/company/sap-ariba | Enterprise messaging, features |
-| **Nilus** | linkedin.com/company/nilus-io | Israeli market, positioning |
-| **Tipalti** | linkedin.com/company/tipalti | AP automation, supplier portal |
-| **Tradeshift** | linkedin.com/company/tradeshift | Supplier network messaging |
-| **Basware** | linkedin.com/company/basware | E-invoicing, compliance |
-| **Nipendo** | linkedin.com/company/nipendo | ישראלי, B2B, similar market |
+> ⚠️ הפרדה חשובה: יש שני מוצרים נפרדים עם מתחרים שונים.
+> פוסטים לינקדאין של **פורטל ספקים** = מתחרים מטבלה A.
+> פוסטים לינקדאין של **מטאור** = מתחרים מטבלה B.
 
-**מה לבדוק אצל מתחרים:**
+### טבלה A — מתחרי פורטל ספקים
+
+**בינלאומי:**
+| מתחרה | לינקדאין | מה לחפש |
+|--------|---------|---------|
+| **Basware** | linkedin.com/company/basware | E-invoicing, supplier onboarding, compliance |
+| **Tradeshift** | linkedin.com/company/tradeshift | Supplier network, digitization messaging |
+| **Coupa** | linkedin.com/company/coupa-software | Spend management, enterprise procurement |
+| **SAP Ariba** | linkedin.com/company/sap-ariba | ERP integration, enterprise scale |
+
+**ישראל:**
+| מתחרה | לינקדאין | מה לחפש |
+|--------|---------|---------|
+| **ניפנדו (Nipendo)** | linkedin.com/company/nipendo | שוק ישראלי, B2B, פורטל ספקים |
+| **סגמנט (Segment)** | linkedin.com/company/segment-israel | שוק ישראלי, ERP, פתרונות ספקים |
+
+### טבלה B — מתחרי מטאור (Financial Operations)
+| מתחרה | לינקדאין | מה לחפש |
+|--------|---------|---------|
+| **Nilus** | linkedin.com/company/nilus-io | ישראל, financial ops, treasury |
+| **Tipalti** | linkedin.com/company/tipalti | AP automation, payments |
+
+**מה לבדוק אצל מתחרים (פורטל ספקים):**
 - אילו נושאים הם מקדמים עכשיו?
 - אילו נתונים/מחקרים הם מצטטים?
 - איזה angle הם לא עוסקים בו? (= הזדמנות לסטורנקסט)
+- האם הם מדברים על שוק ישראלי? (לרוב לא — זה יתרון ייחודי של סטורנקסט)
 
 ---
 

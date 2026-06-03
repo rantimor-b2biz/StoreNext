@@ -59,12 +59,20 @@ firecrawl search "supply chain supplier portal [trend keyword]" site:mckinsey.co
 **What to capture:** Stats with year + source, surprising findings, quotes from executives
 
 ### Track B: Competitor Intelligence
-Check what competitors posted recently (last 2-3 weeks):
 
+> ⚠️ מתחרי **פורטל ספקים** בלבד (לא מטאור). ראה `B-brain/research-sources.md` להפרדה המלאה.
+
+**בינלאומי — לסרוק:**
 ```
+firecrawl scrape "https://www.linkedin.com/company/basware/posts/"
+firecrawl scrape "https://www.linkedin.com/company/tradeshift/posts/"
 firecrawl scrape "https://www.linkedin.com/company/coupa-software/posts/"
-firecrawl scrape "https://www.linkedin.com/company/nilus-io/posts/"
-firecrawl scrape "https://www.linkedin.com/company/tipalti/posts/"
+```
+
+**ישראלי — לסרוק:**
+```
+firecrawl scrape "https://www.linkedin.com/company/nipendo/posts/"
+firecrawl scrape "https://www.linkedin.com/company/segment-israel/posts/"
 ```
 
 **What to capture:**
@@ -72,6 +80,7 @@ firecrawl scrape "https://www.linkedin.com/company/tipalti/posts/"
 - Angles/framings they use
 - What they're NOT saying (= StoreNext's opportunity)
 - Any stats or studies they cite
+- האם אף אחד מהם מדבר על השוק הישראלי ספציפית? (לרוב לא — זה יתרון של סטורנקסט)
 
 ### Track C: Current Events & Israeli Context
 Search for recent news that connects to this week's topic:
