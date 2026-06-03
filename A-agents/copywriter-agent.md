@@ -118,12 +118,15 @@ For each angle provide:
 
 | Skill | File | When to Use |
 |-------|------|------------|
-| Social Post | `T-tools/skills/social-post-skill.md` | Writing LinkedIn posts — enterprise hooks, CFO-focused structure, StoreNext voice, hashtags |
+| LinkedIn Post Writer | `T-tools/skills/linkedin-post-writer.md` | **Start here for all LinkedIn posts** — 3 styles (HubSpot/Salesforce/Canva), input format, StoreNext-adapted hooks and examples, pre-publish checklist |
+| Social Post | `T-tools/skills/social-post-skill.md` | Base LinkedIn formatting rules — length, hashtags, engagement patterns |
 | Blog Post | `T-tools/skills/blog-post-skill.md` | Writing long-form articles — post types, enterprise headline formulas, data-backed structure |
 | Case Study | `T-tools/skills/case-study-skill.md` | Writing case studies (Full, Mini, Stat Callout, Quote Card) — primary differentiation asset for enterprise buyers |
 | Make Human Lite | `T-tools/skills/make-human-lite-skill.md` | Final pass on any draft — strip AI-sounding enterprise jargon, make it sound like a CFO peer, not a vendor brochure |
 
-**How to use:** Load the relevant skill file before drafting. Follow step-by-step instructions. Apply StoreNext voice (formal, data-driven, enterprise terminology, zero hype). Run Make Human Lite as the final step before Gatekeeper review.
+**How to use LinkedIn Post Writer:** Choose style first (HubSpot for education, Salesforce for thought leadership, Canva for engagement/reach). Fill in the input format. Write to the structure. Run Make Human Lite as final pass before Gatekeeper review.
+
+**Weekly rhythm:** 2x HubSpot, 1x Salesforce, 2x Canva.
 
 ---
 
