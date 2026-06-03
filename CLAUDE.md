@@ -4,8 +4,8 @@
 
 ## ⚠️ FILE STRUCTURE RULES — READ THIS BEFORE CREATING ANY FILE
 
-An auto-sync script runs `git reset --hard origin/master` on a schedule.
-Any file that is not committed and pushed will be permanently lost on the next sync.
+The auto-sync script pushes local changes to GitHub automatically.
+Your job: write files to the correct local location. Do NOT git push.
 
 ### Root folder — only these items allowed:
 ```
@@ -18,7 +18,7 @@ NEVER create any file directly at the StoreNext project root.
 ```
 O-output/
 └── W[NN]/           ← ISO week number ONLY (e.g. W24, W25)
-    ├── final/       ← final-post.md + visual (triggers GitHub Action email)
+    ├── final/       ← final-post.md (triggers GitHub Action email when synced)
     └── process/     ← research-brief.md, copywriter-draft.md, gatekeeper-review.md
 ```
 
@@ -30,13 +30,7 @@ NAMING — no exceptions:
 
 Get current ISO week number: `date +%V`
 
-### Every session MUST end with:
-```bash
-git add O-output/W[NN]/
-git commit -m "Add W[NN] LinkedIn post: [topic]"
-git push origin master
-```
-Without this push, the next sync wipes the work.
+### Do NOT run git push. The auto-sync handles it.
 
 ---
 

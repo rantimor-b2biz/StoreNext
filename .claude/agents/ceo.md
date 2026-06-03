@@ -108,14 +108,10 @@ COMMIT AFTER: YES
 ### 4. Process Log (→ `O-output/W[NN]/process/content-process-log.md`)
 - Document: research steps, decisions, tools used, revision history
 
-### 5. Commit and Push
-```bash
-cd /path/to/StoreNext
-git add O-output/W[NN]/
-git commit -m "Add W[NN] LinkedIn post: [topic]"
-git push origin master
-```
-This triggers the GitHub Action that generates the visual and sends the email.
+### 5. Done — files saved locally
+Save all files to the correct local locations. That's it.
+The auto-sync script on this machine pushes to GitHub automatically.
+Do NOT run git commit, git add, or git push.
 
 ---
 
