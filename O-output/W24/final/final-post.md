@@ -18,7 +18,7 @@ This is not an IT problem. It is a financial exposure.
 
 Managing allocation numbers across multiple suppliers, simultaneously, by email, is not operationally possible.
 
-300+ Enterprise organizations in Israel have already moved to a centralized supplier portal: the supplier submits, the system validates, the ERP receives — automatically.
+300+ Enterprise organizations in Israel have already moved to a centralized supplier portal: the supplier submits, the system validates, the ERP receives. Automatically.
 
 2 million transactions per day. All documented. All compliant.
 
