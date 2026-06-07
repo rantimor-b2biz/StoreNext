@@ -1,4 +1,4 @@
-# Final Post: LinkedIn W25 — CFO Finance Impact (Hebrew)
+# Final Post: LinkedIn W25 - CFO Finance Impact (Hebrew)
 **Status:** APPROVED
 **Approved date:** 2026-06-07
 **Campaign:** StoreNext Supplier Portal Awareness
@@ -35,10 +35,10 @@
 
 - Language: Hebrew
 - Post type: Data-led insight / CFO-focused
-- Target audience: CFOs, VP Finance, Procurement Directors — enterprise (500+ employees)
-- Campaign position: Week 5 of 13 (follows W24 English regulatory post — Hebrew audience / Israeli CFOs)
+- Target audience: CFOs, VP Finance, Procurement Directors (enterprise, 500+ employees)
+- Campaign position: Week 5 of 13 (follows W24 English regulatory post. Hebrew audience: Israeli CFOs)
 - No external links in caption. If adding a source link or case study, place in first comment.
-- Visual recommendation: Clean stat graphic — large "53$" centered, "לכל חריגה בחשבונית" below. Dark background, StoreNext brand colors. No stock photography.
+- Visual recommendation: Clean stat graphic. Large "53$" centered. "לכל חריגה בחשבונית" below. Dark background, StoreNext brand colors. No stock photography.
 - No soft CTA. "מה המספר שלך?" is the engagement trigger. Do not add "לפרטים נוספים" or similar.
 
 ## Note on Em Dash
