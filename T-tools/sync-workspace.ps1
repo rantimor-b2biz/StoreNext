@@ -3,17 +3,8 @@
 
 $WORKSPACE = "C:\Users\rant\Documents\ran-workspace"
 
-# ── Find all git repos in workspace ──────────────────────────────────────────
-$repos = Get-ChildItem -Path $WORKSPACE -Directory |
-         Where-Object { Test-Path (Join-Path $_.FullName ".git") } |
-         Select-Object -ExpandProperty Name
-
-if ($repos.Count -eq 0) {
-    Write-Host ""
-    Write-Host "  No git repositories found in $WORKSPACE" -ForegroundColor Red
-    Read-Host "Press Enter to exit"
-    exit
-}
+# ── Client list ───────────────────────────────────────────────────────────────
+$repos = @("FRACTIONAL_CMO", "Pilgrim-Prayers", "ShelfieTech", "StoreNext")
 
 # ── Display menu ─────────────────────────────────────────────────────────────
 function Show-Menu {
