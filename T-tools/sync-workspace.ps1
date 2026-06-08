@@ -23,7 +23,7 @@ function Show-Menu {
         $lastCommit = git -C $repoPath log -1 --format="%cr" 2>$null
         Write-Host "  [$i] $repo" -ForegroundColor White -NoNewline
         if ($branch) {
-            Write-Host "  ($branch — $lastCommit)" -ForegroundColor DarkGray
+            Write-Host "  ($branch | $lastCommit)" -ForegroundColor DarkGray
         } else {
             Write-Host ""
         }
@@ -57,7 +57,7 @@ function Sync-Repo {
     if ($LASTEXITCODE -eq 0) {
         Write-Host "  OK  $repoName ($defaultBranch)" -ForegroundColor Green
     } else {
-        Write-Host "  FAIL  $repoName — $result" -ForegroundColor Red
+        Write-Host "  FAIL  $repoName - $result" -ForegroundColor Red
     }
 }
 
