@@ -30,16 +30,27 @@ NAMING — no exceptions:
 
 Get current ISO week number: `date +%V`
 
-### Push to routine-drafts — NEVER to master directly
+### Branch Policy — 3 ענפים בלבד
+
+| ענף | מטרה | מי דוחף |
+|-----|------|---------|
+| `main` | ברירת מחדל. תוכן מאושר + תשתית. GitHub Actions רצים מכאן. | merge מ-routine-drafts |
+| `routine-drafts` | כל דראפט תוכן שבועי. | Claude בסיום כל סבב |
+| `claude/*` | ענפי עבודה זמניים של Claude Code web. | נמחקים אחרי merge |
+
+### Push תוכן שבועי — תמיד ל-routine-drafts
 ```bash
-git checkout routine-drafts 2>/dev/null || git checkout -b routine-drafts
+git checkout routine-drafts 2>/dev/null || git checkout -b routine-drafts origin/main
 git add O-output/W[NN]/
 git commit -m "W[NN] draft: [topic]"
 git push origin routine-drafts
-git checkout master
+git checkout main
 ```
-→ This opens a PR for Ran to review before content reaches master.
-→ Merge to master triggers email + visual generation automatically.
+→ פותח PR לאישור Ran לפני שתוכן מגיע ל-main.
+→ Merge ל-main מפעיל GitHub Action לשליחת אימייל אוטומטית.
+
+### NEVER push directly to main
+תשתית (CLAUDE.md, A-agents, C-core) — PR מענף claude/* → main.
 
 ---
 
