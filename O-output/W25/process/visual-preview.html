@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W25 LinkedIn Visual Preview — StoreNext</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0F0A1A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    gap: 32px;
+  }
+
+  .label {
+    color: #6B7280;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── CARD ── */
+  .card {
+    width: 540px;
+    height: 540px;
+    background: #1E1030;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+  }
+
+  /* coral accent strip */
+  .accent-strip {
+    height: 4px;
+    background: #DC2626;
+    flex-shrink: 0;
+  }
+
+  /* inner content */
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 36px 0 36px;
+    position: relative;
+  }
+
+  /* hexagon icon */
+  .hex-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .hex {
+    width: 36px;
+    height: 36px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .hex svg { width: 36px; height: 36px; }
+
+  .category-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* main stat */
+  .stat-block {
+    margin-bottom: 8px;
+  }
+
+  .primary-stat {
+    font-size: 88px;
+    font-weight: 800;
+    color: #0D9488;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+
+  .stat-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    margin-top: 2px;
+    letter-spacing: 0.01em;
+  }
+
+  /* divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, #0D9488, transparent);
+    margin: 16px 0;
+    width: 80%;
+  }
+
+  /* secondary stat pill */
+  .secondary-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(13, 148, 136, 0.12);
+    border: 1px solid rgba(13, 148, 136, 0.3);
+    border-radius: 20px;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+    width: fit-content;
+  }
+
+  .secondary-stat span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0D9488;
+  }
+
+  /* supporting text */
+  .supporting {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.55;
+    max-width: 90%;
+  }
+
+  /* source */
+  .source {
+    font-size: 11px;
+    font-style: italic;
+    color: rgba(255,255,255,0.3);
+    margin-top: 8px;
+  }
+
+  /* radial glow behind stat */
+  .glow {
+    position: absolute;
+    top: 60px;
+    right: -20px;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* bottom strip */
+  .bottom-strip {
+    height: 52px;
+    background: #150C2A;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    flex-shrink: 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .logo-text {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .logo-dot {
+    width: 18px;
+    height: 18px;
+    background: #7C3AED;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-dot svg { width: 10px; height: 10px; }
+
+  .domain {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  /* trust row */
+  .trust {
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── SPEC TABLE ── */
+  .spec-box {
+    width: 540px;
+    background: #111827;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .spec-box h3 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7C3AED;
+    margin-bottom: 16px;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .spec-row:last-child { border-bottom: none; }
+
+  .spec-key {
+    font-size: 12px;
+    color: #6B7280;
+  }
+
+  .spec-val {
+    font-size: 12px;
+    font-weight: 600;
+    color: #E5E7EB;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+
+<div class="label">W25 · LinkedIn Post Visual · Template A — Stat Card</div>
+
+<!-- ══════════════ CARD ══════════════ -->
+<div class="card">
+  <div class="accent-strip"></div>
+
+  <div class="content">
+    <div class="glow"></div>
+
+    <!-- icon + category -->
+    <div class="hex-wrap">
+      <div class="hex">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="18,2 32,10 32,26 18,34 4,26 4,10" fill="#7C3AED"/>
+          <!-- invoice icon -->
+          <rect x="12" y="10" width="12" height="15" rx="1.5" stroke="white" stroke-width="1.4" fill="none"/>
+          <line x1="15" y1="14" x2="21" y2="14" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="15" y1="17" x2="21" y2="17" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="15" y1="20" x2="18.5" y2="20" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="category-label">Accuracy &amp; Cost Reduction</div>
+    </div>
+
+    <!-- primary stat -->
+    <div class="stat-block">
+      <div class="primary-stat">$53</div>
+      <div class="stat-label">per invoice exception</div>
+      <div class="source">direct handling cost only · Ardent Partners, 2024</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- secondary stat -->
+    <div class="secondary-stat">
+      <span>$5,300 / month at 100 exceptions</span>
+    </div>
+
+    <!-- supporting -->
+    <div class="supporting">
+      Organizations with a centralized supplier portal report<br>
+      <strong style="color:#fff;">73% fewer invoice exceptions.</strong>
+    </div>
+
+  </div>
+
+  <!-- bottom strip -->
+  <div class="bottom-strip">
+    <div class="logo-text">
+      <div class="logo-dot">
+        <svg viewBox="0 0 10 10" fill="none"><path d="M5 1L9 3.5V6.5L5 9L1 6.5V3.5L5 1Z" fill="white" opacity="0.9"/></svg>
+      </div>
+      StoreNext
+    </div>
+    <div class="trust">Since 2002 · 400+ Enterprise Clients</div>
+    <div class="domain">storenext.com</div>
+  </div>
+</div>
+
+<!-- ══════════════ SPEC TABLE ══════════════ -->
+<div class="spec-box">
+  <h3>Visual Spec — visual-data.json</h3>
+  <div class="spec-row">
+    <span class="spec-key">Template</span>
+    <span class="spec-val">A — Stat Card</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-key">Dimensions</span>
+    <span class="spec-val">1080 × 1080 px</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-key">Background</span>
+    <span class="spec-val"><span class="swatch" style="background:#1E1030;border:1px solid #444"></span>#1E1030</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-key">Primary Stat</span>
+    <span class="spec-val"><span class="swatch" style="background:#0D9488"></span>$53 · #0D9488 · 120px 800w</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-key">Accent Strip</span>
+    <span class="spec-val"><span class="swatch" style="background:#DC2626"></span>#DC2626 · 8px top</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-key">Hex Icon</span>
+    <span class="spec-val"><span class="swatch" style="background:#7C3AED"></span>#7C3AED · invoice</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-key">Font</span>
+    <span class="spec-val">Inter ExtraBold / SemiBold / Regular</span>
+  </div>
+  <div class="spec-row">
+    <span class="spec-key">Publish</span>
+    <span class="spec-val">Monday 2026-06-15 · 17:00 IST</span>
+  </div>
+</div>
+
+</body>
+</html>
