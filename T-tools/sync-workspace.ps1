@@ -31,22 +31,33 @@ function Sync-Repo {
     param($repoName)
     $repoPath = Join-Path $WORKSPACE $repoName
     Write-Host ""
-    Write-Host "  Syncing $repoName..." -ForegroundColor Cyan
+    Write-Host "  Checking $repoName..." -ForegroundColor Cyan
 
     $defaultBranch = git -C $repoPath remote show origin 2>$null |
                      Select-String "HEAD branch" |
                      ForEach-Object { ($_ -split ":\s*")[1].Trim() }
-
     if (-not $defaultBranch) { $defaultBranch = "main" }
 
     git -C $repoPath checkout $defaultBranch 2>$null
-    $result = git -C $repoPath pull origin $defaultBranch 2>&1
+    git -C $repoPath fetch origin $defaultBranch 2>$null
 
-    if ($LASTEXITCODE -eq 0) {
-        Write-Host "  OK - $repoName ($defaultBranch)" -ForegroundColor Green
+    $behind = git -C $repoPath rev-list "HEAD..origin/$defaultBranch" --count 2>$null
+    if ($behind -eq "0" -or $behind -eq "") {
+        Write-Host "  No changes - already up to date" -ForegroundColor DarkGray
+        return
+    }
+
+    Write-Host "  $behind new commit(s) - pulling..." -ForegroundColor Yellow
+    git -C $repoPath pull origin $defaultBranch 2>$null
+
+    $changed = git -C $repoPath diff "HEAD@{1}" HEAD --name-only 2>$null
+    if ($changed) {
+        Write-Host "  Changed files:" -ForegroundColor Green
+        $changed -split "`n" | Where-Object { $_ } | ForEach-Object {
+            Write-Host "    $_" -ForegroundColor White
+        }
     } else {
-        Write-Host "  FAIL - $repoName" -ForegroundColor Red
-        Write-Host "  $result" -ForegroundColor Red
+        Write-Host "  OK - synced" -ForegroundColor Green
     }
 }
 
@@ -57,10 +68,10 @@ switch ($choice.ToUpper()) {
     "Q" { exit }
     "A" {
         Write-Host ""
-        Write-Host "  Syncing all..." -ForegroundColor Yellow
+        Write-Host "  Checking all repositories..." -ForegroundColor Yellow
         foreach ($repo in $repos) { Sync-Repo $repo }
         Write-Host ""
-        Write-Host "  All done." -ForegroundColor Green
+        Write-Host "  Done." -ForegroundColor Green
     }
     default {
         $index = [int]$choice - 1
