@@ -79,19 +79,21 @@ jobs:
               else 'ויזואל לא נמצא בתיקיית final/'
           )
 
-          body = f"""שלום,
-
-פוסט LinkedIn שבועי ({week}) מוכן לפרסום.
-{visual_note}
-
-{'=' * 50}
-
-{post_content}
-
-{'=' * 50}
-
-קובץ: {post_file}
-"""
+          sep = '=' * 50
+          body = '\n'.join([
+              'שלום,',
+              '',
+              f'פוסט LinkedIn שבועי ({week}) מוכן לפרסום.',
+              visual_note,
+              '',
+              sep,
+              '',
+              post_content,
+              '',
+              sep,
+              '',
+              f'קובץ: {post_file}',
+          ])
 
           msg = MIMEMultipart()
           msg['Subject'] = subject
