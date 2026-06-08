@@ -170,6 +170,48 @@ O-output/
 
 ---
 
+## Weekly Content Session — Full Cycle
+
+> NEVER spread the weekly content process across multiple days. Run start-to-finish in one session.
+
+The entire content cycle runs in ONE session, from research to final approved posts. Total time required from Ran: approximately 10 minutes.
+
+### The 6-Step Single-Session Workflow
+
+**Step 1 — Researcher scans sources**
+Reads `B-brain/research-sources.md` and current trends. Produces `O-output/W[NN]/process/intelligence-brief.md`.
+
+**Step 2 — Strategist proposes 2-3 topics**
+Based on the intelligence brief, proposes 2-3 topic options with a suggested hook for each. Produces `O-output/W[NN]/process/weekly-content-plan.md`.
+- **PAUSE HERE: Ran approves one or more topics before proceeding.**
+
+**Step 3 — Copywriter writes all approved posts**
+Writes every post that was approved in Step 2. Saves drafts to `O-output/W[NN]/process/copywriter-draft.md`.
+
+**Step 4 — Gatekeeper reviews all posts**
+Checks every draft against `C-core/voice-dna.md` and brand standards. Approves or returns with specific revision notes. Saves to `O-output/W[NN]/process/gatekeeper-review.md`.
+
+**Step 5 — Final posts delivered**
+All approved posts saved to `O-output/W[NN]/final/final-post.md`. Ready for Ran to publish.
+
+**Step 6 — Content calendar updated**
+`B-brain/content-calendar.md` updated with new entries, statuses, and any patterns discovered. `M-memory/learning-log.md` updated after publication.
+
+### Time Summary
+
+| Who | When | Time Required |
+|-----|------|---------------|
+| Ran | Step 2: approve topics | ~5 minutes |
+| Ran | Step 5: collect final posts | ~5 minutes |
+| Agents | Steps 1, 3, 4, 6 | Automated |
+
+**Total Ran time per week: ~10 minutes.**
+
+### Key Rule
+Do NOT initiate Step 3 (Copywriter) before receiving topic approval from Ran at Step 2. The rest of the pipeline runs uninterrupted after approval.
+
+---
+
 ## Auto-Learning Protocol
 
 After completing significant work, update the relevant memory file:
@@ -203,4 +245,4 @@ Do NOT use `isolation: "worktree"` when calling agents. All work goes directly o
 
 ---
 
-*Last updated: 2026-05-26*
+*Last updated: 2026-06-08*
