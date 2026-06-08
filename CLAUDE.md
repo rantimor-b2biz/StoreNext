@@ -65,8 +65,10 @@ When starting ANY new conversation from this folder, ALWAYS read these files fir
 - `C-core/icp-profile-meteor.md` - ICP for Meteor (fintech division) — separate buyer personas, Israeli market, English content
 - `C-core/brand-standards.md` - Visual and tone guidelines
 
-### 2. Memory Files (M-memory/) - WHAT HAVE WE LEARNED?
-- `M-memory/learning-log.md` - What content has worked (and what hasn't)
+### 2. Planning & Memory Files - WHAT WAS PUBLISHED / WHAT HAVE WE LEARNED?
+- `B-brain/content-calendar.md` - **Source of truth for publication status** (✅ פורסם rows = what ran, which category, which week). Use this for variety checks.
+- `B-brain/linkedin-content-plan.md` - 47-week strategic roadmap. Use this to find this week's planned topic.
+- `M-memory/learning-log.md` - Patterns and performance insights (what worked, what didn't). NOT a publication log.
 - `M-memory/decisions.md` - Strategic choices made (why we prioritize certain topics)
 - `M-memory/feedback.md` - Audience signals (engagement patterns, lead generation)
 
