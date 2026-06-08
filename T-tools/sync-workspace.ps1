@@ -1,50 +1,38 @@
 # sync-workspace.ps1
-# Place this file at: C:\Users\rant\Documents\ran-workspace\sync-workspace.ps1
+# Place at: C:\Users\rant\Documents\ran-workspace\sync-workspace.ps1
 
 $WORKSPACE = "C:\Users\rant\Documents\ran-workspace"
-
-# ── Client list ───────────────────────────────────────────────────────────────
 $repos = @("FRACTIONAL_CMO", "Pilgrim-Prayers", "ShelfieTech", "StoreNext")
 
-# ── Display menu ─────────────────────────────────────────────────────────────
 function Show-Menu {
     Clear-Host
     Write-Host ""
-    Write-Host "  ╔══════════════════════════════════════╗" -ForegroundColor Cyan
-    Write-Host "  ║       Workspace Sync — ran-workspace ║" -ForegroundColor Cyan
-    Write-Host "  ╚══════════════════════════════════════╝" -ForegroundColor Cyan
+    Write-Host "  === Workspace Sync ===" -ForegroundColor Cyan
     Write-Host ""
-
     $i = 1
     foreach ($repo in $repos) {
-        # Check current branch and last commit
         $repoPath = Join-Path $WORKSPACE $repo
         $branch = git -C $repoPath branch --show-current 2>$null
         $lastCommit = git -C $repoPath log -1 --format="%cr" 2>$null
-        Write-Host "  [$i] $repo" -ForegroundColor White -NoNewline
         if ($branch) {
-            Write-Host "  ($branch | $lastCommit)" -ForegroundColor DarkGray
+            Write-Host "  [$i] $repo ($branch, $lastCommit)" -ForegroundColor White
         } else {
-            Write-Host ""
+            Write-Host "  [$i] $repo" -ForegroundColor White
         }
         $i++
     }
-
     Write-Host ""
-    Write-Host "  [A] Sync all repositories" -ForegroundColor Yellow
-    Write-Host "  [Q] Quit" -ForegroundColor DarkGray
+    Write-Host "  [A] Sync all" -ForegroundColor Yellow
+    Write-Host "  [Q] Quit" -ForegroundColor Gray
     Write-Host ""
 }
 
-# ── Sync a single repo ────────────────────────────────────────────────────────
 function Sync-Repo {
     param($repoName)
-
     $repoPath = Join-Path $WORKSPACE $repoName
     Write-Host ""
     Write-Host "  Syncing $repoName..." -ForegroundColor Cyan
 
-    # Detect default branch (main or master)
     $defaultBranch = git -C $repoPath remote show origin 2>$null |
                      Select-String "HEAD branch" |
                      ForEach-Object { ($_ -split ":\s*")[1].Trim() }
@@ -55,13 +43,13 @@ function Sync-Repo {
     $result = git -C $repoPath pull origin $defaultBranch 2>&1
 
     if ($LASTEXITCODE -eq 0) {
-        Write-Host "  OK  $repoName ($defaultBranch)" -ForegroundColor Green
+        Write-Host "  OK - $repoName ($defaultBranch)" -ForegroundColor Green
     } else {
-        Write-Host "  FAIL  $repoName - $result" -ForegroundColor Red
+        Write-Host "  FAIL - $repoName" -ForegroundColor Red
+        Write-Host "  $result" -ForegroundColor Red
     }
 }
 
-# ── Main loop ────────────────────────────────────────────────────────────────
 Show-Menu
 $choice = Read-Host "  Select"
 
@@ -69,7 +57,7 @@ switch ($choice.ToUpper()) {
     "Q" { exit }
     "A" {
         Write-Host ""
-        Write-Host "  Syncing all repositories..." -ForegroundColor Yellow
+        Write-Host "  Syncing all..." -ForegroundColor Yellow
         foreach ($repo in $repos) { Sync-Repo $repo }
         Write-Host ""
         Write-Host "  All done." -ForegroundColor Green
