@@ -119,12 +119,20 @@ Merge לmain יפעיל אוטומטית את שליחת האימייל." \
           subject = f"StoreNext {week} — ממתין לאישורך{warn_flag}"
 
           sep = '=' * 50
+          approve_instructions = '\n'.join([
+              '✅ לאישור הפוסטים:',
+              '  1. פתח: https://github.com/rantimor-b2biz/StoreNext/pulls',
+              '  2. לחץ "Merge pull request"',
+              '  3. במחשב המקומי: git checkout main && git pull origin main',
+              '',
+              '❌ לדחייה / עריכה: סגור את ה-PR ב-GitHub ופתח סשן חדש עם הערות.',
+          ])
           body = '\n'.join([
               'שלום,',
               '',
               f'פוסטי LinkedIn שבועיים ({week}) נוצרו וממתינים לאישורך.',
               warning,
-              'סקור ב-GitHub PR ולחץ Merge כדי לאשר.',
+              approve_instructions,
               '',
               sep,
               '',
