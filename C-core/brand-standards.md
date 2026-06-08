@@ -6,28 +6,38 @@
 
 ## Brand Colors
 
+> Updated 2026-06-08 to match live website. Previous values (navy #003D82) are deprecated.
+
 ### Primary Palette
-- **Primary Blue:** #003D82 (Trust, professionalism, enterprise stability)
-- **Secondary Gray:** #47525E (Professional, neutral, sophisticated)
-- **Accent Teal:** #00A896 (Modern, innovative, forward-thinking)
+- **Brand Purple:** #7C3AED (primary brand color — logos, icons, headers)
+- **Deep Purple:** #1E1030 (dark card backgrounds, dark sections)
+- **Teal:** #0D9488 (financial data, secondary accent, borders)
+- **Coral Red:** #DC2626 (CTA buttons, accent strips on dark cards)
+- **Light Purple Wash:** #F5F0FF (light card backgrounds, gradient start)
+
+### Supporting Colors
+- **Text Dark:** #1A1A2E (headlines on light backgrounds)
+- **Text Muted:** #6B7280 (body text, captions)
+- **White:** #FFFFFF (text on dark, clean backgrounds)
 
 ### Usage
-- **Primary Blue:** Dominant in logos, headers, buttons
-- **Secondary Gray:** Backgrounds, text, supporting elements
-- **Accent Teal:** CTAs, highlights, emphasis
+- **Brand Purple:** Hexagon icons, quote blocks, primary highlights
+- **Deep Purple:** Dark card backgrounds for stat/data posts
+- **Teal:** Stats, data points, financial figures
+- **Coral Red:** Top accent strip, CTA elements
 - **White Space:** Essential for enterprise aesthetic
 
 ### Color Combinations (Acceptable)
-- Navy Blue + White (professional, clean)
-- Navy Blue + Teal (professional + modern)
-- Gray + White (neutral, minimal)
-- Navy + Gray + Teal (complete palette)
+- Deep Purple + Teal stat + White text (stat cards)
+- Light Purple Gradient + Purple quote block + Dark text (insight cards)
+- Split: Deep Purple left + Teal right (comparison cards)
+- Purple + White (clean, minimal)
 
 ### Color Combinations (Avoid)
-- Too many colors (max 3 + white)
-- Bright, saturated colors
-- Pastels or soft colors
-- Red, orange, yellow (too casual)
+- Navy blue #003D82 (old/outdated palette)
+- More than 3 colors per visual
+- Bright, saturated colors beyond brand palette
+- Pastels unrelated to the light purple gradient
 
 ---
 

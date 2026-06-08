@@ -1,0 +1,31 @@
+{
+  "week": "W25",
+  "template": "A",
+  "dimensions": "1080x1080px",
+  "primary_stat": "$53",
+  "stat_label": "per invoice exception (direct handling only)",
+  "supporting_line": "73% fewer exceptions with a centralized supplier portal.",
+  "source": "Ardent Partners, 2024",
+  "secondary_stat": "$5,300 / month at 100 exceptions",
+  "hex_icon": "invoice",
+  "color_scheme": "dark",
+  "colors": {
+    "background": "#1E1030",
+    "stat": "#0D9488",
+    "accent_strip": "#DC2626",
+    "text": "#FFFFFF",
+    "text_muted": "rgba(255,255,255,0.5)",
+    "bottom_strip": "#150C2A"
+  },
+  "typography": {
+    "primary_stat_size": "120px",
+    "primary_stat_weight": "800",
+    "stat_label_size": "28px",
+    "supporting_size": "24px",
+    "source_size": "16px",
+    "font": "Inter"
+  },
+  "logo": "white",
+  "publish_date": "2026-06-15",
+  "post_language": "English"
+}
