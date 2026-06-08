@@ -4,7 +4,7 @@ on:
   push:
     branches: [routine-drafts]
     paths:
-      - 'O-output/W**/final-post.md'
+      - 'O-output/W*/final/final-post.md'
 
 jobs:
   open-pr-and-notify:
