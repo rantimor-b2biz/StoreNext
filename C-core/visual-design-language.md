@@ -85,5 +85,21 @@ When in doubt, default to Stat Card — data-forward visuals perform best with C
 
 ---
 
+## Logo Usage
+
+**File:** `C-core/storenext-logo.svg`
+**Embed in every visual — no exceptions.**
+
+| Background | Wordmark (cls-1) | Icon (cls-2) |
+|---|---|---|
+| Light (white) | `#432f45` (as-is) | `#ee404a` (as-is) |
+| Dark (navy `#003D82`) | Override to `#FFFFFF` | `#ee404a` unchanged |
+
+- Position: top-left, 16px clear space minimum
+- Width: 100px minimum on 1080px canvas
+- Never stretch, rotate, or recolor beyond the above rules
+
+---
+
 *Visual Design Language — StoreNext*
 *Authority: C-core/brand-standards.md | Updated: 2026-06-08*

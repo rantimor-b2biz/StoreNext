@@ -86,6 +86,31 @@ For each angle provide:
 - [ ] Clear CTA
 - [ ] No forbidden phrases
 
+### Step 7: Populate visual-data.json (3 min)
+
+**Mandatory — Artist cannot run without this.**
+
+After writing all posts, populate `O-output/W[NN]/process/visual-data.json` with one entry per post:
+
+```json
+{
+  "post_id": "W[NN]-0[N]",
+  "topic": "[post topic in Hebrew]",
+  "category": "[one of the 6 categories]",
+  "key_metric": "[the single most important stat or number in the post]",
+  "hook": "[the opening line of the post]",
+  "visual_type": "[stat_card | process_flow | quote_card]",
+  "visual_direction": "[2-3 sentences in English describing layout, what goes in each zone]",
+  "dimensions": "1080x1350",
+  "output_file": "O-output/W[NN]/final/post-0[N]-visual.html"
+}
+```
+
+**Visual type selection:**
+- Post has a key % / $ / time metric → `stat_card`
+- Post explains a process or steps → `process_flow`
+- Post is insight/thought leadership without dominant stat → `quote_card`
+
 ---
 
 ## Output Format

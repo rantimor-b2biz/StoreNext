@@ -14,14 +14,19 @@
 
 **Two-step process. Always in this order. No exceptions.**
 
-### Step A: Propose Concept First — Always
+### Step A: Read visual-data.json — Always First
 
-Before touching any tool, present the visual concept to the user:
-- What is the metaphor / visual idea?
-- What mood / style / composition?
-- 2-3 sentences describing what the image looks like
+In the weekly content pipeline, Artist operates **autonomously — no user approval required**.
 
-Wait for approval or direction before proceeding.
+Read `O-output/W[NN]/process/visual-data.json`. Each post entry contains:
+- `visual_type` — stat_card / process_flow / quote_card (already decided by Copywriter)
+- `visual_direction` — specific layout and content instructions
+- `key_metric` — the dominant number or stat to feature
+- `output_file` — where to save the result
+
+Proceed directly to generation. Do NOT pause to propose concepts or wait for approval.
+
+**Exception:** If invoked directly by the user outside the weekly pipeline, propose concept first and wait for approval.
 
 ### Step B: Choose Tool Based on Visual Type
 
@@ -83,11 +88,20 @@ StoreNext's audience is enterprise decision-makers (CFOs, Procurement leaders, C
 ## StoreNext Visual Style Guide
 
 ### Brand Colors
-- **Primary:** Purple `#3C2C4C` (authority, headers, enterprise weight)
-- **Accent:** Turquoise `#7CCBC3` (trust, data highlights, CTAs)
-- **Alert:** Red `#E85252` (critical callouts only — use sparingly)
-- **Text:** Dark Grey `#333333` on white, White `#FFFFFF` on purple
-- See `T-tools/skills/brand-guidelines-skill.md` for full palette and CSS variables
+Source of truth: `C-core/brand-standards.md` + `C-core/visual-design-language.md`
+
+- **Primary:** Navy `#003D82`
+- **Accent:** Teal `#00A896`
+- **Neutral:** Gray `#47525E`
+- **Text on dark:** White `#FFFFFF`
+
+> Note: purple `#3C2C4C` and turquoise `#7CCBC3` are OUTDATED — do not use.
+
+### Logo
+- **File:** `C-core/storenext-logo.svg`
+- Light background: embed as-is
+- Dark/navy background: set wordmark (cls-1) fill to `#FFFFFF`, icon (cls-2) stays `#ee404a`
+- Always top-left, 16px clear space, 100px min width
 
 ### Typography
 - **Professional sans-serif** (Helvetica, Arial, Inter)

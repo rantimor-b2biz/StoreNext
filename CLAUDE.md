@@ -191,24 +191,42 @@ Writes every post that was approved in Step 2. Saves drafts to `O-output/W[NN]/p
 **Step 4 — Gatekeeper reviews all posts**
 Checks every draft against `C-core/voice-dna.md` and brand standards. Approves or returns with specific revision notes. Saves to `O-output/W[NN]/process/gatekeeper-review.md`.
 
-**Step 5 — Final posts delivered**
-All approved posts saved to `O-output/W[NN]/final/final-post.md`. Ready for Ran to publish.
+**Step 5 — Artist creates visuals (אוטומטי לחלוטין)**
+For each Gatekeeper-approved post, Artist runs autonomously — no user input required:
+1. Reads `O-output/W[NN]/process/visual-data.json` (populated by Copywriter in Step 3)
+2. Reads `C-core/visual-design-language.md` + `C-core/brand-standards.md`
+3. Reads `C-core/storenext-logo.svg` — embedded in every visual
+4. Selects visual type per post: `stat_card` / `process_flow` / `quote_card`
+5. Generates HTML visual → saves to `O-output/W[NN]/final/post-[NN]-visual.html`
 
-**Step 6 — Content calendar updated**
-`B-brain/content-calendar.md` updated with new entries, statuses, and any patterns discovered. `M-memory/learning-log.md` updated after publication.
+**Logo rules (mandatory):**
+- Light background visuals: logo as-is (dark wordmark + red icon)
+- Dark/navy background visuals: wordmark fill changed to `#FFFFFF`, red icon `#ee404a` unchanged
+- Logo always top-left, minimum clear space 16px
+
+**Step 6 — Final posts delivered**
+All approved posts + visuals in `O-output/W[NN]/final/`:
+- `final-post.md` — all post texts ready to publish
+- `post-[NN]-visual.html` — matching visual per post
+
+**Step 7 — Content calendar updated**
+`B-brain/content-calendar.md` updated: new entries with status `📋 מאושר`, visual column `🎨 נוצר`.
+`M-memory/learning-log.md` updated after publication.
 
 ### Time Summary
 
 | Who | When | Time Required |
 |-----|------|---------------|
 | Ran | Step 2: approve topics | ~5 minutes |
-| Ran | Step 5: collect final posts | ~5 minutes |
-| Agents | Steps 1, 3, 4, 6 | Automated |
+| Ran | Step 6: collect final posts + visuals | ~2 minutes |
+| Agents | Steps 1, 3, 4, 5, 7 | Automated |
 
-**Total Ran time per week: ~10 minutes.**
+**Total Ran time per week: ~7 minutes.**
 
-### Key Rule
-Do NOT initiate Step 3 (Copywriter) before receiving topic approval from Ran at Step 2. The rest of the pipeline runs uninterrupted after approval.
+### Key Rules
+- Do NOT initiate Step 3 (Copywriter) before receiving topic approval from Ran at Step 2.
+- Step 5 (Artist) runs immediately after Gatekeeper — no approval gate needed.
+- Copywriter MUST populate `visual-data.json` as part of Step 3 — Artist cannot run without it.
 
 ---
 
