@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "annual-plan",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3402"],
+      "port": 3402
+    }
+  ]
+}

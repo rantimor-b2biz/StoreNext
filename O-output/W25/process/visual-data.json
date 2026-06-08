@@ -1,0 +1,39 @@
+{
+  "week": "W25",
+  "generated": "2026-06-08",
+  "posts": [
+    {
+      "post_id": "W25-01",
+      "topic": "עלות חשבוניות ידניות",
+      "category": "דיוק, שליטה וחיסכון",
+      "key_metric": "14% מהחשבוניות הידניות מכילות שגיאות",
+      "hook": "חשבונית אחת לא נכונה עולה לך יותר ממה שחשבת.",
+      "visual_type": "stat_card",
+      "visual_direction": "Dominant stat: 14% error rate. Supporting text: average cost per manual invoice error in enterprise. Navy background, teal accent on the percentage.",
+      "dimensions": "1080x1350",
+      "output_file": "O-output/W25/final/post-01-visual.png"
+    },
+    {
+      "post_id": "W25-02",
+      "topic": "סיכון תקשורת עם 500+ ספקים",
+      "category": "שקיפות ותקשורת עם ספקים",
+      "key_metric": "500+ ספקים, תקשורת אחת לא מבוקרת",
+      "hook": "כשיש לך 500 ספקים — כל אי-בהירות מוכפלת ב-500.",
+      "visual_type": "process_flow",
+      "visual_direction": "3-node flow: scattered emails → unified portal → controlled communication. Clean minimalist nodes, teal connectors on white background.",
+      "dimensions": "1080x1350",
+      "output_file": "O-output/W25/final/post-02-visual.png"
+    },
+    {
+      "post_id": "W25-03",
+      "topic": "ראיית CFO על שרשרת אספקה בזמן אמת",
+      "category": "טרנדים גלובליים, רגולציה ו-ESG",
+      "key_metric": "67% מה-CFOs אומרים שאין להם ויזיביליות מלאה",
+      "hook": "לנהל תקציב ללא ויזיביליות — זה כמו לנהוג בלילה ללא פנסים.",
+      "visual_type": "quote_card",
+      "visual_direction": "Large typography quote in Hebrew. Navy background. 67% stat below in teal. Minimal, authoritative.",
+      "dimensions": "1080x1350",
+      "output_file": "O-output/W25/final/post-03-visual.png"
+    }
+  ]
+}
