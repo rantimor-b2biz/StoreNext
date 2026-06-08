@@ -44,3 +44,4 @@
 ## Note on Em Dash
 
 The line "ב-100 חריגות בחודש" uses a hyphen (-) for the number range construction, not an em dash. This is correct Hebrew number formatting and is not a violation.
+
