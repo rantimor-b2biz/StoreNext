@@ -3,6 +3,7 @@
 **Approved date:** 2026-06-08 (rewritten to English per owner directive)
 **Campaign:** StoreNext Supplier Portal Awareness
 **Campaign Week:** 5 of 13
+**Email test:** 2026-06-08
 **Category:** Accuracy & Cost Reduction
 **Format:** Data-led insight (stat-driven, CFO-focused)
 **Language:** English
