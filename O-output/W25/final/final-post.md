@@ -1,47 +1,48 @@
-# Final Post: LinkedIn W25 - CFO Finance Impact (Hebrew)
+# Final Post: LinkedIn W25 - CFO Finance Impact (English)
 **Status:** APPROVED
-**Approved date:** 2026-06-07
+**Approved date:** 2026-06-08 (rewritten to English per owner directive)
 **Campaign:** StoreNext Supplier Portal Awareness
 **Campaign Week:** 5 of 13
-**Category:** דיוק וחיסכון
+**Category:** Accuracy & Cost Reduction
 **Format:** Data-led insight (stat-driven, CFO-focused)
-**Language:** Hebrew
+**Language:** English
 **Publish:** Monday 2026-06-15 at 17:00 Israel time (IST / UTC+3)
 
 ---
 
-כל חריגה בחשבונית עולה לארגון שלך בממוצע 53 דולר.
+Each invoice exception costs your organization $53 on average.
 
-וזה לפני שיחות הטלפון, עיכובי התשלום, וזמן הצוות.
-
-רק הטיפול הישיר בחריגה עצמה: 53 דולר.
+That figure covers only the direct handling cost.
 (Ardent Partners, 2024)
 
-ב-100 חריגות בחודש: 5,300 דולר בעלות ישירה. כל חודש. כל שנה.
+It does not include follow-up calls to suppliers. It does not include payment delays or the internal hours spent resolving discrepancies.
 
-ארגונים שעובדים עם פורטל ספקים מרכזי רואים ירידה של 73% בחריגות חשבוניות.
+The fully loaded cost is higher.
 
-זה לא שיפור תפעולי. זה תוצאה פיננסית.
+At 100 exceptions per month, the direct line item is $5,300. Every month. Every year.
 
-הצוות הפיננסי שלך לא אמור לנהל חריגות. הוא אמור לנהל את הכסף.
+Finance leaders often categorize this under operational inefficiency. That framing understates the problem.
 
-מה המספר שלך?
+Invoice exceptions are a cash flow issue. They delay payments, strain supplier relationships, and consume finance team capacity that should be directed elsewhere.
 
-#פורטלספקים #Procurement #FinanceOperations #SupplierPortal
+Organizations with a centralized supplier portal report 73% fewer invoice exceptions.
+
+The mechanism is straightforward. Suppliers submit structured, validated data. Exceptions drop before they reach accounts payable.
+
+Your finance team should be managing working capital and vendor relationships. Not manually resolving mismatches.
+
+What does one invoice exception actually cost your organization?
+
+#SupplierPortal #Procurement #FinanceOperations #CFO
 
 ---
 
 ## Publication Notes
 
-- Language: Hebrew
+- Language: English
 - Post type: Data-led insight / CFO-focused
 - Target audience: CFOs, VP Finance, Procurement Directors (enterprise, 500+ employees)
-- Campaign position: Week 5 of 13 (follows W24 English regulatory post. Hebrew audience: Israeli CFOs)
-- No external links in caption. If adding a source link or case study, place in first comment.
-- Visual recommendation: Clean stat graphic. Large "53$" centered. "לכל חריגה בחשבונית" below. Dark background, StoreNext brand colors. No stock photography.
-- No soft CTA. "מה המספר שלך?" is the engagement trigger. Do not add "לפרטים נוספים" or similar.
-
-## Note on Em Dash
-
-The line "ב-100 חריגות בחודש" uses a hyphen (-) for the number range construction, not an em dash. This is correct Hebrew number formatting and is not a violation.
-
+- Campaign position: Week 5 of 13
+- No external links in caption. Source link in first comment if needed.
+- Visual recommendation: Clean stat graphic. Large "$53" centered. "per invoice exception" below. Dark background, StoreNext brand colors.
+- Engagement trigger: "What does one invoice exception actually cost your organization?" — do not soften.

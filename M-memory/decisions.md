@@ -134,6 +134,23 @@ When logging a significant decision:
 
 ## Strategic Decisions
 
+### 2026-06-08 - All LinkedIn Posts in English
+
+**Decision:** All LinkedIn posts are written in English. No Hebrew posts.
+
+**Context:** Owner directive after reviewing first Hebrew post (W25). Previous content plan assumed Hebrew for weeks 1-30 — that assumption is now overridden.
+
+**Rationale:** English reaches a broader professional audience on LinkedIn. Owner preference confirmed.
+
+**Implications:**
+- All future posts: English only
+- Content plan language guidance: update to English throughout
+- Hashtags: use English variants (#SupplierPortal not #פורטלספקים)
+
+**Status:** Active
+
+---
+
 ### 2026-02-24 - Expand Gatekeeper Agent to Agency Manager Role
 
 **Decision:** Expand Gatekeeper Agent from quality reviewer to full Agency Manager overseeing team coordination, performance analysis, competitive intelligence, and strategic recommendations.
