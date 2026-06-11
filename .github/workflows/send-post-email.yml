@@ -117,3 +117,109 @@ jobs:
 
           print(f'Email sent: {subject}')
           EOF
+
+  sync-media-plan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Find changed post file
+        id: find_post
+        run: |
+          POST_FILE=$(git diff --name-only HEAD~1 HEAD \
+            | grep -E 'O-output/W[0-9]+/final/final-post\.md' \
+            | head -1)
+
+          if [ -z "$POST_FILE" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          WEEK=$(echo "$POST_FILE" | cut -d'/' -f2)
+          WEEK_FOLDER=$(echo "$POST_FILE" | cut -d'/' -f1-2)
+
+          echo "skip=false"               >> $GITHUB_OUTPUT
+          echo "post_file=$POST_FILE"     >> $GITHUB_OUTPUT
+          echo "week=$WEEK"               >> $GITHUB_OUTPUT
+          echo "week_folder=$WEEK_FOLDER" >> $GITHUB_OUTPUT
+
+      - name: Sync to Firebase mediaPlan
+        if: steps.find_post.outputs.skip == 'false'
+        env:
+          FIREBASE_DB_SECRET: ${{ secrets.FIREBASE_DB_SECRET }}
+          CLIENT_ID:          storenext
+          POST_FILE:          ${{ steps.find_post.outputs.post_file }}
+          WEEK:               ${{ steps.find_post.outputs.week }}
+          WEEK_FOLDER:        ${{ steps.find_post.outputs.week_folder }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, re, urllib.request
+
+          week        = os.environ['WEEK']
+          week_folder = os.environ['WEEK_FOLDER']
+          post_file   = os.environ['POST_FILE']
+          client_id   = os.environ.get('CLIENT_ID', 'storenext')
+          secret      = os.environ['FIREBASE_DB_SECRET']
+          db_url      = 'https://annual-plan-736ee-default-rtdb.firebaseio.com'
+
+          with open(post_file, encoding='utf-8') as f:
+              post_content = f.read()
+
+          def field(content, name):
+              m = re.search(rf'\*\*{re.escape(name)}:\*\*\s*(.+)', content)
+              return m.group(1).strip() if m else ''
+
+          status_raw   = field(post_content, 'Status').lower()   # "approved" or "draft"
+          category     = field(post_content, 'Category')
+          publish_str  = field(post_content, 'Publish')
+          language     = field(post_content, 'Language')
+
+          date_match   = re.search(r'(\d{4}-\d{2}-\d{2})', publish_str)
+          publish_date = date_match.group(1) if date_match else ''
+
+          # Post body: text after the first --- separator
+          parts     = post_content.split('---')
+          post_text = parts[1].strip() if len(parts) > 1 else post_content
+
+          # First non-empty, non-header, non-bold line = hook
+          hook = ''
+          for line in post_text.split('\n'):
+              ln = line.strip()
+              if ln and not ln.startswith('#') and not ln.startswith('**') and not ln.startswith('##'):
+                  hook = ln
+                  break
+
+          # Load visual-data.json if present
+          posts_data  = []
+          visual_file = f"{week_folder}/process/visual-data.json"
+          if os.path.exists(visual_file):
+              with open(visual_file, encoding='utf-8') as f:
+                  vd = json.load(f)
+              posts_data = vd.get('posts', [])
+              if not hook and posts_data:
+                  hook = posts_data[0].get('hook', '')
+
+          payload = {
+              'week':        week,
+              'publishDate': publish_date,
+              'publishStr':  publish_str,
+              'category':    category,
+              'language':    language,
+              'status':      status_raw if status_raw in ('approved','published') else 'approved',
+              'hook':        hook,
+              'postText':    post_text,
+              'posts':       posts_data,
+          }
+
+          body = json.dumps(payload).encode('utf-8')
+          url  = f"{db_url}/mediaPlan/{client_id}/{week}.json?auth={secret}"
+          req  = urllib.request.Request(url, data=body, method='PUT',
+                                        headers={'Content-Type':'application/json'})
+          with urllib.request.urlopen(req) as resp:
+              print(f"Firebase mediaPlan/{week}: {resp.status}")
+          EOF
