@@ -41,6 +41,7 @@ def load_logo(dark_bg=True, width=220):
         return None
 
 W, H = 1080, 1350  # LinkedIn optimal
+MARGIN = 80          # safe zone — text never closer than this to edges
 
 def hex_to_rgb(h):
     h = h.lstrip("#")
@@ -61,7 +62,7 @@ def load_font(size, bold=False):
     return ImageFont.load_default()
 
 def draw_text_centered(draw, text, y, font, color, width=W, max_width=None):
-    max_width = max_width or (width - 80)
+    max_width = max_width or (width - MARGIN * 2)
     words = text.split()
     lines = []
     line = []
@@ -103,11 +104,11 @@ def stat_card(post):
     draw.rectangle([0, 0, W, 8], fill=hex_to_rgb(CORAL_RED))
 
     # Logo
-    paste_logo(img, dark_bg=True, x=40, y=30, width=200)
+    paste_logo(img, dark_bg=True, x=MARGIN, y=30, width=200)
 
     # Category chip
     cat_font = load_font(18)
-    draw.text((40, 80), post.get("category", "").upper(), font=cat_font,
+    draw.text((MARGIN, 80), post.get("category", "").upper(), font=cat_font,
               fill=hex_to_rgb(TEAL))
 
     # Main metric — massive, teal
@@ -118,11 +119,11 @@ def stat_card(post):
     draw.text((mx, 310), metric, font=metric_font, fill=hex_to_rgb(TEAL))
 
     # Divider
-    draw.rectangle([80, 530, W - 80, 534], fill=hex_to_rgb(BRAND_PURPLE))
+    draw.rectangle([MARGIN, 530, W - MARGIN, 534], fill=hex_to_rgb(BRAND_PURPLE))
 
     # Hook text
     hook_font = load_font(36, bold=True)
-    draw_text_centered(draw, post.get("hook", ""), 565, hook_font, WHITE, max_width=900)
+    draw_text_centered(draw, post.get("hook", ""), 565, hook_font, WHITE, max_width=W - MARGIN * 2)
 
     # Bottom brand purple bar
     draw.rectangle([0, H - 6, W, H], fill=hex_to_rgb(BRAND_PURPLE))
@@ -137,10 +138,10 @@ def process_flow(post):
     # Top deep purple header
     draw.rectangle([0, 0, W, 190], fill=hex_to_rgb(DEEP_PURPLE))
     draw.rectangle([0, 0, W, 8], fill=hex_to_rgb(CORAL_RED))
-    paste_logo(img, dark_bg=True, x=40, y=32, width=200)
+    paste_logo(img, dark_bg=True, x=MARGIN, y=32, width=200)
 
     title_font = load_font(36, bold=True)
-    draw_text_centered(draw, post.get("topic", ""), 85, title_font, WHITE, max_width=940)
+    draw_text_centered(draw, post.get("topic", ""), 85, title_font, WHITE, max_width=W - MARGIN * 2)
 
     # Steps from visual_direction
     direction = post.get("visual_direction", "")
@@ -166,7 +167,7 @@ def process_flow(post):
         nw = draw.textbbox((0,0), str(i+1), font=num_font)
         draw.text((cx - (nw[2]-nw[0])//2, cy - (nw[3]-nw[1])//2),
                   str(i+1), font=num_font, fill=WHITE)
-        draw.text((130, cy - 18), step, font=step_font, fill=hex_to_rgb(DARK_TEXT))
+        draw.text((MARGIN + 60, cy - 18), step, font=step_font, fill=hex_to_rgb(DARK_TEXT))
 
         if i < len(steps) - 1:
             draw.rectangle([77, cy + 32, 83, cy + step_h - 10],
@@ -176,7 +177,7 @@ def process_flow(post):
     # Hook footer
     hook_font = load_font(30, bold=True)
     draw.rectangle([0, H - 170, W, H], fill=hex_to_rgb(DEEP_PURPLE))
-    draw_text_centered(draw, post.get("hook", ""), H - 150, hook_font, WHITE, max_width=940)
+    draw_text_centered(draw, post.get("hook", ""), H - 150, hook_font, WHITE, max_width=W - MARGIN * 2)
     draw.rectangle([0, H - 6, W, H], fill=hex_to_rgb(TEAL))
 
     return img
@@ -187,7 +188,7 @@ def quote_card(post):
     draw = ImageDraw.Draw(img)
 
     draw.rectangle([0, 0, W, 8], fill=hex_to_rgb(CORAL_RED))
-    paste_logo(img, dark_bg=True, x=40, y=30, width=200)
+    paste_logo(img, dark_bg=True, x=MARGIN, y=30, width=200)
 
     # Large quote mark in brand purple
     q_font = load_font(200, bold=True)
@@ -195,14 +196,14 @@ def quote_card(post):
 
     # Hook text
     hook_font = load_font(50, bold=True)
-    hook_y = draw_text_centered(draw, post.get("hook", ""), 290, hook_font, WHITE, max_width=940)
+    hook_y = draw_text_centered(draw, post.get("hook", ""), 290, hook_font, WHITE, max_width=W - MARGIN * 2)
 
     draw.text((W - 120, hook_y + 10), "\u201d", font=q_font, fill=hex_to_rgb(BRAND_PURPLE))
 
     # Metric callout in teal
     metric = post.get("key_metric", "")
     if metric:
-        draw.rectangle([80, hook_y + 110, W - 80, hook_y + 114], fill=hex_to_rgb(TEAL))
+        draw.rectangle([MARGIN, hook_y + 110, W - MARGIN, hook_y + 114], fill=hex_to_rgb(TEAL))
         m_font = load_font(60, bold=True)
         draw_text_centered(draw, metric, hook_y + 130, m_font, hex_to_rgb(TEAL))
 
