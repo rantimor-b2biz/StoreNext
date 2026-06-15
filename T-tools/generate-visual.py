@@ -61,6 +61,18 @@ def load_font(size, bold=False):
                 continue
     return ImageFont.load_default()
 
+
+def fit_font(draw, text, max_width, max_size, bold=False, min_size=40):
+    """Reduce font size until text fits within max_width."""
+    size = max_size
+    while size >= min_size:
+        font = load_font(size, bold=bold)
+        bbox = draw.textbbox((0, 0), text, font=font)
+        if bbox[2] - bbox[0] <= max_width:
+            return font, size
+        size -= 4
+    return load_font(min_size, bold=bold), min_size
+
 def draw_text_centered(draw, text, y, font, color, width=W, max_width=None):
     max_width = max_width or (width - MARGIN * 2)
     words = text.split()
@@ -113,7 +125,7 @@ def stat_card(post):
 
     # Main metric — massive, teal
     metric = post.get("key_metric", "")
-    metric_font = load_font(130, bold=True)
+    metric_font, _ = fit_font(draw, metric, W - MARGIN * 2, 130, bold=True)
     bbox = draw.textbbox((0, 0), metric, font=metric_font)
     mx = (W - (bbox[2] - bbox[0])) // 2
     draw.text((mx, 310), metric, font=metric_font, fill=hex_to_rgb(TEAL))
