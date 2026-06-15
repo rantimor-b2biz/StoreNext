@@ -30,7 +30,7 @@ Only after the concept is approved, select the right tool:
 | Visual Type | Tool | Examples |
 |-------------|------|----------|
 | **Realistic** — photography, cinematic, metaphor with physical objects | `black-forest-labs/flux-1.1-pro` or `google/nano-banana` via Replicate | Buildings, nature, people, scenes, dramatic lighting |
-| **Graphic design** — text-forward, data, structured layout | HTML/SVG | Infographics, text cards, dashboards, carousels |
+| **Graphic design** — text-forward, data, structured layout | `T-tools/generate-visual.py` → PNG | Stat cards, process flows, quote cards (weekly pipeline) |
 | **Premium static design** — philosophy-driven, enterprise-quality art | `canvas-design-skill.md` | Thought leadership covers, data authority visuals, editorial headers requiring artistic depth |
 | **Generative / interactive** — supply chain animation, live data flow | `algorithmic-art-skill.md` | Supplier network visualizations, animated procurement flows, interactive demo assets |
 
