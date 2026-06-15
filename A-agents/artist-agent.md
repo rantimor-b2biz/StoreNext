@@ -23,16 +23,48 @@ Before touching any tool, present the visual concept to the user:
 
 Wait for approval or direction before proceeding.
 
-### Step B: Choose Tool Based on Visual Type
+### Step B: Route to the Right Tool
 
-Only after the concept is approved, select the right tool:
+**First — check if this is a Claude Design candidate (see table below).**
+If yes: output a ready-to-paste Claude Design prompt and stop. Do not generate PNG.
+If no: proceed with the generation tools.
+
+#### Tool Routing Table
 
 | Visual Type | Tool | Examples |
 |-------------|------|----------|
 | **Realistic** — photography, cinematic, metaphor with physical objects | `black-forest-labs/flux-1.1-pro` or `google/nano-banana` via Replicate | Buildings, nature, people, scenes, dramatic lighting |
 | **Graphic design** — text-forward, data, structured layout | `T-tools/generate-visual.py` → PNG | Stat cards, process flows, quote cards (weekly pipeline) |
-| **Premium static design** — philosophy-driven, enterprise-quality art | `canvas-design-skill.md` | Thought leadership covers, data authority visuals, editorial headers requiring artistic depth |
-| **Generative / interactive** — supply chain animation, live data flow | `algorithmic-art-skill.md` | Supplier network visualizations, animated procurement flows, interactive demo assets |
+| **Premium static design** — philosophy-driven, enterprise-quality art | `canvas-design-skill.md` | Thought leadership covers, data authority visuals, editorial headers |
+| **Generative / interactive** — supply chain animation, live data flow | `algorithmic-art-skill.md` | Supplier network visualizations, animated procurement flows |
+| **Multi-page / layout-heavy** — see Claude Design table below | Claude Design (claude.ai/design) | One-pagers, pitch decks, case studies, proposals |
+
+#### When to Recommend Claude Design
+
+Claude Design (claude.ai/design) is a separate interactive tool — it cannot be called automatically, but Artist must recommend it when the deliverable matches:
+
+| Deliverable | Claude Design? | Why |
+|-------------|---------------|-----|
+| LinkedIn stat card / quote card | ❌ Use generate-visual.py | Single image, automated |
+| LinkedIn post visual (weekly) | ❌ Use generate-visual.py | Fully automated in pipeline |
+| One-pager / landing page summary | ✅ Claude Design | Multi-section layout, interactive |
+| Pitch deck / investor slides | ✅ Claude Design | Multi-slide, structured |
+| Case study (2+ pages) | ✅ Claude Design | Document layout |
+| Email newsletter template | ✅ Claude Design | HTML layout with sections |
+| ROI calculator visual | ✅ Claude Design | Interactive prototype |
+| Blog header image | ❌ Use Replicate/canvas-skill | Single image |
+
+**When recommending Claude Design, output this block:**
+```
+🎨 Claude Design מומלץ לתוצר הזה
+
+פתח: https://claude.ai/design
+הדבק את הפרומפט הבא:
+
+[פרומפט מוכן — כולל: מטרה, קהל יעד, מבנה הדף, צבעי מותג #003D82 / #00A896, לוגו StoreNext, טון עסקי-פורמלי]
+
+לאחר יצירה: הורד PDF/PNG ושמור ב-O-output/W[NN]/final/
+```
 
 ### Rules
 - ❌ Never generate anything before presenting the concept
