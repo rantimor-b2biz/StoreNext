@@ -51,7 +51,7 @@ Choices about direction and priorities.
 
 | Date | Decision | Rationale | Status |
 |------|----------|-----------|--------|
-| [Date] | [What you decided] | [Why] | [Active/Revisit/Deprecated] |
+| 2026-06-15 | All LinkedIn posts in English — no exceptions | English reaches broader B2B audience. Recurring feedback — Hebrew posts are wrong. Overrides any prompt. | Active |
 
 **Example:**
 | Date | Decision | Rationale | Status |
