@@ -104,6 +104,17 @@ For each angle provide:
 
 ---
 
+## visual-data.json — Language Rule
+
+**All fields in visual-data.json must be in English. No exceptions.**
+
+This includes: `topic`, `category`, `key_metric`, `hook`, `visual_direction`.
+
+The post text (final-post.md) may be in Hebrew only if explicitly instructed by Ran.
+The visual always accompanies content on LinkedIn — English visuals work for both Hebrew and English posts.
+
+---
+
 ## Success Criteria
 
 ✅ Article written in 30 minutes
@@ -112,6 +123,7 @@ For each angle provide:
 ✅ StoreNext voice (professional, data-driven)
 ✅ Mobile formatting applied
 ✅ No hype language
+✅ visual-data.json populated in English
 ✅ Ready for Gatekeeper review
 
 ## Skills Library

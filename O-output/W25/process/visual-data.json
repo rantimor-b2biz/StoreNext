@@ -4,36 +4,36 @@
   "posts": [
     {
       "post_id": "W25-01",
-      "topic": "עלות חשבוניות ידניות",
-      "category": "דיוק, שליטה וחיסכון",
-      "key_metric": "14% מהחשבוניות הידניות מכילות שגיאות",
-      "hook": "חשבונית אחת לא נכונה עולה לך יותר ממה שחשבת.",
+      "topic": "Cost of Manual Invoices",
+      "category": "Accuracy & Cost Reduction",
+      "key_metric": "14% error rate",
+      "hook": "One wrong invoice costs more than you think.",
       "visual_type": "stat_card",
       "visual_direction": "Dominant stat: 14% error rate. Supporting text: average cost per manual invoice error in enterprise. Navy background, teal accent on the percentage.",
       "dimensions": "1080x1350",
-      "output_file": "O-output/W25/final/post-01-visual.png"
+      "output_file": "O-output/W25/final/W25-01-visual.png"
     },
     {
       "post_id": "W25-02",
-      "topic": "סיכון תקשורת עם 500+ ספקים",
-      "category": "שקיפות ותקשורת עם ספקים",
-      "key_metric": "500+ ספקים, תקשורת אחת לא מבוקרת",
-      "hook": "כשיש לך 500 ספקים — כל אי-בהירות מוכפלת ב-500.",
+      "topic": "Communication Risk with 500+ Suppliers",
+      "category": "Supplier Transparency & Communication",
+      "key_metric": "500+ suppliers. Zero visibility.",
+      "hook": "With 500 suppliers, every miscommunication is multiplied by 500.",
       "visual_type": "process_flow",
-      "visual_direction": "3-node flow: scattered emails → unified portal → controlled communication. Clean minimalist nodes, teal connectors on white background.",
+      "visual_direction": "3-node flow: Scattered Emails → Unified Portal → Controlled Communication. Clean minimalist nodes, teal connectors on white background.",
       "dimensions": "1080x1350",
-      "output_file": "O-output/W25/final/post-02-visual.png"
+      "output_file": "O-output/W25/final/W25-02-visual.png"
     },
     {
       "post_id": "W25-03",
-      "topic": "ראיית CFO על שרשרת אספקה בזמן אמת",
-      "category": "טרנדים גלובליים, רגולציה ו-ESG",
-      "key_metric": "67% מה-CFOs אומרים שאין להם ויזיביליות מלאה",
-      "hook": "לנהל תקציב ללא ויזיביליות — זה כמו לנהוג בלילה ללא פנסים.",
+      "topic": "CFO Real-Time Supply Chain Visibility",
+      "category": "Global Trends & ESG",
+      "key_metric": "67% of CFOs",
+      "hook": "Managing a budget without visibility is like driving at night without headlights.",
       "visual_type": "quote_card",
-      "visual_direction": "Large typography quote in Hebrew. Navy background. 67% stat below in teal. Minimal, authoritative.",
+      "visual_direction": "Large typography quote. Navy background. 67% stat below in teal. Minimal, authoritative.",
       "dimensions": "1080x1350",
-      "output_file": "O-output/W25/final/post-03-visual.png"
+      "output_file": "O-output/W25/final/W25-03-visual.png"
     }
   ]
 }
