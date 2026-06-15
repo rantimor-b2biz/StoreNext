@@ -41,7 +41,55 @@
 
 ---
 
-## Step 2: Three-Track Research (25 minutes — run all three in parallel)
+## Step 2: Four-Track Research (25 minutes — run all four in parallel)
+
+### Track D: Current Context Check — RUNS FIRST (before writing anything)
+
+Before any research, the Researcher must scan for real-world context that could override or modify the content plan:
+
+**Check 1 — Security & National Events (Israel)**
+- Is there an active military operation, escalation, or national emergency?
+- Are flags lowered? Is the public in a heightened emotional state?
+- Sources: ynet.co.il, walla.co.il, IDF spokesperson Twitter/X
+
+**Check 2 — Jewish Calendar & Israeli Holidays**
+- Is this week near Rosh Hashana, Yom Kippur, Pesach, Yom HaZikaron, Yom HaAtzmaut, Tisha B'Av?
+- Is there a national day of mourning or celebration that affects professional tone?
+- Source: `date` + Hebrew calendar lookup
+
+**Check 3 — Global Procurement/Business News**
+- Did a major event happen this week that directly intersects with StoreNext's domain?
+- (Example: new EU e-invoicing regulation, major supply chain crisis, public company collapse due to procurement failure)
+- This is Realtime Marketing opportunity — a hook that didn't exist in the content plan
+
+**Decision matrix after Track D:**
+
+| Context | Action |
+|---------|--------|
+| No significant events | Continue with planned topic |
+| Holiday approaching (1-3 days) | Flag to Strategist — consider warm/human post instead of data-driven |
+| Security tension / national mourning | Flag to Strategist — pause scheduled post or replace with empathetic tone |
+| Major industry news | Flag to Strategist — Realtime Marketing opportunity, consider topic pivot |
+
+**Output of Track D:**
+```
+## Context Check
+- Date: [today]
+- Security/National: [clear / tension / mourning / holiday]
+- Jewish Calendar: [regular week / pre-holiday / holiday / memorial day]
+- Breaking Industry News: [none / [headline + source]]
+- Recommendation: [proceed as planned / FLAG — see deviation below]
+
+## ⚠️ Deviation from Content Plan (if applicable)
+- Planned topic: [from content-calendar.md]
+- Reason to deviate: [what's happening]
+- Recommended alternative: [emotional post / realtime marketing / pause]
+- This decision goes to: Strategist for approval before Copywriter starts
+```
+
+If a deviation is flagged, **stop and present it to Ran before continuing**. Do not proceed to Copywriter until approved.
+
+---
 
 ### Track A: Industry Trends & Data
 Search these sources for fresh content relevant to this week's topic:

@@ -33,6 +33,12 @@ Give the CEO a clear recommendation, not a list of options.
 - How to frame ROI and business case for enterprise buyers
 - Which news events to leverage for StoreNext relevance
 
+**Context Override Decisions (triggered by Researcher Track D flag):**
+- Should this week's planned post be replaced due to current events?
+- Is there a Realtime Marketing opportunity worth acting on?
+- What tone is appropriate given the national/security context?
+- Recommendation format for Ran: planned topic → deviation reason → alternative → why now
+
 **Positioning Decisions:**
 - How to differentiate StoreNext from ERP native features
 - Which enterprise segment to target in this piece (CFO vs. Procurement vs. CIO)
