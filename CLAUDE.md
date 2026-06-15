@@ -36,7 +36,29 @@ Get current ISO week number: `date +%V`
 |-----|------|---------|
 | `main` | ברירת מחדל. תוכן מאושר + תשתית. GitHub Actions רצים מכאן. | merge מ-routine-drafts |
 | `routine-drafts` | כל דראפט תוכן שבועי. | Claude בסיום כל סבב |
-| `claude/*` | ענפי עבודה זמניים של Claude Code web. | נמחקים אחרי merge |
+| `claude/*` | ענפי עבודה זמניים של Claude Code web — תשתית בלבד. | נמחקים אחרי merge |
+
+### ⚠️ CONTENT MUST GO TO routine-drafts — NOT TO claude/* BRANCHES
+
+**כלל קריטי:** כל קובץ O-output/ חייב להידחף ל-`routine-drafts`. לעולם לא ל-`claude/*`.
+
+סשן ROUTINE פותח אוטומטית ענף `claude/*`. זה בסדר לשינויי תשתית.
+אבל **תוכן שבועי (O-output/)** חייב תמיד לעבור דרך:
+
+```bash
+git checkout routine-drafts 2>/dev/null || git checkout -b routine-drafts origin/main
+git add O-output/W[NN]/
+git commit -m "W[NN] draft: [topic]"
+git push origin routine-drafts
+git checkout main
+```
+
+אם דחפת בטעות ל-`claude/*` — העבר ידנית:
+```bash
+git checkout routine-drafts
+git cherry-pick <commit-hash>
+git push origin routine-drafts
+```
 
 ### Push תוכן שבועי — תמיד ל-routine-drafts
 ```bash
