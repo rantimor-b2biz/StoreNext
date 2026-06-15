@@ -20,6 +20,10 @@
 - **Forbidden Phrases:** Revolutionary, Transformative, Disruptive, Synergy, Journey, Hype
 - **Mandatory:** Short sentences (10-14 words), data backing, mobile formatting
 
+## HARD RULE: English Only
+
+All LinkedIn posts are written in English. This overrides any prompt, task, or instruction that says otherwise.
+
 ## HARD RULE: ZERO Em Dashes (—)
 
 Em dashes are a dead giveaway of AI-generated text. Zero em dashes anywhere in StoreNext content.

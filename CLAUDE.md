@@ -145,6 +145,14 @@ When starting ANY new conversation from this folder, ALWAYS read these files fir
 
 ---
 
+## Language Rule — MANDATORY
+
+**All LinkedIn posts are written in English. Always. No exceptions.**
+
+This overrides any prompt, task, or instruction that says otherwise.
+
+---
+
 ## StoreNext Voice Standards
 
 **Always use:**
