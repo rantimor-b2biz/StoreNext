@@ -1,26 +1,27 @@
 {
   "week": "W24",
-  "generated": "2026-06-14",
+  "generated": "2026-06-15",
+  "version": 2,
   "posts": [
     {
       "post_id": "W24-01",
       "topic": "חיבור ל-ERP בלי לשבור את מה שעובד",
       "category": "אינטגרציה ודיגיטציה",
-      "key_metric": "67% מפרויקטי האינטגרציה ל-ERP נכשלים או מתעכבים (Gartner, 2025)",
-      "hook": "67% מפרויקטי האינטגרציה ל-ERP נכשלים או מתעכבים.",
+      "key_metric": "60% קיצור בזמן הטמעה (McKinsey 2024) / 67% כישלון ERP (Gartner 2025)",
+      "hook": "חברות שהטמיעו פתרונות Procurement מבלי לשנות את ה-ERP קיצרו זמן הטמעה ב-60%.",
       "visual_type": "stat_card",
-      "visual_direction": "Top zone: large bold '67%' in dark navy on white background, with 'פרויקטי ERP נכשלים' in smaller text beneath. Middle zone: split comparison — left side shows 'Replacement' with a red X icon, right side shows 'Integration Layer' with a green check and StoreNext logo. Bottom zone: 'Gartner, 2025' source citation in grey, plus tagline 'אנחנו מוסיפים. לא ממירים.' in StoreNext brand blue. Clean sans-serif Hebrew typeface throughout.",
+      "visual_direction": "Split card: top half shows '60% faster implementation' in large bold numeral on dark navy background (McKinsey 2024, success stat). Bottom half shows '67% failure / $1.3M avg cost' on muted red-gray background (Gartner 2025, failure stat). Center divider reads 'שני נתונים. מסקנה אחת.' in white. StoreNext logo bottom right. Clean enterprise aesthetic, no icons.",
       "dimensions": "1080x1350",
       "output_file": "O-output/W24/final/post-01-visual.html"
     },
     {
       "post_id": "W24-02",
-      "topic": "הפורטל כתשתית ESG: Procurement 4.0 בפועל",
+      "topic": "הפורטל שלך הוא כלי ה-ESG שלך",
       "category": "מגמות ו-ESG",
-      "key_metric": "71% מהמנהלים ברכש מצפים לחובת ESG תוך 3 שנים. רק 28% מוכנים (Deloitte, 2025)",
-      "hook": "71% מהמנהלים הבכירים ברכש מצפים שדרישות ESG מספקים יהפכו לחובה חוקית תוך 3 שנים.",
+      "key_metric": "71% מצפים לחוק ESG, רק 28% מוכנים — Deloitte CPO Survey 2025",
+      "hook": "ב-2027, חברות ישראליות שמייצאות לאירופה יצטרכו להגיש תיעוד ESG על שרשרת האספקה שלהן.",
       "visual_type": "process_flow",
-      "visual_direction": "Top zone: two-stat contrast displayed as a visual gap — '71% מצפים לחובה' on the left in bold dark blue, '28% מוכנים' on the right in muted grey, with an arrow gap between them labeled 'הפער'. Middle zone: three-step horizontal flow showing the portal as ESG infrastructure: step 1 'Onboarding ספק' with ESG form icon, step 2 'הגשת חשבונית' with compliance check icon, step 3 'Audit Trail מלא' with lock icon. Each step connected by right-pointing arrows. Bottom zone: CSRD 2027 and רשות ניירות ערך 2025 badges as regulatory anchors in small text. Background light grey, accent color StoreNext brand blue.",
+      "visual_direction": "Three-step vertical flow on white background with teal accents: Step 1 'ספק נרשם לפורטל' → Step 2 'ממלא שאלון ESG ב-Onboarding' → Step 3 'נתונים נגישים לביקורת CSRD'. Each step is a pill/card shape. Bottom banner shows dual stat: '71% צפויים לחוק / 28% מוכנים' in contrasting sizes. CSRD 2027 deadline badge top right corner in amber/warning color.",
       "dimensions": "1080x1350",
       "output_file": "O-output/W24/final/post-02-visual.html"
     }
