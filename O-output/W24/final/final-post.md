@@ -1,51 +1,51 @@
 ## POST 1 — W24
 
-חברות שהטמיעו פתרונות Procurement מבלי לשנות את ה-ERP קיצרו זמן הטמעה ב-60%.
+Companies that implemented Procurement solutions without changing their ERP cut implementation time by 60%.
 
 (McKinsey, 2024)
 
-67% מהפרויקטים שכן שינו את ה-ERP נכשלו או עוכבו. עלות כישלון ממוצעת: $1.3M.
+67% of projects that did change their ERP failed or were delayed. Average failure cost: $1.3M.
 
 (Gartner, 2025)
 
-שני נתונים. מסקנה אחת.
+Two data points. One conclusion.
 
-הדרך הבטוחה לדיגיטציית הרכש אינה "נחליף הכל". היא "נוסיף מה שחסר".
+The safe path to Procurement digitization is not "replace everything." It's "add what's missing."
 
-רוב הפתרונות בשוק מציעים migration מלא לענן. זה נשמע מוכר: transformation גדול, תהליך ארוך, סיכון גבוה.
+Most vendors pitch full cloud migration. That sounds familiar: major transformation, long timeline, high risk. Exactly what a CFO who has been through one failed ERP project does not want to hear.
 
-סטורנקסט בנויה אחרת.
+StoreNext is built differently.
 
-הפורטל מתחבר ל-ERP הקיים. Priority, SAP, Oracle, NetSuite. ה-ERP נשאר Source of Truth. שכבת אוטומציה מוסיפה שקיפות לספקים בזמן אמת, מעל המבנה הקיים.
+The portal connects to your existing ERP. Priority, SAP, Oracle, NetSuite. Your ERP stays as Source of Truth. We add an automation layer on top, delivering real-time supplier visibility without touching your core system.
 
-ב-2026 נוסף לחץ חדש: חובת חיבור לחשבונית ישראל. ארגון שמחפש פתרון שמתחבר גם ל-ERP וגם לרשות המסים צריך חיבור אחד. לא שניים.
+In 2026, a new pressure arrives: mandatory integration with Israel's Tax Authority. Organizations need a solution that connects to both their ERP and the Tax Authority. One integration, not two.
 
-הטמעה תוך שבועות. 300+ לקוחות Enterprise כבר שם.
+Implementation in weeks, not months. 300+ Enterprise clients have done it.
 
-איזה לחץ דוחף אתכם כרגע לבחון אינטגרציה מחדש?
+What's driving your team to reconsider ERP integration right now?
 
-#פורטלספקים #ERP #דיגיטציהעסקית #SupplierPortal
+#SupplierPortal #ERP #DigitalProcurement #EnterpriseERP
 
 ---
 
 ## POST 2 — W24
 
-ב-2027, חברות ישראליות שמייצאות לאירופה יצטרכו להגיש תיעוד ESG על שרשרת האספקה שלהן.
+By 2027, Israeli companies exporting to Europe must submit ESG documentation on their supply chain.
 
-CSRD לא שואל על כוונות. הוא שואל: "יש לך את הנתונים?"
+CSRD does not ask about intentions. It asks: "Do you have the data?"
 
-71% מהמנהלים הבכירים ברכש מצפים שדרישות ESG מספקים יהפכו לחוק תוך 3 שנים. רק 28% מסוגלים לאסוף אותם כיום. (Deloitte, 2025)
+71% of senior Procurement leaders expect ESG requirements from suppliers to become law within 3 years. Only 28% can collect that data today. (Deloitte, 2025)
 
-הפער הזה אינו פער מודעות. הוא פער תשתית.
+This is not a knowledge gap. It is an infrastructure gap.
 
-רשות ניירות ערך ישראל פרסמה ב-2025 טיוטת חובת גילוי ESG לחברות ציבוריות. 60+ חברות בורסאיות יצטרכו לדווח על שרשרת האספקה שלהן.
+Israel's Securities Authority published draft ESG disclosure requirements for public companies in 2025. 60+ listed companies will need to report on their supply chains within 24 months.
 
-אין צורך לבנות מערכת חדשה.
+You do not need to build a new system.
 
-פורטל ספקים עם שאלון ESG ב-Onboarding עושה את העבודה. כל ספק שנרשם ממלא גילוי. כל חשבונית מתועדת עם ציות. כל נתון נגיש לביקורת.
+A supplier portal with an ESG questionnaire in the Onboarding flow does the work. Every supplier who registers completes a disclosure. Every invoice is logged with compliance documentation. Every data point is audit-ready.
 
-הפורטל שלך כבר יכול לשמש כתשתית ה-ESG שלך. מה שחסר זה ההגדרה.
+Your existing portal can already serve as your ESG infrastructure. What is missing is the configuration.
 
-כמה ספקים פעילים שלך יכולים לשלוח לך היום גילוי ESG מאומת? מה המספר?
+How many of your active suppliers could send you a verified ESG disclosure today? What is the number?
 
-#ESG #Procurement #פורטלספקים #CSRD
+#ESG #Procurement #SupplierPortal #CSRD
