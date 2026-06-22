@@ -9,6 +9,7 @@ on:
 jobs:
   open-pr-and-notify:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/routine-drafts'
 
     steps:
       - name: Checkout
