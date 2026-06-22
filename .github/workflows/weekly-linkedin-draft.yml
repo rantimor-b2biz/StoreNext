@@ -26,7 +26,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install anthropic
+        run: pip install anthropic Pillow cairosvg lxml
 
       - name: Generate LinkedIn draft
         env:
@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name  "Claude"
           git config user.email "noreply@anthropic.com"
-          git add drafts/ O-output/
+          git add drafts/ O-output/ || true
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "auto: W$(date +%V) LinkedIn draft generated"
           git push origin main

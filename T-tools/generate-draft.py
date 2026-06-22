@@ -162,5 +162,84 @@ def main():
     print(f"Also saved to: {weekly_file}")
     print(f"Tokens used: input={message.usage.input_tokens}, output={message.usage.output_tokens}")
 
+    # Step 5 — Generate visual-data.json then run PNG generator
+    generate_visual(client, draft, week, weekly_dir)
+
+def generate_visual(client, post_text, week, weekly_dir):
+    """Ask Claude to produce visual-data.json, then run generate-visual.py."""
+    process_dir = os.path.join(os.path.dirname(weekly_dir), "process")
+    os.makedirs(process_dir, exist_ok=True)
+    json_path = os.path.join(process_dir, "visual-data.json")
+
+    visual_prompt = f"""You are the StoreNext Copywriter producing visual-data.json for the Artist agent.
+
+Given this LinkedIn post, generate a visual-data.json file with ONE entry (one post, one visual).
+
+Rules:
+- All fields must be in English
+- visual_type: choose ONE of: stat_card | process_flow | quote_card
+  - stat_card: when the post leads with a strong metric/number
+  - process_flow: when the post explains a sequence or process
+  - quote_card: when the post leads with a bold statement or insight
+- key_metric: the dominant number or stat (short, e.g. "73% fewer exceptions")
+- hook: the post's opening line, max 12 words
+- visual_direction: one sentence describing the visual layout for the Artist
+
+Output ONLY valid JSON, no markdown fences, no explanation.
+
+Format:
+{{
+  "week": "{week}",
+  "generated": "{datetime.date.today()}",
+  "posts": [
+    {{
+      "post_id": "{week}-01",
+      "topic": "...",
+      "category": "...",
+      "key_metric": "...",
+      "hook": "...",
+      "visual_type": "stat_card|process_flow|quote_card",
+      "visual_direction": "...",
+      "dimensions": "1080x1350",
+      "output_file": "O-output/{week}/final/{week}-01-visual.png"
+    }}
+  ]
+}}
+
+LinkedIn post:
+{post_text}
+"""
+
+    message = client.messages.create(
+        model=MODEL,
+        max_tokens=512,
+        messages=[{"role": "user", "content": visual_prompt}],
+    )
+
+    json_text = message.content[0].text.strip()
+    # Strip markdown fences if Claude added them anyway
+    if json_text.startswith("```"):
+        json_text = "\n".join(
+            line for line in json_text.splitlines()
+            if not line.startswith("```")
+        ).strip()
+
+    with open(json_path, "w", encoding="utf-8") as f:
+        f.write(json_text)
+    print(f"visual-data.json saved: {json_path}")
+
+    # Run PNG generator
+    generator = os.path.join(os.path.dirname(__file__), "generate-visual.py")
+    import subprocess
+    result = subprocess.run(
+        ["python3", generator, json_path],
+        capture_output=True, text=True
+    )
+    print(result.stdout)
+    if result.returncode != 0:
+        print(f"Visual generator error: {result.stderr}")
+    else:
+        print(f"Visuals generated for {week}")
+
 if __name__ == "__main__":
     main()
