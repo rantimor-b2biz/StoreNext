@@ -112,9 +112,17 @@ Output a concise Research Brief: context check, 2-3 stats with sources, competit
 def run_strategist(client, ctx, research_brief, week, process_dir):
     print(f"\n[2/2] Strategist — proposing 2 options...")
 
-    system = f"You are the StoreNext Strategist agent.\n{ctx['strategist']}"
+    system = (
+        f"You are the StoreNext Strategist agent.\n{ctx['strategist']}\n\n"
+        "HARD RULE: Write the ENTIRE output in English. "
+        "All hooks, topic names, categories, and rationale must be in English. "
+        "LinkedIn content at StoreNext is English only. No Hebrew anywhere."
+    )
 
     user = f"""Based on the research brief, propose exactly 2 topic options for {week}.
+
+LANGUAGE: Write everything in English. The hooks especially must be in English,
+because they become the opening lines of the LinkedIn post. No Hebrew.
 
 ## Research Brief
 {research_brief}
