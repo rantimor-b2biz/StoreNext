@@ -22,3 +22,5 @@ At StoreNext, we process 2 million transactions per day across 300+ Enterprise c
 The efficiency gap is not a forecast. It is showing up in your half-year review right now.
 
 Where is the 9% hiding in your procurement process?
+
+#Procurement #CFO #SupplyChain #ProcurementTransformation #SupplierManagement #EnterpriseFinance #StoreNext
