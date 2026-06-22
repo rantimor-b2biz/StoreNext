@@ -33,6 +33,7 @@ jobs:
       - name: Generate LinkedIn draft
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_APP_PASS:    ${{ secrets.GMAIL_APP_PASS }}
           OVERRIDE_DATE:     ${{ inputs.date }}
         run: python T-tools/generate-draft.py
 
