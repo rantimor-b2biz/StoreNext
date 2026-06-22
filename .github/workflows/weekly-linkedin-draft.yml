@@ -1,0 +1,99 @@
+name: Weekly LinkedIn Draft
+
+on:
+  schedule:
+    - cron: '0 9 * * 5'   # Friday 09:00 UTC (12:00 IST)
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Override date for re-run (YYYY-MM-DD, optional)'
+        required: false
+        default: ''
+
+jobs:
+  generate-draft:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Generate LinkedIn draft
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OVERRIDE_DATE:     ${{ inputs.date }}
+        run: python T-tools/generate-draft.py
+
+      - name: Commit draft to main
+        run: |
+          git config user.name  "Claude"
+          git config user.email "noreply@anthropic.com"
+          git add drafts/
+          git diff --cached --quiet && echo "No changes" || \
+            git commit -m "auto: W$(date +%V) LinkedIn draft generated"
+          git push origin main
+
+      - name: Send draft by email
+        env:
+          GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
+        run: |
+          python3 - <<'EOF'
+          import smtplib, os, glob
+          from email.mime.text      import MIMEText
+          from email.mime.multipart import MIMEMultipart
+
+          sender   = 'rantimor@gmail.com'
+          password = os.environ['GMAIL_APP_PASS']
+
+          # Find the draft written in this run
+          drafts = sorted(glob.glob('drafts/W*-draft.md'), reverse=True)
+          if not drafts:
+              print("No draft found — skipping email")
+              exit(0)
+
+          draft_path = drafts[0]
+          week       = draft_path.split('/')[1].split('-')[0]   # e.g. W26
+
+          with open(draft_path, encoding='utf-8') as f:
+              content = f.read()
+
+          sep = '=' * 60
+          body = '\n'.join([
+              f'StoreNext {week} — LinkedIn draft ready for review.',
+              '',
+              'To publish: copy the post text below to LinkedIn.',
+              'No merge needed — this draft was committed directly to main.',
+              '',
+              sep,
+              '',
+              content,
+              '',
+              sep,
+              '',
+              f'Draft file: {draft_path}',
+              f'Branch: main',
+          ])
+
+          msg = MIMEMultipart()
+          msg['Subject'] = f'StoreNext {week} — LinkedIn draft ready'
+          msg['From']    = sender
+          msg['To']      = sender
+          msg.attach(MIMEText(body, 'plain', 'utf-8'))
+
+          with smtplib.SMTP('smtp.gmail.com', 587) as s:
+              s.starttls()
+              s.login(sender, password)
+              s.sendmail(sender, sender, msg.as_string())
+
+          print(f'Email sent: StoreNext {week}')
+          EOF
