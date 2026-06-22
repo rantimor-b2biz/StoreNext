@@ -2,7 +2,7 @@ name: Weekly LinkedIn Draft
 
 on:
   schedule:
-    - cron: '0 9 * * 5'   # Friday 09:00 UTC (12:00 IST)
+    - cron: '0 6 * * 0'   # Sunday 06:00 UTC (09:00 IST)
   workflow_dispatch:
     inputs:
       date:
