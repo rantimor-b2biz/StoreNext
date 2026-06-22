@@ -1,33 +1,35 @@
 # Weekly Options — W26
 
-# W26 Topic Proposals — StoreNext
+# W26 Topic Options
 
-**Strategist | 2026-06-22 | For: Ran (CEO)**
+**Date:** 2026-06-22 | **Client:** StoreNext | **For:** CEO (Ran)
 
 ---
 
-### Option A: "הפער של 9%"
-**Hook:**
-"עומס עלה ב-10%. תקציב עלה ב-1%.
-הפחד של כל CFO ב-2026 מסתכם במספר אחד."
+### Option A: The Efficiency Gap Is Now a CFO Problem
 
-**Category:** דיוק, שליטה וחיסכון
+**Hook:**
+"Procurement workloads are rising 10% this year. Budgets are rising 1%.
+That gap doesn't close by working harder."
+
+**Category:** Category 2 — Accuracy, Control & Savings (דיוק, שליטה וחיסכון)
 **Format:** Data-led
-**Why this week:** סוף Q2 — CFOs סוגרים סקירות חצי-שנתיות ומחפשים היכן אבדה היעילות התפעולית. זו הנקודה האופטימלית לפריים ROI. הקטגוריה לא הופיעה מאז W22 — כלל הוריאציה מתקיים.
-**Key stat to use:** Procurement workloads rising 10% while budgets increase only 1% — a 9% efficiency gap only technology can close. *(The Hackett Group 2025 Key Issues Study)*
+**Why this week:** W22 and W23 were both Category 2 posts (ERP accuracy, invoice costs). If W23 ran as Category 2, this option would need a category check before proceeding — confirm W23 final selection before approving. If W23 went Category 1 or 6, this is clean. Strong CFO budget-cycle timing at the midpoint of the fiscal year.
+**Key stat to use:** Procurement workloads rising 10% vs. 1% budget increase, with 15–30% efficiency gains already captured by teams using automation. (Source: Hackett Group 2025, via Suplari/ProcurementTactics)
 
 ---
 
-### Option B: "74% מהארגונים אינם מוכנים ל-AI — והספק שלך הוא הסיבה"
+### Option B: The Hormuz Reopening and What It Means for Israeli Procurement Teams
+
 **Hook:**
-"לפני שאתם קונים AI לרכש — יש שאלה אחת שצריך לשאול:
-האם הנתונים שלכם בכלל מוכנים?"
+"The Strait of Hormuz just reopened. Freight costs are shifting.
+If your procurement team doesn't have real-time visibility, you're still making decisions on last month's data."
 
-**Category:** אינטגרציות ודיגיטציה
-**Format:** Data-led / Insight
-**Why this week:** AI הוא הנושא החם ביותר בישראל הטכנולוגית כרגע. StoreNext יכולה לחתוך את הרעש עם מסר מעוגן: הפורטל הוא שכבת התשתית — לא פיצ'ר. קטגוריה חדשה ל-W26, מגוון גבוה.
-**Key stat to use:** 74% of procurement leaders say their data isn't AI-ready. *(Suplari, 2026)* + "AI readiness is primarily data readiness." *(Gartner)*
+**Category:** Category 6 — Global Trends, Regulation & ESG (טרנדים גלובליים, רגולציה ו-ESG)
+**Format:** Data-led with realtime news anchor
+**Why this week:** Directly uses the Track D realtime signal — the June 14 U.S.-Iran peace agreement and Hormuz reopening is live news with immediate relevance to Israeli importers and procurement teams managing freight and commodity costs. Timely window is now; this angle loses relevance within 2–3 weeks. Differentiates StoreNext from competitors who speak to global enterprises — this speaks to Israeli procurement reality specifically.
+**Key stat to use:** 74% of procurement leaders say their data isn't AI-ready — siloed systems and lack of spend visibility undermine decisions. (Source: Hackett Group, via ProcurementTactics) — frames the Hormuz moment as a visibility argument, not a geopolitics argument.
 
 ---
 
-**המלצה:** Option A — תזמון Q2 יוצר דחיפות טבעית עבור CFO, ולא דורש הסברה מקדימה על AI. נכנס ישירות לכאב.
+**Strategist note:** Option B is the stronger pick this week. The Hormuz signal is live, local, and no competitor is touching it for the Israeli market. It occupies the Category 6 slot, which hasn't appeared in recent weeks, so variety rules are clean. Option A is the safer, evergreen choice — valid any week — which is exactly why Option B wins now.
