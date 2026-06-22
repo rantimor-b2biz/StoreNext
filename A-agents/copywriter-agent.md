@@ -105,6 +105,9 @@ For each angle provide:
 - Length: 150-300 words each
 - 3 versions: Primary + 2 alternatives from OpenAI
 - Very short lines, break after every sentence
+- End every post with a blank line then 5-7 hashtags on one line
+- Hashtag formula: 2-3 topic-specific + 2 audience-specific (CFO/Procurement) + #StoreNext
+- Example: `#Procurement #CFO #SupplyChain #ProcurementTransformation #StoreNext`
 
 ---
 
