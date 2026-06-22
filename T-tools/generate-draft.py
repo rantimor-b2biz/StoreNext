@@ -151,6 +151,15 @@ def main():
         f.write(draft)
 
     print(f"Draft saved: {outfile}")
+
+    # Also save to weekly O-output folder (source of truth for content history)
+    weekly_dir = os.path.join(REPO_ROOT, "O-output", week, "final")
+    os.makedirs(weekly_dir, exist_ok=True)
+    weekly_file = os.path.join(weekly_dir, "final-post.md")
+    with open(weekly_file, "w", encoding="utf-8") as f:
+        f.write(draft)
+
+    print(f"Also saved to: {weekly_file}")
     print(f"Tokens used: input={message.usage.input_tokens}, output={message.usage.output_tokens}")
 
 if __name__ == "__main__":

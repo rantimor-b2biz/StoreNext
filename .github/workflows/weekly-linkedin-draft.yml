@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name  "Claude"
           git config user.email "noreply@anthropic.com"
-          git add drafts/
+          git add drafts/ O-output/
           git diff --cached --quiet && echo "No changes" || \
             git commit -m "auto: W$(date +%V) LinkedIn draft generated"
           git push origin main
