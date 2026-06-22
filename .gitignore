@@ -1,1 +1,4 @@
 T-tools/__pycache__/
+
+# firecrawl scrape cache (tool scratch)
+.firecrawl/
