@@ -1,166 +1,151 @@
 # Research Brief — W26
 
 I'll run all four tracks in parallel now.
-All four tracks are complete. Here is the full W26 Research Brief.
+All four tracks are complete. Here is the full W26 Research Brief:
 
 ---
 
-# 📋 Research Brief: W26
-**Date:** 2026-06-22
-**Week:** ISO W26
-**Researcher:** StoreNext Researcher Agent
-**Client:** StoreNext — Supplier Portal, B2B Procurement
+# 📋 Research Brief: StoreNext W26
+**Date:** 2026-06-22 | **Week:** ISO W26
+**Researcher:** Researcher Agent
+**Client:** StoreNext — Supplier Portal (ישראל)
 
 ---
 
-## Track D — Context Check
+## TRACK D — Context Check
 
-| Dimension | Status | Detail |
-|-----------|--------|--------|
-| **Date** | 2026-06-22 | 
-Today is Mon. Jun. 22, 2026 — 7 Tammuz, 5786.
+| Parameter | Status |
+|-----------|--------|
+| **Date** | Mon, June 22, 2026 — 
+7 Tammuz 5786. This week's Torah reading is Chukat-Balak.
  |
-| **Jewish Calendar** | ✅ Regular week | 
-The next significant date is Tisha B'Av (9 Av, 5786), which falls on July 22–23, 2026
- — **one full month away.** W26 is a clean, standard work week with no holiday or memorial sensitivity. |
-| **Security/National** | ⚠️ Elevated — but not acute mourning | 
-The IDF struck a Hamas target in Gaza City; separately, National Security Minister Ben Gvir led a Knesset faction meeting on June 22, referencing "heavy prices" paid over years of war.
- 
-On June 20, Iran's military closed the Strait of Hormuz again over Israel's strikes in Lebanon.
- Active conflict continues, but there is no declared national mourning day, no fallen soldiers ceremony, and no lowered flags this week. |
-| **Breaking Industry News** | 🔥 **HIGH RELEVANCE** | 
-Iran closed the Strait of Hormuz on June 20
- — a direct supply chain disruption trigger. Additionally: 
-Israel's Tax Authority SHAAM e-invoicing mandate threshold drops to 5,000 NIS by June 2026, covering progressively more transactions on its way to full coverage by 2028.
- This is a live regulatory event affecting every Israeli enterprise. |
-
-### ⚠️ Deviation Assessment
-
-**Recommendation: PROCEED AS PLANNED — with optional Realtime Marketing angle flagged.**
-
-The security situation is elevated but stable (no acute national mourning). The two breaking developments — Strait of Hormuz disruption and the SHAAM e-invoicing threshold drop — are **direct StoreNext content opportunities**, not reasons to pause. Flag both to Strategist as optional hooks.
+| **Jewish Calendar** | Regular week. No holiday, no fast day, no memorial day. 
+The next significant date is Tisha B'Av — Wed, July 22 (9 Av 5786), a fast commemorating the destruction of the two Temples.
+ That's 4 weeks away — no immediate calendar constraint. |
+| **Security / National** | Active conflict context persists. 
+Conflict involving Israel has escalated this year, though the economy is still outperforming; capital markets are outperforming with the Tel Aviv 35 surging, but uncertainty around the Iran war lingers.
+ No flags lowered, no national mourning event this week. |
+| **Breaking Industry News** | **FLAG (opportunity):** Israeli defense procurement is creating a direct supply chain pressure story. 
+Tenders published by Defense Ministry units for local industries have dropped sharply, and smaller suppliers that previously saw steady order increases are now "feeling the squeeze."
+ This is a real CFO pain point: budget volatility → supplier payment instability → need for visibility. |
+| **Recommendation** | ✅ **Proceed as planned.** Regular week, no sensitivities. The Israeli defense procurement news is a potential **realtime marketing angle** — see Content Hook #3 below. |
 
 ---
 
-## Track A — Industry Research: Key Stats (2025–2026)
+## TRACK A — Industry Trends & Data
 
-### Stat #1 — The Efficiency Gap (CFO Pain Point)
+### Stat #1 — The Efficiency Gap (CFO framing) ⭐
 
-Procurement workloads are rising 10% while budgets grow only 1% — creating a 9% efficiency gap that must be closed through productivity gains.
+Procurement workloads are rising 10% while budgets increase only 1% — creating a 9% efficiency gap that only technology can close.
+ *(Source: The Hackett Group 2025 Key Issues Study)*
 
-
-**Label:** **Fact** — Suplari / Hackett Group research (cited May 2026)
-**StoreNext angle:** This is the exact pressure that drives CFO interest in supplier portals. "Do more with less" is not a tagline — it's a budget reality.
-
----
-
-### Stat #2 — Supplier Rationalization Is Now Mainstream
-
-Procurement teams are no longer running one-off cleanup projects. According to 2025 NPI research, 82% of enterprises are actively trimming supplier lists and simplifying vendor management — and supplier rationalization is now continuous and data-driven.
-
-
-**Label:** **Fact** — NPI Research 2025, cited in Precoro (March 2026)
-**StoreNext angle:** Enterprises consolidating suppliers need a portal to manage fewer vendors *better* — with real-time status, document control, and structured communication. This is a direct StoreNext use case.
+**Why it matters for StoreNext:** This is the CFO's core tension. A supplier portal directly addresses this gap by eliminating manual supplier communication workflows without adding headcount.
 
 ---
 
-### Stat #3 — Supplier Portals Evolving from Document Uploads to Collaboration Hubs
+### Stat #2 — Data Readiness is the Hidden Blocker ⭐
 
-Supplier portals are evolving from "upload your documents here" to collaboration hubs: shared improvement roadmaps, joint dashboards showing performance, risk and ESG targets, and frictionless communication for RFx, Q&A, change requests, and product development.
+74% of procurement leaders say their data isn't AI-ready, with poor data quality, siloed systems, and lack of spend visibility undermining their AI initiatives.
+ *(Source: Suplari/research, 2026)*
 
+And separately: 
+The key takeaway for 2026–2028 is that AI readiness is primarily data readiness.
+ *(Source: Gartner, cited in ProcurementTactics)*
 
-**Label:** **Signal** — Kodiak Hub / Procurement Magazine trend report (Dec 2025)
-**StoreNext angle:** Competitors frame portals as "AI + enterprise." StoreNext's opportunity: position the portal as the **operational foundation** that makes collaboration possible — not just a tech feature, but a business infrastructure.
-
----
-
-### Bonus Stat — Israel-Specific Regulatory Hook
-
-Israel's Tax Authority SHAAM e-invoicing mandate, launched in May 2024, is now dropping to a 5,000 NIS threshold by June 2026, with full coverage of all transactions coming by 2028.
-
-
-
-But something unexpected is happening: businesses forced to digitize invoicing are discovering that digital tools solve other problems too.
-
-
-**Label:** **Fact + Signal** — Times of Israel blog, March 2026
-**StoreNext angle:** Israeli enterprises are at an inflection point. The SHAAM mandate is the external forcing function; a supplier portal is the internal infrastructure layer that makes compliance sustainable at scale.
+**Why it matters for StoreNext:** A supplier portal is the data collection layer. Before any AI, analytics, or ERP reporting works — you need clean, structured supplier data flowing in real time. StoreNext's portal *is* data readiness infrastructure.
 
 ---
 
-### Bonus Stat — Advanced Procurement Platforms Deliver Measurable ROI
+### Stat #3 — Advanced Platforms Deliver Hard ROI ⭐
 
 Organizations using advanced procurement platforms report 15–20% cost savings and 40% faster cycle times compared to traditional manual processes.
+ *(Source: Top 10 Procurement Trends to Watch in 2026)*
 
+And the digital onboarding shift is accelerating: 
+The shift toward digital supplier onboarding represents one of the most impactful procurement best practices emerging in 2026 — leading platforms now enable automated vendor qualification, real-time document verification, and instant compliance scoring, enhancing quality through standardized workflows and audit trails.
 
-**Label:** **Fact** — cited in Tradogram (March 2026), attributed to Kodiak Hub trend data
-**StoreNext angle:** Concrete ROI numbers for CFO-facing posts. Pair with the 9% efficiency gap stat for a compelling before/after narrative.
 
 ---
 
-## Track B — Competitor Intelligence
+### Bonus Signal — Supplier Portals Evolving Beyond Documents
 
-### Coupa
+Supplier portals are evolving from "upload your documents here" to collaboration hubs: shared improvement roadmaps, joint dashboards showing performance, risk and ESG targets, and frictionless communication for RFx, Q&A, and change requests.
+ *(Source: Kodiak Hub, 2026)*
 
-Coupa is pushing AI agents and custom workflow automation — their DevCon 2026 event is centered on "process detection and workflow timeouts," with tools to create AI agents that unlock efficiency.
+**Opinion:** This validates StoreNext's positioning. The market is moving to where StoreNext already is — but Israeli enterprises haven't heard this message in Hebrew, from a local player.
 
+---
 
+## TRACK B — Competitor Intelligence
 
-Coupa positions itself as "AI-native total spend management," leveraging a $8 trillion community dataset with 10M+ buyers and suppliers on one unified platform.
+### What Competitors Are Saying
 
+**Coupa** — 
+focused on AI agents and custom workflow automation, positioning around fixing "manual process detection and workflow timeouts."
+ Their messaging this week is developer/enterprise platform — not supplier experience or Israeli market.
 
-**What they're NOT saying:** Zero mention of the Israeli market, local ERP integrations (SAP B1, Priority), or the SHAAM mandate. No content on supplier *experience* — only buyer-side efficiency. No case studies from Israeli enterprises.
+**Tipalti** — 
+sponsoring the Spring 2026 CFO Leadership Conference in Boston with a session "From Finance Leader to Value Driver: How CFOs Expand Their Impact," reflecting that the CFO role is evolving rapidly.
+ Their messaging is global payments + CFO elevation. Israel-facing? Zero.
 
-### Tipalti
+**Basware** — 
+focused on its global e-invoicing network, letting enterprises transact electronically with suppliers around the world while staying compliant with local laws.
+ Very global, very technical, no Hebrew content, no Israeli context.
 
-Tipalti sponsored the Spring 2026 CFO Leadership Conference in Boston and ran a session titled "From Finance Leader to Value Driver: How CFOs Expand Their Impact" — positioning around the evolving strategic CFO role.
-
-
-
-Their messaging focuses on "what's slowing your AP team down — manual invoice processing, cross-border payment complexity, or month-end close."
-
-
-**What they're NOT saying:** Tipalti is mid-market focused and global-payments oriented. No Israeli-specific content. No supplier portal framing — they are AP-side only. No discussion of supplier onboarding *experience* or two-way collaboration.
-
-### Basware
-
-Basware's defining feature is its global e-invoicing network — letting enterprises transact electronically with suppliers worldwide while staying compliant with local laws.
-
-
-**What they're NOT saying:** Basware is a heavy, implementation-intensive platform. 
-Basware is powerful, but the breadth of its features can create a steep learning curve during onboarding, and implementation is resource-intensive and costly.
- No Israeli presence, no Hebrew-language content, no local ERP ecosystem knowledge.
-
-### Competitor Gap Summary (StoreNext Opportunity Map)
+### 🚨 Competitor Gaps (StoreNext Opportunities)
 
 | Gap | StoreNext Opportunity |
 |-----|----------------------|
-| None address the Israeli market directly | Own the local narrative — SHAAM, Priority, SAP B1 |
-| All focus on buyer-side ROI | Frame the **supplier experience** as the differentiator |
-| All are enterprise-heavy / complex to implement | Position as "enterprise-grade, Israel-ready, fast to implement" |
-| None connect to Israeli regulatory context | SHAAM e-invoicing = live local hook this week |
-| No supplier portal content — only AP/payments | StoreNext IS the supplier portal category in Israel |
+| All three speak English only, global framing | **StoreNext owns the Hebrew-language professional conversation** |
+| Coupa/Tipalti messaging = AI-heavy, abstract | **StoreNext can be concrete + operational: "what happens Monday morning"** |
+| No competitor addresses Israeli supplier relationships or local compliance | **Local credibility = unfair advantage** |
+| All focus on payments/AP automation | **StoreNext focuses on supplier *relationship* transparency** — different buyer concern |
+| No competitor ties to Israeli economic context (defense budget squeeze, supply chain pressure) | **Realtime marketing angle available — see Hook #3** |
 
 ---
 
-## Track C — Israeli Context
+## TRACK C — Israeli Context
 
-### Key Finding: SHAAM E-Invoicing Threshold Drop — Live This Month
+### Macro: Economy Growing Despite Conflict
 
-The SHAAM threshold drops to 5,000 NIS by June 2026
- — meaning **this week**, more Israeli businesses than ever are being pulled into mandatory digital invoicing. This is not a future trend; it is happening now.
+The Bank of Israel still expects the economy to grow by 3.8% in 2026, and if conflicts in the region are resolved, the economy could rebound to 5.5% next year.
+ CFOs are managing through uncertainty — not paralyzed.
 
-
-Israel's procurement policies are constantly evolving, with digitization and e-procurement being a significant focus — more contracting authorities are moving towards online systems for notices, document release, clarifications, and bid submission.
-
-
-### Israeli CFO Community Signal
-
-Israel CFO Connect conferences position "Financial Leadership in a Changing Market" as their 2026 theme — examining practical use of AI in finance, the growing impact of ESG regulations on financial strategy, and the evolving role of FP&A.
+### Operational Signal: Defense Supply Chain Squeeze → Enterprise CFO Pain
+This is the most actionable Israeli context this week:
 
 
-**Opinion:** Israeli CFOs are actively grappling with AI adoption + regulatory compliance simultaneously. A StoreNext post that connects *supplier portal* to *SHAAM compliance readiness* would be highly resonant and locally differentiated — a hook no global competitor can replicate.
+The number of tenders published by Defense Ministry units for local industries has dropped sharply, and "if it weren't for the ongoing orders we receive for those components, procurement in other areas would appear almost frozen."
 
-### Strait of Hormuz — Supply Chain Resilience Hook
 
-Tankers
+
+The Finance Ministry remains unconvinced and continues to reject demands for a further increase in defense spending, arguing that budget overruns are driven partly by inefficiencies and managerial shortcomings.
+
+
+**Signal for StoreNext:** Israeli enterprises with government/defense exposure are facing exactly the supplier visibility and payment status crisis that StoreNext solves. Smaller suppliers don't know when they'll be paid. Procurement teams are overwhelmed. This is the live, local version of the global 9% efficiency gap.
+
+---
+
+## W26 Content Angles — 3 Options for Strategist
+
+### 🅐 Angle: "הפער של 9%" — Data-Driven CFO Hook
+**Category:** דיוק וחיסכון | **Format:** Data post with single sharp statistic
+**Hook:** "עומס עלה ב-10%. תקציב עלה ב-1%. הפחד של כל CFO ב-2026 מסתכם במספר אחד: 9%."
+**Supporting data:** The Hackett Group efficiency gap stat + 40% faster cycle time from digital platforms
+**Why now:** End of Q2 — CFOs are closing half-year reviews, looking at where operational efficiency was lost. Perfect timing.
+**Label:** Fact-backed. Strong CFO resonance. Variety: data-driven (hasn't appeared since W22).
+
+---
+
+### 🅑 Angle: "74% מהארגונים אינם מוכנים ל-AI" — Data-Readiness as Portal Justification
+**Category:** אינטגרציה ודיגיטציה / טכנולוגיה | **Format:** Insight post, education
+**Hook:** "לפני שאתם קונים AI לרכש — יש שאלה אחת שצריך לשאול: האם הנתונים שלכם מוכנים?"
+**Supporting data:** 74% not AI-ready stat + "AI readiness is data readiness" (Gartner) + portal as data infrastructure layer
+**Why now:** AI hype is everywhere in Israel's tech sector. StoreNext can cut through with a grounded message: the portal is the *foundation*, not a feature.
+**Label:** Fact-backed. Differentiated positioning. Variety: tech/integration angle, new category for W26.
+
+---
+
+### 🅒 Angle: "הספק שלך לא יודע מתי ישולם — ובישראל של 2026 זה מסוכן יותר מאי פעם" — Realtime Marketing
+**Category:** שקיפות ותקשורת עם ספקים | **Format:** Topical/human post with local context
+**Hook:** "ספקים קט
