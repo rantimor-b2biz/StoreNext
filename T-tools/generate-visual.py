@@ -107,38 +107,137 @@ def paste_logo(img, dark_bg=True, x=40, y=36, width=200):
         color = WHITE if dark_bg else hex_to_rgb(DEEP_PURPLE)
         draw.text((x, y), "StoreNext", font=font, fill=color)
 
+def draw_rounded_rect(draw, xy, radius, fill):
+    """Draw a filled rounded rectangle."""
+    x0, y0, x1, y1 = xy
+    draw.rectangle([x0 + radius, y0, x1 - radius, y1], fill=fill)
+    draw.rectangle([x0, y0 + radius, x1, y1 - radius], fill=fill)
+    draw.ellipse([x0, y0, x0 + radius * 2, y0 + radius * 2], fill=fill)
+    draw.ellipse([x1 - radius * 2, y0, x1, y0 + radius * 2], fill=fill)
+    draw.ellipse([x0, y1 - radius * 2, x0 + radius * 2, y1], fill=fill)
+    draw.ellipse([x1 - radius * 2, y1 - radius * 2, x1, y1], fill=fill)
+
+def draw_text_left(draw, text, x, y, font, color, max_width):
+    """Draw left-aligned wrapped text, return final y."""
+    words = text.split()
+    lines, line = [], []
+    for word in words:
+        test = " ".join(line + [word])
+        bbox = draw.textbbox((0, 0), test, font=font)
+        if bbox[2] - bbox[0] > max_width and line:
+            lines.append(" ".join(line))
+            line = [word]
+        else:
+            line.append(word)
+    if line:
+        lines.append(" ".join(line))
+    for ln in lines:
+        draw.text((x, y), ln, font=font, fill=color)
+        bbox = draw.textbbox((0, 0), ln, font=font)
+        y += (bbox[3] - bbox[1]) + 10
+    return y
+
+def add_glow(img, cx, cy, radius, color_rgb, alpha_max=60):
+    """Paint a soft radial glow blob onto the image."""
+    import math
+    overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    for r in range(radius, 0, -radius // 20):
+        a = int(alpha_max * (1 - r / radius) ** 2)
+        layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        d = ImageDraw.Draw(layer)
+        d.ellipse([cx - r, cy - r, cx + r, cy + r],
+                  fill=(*color_rgb, a))
+        overlay = Image.alpha_composite(overlay, layer)
+    img_rgba = img.convert("RGBA")
+    img_rgba = Image.alpha_composite(img_rgba, overlay)
+    return img_rgba.convert("RGB")
+
 def stat_card(post):
-    """Deep purple card with dominant metric — brand colors."""
-    img = Image.new("RGB", (W, H), hex_to_rgb(DEEP_PURPLE))
+    """Redesigned stat card matching premium B2B style: glow bg, left-aligned metric, pill badge, body text, logo+domain footer."""
+    bg = hex_to_rgb(DEEP_PURPLE)
+    img = Image.new("RGB", (W, H), bg)
+
+    # Soft purple glow — top-right
+    img = add_glow(img, cx=W - 100, cy=200, radius=600,
+                   color_rgb=hex_to_rgb(BRAND_PURPLE), alpha_max=70)
+
+    # Rounded card inset (subtle — just darker border feel via draw)
     draw = ImageDraw.Draw(img)
 
-    # Top coral accent strip
-    draw.rectangle([0, 0, W, 8], fill=hex_to_rgb(CORAL_RED))
-
-    # Logo
-    paste_logo(img, dark_bg=True, x=MARGIN, y=30, width=200)
-
-    # Category chip
-    cat_font = load_font(18)
-    draw.text((MARGIN, 80), post.get("category", "").upper(), font=cat_font,
-              fill=hex_to_rgb(TEAL))
-
-    # Main metric — massive, teal
+    # ── Metric block (top-left) ──────────────────────────────────────────────
     metric = post.get("key_metric", "")
-    metric_font, _ = fit_font(draw, metric, W - MARGIN * 2, 130, bold=True)
-    bbox = draw.textbbox((0, 0), metric, font=metric_font)
-    mx = (W - (bbox[2] - bbox[0])) // 2
-    draw.text((mx, 310), metric, font=metric_font, fill=hex_to_rgb(TEAL))
+    metric_font, _ = fit_font(draw, metric, W - MARGIN * 2, 180, bold=True, min_size=80)
+    draw.text((MARGIN, 160), metric, font=metric_font, fill=hex_to_rgb(TEAL))
+    metric_bbox = draw.textbbox((MARGIN, 160), metric, font=metric_font)
+    metric_bottom = metric_bbox[3]
 
-    # Divider
-    draw.rectangle([MARGIN, 530, W - MARGIN, 534], fill=hex_to_rgb(BRAND_PURPLE))
+    # Metric label (topic as subtitle under metric)
+    topic = post.get("topic", "")
+    label_font = load_font(32)
+    draw.text((MARGIN, metric_bottom + 12), topic, font=label_font,
+              fill=hex_to_rgb(MUTED_TEXT))
+    label_bbox = draw.textbbox((MARGIN, metric_bottom + 12), topic, font=label_font)
+    label_bottom = label_bbox[3]
 
-    # Hook text
-    hook_font = load_font(36, bold=True)
-    draw_text_centered(draw, post.get("hook", ""), 565, hook_font, WHITE, max_width=W - MARGIN * 2)
+    # Source line
+    source = post.get("source", "")
+    if source:
+        src_font = load_font(22)
+        draw.text((MARGIN, label_bottom + 8), source, font=src_font,
+                  fill=hex_to_rgb(MUTED_TEXT))
+        label_bottom = draw.textbbox((MARGIN, label_bottom + 8), source, font=src_font)[3]
 
-    # Bottom brand purple bar
-    draw.rectangle([0, H - 6, W, H], fill=hex_to_rgb(BRAND_PURPLE))
+    # ── Teal divider ─────────────────────────────────────────────────────────
+    div_y = label_bottom + 40
+    draw.rectangle([MARGIN, div_y, W - MARGIN, div_y + 2], fill=hex_to_rgb(TEAL))
+
+    # ── Pill / badge ─────────────────────────────────────────────────────────
+    badge = post.get("badge", "")
+    pill_y = div_y + 28
+    if badge:
+        badge_font = load_font(26)
+        badge_bbox = draw.textbbox((0, 0), badge, font=badge_font)
+        bw = badge_bbox[2] - badge_bbox[0] + 48
+        bh = 54
+        draw_rounded_rect(draw, [MARGIN, pill_y, MARGIN + bw, pill_y + bh],
+                          radius=27, fill=hex_to_rgb(TEAL))
+        draw.text((MARGIN + 24, pill_y + 10), badge, font=badge_font,
+                  fill=hex_to_rgb(DEEP_PURPLE))
+        pill_y += bh + 36
+    else:
+        pill_y += 20
+
+    # ── Hook / body text ─────────────────────────────────────────────────────
+    hook = post.get("hook", "")
+    body_font = load_font(34)
+    body_bold_font = load_font(34, bold=True)
+
+    # Split hook at last sentence to bold it (the punchy stat line)
+    sentences = hook.split(". ")
+    body_y = pill_y
+    max_w = W - MARGIN * 2
+    for i, sentence in enumerate(sentences):
+        txt = sentence if sentence.endswith(".") else sentence + ("." if i < len(sentences) - 1 else "")
+        font = body_bold_font if i == len(sentences) - 1 else body_font
+        color = WHITE if i == len(sentences) - 1 else hex_to_rgb(MUTED_TEXT)
+        # manually handle color: first sentences muted, last bold white
+        if len(sentences) == 1:
+            font, color = body_bold_font, WHITE
+        body_y = draw_text_left(draw, txt, MARGIN, body_y, font, color, max_w)
+        body_y += 6
+
+    # ── Footer: logo left + domain right ────────────────────────────────────
+    footer_y = H - 110
+    paste_logo(img, dark_bg=True, x=MARGIN, y=footer_y, width=180)
+
+    domain_font = load_font(24)
+    domain = "storenext.co.il"
+    d_bbox = draw.textbbox((0, 0), domain, font=domain_font)
+    draw.text((W - MARGIN - (d_bbox[2] - d_bbox[0]), footer_y + 22),
+              domain, font=domain_font, fill=hex_to_rgb(MUTED_TEXT))
+
+    # Bottom teal line
+    draw.rectangle([0, H - 8, W, H], fill=hex_to_rgb(CORAL_RED))
 
     return img
 
