@@ -2,3 +2,9 @@ T-tools/__pycache__/
 
 # firecrawl scrape cache (tool scratch)
 .firecrawl/
+
+# Secrets — never commit (real values in .env, gitignored)
+.env
+.env.*
+*.env
+!.env.example
