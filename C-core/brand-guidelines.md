@@ -8,7 +8,7 @@
 
 ## Brand Essence
 
-> StoreNext is Enterprise infrastructure for organizations that manage complexity at scale. We're the backbone of procurement, finance, and data intelligence — trusted by 300+ Enterprise organizations processing 2M transactions per day.
+> StoreNext is Enterprise infrastructure for organizations that manage complexity at scale. We're the backbone of procurement, finance, and data intelligence — trusted by 300+ Enterprise organizations processing 3M transactions per day.
 
 **What we do:** Enable organizations with 500+ suppliers, complex ERPs, and high-compliance needs to operate with visibility, control, and efficiency.
 
@@ -182,7 +182,7 @@
 - Example: "Direct SAP integration" not "blockchain-powered cloud"
 
 **Confident + Transparent**
-- We lead with proof: 300+ clients, 2M transactions/day, 20B+ ₪ processed
+- We lead with proof: 300+ clients, 3M transactions/day, 20B+ ₪ processed
 - We're honest about what takes effort
 - Example: "Implementation takes weeks, not months" not "Easy setup"
 

@@ -17,7 +17,7 @@ That is the difference between absorbing a 9% gap and eliminating it.
 
 A supplier portal is where this starts. Supplier communication moves out of inboxes. Payment status becomes visible in real time. Approvals are tracked, not chased.
 
-At StoreNext, we process 2 million transactions per day across 300+ Enterprise clients. The pattern is consistent. Visibility removes manual work, and removing manual work closes the gap.
+At StoreNext, we process 3 million transactions per day across 300+ Enterprise clients. The pattern is consistent. Visibility removes manual work, and removing manual work closes the gap.
 
 The efficiency gap is not a forecast. It is showing up in your half-year review right now.
 

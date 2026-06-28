@@ -73,7 +73,7 @@ Before approving ANY deliverable, verify:
 
 **Voice Checklist**
 - [ ] Technical credibility (mentions ERP, P2P, scale, compliance)
-- [ ] Specific claims with proof (2M transactions/day, 300+ clients, 20B+ ₪)
+- [ ] Specific claims with proof (3M transactions/day, 300+ clients, 20B+ ₪)
 - [ ] Clear positioning (infrastructure, not a tool)
 - [ ] No buzzwords or vague language
 - [ ] Respects Enterprise complexity

@@ -100,7 +100,7 @@ Create content that educates Enterprise buyers, builds thought leadership, and d
 - [ ] **Blog Posts (2x/week)** – 1,200–1,800 words
   - Topics from Research Agent insights
   - Addresses CFO, Procurement, CIO pain points
-  - Data-backed claims (2M transactions/day, 300+ clients, etc.)
+  - Data-backed claims (3M transactions/day, 300+ clients, etc.)
   - Clear CTA to next step
 
 - [ ] **Case Studies (2x/month)** – 1,500–2,000 words
@@ -188,7 +188,7 @@ Generate qualified Enterprise leads through targeted paid campaigns. Focus on hi
 - **Retargeting:** Website visitors, blog readers, previous leads
 
 **Ad Creative Guidelines:**
-- Lead with **data and proof** (2M transactions, 300+ clients)
+- Lead with **data and proof** (3M transactions, 300+ clients)
 - Address **pain points** (email-based process, lack of visibility)
 - Clear **value proposition** (control, automation, intelligence)
 - Professional design (from Visual Agent)

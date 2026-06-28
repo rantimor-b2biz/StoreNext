@@ -105,7 +105,7 @@ SUNDAY EOD   → Performance summary (Analytics)
 - Positions StoreNext as infrastructure (not tool)
 - Addresses Enterprise complexity appropriately
 - Speaks to correct personas (CFO, Procurement, CIO)
-- Uses data-driven proof (2M transactions, 300+ clients, 20B+ ₪)
+- Uses data-driven proof (3M transactions, 300+ clients, 20B+ ₪)
 - Professional tone (technical, confident, transparent)
 
 ### Content Quality ✅
@@ -134,7 +134,7 @@ SUNDAY EOD   → Performance summary (Analytics)
 ### Proof Points Available
 - 300+ Enterprise clients
 - 20,000+ suppliers on platform
-- 2M transactions per day
+- 3M transactions per day
 - 20B+ ₪ annual procurement managed
 - 15–20% reduction in AP processing
 - 80% reduction in supplier calls

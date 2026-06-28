@@ -92,7 +92,7 @@ Procurement teams at Enterprise organizations are drowning in email-based suppli
 
 **Our Differentiation:**
 - ✅ Purpose-built for Enterprise procurement
-- ✅ Proven at scale (2M transactions/day, 20B+ ₪)
+- ✅ Proven at scale (3M transactions/day, 20B+ ₪)
 - ✅ Direct ERP integration
 - ✅ Simple, not complex
 
@@ -108,7 +108,7 @@ Procurement teams at Enterprise organizations are drowning in email-based suppli
 ### Quantified Results
 - 300+ Enterprise customers
 - 20,000+ suppliers on platform
-- 2M transactions per day
+- 3M transactions per day
 - 20B+ ₪ annual procurement managed
 - 80% reduction in supplier status calls
 - 30-40% reduction in procurement cycle time

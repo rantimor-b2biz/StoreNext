@@ -68,7 +68,7 @@ Map how Coupa, SAP Ariba, Jaggaer, or Ivalua positions themselves. Find the gap 
 | Focus | [Their focus] | Enterprise supplier portal |
 | ERP Integration | [Their claim] | Direct SAP/Oracle integration |
 | Israeli Market | [Their presence] | Headquarters in Israel, 300+ Israeli enterprise clients |
-| Scale proof | [Their numbers] | 2M transactions/day, 20B₪ processed |
+| Scale proof | [Their numbers] | 3M transactions/day, 20B₪ processed |
 
 ### Content Gap to Own
 [What angle or proof point they're NOT owning that StoreNext can claim]

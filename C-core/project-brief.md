@@ -55,7 +55,7 @@ What makes us different:
    - **Meteor:** Finance automation and compliance
    - **Data & Analytics:** Strategic intelligence and forecasting
 
-3. **Built on real data** — 300+ Enterprise clients, 20,000+ suppliers, 20B+ ₪ in annual procurement volume, 2M transactions per day.
+3. **Built on real data** — 300+ Enterprise clients, 20,000+ suppliers, 20B+ ₪ in annual procurement volume, 3M transactions per day.
 
 4. **Proven integration** — Direct integration with your existing ERP (Priority, SAP, Oracle, NetSuite) — no middleware, no bridges.
 

@@ -33,7 +33,7 @@ We speak *with* Enterprise decision-makers, not *at* them. We assume they're sma
 ### 2. Confident but not arrogant
 
 **What this means:**
-- We know we've solved this problem at scale (2M transactions/day, 300+ Enterprise clients)
+- We know we've solved this problem at scale (3M transactions/day, 300+ Enterprise clients)
 - We speak from experience, not theory
 - We acknowledge what we know and don't know
 - We let data do the talking
@@ -111,7 +111,7 @@ Our tone shifts based on context:
 ### Phrases That Sound Like Us
 
 ```
-"We process 2 million transactions per day across 300+ Enterprise clients.
+"We process 3 million transactions per day across 300+ Enterprise clients.
 This is infrastructure that works at scale."
 
 "Visibility isn't a feature. It's a requirement."
@@ -180,7 +180,7 @@ Our job is to turn your procurement data into competitive advantage."
 
 ### Good Example (LinkedIn Post)
 ```
-"We process 2 million procurement transactions per day.
+"We process 3 million procurement transactions per day.
 
 Each one is documented, tracked, and connected to your ERP.
 

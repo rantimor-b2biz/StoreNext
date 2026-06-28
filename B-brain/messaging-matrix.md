@@ -35,7 +35,7 @@ Use this to guide all content creation, ads, sales conversations, and campaigns.
 
 1. **Control & Visibility**
    - *Message:* "Real-time visibility into all procurement commitments and payments"
-   - *Proof:* 300+ Enterprise customers, 2M transactions/day, 20B+ ₪ managed
+   - *Proof:* 300+ Enterprise customers, 3M transactions/day, 20B+ ₪ managed
    - *Example:* "See all supplier commitments, payment status, and cash flow in one dashboard"
 
 2. **ROI & Savings**
@@ -145,7 +145,7 @@ Use this to guide all content creation, ads, sales conversations, and campaigns.
 
 3. **Stability & Uptime**
    - *Message:* "99.9% uptime SLA, 24/7 support, zero unplanned downtime"
-   - *Proof:* Deployed at Enterprise scale (2M transactions/day), 99.9%+ actual uptime
+   - *Proof:* Deployed at Enterprise scale (3M transactions/day), 99.9%+ actual uptime
    - *Example:* "Procurement doesn't stop. Neither do we."
 
 4. **Minimal Implementation Burden**
@@ -242,7 +242,7 @@ Use this to guide all content creation, ads, sales conversations, and campaigns.
 | Pain Point | Best Message | Proof Point | Channel |
 |------------|--------------|------------|---------|
 | Email-based procurement | "One supplier portal, zero email" | 20,000 suppliers, 100% standardized | LinkedIn, Webinar |
-| No visibility into payments | "Real-time visibility into all commitments" | 2M transactions/day tracked | Blog, Case study |
+| No visibility into payments | "Real-time visibility into all commitments" | 3M transactions/day tracked | Blog, Case study |
 | Finance overwhelmed | "Reduce manual work by 90%, free up FTEs" | 15-20% APprocessing reduction | CFO webinar |
 | Manual invoice matching | "Automated invoice-to-PO matching" | 90% automation rate | Email nurture |
 | Audit prep stressful | "Pass audit with zero stress, full documentation" | 300+ clients audit-ready | Thought leadership |

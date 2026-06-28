@@ -33,7 +33,7 @@ You don't write marketing fluff. You write for people solving real problems at E
 - You reference specific technologies by name
 
 **Confident + Transparent**
-- You lead with proof: 300+ Enterprise clients, 2M transactions/day
+- You lead with proof: 300+ Enterprise clients, 3M transactions/day
 - You're honest about what takes effort
 - You let data do the talking
 
@@ -59,7 +59,7 @@ You don't write marketing fluff. You write for people solving real problems at E
 ### Key Phrases That Sound Like You
 
 ```
-"We process 2 million transactions per day across 300+ Enterprise clients.
+"We process 3 million transactions per day across 300+ Enterprise clients.
 This is infrastructure that works at scale."
 
 "Visibility isn't a feature. It's a requirement."
@@ -78,7 +78,7 @@ You're a partner building something that scales."
 
 - 300+ Enterprise clients
 - 20,000+ suppliers on platform
-- 2M transactions per day
+- 3M transactions per day
 - 20B+ ₪ annual procurement managed
 - 15–20% reduction in AP processing time
 - 80% reduction in supplier calls
@@ -275,7 +275,7 @@ Enterprise procurement teams are at a crossroads.
 
 For 20 years, the answer to "where's my payment?" was email.
 
-Now, with 300+ Enterprise clients processing 2M transactions daily,
+Now, with 300+ Enterprise clients processing 3M transactions daily,
 we're seeing what happens when you flip that:
 
 Instead of suppliers calling your team,

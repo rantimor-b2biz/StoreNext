@@ -23,7 +23,7 @@ Structured supplier communication. Consistent document formats. Approval records
 
 That is what a supplier portal actually builds. Not just a better workflow. The data layer that makes AI viable.
 
-At StoreNext, 2 million transactions per day flow through our platform across 300+ Enterprise clients. Every one creates structured, consistent data. That infrastructure is what enables the next layer.
+At StoreNext, 3 million transactions per day flow through our platform across 300+ Enterprise clients. Every one creates structured, consistent data. That infrastructure is what enables the next layer.
 
 The companies ready for procurement AI are not the ones with the largest AI budgets. They are the ones that built clean infrastructure first.
 

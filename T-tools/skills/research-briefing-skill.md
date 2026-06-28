@@ -48,7 +48,7 @@ Analysis:
 
 Recommendations:
 1. Own [specific angle] — they're not covering it
-2. Differentiate on [specific proof point]: 300+ clients, 2M transactions/day, 20B₪ processed
+2. Differentiate on [specific proof point]: 300+ clients, 3M transactions/day, 20B₪ processed
 3. Watch for: [competitive move to monitor]
 
 Sources: [URLs + dates]

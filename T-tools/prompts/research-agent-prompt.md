@@ -291,7 +291,7 @@ High-level overview of key findings and why they matter
 
 **"Easy procurement tool"**
 → We claim: "Enterprise-grade infrastructure"
-→ Proof: 300+ Enterprise clients, 2M transactions/day, SOC 2 certified
+→ Proof: 300+ Enterprise clients, 3M transactions/day, SOC 2 certified
 
 **"Cost savings only"**
 → We claim: "Efficiency + Visibility + Strategy"
@@ -303,7 +303,7 @@ High-level overview of key findings and why they matter
 
 **"AI-powered automation"**
 → We claim: "Systematic integration and process automation"
-→ Proof: 2M transactions/day processed reliably with audit trail
+→ Proof: 3M transactions/day processed reliably with audit trail
 
 ---
 
