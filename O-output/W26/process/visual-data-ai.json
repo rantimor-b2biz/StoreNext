@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "post_id": "W26-ai",
+      "visual_type": "process_flow",
+      "category": "Integration & Digitization",
+      "topic": "The supplier portal is your AI foundation",
+      "key_metric": "",
+      "hook": "Is your procurement data ready to be read by a machine?",
+      "source": "StoreNext",
+      "visual_direction": "Scattered emails & PDFs → Supplier portal → AI-ready procurement"
+    }
+  ]
+}
