@@ -47,7 +47,26 @@ def hex_to_rgb(h):
     h = h.lstrip("#")
     return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
 
-def load_font(size, bold=False):
+INTER_VAR_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)),
+                              "C-core", "fonts", "Inter-var.ttf")
+
+def load_font(size, bold=False, weight=None):
+    """Load Inter (variable) at the requested weight; fall back to DejaVu.
+
+    weight overrides bold. Inter weight names: Thin, ExtraLight, Light,
+    Regular, Medium, SemiBold, Bold, ExtraBold, Black.
+    """
+    target = weight or ("Bold" if bold else "Regular")
+    if os.path.exists(INTER_VAR_PATH):
+        try:
+            font = ImageFont.truetype(INTER_VAR_PATH, size)
+            try:
+                font.set_variation_by_name(target)
+            except Exception:
+                pass
+            return font
+        except Exception:
+            pass
     paths = [
         f"/usr/share/fonts/truetype/dejavu/DejaVuSans{'Bold' if bold else ''}.ttf",
         f"/usr/share/fonts/truetype/dejavu/DejaVuSans-{'Bold' if bold else 'Book'}.ttf",
@@ -62,11 +81,11 @@ def load_font(size, bold=False):
     return ImageFont.load_default()
 
 
-def fit_font(draw, text, max_width, max_size, bold=False, min_size=40):
+def fit_font(draw, text, max_width, max_size, bold=False, min_size=40, weight=None):
     """Reduce font size until text fits within max_width."""
     size = max_size
     while size >= min_size:
-        font = load_font(size, bold=bold)
+        font = load_font(size, bold=bold, weight=weight)
         bbox = draw.textbbox((0, 0), text, font=font)
         if bbox[2] - bbox[0] <= max_width:
             return font, size
@@ -174,14 +193,14 @@ def stat_card(post):
 
     # Metric
     metric = post.get("key_metric", "")
-    metric_font, _ = fit_font(draw, metric, W - MARGIN * 2, 180, bold=True, min_size=80)
+    metric_font, _ = fit_font(draw, metric, W - MARGIN * 2, 200, min_size=90, weight="ExtraBold")
     draw.text((MARGIN, 160), metric, font=metric_font, fill=hex_to_rgb(TEAL))
     metric_bbox = draw.textbbox((MARGIN, 160), metric, font=metric_font)
     metric_bottom = metric_bbox[3]
 
     # Topic label
     topic = post.get("topic", "")
-    label_font = load_font(32)
+    label_font = load_font(32, weight="Medium")
     draw.text((MARGIN, metric_bottom + 12), topic, font=label_font,
               fill=hex_to_rgb(MUTED_TEXT))
     label_bbox = draw.textbbox((MARGIN, metric_bottom + 12), topic, font=label_font)
@@ -203,7 +222,7 @@ def stat_card(post):
     badge = post.get("badge", "")
     pill_y = div_y + 28
     if badge:
-        badge_font = load_font(26)
+        badge_font = load_font(26, weight="SemiBold")
         badge_bbox = draw.textbbox((0, 0), badge, font=badge_font)
         bw = badge_bbox[2] - badge_bbox[0] + 48
         bh = 54
@@ -217,8 +236,8 @@ def stat_card(post):
 
     # Hook body
     hook = post.get("hook", "")
-    body_font = load_font(34)
-    body_bold_font = load_font(34, bold=True)
+    body_font = load_font(34, weight="Regular")
+    body_bold_font = load_font(34, weight="SemiBold")
     sentences = hook.split(". ")
     body_y = pill_y
     max_w = W - MARGIN * 2
@@ -246,7 +265,7 @@ def process_flow(post):
     draw.rectangle([0, 0, W, 8], fill=hex_to_rgb(CORAL_RED))
 
     # Topic title
-    title_font = load_font(34, bold=True)
+    title_font = load_font(36, weight="Bold")
     title_y = draw_text_left(draw, post.get("topic", ""), MARGIN, 40,
                              title_font, WHITE, W - MARGIN * 2)
 
@@ -264,7 +283,7 @@ def process_flow(post):
     if not steps:
         steps = ["Identify", "Automate", "Measure"]
 
-    step_font = load_font(30, bold=True)
+    step_font = load_font(30, weight="SemiBold")
     y = div_y + 40
     FOOTER_RESERVE = 220
     available = H - FOOTER_RESERVE - y
@@ -274,7 +293,7 @@ def process_flow(post):
         cy = y + step_h // 2
         draw.ellipse([MARGIN, cy - 28, MARGIN + 56, cy + 28],
                      fill=hex_to_rgb(BRAND_PURPLE))
-        num_font = load_font(28, bold=True)
+        num_font = load_font(28, weight="Bold")
         nb = draw.textbbox((0, 0), str(i + 1), font=num_font)
         draw.text((MARGIN + 28 - (nb[2] - nb[0]) // 2,
                    cy - (nb[3] - nb[1]) // 2),
@@ -288,7 +307,7 @@ def process_flow(post):
     # Hook block above footer
     hook_y = H - FOOTER_RESERVE + 10
     draw.rectangle([MARGIN, hook_y - 10, W - MARGIN, hook_y - 8], fill=hex_to_rgb(TEAL))
-    hook_font = load_font(32, bold=True)
+    hook_font = load_font(32, weight="Bold")
     draw_text_left(draw, post.get("hook", ""), MARGIN, hook_y + 10,
                    hook_font, WHITE, W - MARGIN * 2)
 
@@ -305,10 +324,10 @@ def quote_card(post):
 
     draw.rectangle([0, 0, W, 8], fill=hex_to_rgb(CORAL_RED))
 
-    q_font = load_font(180, bold=True)
+    q_font = load_font(180, weight="Black")
     draw.text((MARGIN - 10, 50), "“", font=q_font, fill=hex_to_rgb(BRAND_PURPLE))
 
-    hook_font = load_font(52, bold=True)
+    hook_font = load_font(52, weight="Bold")
     hook_y = draw_text_centered(draw, post.get("hook", ""), 260,
                                 hook_font, WHITE, max_width=W - MARGIN * 2)
 
@@ -319,7 +338,7 @@ def quote_card(post):
     if metric:
         div_y = hook_y + 120
         draw.rectangle([MARGIN, div_y, W - MARGIN, div_y + 2], fill=hex_to_rgb(TEAL))
-        m_font, _ = fit_font(draw, metric, W - MARGIN * 2, 100, bold=True, min_size=50)
+        m_font, _ = fit_font(draw, metric, W - MARGIN * 2, 100, min_size=50, weight="ExtraBold")
         m_bbox = draw.textbbox((0, 0), metric, font=m_font)
         mx = (W - (m_bbox[2] - m_bbox[0])) // 2
         draw.text((mx, div_y + 24), metric, font=m_font, fill=hex_to_rgb(TEAL))
