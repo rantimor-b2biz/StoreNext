@@ -76,26 +76,18 @@ git checkout main
 
 ---
 
-## Session Start Protocol (MANDATORY)
+## Session Start Protocol (MANDATORY — token-optimized)
 
-When starting ANY new conversation from this folder, ALWAYS read these files first before responding:
+1. **Read `C-core/session-brief.md`** — voice, ICP, and rules distilled. Replaces the full C-core for most sessions.
+2. **Content sessions only:** also read `B-brain/content-calendar.md` (publication status + this week's topic).
+3. **Full files on demand only:**
+   - Gatekeeper final review → full `voice-dna.md` + `brand-standards.md`
+   - Meteor content → `icp-profile-meteor.md`
+   - Strategy work → `M-memory/decisions.md`, `learning-log.md`, `feedback.md`
+   - Agent coordination → the specific agent file in A-agents/
 
-### 1. Core Files (C-core/) - WHO IS STORENEXT?
-- `C-core/project-brief.md` - What StoreNext does, who they serve, business goals
-- `C-core/voice-dna.md` - **CRITICAL** - How StoreNext speaks (formal, data-driven, CFO-focused)
-- `C-core/icp-profile.md` - Who we're targeting (CFOs, Procurement Directors, CIOs) — StoreNext core platform
-- `C-core/icp-profile-meteor.md` - ICP for Meteor (fintech division) — separate buyer personas, Israeli market, English content
-- `C-core/brand-standards.md` - Visual and tone guidelines
-
-### 2. Planning & Memory Files - WHAT WAS PUBLISHED / WHAT HAVE WE LEARNED?
-- `B-brain/content-calendar.md` - **Source of truth for publication status** (✅ פורסם rows = what ran, which category, which week). Use this for variety checks.
-- `B-brain/linkedin-content-plan.md` - 47-week strategic roadmap. Use this to find this week's planned topic.
-- `M-memory/learning-log.md` - Patterns and performance insights (what worked, what didn't). NOT a publication log.
-- `M-memory/decisions.md` - Strategic choices made (why we prioritize certain topics)
-- `M-memory/feedback.md` - Audience signals (engagement patterns, lead generation)
-
-### 3. Agent Definitions (A-agents/) - HOW DO WE WORK?
-- Review agent roles when you need to coordinate multi-agent workflows
+### Model selection (cost rule)
+Research/summaries → **Haiku** · Drafts/visual prompts → **Sonnet** · Strategy/Gatekeeper final → **Opus**. Cheapest that fits; escalate only on failure.
 
 ---
 
