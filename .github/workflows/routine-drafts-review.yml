@@ -6,6 +6,12 @@ on:
     paths:
       - 'O-output/W**/final-post.md'
 
+# GITHUB_TOKEN needs these so `gh pr create` (Open PR step) can work.
+# Without them the token is read-only and the workflow fails on every run.
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   open-pr-and-notify:
     runs-on: ubuntu-latest
