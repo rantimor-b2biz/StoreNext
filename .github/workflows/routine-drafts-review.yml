@@ -6,6 +6,12 @@ on:
     paths:
       - 'O-output/W**/final-post.md'
 
+# GITHUB_TOKEN needs these so `gh pr create` (Open PR step) can work.
+# Without them the token is read-only and the workflow fails on every run.
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   open-pr-and-notify:
     runs-on: ubuntu-latest
@@ -21,23 +27,22 @@ jobs:
       - name: Find changed week folder
         id: find_post
         run: |
-          CHANGED=$(git diff --name-only HEAD~1 HEAD \
-            | grep 'O-output/W[0-9]' \
-            | sed 's|/[^/]*$||' | sort -u | head -1)
+          FILE=$(git diff --name-only HEAD~1 HEAD \
+            | grep -E 'O-output/W[0-9]+/final/final-post.md' | head -1)
 
-          if [ -z "$CHANGED" ]; then
+          if [ -z "$FILE" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
             exit 0
           fi
 
+          # final-post.md lives in W[NN]/final/ — validate the WEEK folder only
+          FOLDER=$(echo "$FILE" | grep -oE 'O-output/W[0-9]+')
+          WEEK=$(echo "$FOLDER" | grep -oE 'W[0-9]+')
+
           echo "skip=false"      >> $GITHUB_OUTPUT
-          echo "folder=$CHANGED" >> $GITHUB_OUTPUT
-
-          WEEK=$(echo "$CHANGED" | grep -oP 'W\d+')
-          echo "week=$WEEK" >> $GITHUB_OUTPUT
-
-          POST="$CHANGED/final-post.md"
-          [ -f "$POST" ] && echo "post_file=$POST" >> $GITHUB_OUTPUT
+          echo "folder=$FOLDER"  >> $GITHUB_OUTPUT
+          echo "week=$WEEK"      >> $GITHUB_OUTPUT
+          echo "post_file=$FILE" >> $GITHUB_OUTPUT
 
       - name: Validate folder naming
         if: steps.find_post.outputs.skip == 'false'
