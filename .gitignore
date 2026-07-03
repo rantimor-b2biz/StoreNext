@@ -8,3 +8,6 @@ T-tools/__pycache__/
 .env.*
 *.env
 !.env.example
+
+__pycache__/
+*.pyc
