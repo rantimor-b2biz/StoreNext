@@ -1,6 +1,37 @@
 [
-  {"date": "2026-03-08", "week": "W10", "topic": "Supply chain disruption and supplier visibility during geopolitical tensions", "pillar": "Supply chain resilience & supplier management", "product_focus": "Supplier Portal"},
-  {"date": "2026-03-10", "week": "W11", "topic": "Vendor consolidation as CFO strategy", "pillar": "Procurement & the CFO agenda", "product_focus": "Supplier Portal"},
-  {"date": "2026-06-01", "week": "W23", "topic": "Solution introduction: supplier management at enterprise scale", "pillar": "Supply chain resilience & supplier management", "product_focus": "Supplier Portal"},
-  {"date": "2026-06-22", "week": "W26", "topic": "The Efficiency Gap Is Now a CFO Problem (workloads up 10%, budgets up 1%)", "pillar": "Procurement & the CFO agenda", "product_focus": "Supplier Portal"}
+  {
+    "date": "2026-03-08",
+    "week": "W10",
+    "topic": "Supply chain disruption and supplier visibility during geopolitical tensions",
+    "pillar": "Supply chain resilience & supplier management",
+    "product_focus": "Supplier Portal"
+  },
+  {
+    "date": "2026-03-10",
+    "week": "W11",
+    "topic": "Vendor consolidation as CFO strategy",
+    "pillar": "Procurement & the CFO agenda",
+    "product_focus": "Supplier Portal"
+  },
+  {
+    "date": "2026-06-01",
+    "week": "W23",
+    "topic": "Solution introduction: supplier management at enterprise scale",
+    "pillar": "Supply chain resilience & supplier management",
+    "product_focus": "Supplier Portal"
+  },
+  {
+    "date": "2026-06-22",
+    "week": "W26",
+    "topic": "The Efficiency Gap Is Now a CFO Problem (workloads up 10%, budgets up 1%)",
+    "pillar": "Procurement & the CFO agenda",
+    "product_focus": "Supplier Portal"
+  },
+  {
+    "date": "2026-07-03",
+    "week": "W27",
+    "topic": "Israel's Accelerated E-Invoicing Mandate (CTC) as an AP Modernization Deadline",
+    "pillar": "Financial operations & treasury (Meteor)",
+    "product_focus": "Meteor"
+  }
 ]
