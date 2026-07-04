@@ -137,6 +137,7 @@ def iso_week(d: datetime.date) -> str:
 
 def stage1_research(topic_override: str | None) -> dict:
     session_brief = read_file("C-core/session-brief.md")
+    capabilities = read_file("C-core/product-capabilities.md")
     history = load_topic_history()
     recent = [h.get("topic", "") for h in history[-RECENT_TOPICS_SHOWN:]]
 
@@ -145,6 +146,9 @@ financial operations for Israeli enterprises).
 
 CLIENT BRIEF:
 {session_brief}
+
+APPROVED PRODUCT CAPABILITIES (product_focus MUST match this file's attribution rules):
+{capabilities}
 
 CONTENT PILLARS:
 1. Supply chain resilience & supplier management (Supplier Portal — "Supply Chain Automations")
@@ -257,6 +261,7 @@ Return JSON in a ```json fenced block:
 def stage3_gatekeeper(brief: dict, article: dict, week: str) -> dict:
     voice_dna = read_file("C-core/voice-dna.md")
     session_brief = read_file("C-core/session-brief.md")
+    capabilities = read_file("C-core/product-capabilities.md")
 
     system = f"""You are the Gatekeeper for StoreNext. Nothing ships without your approval.
 StoreNext sells to enterprise CFOs. One hyped sentence destroys credibility.
@@ -266,6 +271,11 @@ CLIENT BRIEF:
 
 FULL VOICE DNA (the standard you enforce):
 {voice_dna}
+
+APPROVED PRODUCT CAPABILITIES (the ONLY product claims allowed — if the article
+attributes a capability not listed here, or to the wrong product, FIX IT; when in
+doubt describe the capability generically without naming a product):
+{capabilities}
 
 YOU HAVE THREE JOBS:
 

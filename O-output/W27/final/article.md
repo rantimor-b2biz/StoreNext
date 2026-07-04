@@ -43,18 +43,19 @@ Digital transformation is already the top stated priority. Deloitte reports that
 
 Infrastructure is shifting to support this. According to Gartner's 2026 Finance Technology Bullseye Report, cited by CFO Dive, cloud ERP adoption rose 7% year over year and remains the highest-performing finance technology category, increasingly valued as the foundation for embedded automation across finance operations. Israel's allocation number requirement is a direct test of whether that ERP foundation extends to AP validation, or stops short of it.
 
-## What Compliance-Ready Financial Operations Looks Like
+## What a Compliance-Ready Invoice Gate Looks Like
 
-Compliance-ready AP infrastructure treats allocation number validation as a systematic control, not a manual checkpoint.
+Compliance-ready AP infrastructure treats allocation number validation as a systematic gate in front of the ERP, not a manual checkpoint after it.
 
 That means:
 
-- **Automated allocation-number validation** at invoice intake, before payment approval
-- **Matching logic** that reconciles allocation numbers against invoice value, vendor, and VAT data
-- **ERP integration** that keeps your ERP as the system of record, not a parallel spreadsheet
-- **Audit trail** documentation, ready for Tax Authority review without manual reconstruction
+- **OCR validation at invoice intake.** The system reads the allocation number on every incoming invoice automatically.
+- **Rule-based matching.** The allocation number is checked against the invoice amount and the thresholds defined by law.
+- **A hard stop for non-compliant invoices.** An invoice that fails validation is held at the gate. It never enters the ERP.
+- **Self-service allocation where permitted.** When an invoice arrives without an allocation number, the system obtains one and stamps it on the invoice itself.
+- **A clean ERP.** Only invoices that meet the Tax Authority's conditions are pushed through, so the ERP remains the trusted system of record.
 
-This is the kind of infrastructure Meteor builds for finance and procurement teams operating at scale. Meteor processes over 20,000 transactions and integrates with more than 1,000 ERP systems across 400+ enterprise clients and 150+ global banks. That scale matters here specifically because allocation number validation is not a feature to bolt on. It is a control layer that has to work at every invoice, every time, without exception.
+This is the control layer StoreNext's Supplier Portal implements between suppliers and the ERP. The portal validates every incoming invoice with OCR, checks the allocation number against the invoice amount and the legal thresholds, and stops non-compliant invoices inside the portal. Where the regulation permits, it assigns and stamps an allocation number on the invoice itself. Allocation number validation is not a feature to bolt on. It is a gate that has to work at every invoice, every time, without exception.
 
 Your ERP is your source of truth. Compliance infrastructure integrates with it. It does not replace it, and it does not sit beside it as a second, unreconciled system.
 

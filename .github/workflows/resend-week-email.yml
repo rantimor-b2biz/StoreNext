@@ -1,0 +1,39 @@
+name: Resend Week Email (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "Week folder to send, e.g. W27"
+        required: true
+      note:
+        description: "Optional note shown at the top of the email"
+        required: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install python-docx
+
+      - name: Send email
+        env:
+          GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
+          GMAIL_EMAIL: ${{ secrets.GMAIL_EMAIL }}
+          RECIPIENT_MAIL: ${{ secrets.RECIPIENT_MAIL }}
+        run: |
+          if [ -n "${{ github.event.inputs.note }}" ]; then
+            python3 T-tools/scripts/send_week_email.py "${{ github.event.inputs.week }}" --note "${{ github.event.inputs.note }}"
+          else
+            python3 T-tools/scripts/send_week_email.py "${{ github.event.inputs.week }}"
+          fi
