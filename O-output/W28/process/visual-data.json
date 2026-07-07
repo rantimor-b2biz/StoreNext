@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "post_id": "W28",
+      "visual_type": "process_flow",
+      "category": "Global Trends, Regulation & ESG",
+      "topic": "Israel e-invoicing: the threshold drops fast",
+      "key_metric": "",
+      "hook": "How many invoices will cross NIS 5,000 every month, and who validates them today?",
+      "source": "Sovos, VAT Implementation Order 01/2025",
+      "visual_direction": "Jan 1, 2026: allocation number above NIS 10,000 → Jun 1, 2026: threshold drops to NIS 5,000 → Every invoice becomes a compliance checkpoint"
+    }
+  ]
+}
