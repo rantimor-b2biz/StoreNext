@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W28",
+      "visual_type": "stat_card",
+      "category": "CFO Priorities 2026",
+      "topic": "AI Climbs to Number Two CFO Priority",
+      "key_metric": "#2",
+      "hook": "AI jumped from fourth to second place on the CFO priority list for 2026.",
+      "key_stat": "AI and automation now rank as the number two CFO priority for 2026, up from fourth a year earlier.",
+      "source": "Gartner / Evanta, 2026 CFO Leadership Perspectives",
+      "visual_direction": "Clean stat card foregrounding the number two ranking with a small fourth-to-second movement indicator, formal enterprise palette, generous white space."
+    }
+  ]
+}
