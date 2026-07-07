@@ -12,6 +12,38 @@ This is the team's collective memory. Every agent reads this before working. Eve
 
 ---
 
+## Ran's Feedback — Copywriting for CFO/AP (2026-07-07)
+
+Real feedback from Ran on the W27 e-invoicing post. Applies to ALL future posts.
+The goal is to open conversations with CFOs, Finance and AP leaders. Optimize for that.
+
+1. **Lead with pain, not the topic.** Never open with the regulation, announcement, or
+   timeline. Open with the consequence the reader feels. The trigger goes in line 2-3 as proof.
+   - Weak: "Israel's Tax Authority planned this rollout for 2028. Now it lands by June 2026."
+   - Strong: "Thousands of invoices that never required validation before will require it in
+     less than six months." / "The real challenge isn't the regulation. It's the volume."
+
+2. **Translate mechanisms into business consequences.** A CFO does not care about an
+   "allocation number." Convert every mechanism to: payment delays, exceptions, audit,
+   manual work, VAT/tax risk, cash flow.
+   - "Every invoice above NIS 5,000 becomes a compliance checkpoint. If validation happens
+     too late, payments are delayed. If it doesn't happen at all, VAT recovery is at risk."
+
+3. **Add a "most / very few" contrast** to expose the size of the change:
+   - "Most organizations already have a process for high-value invoices. Very few have a
+     process for validating every invoice above NIS 5,000."
+
+4. **Close with a question that demands a real answer** (name a number, a role, or a
+   readiness gap), not a generic professional question.
+   - Weak: "How are you sizing invoice volume at the NIS 5,000 threshold?"
+   - Strong: "How many invoices will cross the NIS 5,000 threshold every month, and who is
+     validating them today?" / "Are your AP processes ready for a 3x to 5x increase in
+     invoices requiring validation?"
+
+Embedded in `A-agents/copywriter-agent.md` → "Lead With Pain" section.
+
+---
+
 ## Why Memory Matters
 
 > "Brain is what you feed the system. Memory is what the system learns."

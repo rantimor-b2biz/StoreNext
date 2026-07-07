@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W26-ai",
+      "visual_type": "process_flow",
+      "category": "Integration & Digitization",
+      "topic": "Procurement AI Starts Here",
+      "key_metric": "74% plan AI. 30% are ready.",
+      "hook": "AI reads what you give it. Most companies are giving it chaos.",
+      "visual_direction": "Scattered Emails & PDFs → Supplier Portal → AI-Ready Procurement",
+      "key_stat": "74% of CPOs plan to deploy AI in procurement by 2027. Fewer than 30% have the data infrastructure to support it.",
+      "source": "Gartner 2025 CPO Survey"
+    }
+  ]
+}

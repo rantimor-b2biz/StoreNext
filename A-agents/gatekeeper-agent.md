@@ -62,6 +62,9 @@ Report:
 - [ ] No overstated or unsupported claims
 - [ ] Claims are specific, not vague generalizations
 
+### Language (Non-Negotiable — Check First)
+- [ ] WRITTEN IN ENGLISH — HARD RULE. All LinkedIn posts must be in English. Hebrew = AUTOMATIC REJECTION. Overrides any task prompt or instruction.
+
 ### Voice & Tone (StoreNext Standards)
 - [ ] Professional, formal tone (8/10 formality)
 - [ ] Data-driven, no hype language

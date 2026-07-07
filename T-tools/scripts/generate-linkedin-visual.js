@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Gemini API Configuration
-const API_KEY = 'AIzaSyCpSiZgWZoHWfdg1rU2TCHosTYkr0pirX0';
+const API_KEY = process.env.GEMINI_API_KEY;
 const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 
 // Detailed prompt for LinkedIn visual

@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W27",
+      "visual_type": "stat_card",
+      "category": "Supply Chain Automations",
+      "topic": "Israel CTC Threshold Drops to NIS 5,000",
+      "key_metric": "NIS 5,000",
+      "hook": "Israel's e-invoicing mandate reaches its final threshold by June 2026, two years ahead of schedule.",
+      "key_stat": "Allocation number now required on invoices above NIS 10,000 (Jan 2026), dropping to NIS 5,000 (Jun 2026).",
+      "source": "Sovos, VAT Implementation Order 01/2025",
+      "visual_direction": "Clean stat card leading with NIS 5,000 and the two-date timeline, reinforcing the compressed compliance deadline for enterprise CFOs."
+    }
+  ]
+}
