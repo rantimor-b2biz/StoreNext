@@ -31,6 +31,48 @@ Replace with: periods, commas, parentheses, colons, or semicolons. No exceptions
 
 ---
 
+## HARD RULE: Lead With Pain, Not With the Topic (CFO / AP audience)
+
+The goal of every post is to open conversations with CFOs, Finance and AP leaders.
+They do not care about the mechanism (a regulation, an "allocation number", a feature).
+They care about what it does to their operation. Write to that.
+
+### 1. Open with the reader's pain, not the trigger
+Do NOT open with the regulation, the announcement, or the timeline.
+Open with the consequence the reader already feels or fears.
+
+- ❌ "Israel's Tax Authority planned this rollout for 2028. Now it lands by June 2026."
+- ✅ "Thousands of invoices that never required validation before will require it in less than six months."
+- ✅ "The real challenge isn't the new regulation. It's the volume."
+
+The trigger (regulation, date, source) belongs in the SECOND or third line, as proof, not as the hook.
+
+### 2. Translate every mechanism into a business consequence
+Whenever the draft names a mechanism, immediately convert it to what the CFO/AP actually tracks:
+payment delays, exceptions, audit exposure, manual work, tax/VAT risk, cash flow.
+
+- ❌ "Each invoice needs a pre-approved allocation number."
+- ✅ "Every invoice above NIS 5,000 becomes a compliance checkpoint.
+      If validation happens too late, payments are delayed.
+      If it doesn't happen at all, VAT recovery is at risk."
+
+### 3. Sharpen the size of the change with a contrast line
+After stating the core problem, add a "most / very few" contrast that exposes the gap:
+
+- "Most organizations already have a process for high-value invoices.
+   Very few have a process for validating every invoice above NIS 5,000."
+
+### 4. End with a question that demands a real answer
+The closing question must force the reader to assess their own exposure, not just nod.
+
+- ❌ "How are you sizing invoice volume at the NIS 5,000 threshold?"
+- ✅ "How many invoices in your organization will cross the NIS 5,000 threshold every month, and who is validating them today?"
+- ✅ "Are your current AP processes ready for a 3x to 5x increase in invoices requiring validation?"
+
+Good closing questions name a number, a role, or a readiness gap.
+
+---
+
 ## Workflow (6 Steps)
 
 ### Step 1: Load Researcher Research (5 min)
@@ -84,6 +126,10 @@ For each angle provide:
 - [ ] Short sentences (10-14 words)
 - [ ] Active voice
 - [ ] ZERO em dashes (—) - HARD RULE. If any found, fix before submitting.
+- [ ] Opens with the reader's PAIN, not the regulation/topic/timeline
+- [ ] Every mechanism is translated to a business consequence (payment delay, audit, VAT risk, manual work)
+- [ ] Includes a "most / very few" contrast line where relevant
+- [ ] Closing question names a number, a role, or a readiness gap
 - [ ] Solution-focused
 - [ ] Enterprise terminology
 - [ ] Mobile formatting applied
