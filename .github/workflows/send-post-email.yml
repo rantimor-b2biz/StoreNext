@@ -1,11 +1,15 @@
 name: Sync Media Plan (Firebase)
 # Email sending moved into T-tools/scripts/generate_article_and_post.py (2026-07-03)
+# Weekly full-sync added 2026-07-12: runs every Wednesday 08:00 IST
 
 on:
   push:
     branches: [main]
     paths:
       - 'O-output/W*/final/final-post.md'
+  schedule:
+    - cron: '0 6 * * 3'   # Wednesday 06:00 UTC = 08:00 Israel (UTC+2 summer)
+  workflow_dispatch:        # manual trigger for backfill / testing
 
 jobs:
   sync-media-plan:
@@ -18,98 +22,113 @@ jobs:
           fetch-depth: 2
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Find changed post file
-        id: find_post
-        run: |
-          POST_FILE=$(git diff --name-only HEAD~1 HEAD \
-            | grep -E 'O-output/W[0-9]+/final/final-post\.md' \
-            | head -1)
-
-          if [ -z "$POST_FILE" ]; then
-            echo "skip=true" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-
-          WEEK=$(echo "$POST_FILE" | cut -d'/' -f2)
-          WEEK_FOLDER=$(echo "$POST_FILE" | cut -d'/' -f1-2)
-
-          echo "skip=false"               >> $GITHUB_OUTPUT
-          echo "post_file=$POST_FILE"     >> $GITHUB_OUTPUT
-          echo "week=$WEEK"               >> $GITHUB_OUTPUT
-          echo "week_folder=$WEEK_FOLDER" >> $GITHUB_OUTPUT
-
       - name: Sync to Firebase mediaPlan
-        if: steps.find_post.outputs.skip == 'false'
         env:
           FIREBASE_DB_SECRET: ${{ secrets.FIREBASE_DB_SECRET }}
           CLIENT_ID:          storenext
-          POST_FILE:          ${{ steps.find_post.outputs.post_file }}
-          WEEK:               ${{ steps.find_post.outputs.week }}
-          WEEK_FOLDER:        ${{ steps.find_post.outputs.week_folder }}
+          EVENT_NAME:         ${{ github.event_name }}
         run: |
           python3 - <<'EOF'
-          import json, os, re, urllib.request
+          import json, os, re, glob, subprocess, urllib.request
 
-          week        = os.environ['WEEK']
-          week_folder = os.environ['WEEK_FOLDER']
-          post_file   = os.environ['POST_FILE']
-          client_id   = os.environ.get('CLIENT_ID', 'storenext')
-          secret      = os.environ['FIREBASE_DB_SECRET']
-          db_url      = 'https://annual-plan-736ee-default-rtdb.firebaseio.com'
+          event_name = os.environ.get('EVENT_NAME', 'push')
+          client_id  = os.environ.get('CLIENT_ID', 'storenext')
+          secret     = os.environ['FIREBASE_DB_SECRET']
+          db_url     = 'https://annual-plan-736ee-default-rtdb.firebaseio.com'
 
-          with open(post_file, encoding='utf-8') as f:
-              post_content = f.read()
+          # ── Which files to sync ──────────────────────────────────────────
+          if event_name == 'push':
+              # Incremental: only the file(s) changed in this commit
+              result = subprocess.run(
+                  ['git', 'diff', '--name-only', 'HEAD~1', 'HEAD'],
+                  capture_output=True, text=True
+              )
+              post_files = [
+                  f for f in result.stdout.splitlines()
+                  if re.match(r'O-output/W\d+/final/final-post\.md', f)
+                  and os.path.exists(f)
+              ]
+          else:
+              # Full scan: every week that has an approved final-post.md
+              post_files = sorted(glob.glob('O-output/W*/final/final-post.md'))
 
+          if not post_files:
+              print(f"[{event_name}] No post files to sync — done.")
+              exit(0)
+
+          print(f"[{event_name}] Syncing {len(post_files)} file(s): {post_files}")
+
+          # ── Parse one post file → Firebase payload ────────────────────
           def field(content, name):
               m = re.search(rf'\*\*{re.escape(name)}:\*\*\s*(.+)', content)
               return m.group(1).strip() if m else ''
 
-          status_raw   = field(post_content, 'Status').lower()   # "approved" or "draft"
-          category     = field(post_content, 'Category')
-          publish_str  = field(post_content, 'Publish')
-          language     = field(post_content, 'Language')
+          def parse_and_push(post_file):
+              parts        = post_file.replace('\\', '/').split('/')
+              week         = parts[1]
+              week_folder  = '/'.join(parts[:2])
 
-          date_match   = re.search(r'(\d{4}-\d{2}-\d{2})', publish_str)
-          publish_date = date_match.group(1) if date_match else ''
+              with open(post_file, encoding='utf-8') as f:
+                  raw = f.read()
 
-          # Post body: text after the first --- separator
-          parts     = post_content.split('---')
-          post_text = parts[1].strip() if len(parts) > 1 else post_content
+              status_raw  = field(raw, 'Status').lower()
+              category    = field(raw, 'Category')
+              publish_str = field(raw, 'Publish')
+              language    = field(raw, 'Language')
 
-          # First non-empty, non-header, non-bold line = hook
-          hook = ''
-          for line in post_text.split('\n'):
-              ln = line.strip()
-              if ln and not ln.startswith('#') and not ln.startswith('**') and not ln.startswith('##'):
-                  hook = ln
-                  break
+              date_match   = re.search(r'(\d{4}-\d{2}-\d{2})', publish_str)
+              publish_date = date_match.group(1) if date_match else ''
 
-          # Load visual-data.json if present
-          posts_data  = []
-          visual_file = f"{week_folder}/process/visual-data.json"
-          if os.path.exists(visual_file):
-              with open(visual_file, encoding='utf-8') as f:
-                  vd = json.load(f)
-              posts_data = vd.get('posts', [])
-              if not hook and posts_data:
-                  hook = posts_data[0].get('hook', '')
+              # Post body = text after first '---' separator
+              body_parts = raw.split('---')
+              post_text  = body_parts[1].strip() if len(body_parts) > 1 else raw
 
-          payload = {
-              'week':        week,
-              'publishDate': publish_date,
-              'publishStr':  publish_str,
-              'category':    category,
-              'language':    language,
-              'status':      status_raw if status_raw in ('approved','published') else 'approved',
-              'hook':        hook,
-              'postText':    post_text,
-              'posts':       posts_data,
-          }
+              # Hook = first non-empty, non-header, non-bold line
+              hook = ''
+              for line in post_text.split('\n'):
+                  ln = line.strip()
+                  if ln and not ln.startswith('#') and not ln.startswith('**'):
+                      hook = ln
+                      break
 
-          body = json.dumps(payload).encode('utf-8')
-          url  = f"{db_url}/mediaPlan/{client_id}/{week}.json?auth={secret}"
-          req  = urllib.request.Request(url, data=body, method='PUT',
-                                        headers={'Content-Type':'application/json'})
-          with urllib.request.urlopen(req) as resp:
-              print(f"Firebase mediaPlan/{week}: {resp.status}")
+              # Supplement from visual-data.json if present
+              posts_data  = []
+              visual_file = f"{week_folder}/process/visual-data.json"
+              if os.path.exists(visual_file):
+                  with open(visual_file, encoding='utf-8') as f:
+                      vd = json.load(f)
+                  posts_data = vd.get('posts', [])
+                  if not hook and posts_data:
+                      hook = posts_data[0].get('hook', '')
+                  if not category and posts_data:
+                      category = posts_data[0].get('category', '')
+
+              payload = {
+                  'week':        week,
+                  'publishDate': publish_date,
+                  'publishStr':  publish_str,
+                  'category':    category,
+                  'language':    language,
+                  'status':      status_raw if status_raw in ('approved', 'published') else 'approved',
+                  'hook':        hook,
+                  'postText':    post_text,
+                  'posts':       posts_data,
+              }
+
+              body = json.dumps(payload).encode('utf-8')
+              url  = f"{db_url}/mediaPlan/{client_id}/{week}.json?auth={secret}"
+              req  = urllib.request.Request(
+                  url, data=body, method='PUT',
+                  headers={'Content-Type': 'application/json'}
+              )
+              with urllib.request.urlopen(req) as resp:
+                  print(f"  ✓ mediaPlan/{client_id}/{week}: HTTP {resp.status}")
+
+          for pf in post_files:
+              try:
+                  parse_and_push(pf)
+              except Exception as e:
+                  print(f"  ✗ {pf}: {e}")
+
+          print(f"Done — {len(post_files)} post(s) processed.")
           EOF

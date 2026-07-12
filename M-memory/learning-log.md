@@ -467,10 +467,46 @@ Every content sprint is 5 days (Thursday-Monday), not flexible. Plan accordingly
 
 ---
 
+## 2026-07-12 — LinkedIn W25–W28: Sync of Published Posts
+
+### Status
+✅ לוח התוכן עודכן לפי פרסומים בפועל בלינקדין
+
+### Posts Published (from LinkedIn)
+
+| Week | Date | Hook | Category |
+|------|------|------|---------|
+| W25 | 15.6.2026 | $53 per invoice exception (Ardent Partners 2024) | Accuracy & Cost |
+| W26 | 23.6.2026 | 9% efficiency gap — CFO's desk, 2026 (Hackett Group) | Accuracy & Cost |
+| W26-AI | ~5.7.2026 | Everyone is asking when do we get AI. The better question: what will the AI actually read? | Integration & Digitization |
+| W27 | ~8.7.2026 | Israel's Tax Authority didn't just change a threshold. It changed the scale of the challenge. | Regulation / ESG (Meteor) |
+
+### Visual Style Observation
+הויזואלים שעלו ללינקדין (נראים בצילומי מסך) גבוהים באיכות משמעותית מהגנרטור הבסיסי:
+- Deep purple gradient background עם אור סגול מרכזי
+- טיפוגרפיה גדולה ונקייה (teal לנתונים, לבן לטקסט)
+- Chips/pills צבעוניים לתאריכים ומדדים
+- לוגו StoreNext אמיתי (SVG) + storenext.co.il footer
+- W27 (e-invoicing): שימוש ב-coral/red arrow להמחשת ירידה — חזוי ויזואלי חזק
+
+### Category Balance Audit (W20–W28)
+| Category | Count |
+|---------|-------|
+| שקיפות ותקשורת עם ספקים | W20, W21, W23, W24 → 4 |
+| דיוק, שליטה וחיסכון | W22, W25, W26 → 3 |
+| אינטגרציה ודיגיטציה | W26-AI → 1 |
+| רגולציה ו-ESG | W27 → 1 |
+
+**המלצה ל-W28:** Category 3 (חוויית משתמש / Supplier Onboarding) או Category 6 (עדויות מהשטח) — שתי קטגוריות שלא הופיעו ב-2026.
+
+---
+
 ## Version History
 
 | Date | Update | By |
 |------|--------|-----|
+| 2026-07-12 | LinkedIn W25–W28: sync of published posts, category audit, visual style notes | Claude |
+| 2026-06-22 | LinkedIn W26 AI Foundation: created + approved (published ~5.7.2026) | Claude |
 | 2026-06-02 | LinkedIn Week 3: Social Proof - approved, ready for 2026-06-09 publication | Claude |
 | 2026-06-02 | LinkedIn Week 2: Solution Introduction - approved and published | Claude |
 | 2026-02-24 | Operational timeline documented: Monday deadline for Thursday publication | Claude |

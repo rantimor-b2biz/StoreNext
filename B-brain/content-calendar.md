@@ -1,6 +1,6 @@
 # לוח תוכן LinkedIn — StoreNext
 
-**עודכן לאחרונה:** 2026-06-08 (שבוע ISO W23)
+**עודכן לאחרונה:** 2026-07-12 (שבוע ISO W28)
 **מנוהל על ידי:** מערכת הסוכנים של StoreNext
 
 ---
@@ -34,15 +34,15 @@
 | W20      | מאי 2026       | כך הפסיק מחלקת הכספים לענות על 200 שיחות ספקים בשבוע                     | שקיפות ותקשורת עם ספקים        | ✅ פורסם | "200 שיחות בשבוע. כולן על שאלה אחת."                                     | ביצועים טובים. תגובות CFO גבוהות      |
 | W21      | מאי 2026       | מה קורה כשספק לא יודע מתי ישולם לו                                       | שקיפות ותקשורת עם ספקים        | ✅ פורסם | "הספק שלך לא יודע מתי הוא מקבל כסף. זה בעיה שלך, לא שלו."                | הוביל לפניות ממנהלי רכש               |
 | W22      | מאי 2026       | הפער בין מה שה-ERP יודע למה שהצוות מבצע בפועל                            | דיוק, שליטה וחיסכון            | ✅ פורסם | "ה-ERP שלך מחזיק את האמת. הצוות שלך עובד עם גרסה אחרת."                  | שיתופים גבוהים מ-CIO                  |
-| W23      | יוני 2026      | **אפשרות א:** כמה עולה להנפיק חשבונית ידנית ב-2026                       | דיוק, שליטה וחיסכון            | 💡 מוצע | "חשבונית ידנית עולה בממוצע 15-40 ש״ח לעיבוד. כפול 10,000 חשבוניות בשנה." | ממוקד CFO. מחיר מול ROI               |
-| W23      | יוני 2026      | **אפשרות ב:** מדוע ארגונים עם 500+ ספקים לא יכולים לעבוד עם מיילים       | שקיפות ותקשורת עם ספקים        | 💡 מוצע | "מעל 500 ספקים, המייל הופך לסיכון תפעולי. לא לאי-נוחות."                 | זהו הטריגר הנפוץ ביותר לאימוץ         |
-| W23      | יוני 2026      | **אפשרות ג:** שלושה נתונים שכל CFO צריך לראות בזמן אמת לגבי שרשרת האספקה | טרנדים גלובליים, רגולציה ו-ESG | 💡 מוצע | "CFO ללא Visibility על שרשרת האספקה מקבל החלטות עם מידע של אתמול."       | פותח דיון אסטרטגי. מתאים לרבעון סגירה |
-| W24      | יוני 2026      |                                                                          |                                |         |                                                                          |                                       |
-| W25      | יוני 2026      |                                                                          |                                |         |                                                                          |                                       |
-| W26      | יוני-יולי 2026 | The Efficiency Gap Is Now a CFO Problem                                  | דיוק, שליטה וחיסכון            | ✅ פורסם | "Procurement workloads are rising 10%. Budgets are rising 1%."            | פורסם בשבוע W25 (מוקדם)               |
-| W26      | יוני-יולי 2026 | Procurement AI Starts Here (AI Foundation post)                          | אינטגרציה ודיגיטציה            | 📋 מאושר | "Everyone is asking: when do we get AI? The better question: what will the AI actually read?" | מיועד לפרסום 23.6.2026 |
-| W27      | יולי 2026      |                                                                          |                                |         |                                                                          |                                       |
-| W28      | יולי 2026      |                                                                          |                                |         |                                                                          |                                       |
+| W23      | יוני 2026      | Solution Introduction: פורטל ספקים כתשובה לשיחות הנכנסות                 | שקיפות ותקשורת עם ספקים        | ✅ פורסם | "Your procurement team didn't sign up to be a call center."               | W23 — אושר ופורסם (מהלוג)             |
+| W24      | יוני 2026      | Social Proof: מה הפתיע ארגונים אחרי המעבר לפורטל                        | שקיפות ותקשורת עם ספקים        | ✅ פורסם | "Not when we asked what they liked. When we asked what surprised them most." | W24 — אושר ופורסם (מהלוג)           |
+| W25      | יוני 2026      | $53 per Invoice Exception                                                | דיוק, שליטה וחיסכון            | ✅ פורסם | "Each invoice exception costs your organization $53 on average."          | פורסם 15.6.2026 · Ardent Partners 2024 |
+| W26      | יוני 2026      | The Efficiency Gap Is Now a CFO Problem (9%)                             | דיוק, שליטה וחיסכון            | ✅ פורסם | "Procurement workloads are rising 10%. Budgets are rising 1%."            | פורסם 23.6.2026 · Hackett Group 2025  |
+| W26      | יוני-יולי 2026 | Procurement AI Starts Here — The Supplier Portal as AI Foundation        | אינטגרציה ודיגיטציה            | ✅ פורסם | "Everyone is asking: when do we get AI? The better question: what will the AI actually read?" | פורסם ~5.7.2026 |
+| W27      | יולי 2026      | Israel's Accelerated E-Invoicing Mandate (CTC) as AP Infrastructure Test | טרנדים גלובליים, רגולציה ו-ESG | ✅ פורסם | "Israel's Tax Authority didn't just change a threshold. It changed the scale of the challenge." | פורסם ~8.7.2026 · Sovos / Meteor     |
+| W28      | יולי 2026      |                                                                          |                                | 💡 פתוח  |                                                                          | שבוע נוכחי — ממתין לנושא              |
+| W29      | יולי 2026      |                                                                          |                                |         |                                                                          |                                       |
+| W30      | יולי 2026      |                                                                          |                                |         |                                                                          |                                       |
 
 ---
 
