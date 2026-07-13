@@ -8,6 +8,7 @@ Usage: python3 T-tools/generate-visual.py O-output/W26/process/visual-data.json
 import json
 import sys
 import os
+import math
 import io
 from PIL import Image, ImageDraw, ImageFont
 
@@ -169,18 +170,42 @@ def add_glow(img, cx, cy, radius, color_rgb, alpha_max=60):
     img_rgba = Image.alpha_composite(img_rgba, overlay)
     return img_rgba.convert("RGB")
 
-def draw_meteor_logo(draw, x, y, height=44):
-    """Render a Meteor wordmark: coral accent mark + 'Meteor' in white Inter Bold.
-    Used until an official Meteor logo SVG is added to C-core."""
-    mark_w = int(height * 0.52)
-    # slanted parallelogram mark echoing the Meteor icon
-    draw.polygon([(x + mark_w * 0.34, y),
-                  (x + mark_w, y),
-                  (x + mark_w * 0.66, y + height),
-                  (x, y + height)], fill=hex_to_rgb(CORAL_RED))
-    font = load_font(int(height * 0.82), weight="Bold")
-    draw.text((x + mark_w + 16, y + int(height * 0.06)), "Meteor",
-              font=font, fill=WHITE)
+def _hexagon_points(cx, cy, r):
+    """Flat-top hexagon vertices (matches the Meteor / StoreNext cube mark)."""
+    return [(cx + r * math.cos(math.radians(60 * i)),
+             cy + r * math.sin(math.radians(60 * i))) for i in range(6)]
+
+def draw_meteor_logo(draw, x, y, height=46):
+    """Faithful Meteor wordmark: 'METE' + hexagon 'O' + 'R', with tagline.
+    Wordmark white on dark bg; hexagon white outline with a coral accent segment.
+    Recreated in vector form pending an official Meteor SVG in C-core."""
+    font = load_font(int(height * 0.92), weight="ExtraBold")
+
+    pre, post = "METE", "R"
+    draw.text((x, y), pre, font=font, fill=WHITE)
+    w_pre = draw.textbbox((x, y), pre, font=font)[2] - x
+
+    # Hexagon as the 'O'
+    r = int(height * 0.44)
+    gap = int(height * 0.14)
+    hx = x + w_pre + gap + r
+    hy = y + int(height * 0.5)
+    pts = _hexagon_points(hx, hy, r)
+    stroke = max(4, int(height * 0.11))
+    for i in range(6):
+        a, b = pts[i], pts[(i + 1) % 6]
+        # top-right two edges rendered in coral (the brand accent)
+        col = CORAL_RED if i in (4, 5) else WHITE
+        draw.line([a, b], fill=hex_to_rgb(col), width=stroke)
+
+    # 'R' after the hexagon
+    rx = hx + r + gap
+    draw.text((rx, y), post, font=font, fill=WHITE)
+
+    # Tagline
+    tag_font = load_font(int(height * 0.30), weight="Medium")
+    draw.text((x + 2, y + height + 4), "A StoreNext Company",
+              font=tag_font, fill=hex_to_rgb(MUTED_TEXT))
 
 def _draw_footer(img, draw, brand="storenext"):
     """Shared footer: brand logo left + domain right + coral bottom line.
