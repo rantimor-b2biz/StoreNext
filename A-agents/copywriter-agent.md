@@ -163,6 +163,8 @@ For each angle provide:
 
 This includes: `topic`, `category`, `key_metric`, `hook`, `visual_direction`.
 
+**Brand field (StoreNext vs Meteor):** Add `"brand": "meteor"` for any Meteor (fintech division) post. This switches the visual footer to the Meteor logo and the `storenext.co.il/meteor` domain. Omit the field (or use `"brand": "storenext"`) for core StoreNext posts, which use the StoreNext logo and `storenext.co.il`. Same concept and layout for both. Only the footer brand differs.
+
 The post text (final-post.md) may be in Hebrew only if explicitly instructed by Ran.
 The visual always accompanies content on LinkedIn — English visuals work for both Hebrew and English posts.
 

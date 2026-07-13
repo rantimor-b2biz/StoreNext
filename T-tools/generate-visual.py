@@ -169,12 +169,30 @@ def add_glow(img, cx, cy, radius, color_rgb, alpha_max=60):
     img_rgba = Image.alpha_composite(img_rgba, overlay)
     return img_rgba.convert("RGB")
 
-def _draw_footer(img, draw):
-    """Shared footer: logo left + domain right + coral bottom line."""
+def draw_meteor_logo(draw, x, y, height=44):
+    """Render a Meteor wordmark: coral accent mark + 'Meteor' in white Inter Bold.
+    Used until an official Meteor logo SVG is added to C-core."""
+    mark_w = int(height * 0.52)
+    # slanted parallelogram mark echoing the Meteor icon
+    draw.polygon([(x + mark_w * 0.34, y),
+                  (x + mark_w, y),
+                  (x + mark_w * 0.66, y + height),
+                  (x, y + height)], fill=hex_to_rgb(CORAL_RED))
+    font = load_font(int(height * 0.82), weight="Bold")
+    draw.text((x + mark_w + 16, y + int(height * 0.06)), "Meteor",
+              font=font, fill=WHITE)
+
+def _draw_footer(img, draw, brand="storenext"):
+    """Shared footer: brand logo left + domain right + coral bottom line.
+    brand='meteor' switches to the Meteor wordmark and the /meteor domain."""
     footer_y = H - 110
-    paste_logo(img, dark_bg=True, x=MARGIN, y=footer_y, width=180)
+    if brand == "meteor":
+        draw_meteor_logo(draw, MARGIN, footer_y + 6, height=46)
+        domain = "storenext.co.il/meteor"
+    else:
+        paste_logo(img, dark_bg=True, x=MARGIN, y=footer_y, width=180)
+        domain = "storenext.co.il"
     domain_font = load_font(24)
-    domain = "storenext.co.il"
     d_bbox = draw.textbbox((0, 0), domain, font=domain_font)
     draw.text((W - MARGIN - (d_bbox[2] - d_bbox[0]), footer_y + 22),
               domain, font=domain_font, fill=hex_to_rgb(MUTED_TEXT))
@@ -251,7 +269,7 @@ def stat_card(post):
         body_y = draw_text_left(draw, txt, MARGIN, body_y, font, color, max_w)
         body_y += 6
 
-    _draw_footer(img, draw)
+    _draw_footer(img, draw, post.get("brand", "storenext"))
     return img
 
 
@@ -311,7 +329,7 @@ def process_flow(post):
     draw_text_left(draw, post.get("hook", ""), MARGIN, hook_y + 10,
                    hook_font, WHITE, W - MARGIN * 2)
 
-    _draw_footer(img, draw)
+    _draw_footer(img, draw, post.get("brand", "storenext"))
     return img
 
 
@@ -355,7 +373,7 @@ def quote_card(post):
             draw.text((bx + 24, by + 10), badge, font=b_font,
                       fill=hex_to_rgb(DEEP_PURPLE))
 
-    _draw_footer(img, draw)
+    _draw_footer(img, draw, post.get("brand", "storenext"))
     return img
 
 
@@ -440,7 +458,7 @@ def threshold_drop(post):
     draw_text_left(draw, post.get("hook", ""), MARGIN, div_y + 26,
                    hook_font, WHITE, W - MARGIN * 2)
 
-    _draw_footer(img, draw)
+    _draw_footer(img, draw, post.get("brand", "storenext"))
     return img
 
 
