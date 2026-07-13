@@ -47,10 +47,12 @@ def load_logo(dark_bg=True, width=220):
     """Render the StoreNext SVG logo. On dark bg: wordmark becomes white."""
     return _render_svg(LOGO_SVG_PATH, dark_bg=dark_bg, width=width)
 
-def load_meteor_logo(dark_bg=True, width=240):
+def load_meteor_logo(dark_bg=True, width=240, include_tagline=True):
     """Render the official Meteor SVG logo if present in C-core; else None.
     On dark backgrounds, recolors the dark-purple wordmark shades to white while
-    leaving the coral accent (reds) untouched."""
+    leaving the coral accent (reds) untouched.
+    include_tagline=False strips the 'A StoreNext Company' path so the tagline
+    can be re-drawn separately, width-matched to the METEOR wordmark."""
     if not os.path.exists(METEOR_SVG_PATH):
         return None
     try:
@@ -58,14 +60,24 @@ def load_meteor_logo(dark_bg=True, width=240):
         from lxml import etree
         with open(METEOR_SVG_PATH) as f:
             svg = f.read()
-        svg = etree.tostring(
-            etree.fromstring(svg.encode(), etree.XMLParser(recover=True))).decode()
+        root = etree.fromstring(svg.encode(), etree.XMLParser(recover=True))
+        if not include_tagline:
+            for el in root.iter():
+                d = el.get("d", "")
+                # the tagline glyphs path starts at y≈47 with this move command
+                if d.startswith("M205.95 47.6154"):
+                    el.getparent().remove(el)
+                    break
+        svg = etree.tostring(root).decode()
         if dark_bg:
             for dark in ("#3a2a3d", "#432f45", "#2b1e2e", "#3A2A3D", "#432F45",
                          "#2B1E2E", "#231018", "#1e1030", "#1E1030"):
                 svg = svg.replace(dark, "#FFFFFF")
         png = cairosvg.svg2png(bytestring=svg.encode(), output_width=width)
-        return Image.open(io.BytesIO(png)).convert("RGBA")
+        img = Image.open(io.BytesIO(png)).convert("RGBA")
+        if not include_tagline:
+            img = img.crop(img.getbbox())  # trim empty space left by the removed path
+        return img
     except Exception:
         return None
 
@@ -240,9 +252,20 @@ def _draw_footer(img, draw, brand="storenext"):
     brand='meteor' switches to the Meteor wordmark and the /meteor domain."""
     footer_y = H - 110
     if brand == "meteor":
-        logo = load_meteor_logo(dark_bg=True, width=230)
+        logo = load_meteor_logo(dark_bg=True, width=380, include_tagline=False)
         if logo:
-            img.paste(logo, (MARGIN, footer_y + 8), logo)
+            # scale the METEOR wordmark to a fixed footer width
+            target_w = 210
+            ratio = target_w / logo.width
+            logo = logo.resize((target_w, max(1, int(logo.height * ratio))),
+                               Image.LANCZOS)
+            img.paste(logo, (MARGIN, footer_y), logo)
+            # tagline drawn separately, width-matched to the wordmark
+            tag = "A StoreNext Company"
+            tag_font, _ = fit_font(draw, tag, target_w, 24, min_size=10,
+                                   weight="Medium")
+            draw.text((MARGIN, footer_y + logo.height + 8), tag,
+                      font=tag_font, fill=WHITE)
         else:
             draw_meteor_logo(draw, MARGIN, footer_y + 6, height=46)
         domain = "storenext.co.il/meteor"
