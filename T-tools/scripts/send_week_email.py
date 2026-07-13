@@ -57,19 +57,26 @@ def markdown_to_docx(md: str, out_path: Path) -> bool:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("week", help="Week folder, e.g. W27")
+    parser.add_argument(
+        "--brand", choices=["storenext", "meteor"], default="storenext",
+        help="Which brand's post to resend (default: storenext). Meteor files "
+             "carry a '-meteor' suffix, e.g. final-post-meteor.md.",
+    )
     parser.add_argument("--note", default="", help="Optional note shown at the top of the email")
     args = parser.parse_args()
+    suffix = "" if args.brand == "storenext" else f"-{args.brand}"
+    brand_label = "StoreNext" if args.brand == "storenext" else "Meteor"
 
     final_dir = ROOT / "O-output" / args.week / "final"
-    post_file = final_dir / "final-post.md"
+    post_file = final_dir / f"final-post{suffix}.md"
     if not post_file.exists():
         print(f"{post_file} not found", file=sys.stderr)
         return 1
 
     # refresh the docx from the (possibly corrected) markdown
-    article_md = final_dir / "article.md"
+    article_md = final_dir / f"article{suffix}.md"
     if article_md.exists():
-        markdown_to_docx(article_md.read_text(encoding="utf-8"), final_dir / "article.docx")
+        markdown_to_docx(article_md.read_text(encoding="utf-8"), final_dir / f"article{suffix}.docx")
 
     sender = os.environ.get("GMAIL_EMAIL", "rantimor@gmail.com")
     recipient = os.environ.get("RECIPIENT_MAIL", sender)
@@ -80,7 +87,7 @@ def main() -> int:
     if args.note:
         parts += [f"*** {args.note} ***", ""]
     parts += [
-        f"התוכן של {args.week} מצורף (מאמר .docx/.md + ויזואל PNG).",
+        f"התוכן של {brand_label} {args.week} מצורף (מאמר .docx/.md + ויזואל PNG).",
         "הפוסט המלא למטה.",
         "",
         sep,
@@ -89,13 +96,19 @@ def main() -> int:
     ]
 
     msg = MIMEMultipart()
-    msg["Subject"] = f"StoreNext {args.week} — תוכן מעודכן להעלאה"
+    msg["Subject"] = f"{brand_label} {args.week} — תוכן מעודכן להעלאה"
     msg["From"] = sender
     msg["To"] = recipient
     msg.attach(MIMEText("\n".join(parts), "plain", "utf-8"))
 
+    # Only attach this brand's files: the unsuffixed set for storenext (never
+    # the other brand's suffixed files), or exactly this brand's suffixed set.
     for f in sorted(final_dir.iterdir()):
-        if f.name == "final-post.md" or not f.is_file():
+        if not f.is_file() or f.name == post_file.name:
+            continue
+        stem_suffix = f"-{args.brand}" if args.brand != "storenext" else None
+        is_other_brand_file = "-meteor" in f.stem if args.brand == "storenext" else (stem_suffix not in f.stem)
+        if is_other_brand_file:
             continue
         part = MIMEBase("application", "octet-stream")
         part.set_payload(f.read_bytes())

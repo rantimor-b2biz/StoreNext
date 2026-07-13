@@ -1,14 +1,27 @@
-name: Generate Article + LinkedIn Post (weekly, email delivery)
+name: Generate Article + LinkedIn Post (twice weekly, email delivery)
 
 on:
   schedule:
-    # Monday ~08:30 Israel time, 3 attempts (GitHub cron is unreliable);
-    # the guard step ensures only the first successful run of the week generates.
+    # Monday ~08:30 Israel time -> METEOR post. 3 attempts (GitHub cron is
+    # unreliable); the guard step ensures only the first successful run per
+    # week+brand generates.
     - cron: "30 5 * * 1"
     - cron: "30 6 * * 1"
     - cron: "30 7 * * 1"
+    # Thursday ~08:30 Israel time -> STORENEXT post.
+    - cron: "30 5 * * 4"
+    - cron: "30 6 * * 4"
+    - cron: "30 7 * * 4"
   workflow_dispatch:
     inputs:
+      brand:
+        description: "Which brand to generate for"
+        required: true
+        default: "storenext"
+        type: choice
+        options:
+          - storenext
+          - meteor
       topic:
         description: "Manual topic override (optional — otherwise trending topic is auto-selected)"
         required: false
@@ -28,12 +41,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Skip if this week already done (scheduled runs only)
+      - name: Determine brand for this run
+        id: brand
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            BRAND="${{ github.event.inputs.brand }}"
+          else
+            # Scheduled: Monday (ISO day 1) = Meteor, Thursday (ISO day 4) = StoreNext
+            DOW=$(date +%u)
+            if [ "$DOW" = "1" ]; then
+              BRAND="meteor"
+            else
+              BRAND="storenext"
+            fi
+          fi
+          echo "brand=$BRAND" >> "$GITHUB_OUTPUT"
+          echo "Brand for this run: $BRAND"
+
+      - name: Skip if this week+brand already done (scheduled runs only)
         id: guard
         run: |
           WEEK="W$(date +%V)"
-          if [ "${{ github.event_name }}" = "schedule" ] && [ -f "O-output/${WEEK}/final/final-post.md" ]; then
-            echo "Content for ${WEEK} already exists — a previous run handled this week. Skipping."
+          BRAND="${{ steps.brand.outputs.brand }}"
+          if [ "$BRAND" = "storenext" ]; then
+            POST_FILE="O-output/${WEEK}/final/final-post.md"
+          else
+            POST_FILE="O-output/${WEEK}/final/final-post-${BRAND}.md"
+          fi
+          if [ "${{ github.event_name }}" = "schedule" ] && [ -f "$POST_FILE" ]; then
+            echo "Content for ${WEEK} (${BRAND}) already exists — a previous run handled this week. Skipping."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
@@ -58,10 +94,11 @@ jobs:
           GMAIL_EMAIL: ${{ secrets.GMAIL_EMAIL }}
           RECIPIENT_MAIL: ${{ secrets.RECIPIENT_MAIL }}
         run: |
+          BRAND="${{ steps.brand.outputs.brand }}"
           if [ -n "${{ github.event.inputs.topic }}" ]; then
-            python3 T-tools/scripts/generate_article_and_post.py --topic "${{ github.event.inputs.topic }}"
+            python3 T-tools/scripts/generate_article_and_post.py --brand "$BRAND" --topic "${{ github.event.inputs.topic }}"
           else
-            python3 T-tools/scripts/generate_article_and_post.py
+            python3 T-tools/scripts/generate_article_and_post.py --brand "$BRAND"
           fi
 
       - name: Commit output
@@ -70,7 +107,7 @@ jobs:
           git config user.name "StoreNext Bot"
           git config user.email "rantimor@gmail.com"
           git add O-output/ B-brain/topic-history.json
-          git diff --staged --quiet || git commit -m "auto: ${{ steps.generate.outputs.week }} article + post — ${{ steps.generate.outputs.topic }}"
+          git diff --staged --quiet || git commit -m "auto: ${{ steps.generate.outputs.week }} ${{ steps.generate.outputs.brand }} article + post — ${{ steps.generate.outputs.topic }}"
           # Ran's machine auto-syncs this repo, so pushes can race. Rebase and retry.
           for attempt in 1 2 3 4 5; do
             git pull --rebase origin main
@@ -82,10 +119,17 @@ jobs:
       - name: Summary
         if: steps.guard.outputs.skip == 'false'
         run: |
+          WEEK="${{ steps.generate.outputs.week }}"
+          BRAND="${{ steps.generate.outputs.brand }}"
+          if [ "$BRAND" = "storenext" ]; then
+            POST_FILE="O-output/${WEEK}/final/final-post.md"
+          else
+            POST_FILE="O-output/${WEEK}/final/final-post-${BRAND}.md"
+          fi
           {
-            echo "## ${{ steps.generate.outputs.week }} — ${{ steps.generate.outputs.topic }}"
+            echo "## ${WEEK} (${BRAND}) — ${{ steps.generate.outputs.topic }}"
             echo ""
             echo "Gatekeeper: ${{ steps.generate.outputs.verdict }} — content emailed to Ran for manual upload."
             echo ""
-            cat "O-output/${{ steps.generate.outputs.week }}/final/final-post.md"
+            cat "$POST_FILE"
           } >> "$GITHUB_STEP_SUMMARY"

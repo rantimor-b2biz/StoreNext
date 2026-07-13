@@ -6,6 +6,14 @@ on:
       week:
         description: "Week folder to send, e.g. W27"
         required: true
+      brand:
+        description: "Which brand's post to resend"
+        required: true
+        default: "storenext"
+        type: choice
+        options:
+          - storenext
+          - meteor
       note:
         description: "Optional note shown at the top of the email"
         required: false
@@ -33,7 +41,7 @@ jobs:
           RECIPIENT_MAIL: ${{ secrets.RECIPIENT_MAIL }}
         run: |
           if [ -n "${{ github.event.inputs.note }}" ]; then
-            python3 T-tools/scripts/send_week_email.py "${{ github.event.inputs.week }}" --note "${{ github.event.inputs.note }}"
+            python3 T-tools/scripts/send_week_email.py "${{ github.event.inputs.week }}" --brand "${{ github.event.inputs.brand }}" --note "${{ github.event.inputs.note }}"
           else
-            python3 T-tools/scripts/send_week_email.py "${{ github.event.inputs.week }}"
+            python3 T-tools/scripts/send_week_email.py "${{ github.event.inputs.week }}" --brand "${{ github.event.inputs.brand }}"
           fi
