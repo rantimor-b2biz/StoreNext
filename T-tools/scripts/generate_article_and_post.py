@@ -133,13 +133,29 @@ def iso_week(d: datetime.date) -> str:
     return f"W{d.isocalendar()[1]:02d}"
 
 
+BRAND_PILLAR_LOCK = {
+    "meteor": (
+        "This run is DEDICATED TO METEOR. The topic MUST fit pillar 2 (Financial "
+        'operations & treasury) and product_focus MUST be exactly "Meteor". Do not '
+        "pick a Supplier Portal, procurement, or product_focus-none topic this run."
+    ),
+    "storenext": (
+        "This run is DEDICATED TO THE CORE STORENEXT SUPPLIER PORTAL BRAND. Pick a "
+        "topic from pillar 1, 3, or 4 (supply chain / procurement / CFO agenda / AI "
+        'in enterprise finance). product_focus MUST be "Supplier Portal" or "none '
+        '(pure thought leadership)" — NEVER "Meteor" this run.'
+    ),
+}
+
+
 # ---------------------------------------------------------------- stage 1: research
 
-def stage1_research(topic_override: str | None) -> dict:
+def stage1_research(topic_override: str | None, brand: str = "storenext") -> dict:
     session_brief = read_file("C-core/session-brief.md")
     capabilities = read_file("C-core/product-capabilities.md")
     history = load_topic_history()
-    recent = [h.get("topic", "") for h in history[-RECENT_TOPICS_SHOWN:]]
+    same_brand_history = [h for h in history if h.get("brand", "storenext") == brand]
+    recent = [h.get("topic", "") for h in same_brand_history[-RECENT_TOPICS_SHOWN:]]
 
     system = f"""You are the Researcher for StoreNext (enterprise B2B: supplier management +
 financial operations for Israeli enterprises).
@@ -165,6 +181,8 @@ Israeli enterprise context is a plus when natural (never political).
 
 HARD RULES: never frame the two products as one "unified platform"; never use
 "40 years" as positioning; never invent statistics.
+
+{BRAND_PILLAR_LOCK[brand]}
 
 AVOID repeating these recently covered topics:
 {json.dumps(recent, ensure_ascii=False, indent=2)}
@@ -258,7 +276,7 @@ Return JSON in a ```json fenced block:
 
 # ---------------------------------------------------------------- stage 3: gatekeeper + post + visual data
 
-def stage3_gatekeeper(brief: dict, article: dict, week: str) -> dict:
+def stage3_gatekeeper(brief: dict, article: dict, week: str, visual_post_id: str) -> dict:
     voice_dna = read_file("C-core/voice-dna.md")
     session_brief = read_file("C-core/session-brief.md")
     capabilities = read_file("C-core/product-capabilities.md")
@@ -313,7 +331,7 @@ Return JSON in a ```json fenced block:
   "post_text": "the complete LinkedIn post exactly as it should be published, hashtags included",
   "first_comment": "first comment: link placeholder to the article on storenext site + one value-add line",
   "visual": {{
-    "post_id": "{week}",
+    "post_id": "{visual_post_id}",
     "visual_type": "stat_card|process_flow|quote_card",
     "category": "short category label",
     "topic": "short visual headline (max 8 words)",
@@ -390,7 +408,8 @@ def markdown_to_docx(md: str, out_path: Path) -> bool:
 
 # ---------------------------------------------------------------- stage 5: email
 
-def send_email(week: str, brief: dict, review: dict, attachments: list[Path]) -> None:
+def send_email(week: str, brief: dict, review: dict, attachments: list[Path],
+               brand_label: str = "StoreNext") -> None:
     sender = os.environ.get("GMAIL_EMAIL", "rantimor@gmail.com")
     recipient = os.environ.get("RECIPIENT_MAIL", sender)
     password = os.environ.get("GMAIL_APP_PASS", "")
@@ -403,7 +422,7 @@ def send_email(week: str, brief: dict, review: dict, attachments: list[Path]) ->
     body = "\n".join([
         "שלום רן,",
         "",
-        f"התוכן השבועי של StoreNext ({week}) מוכן להעלאה ידנית:",
+        f"התוכן השבועי של {brand_label} ({week}) מוכן להעלאה ידנית:",
         "",
         "1. מאמר לאתר — מצורף (.docx להעלאה נוחה + .md)",
         "2. פוסט לינקדאין — בגוף המייל למטה (העתק-הדבק)",
@@ -432,7 +451,7 @@ def send_email(week: str, brief: dict, review: dict, attachments: list[Path]) ->
     ])
 
     msg = MIMEMultipart()
-    msg["Subject"] = f"StoreNext {week} — מאמר + פוסט + ויזואל מוכנים להעלאה"
+    msg["Subject"] = f"{brand_label} {week} — מאמר + פוסט + ויזואל מוכנים להעלאה"
     msg["From"] = sender
     msg["To"] = recipient
     msg.attach(MIMEText(body, "plain", "utf-8"))
@@ -459,31 +478,46 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Generate StoreNext article + LinkedIn post")
     parser.add_argument("--topic", help="Manual topic override")
     parser.add_argument("--date", help="Date YYYY-MM-DD (default: today)")
+    parser.add_argument(
+        "--brand", choices=["storenext", "meteor"], default="storenext",
+        help="Which brand this run is dedicated to (default: storenext). "
+             "StoreNext output files keep their original names (final-post.md, "
+             "article.md, ...). Meteor output files get a '-meteor' suffix so "
+             "both brands can coexist in the same week folder per CLAUDE.md's "
+             "fixed O-output/W[NN]/{final,process} structure.",
+    )
     args = parser.parse_args()
+    brand = args.brand
 
     date = datetime.date.fromisoformat(args.date) if args.date else datetime.date.today()
     week = iso_week(date)
+    suffix = "" if brand == "storenext" else f"-{brand}"
+    visual_post_id = week if brand == "storenext" else f"{week}-{brand}"
+    brand_label = "StoreNext" if brand == "storenext" else "Meteor"
 
     final_dir = ROOT / "O-output" / week / "final"
     process_dir = ROOT / "O-output" / week / "process"
     final_dir.mkdir(parents=True, exist_ok=True)
     process_dir.mkdir(parents=True, exist_ok=True)
 
-    brief = stage1_research(args.topic)
+    brief = stage1_research(args.topic, brand)
     article_draft = stage2_article(brief)
-    review = stage3_gatekeeper(brief, article_draft, week)
+    review = stage3_gatekeeper(brief, article_draft, week, visual_post_id)
     article = review.get("article") or article_draft
     review["article"] = article
     visual = review.get("visual", {})
-    visual.setdefault("post_id", week)
+    visual.setdefault("post_id", visual_post_id)
+    if brand == "meteor":
+        visual["brand"] = "meteor"
 
     png = stage4_visual(visual, process_dir)
 
-    # --- files (final-post.md format keeps the Firebase mediaPlan sync working)
+    # --- files (final-post.md format, unsuffixed, keeps the Firebase mediaPlan
+    # sync working for the core StoreNext brand; Meteor runs are email-only)
     publish_str = date.isoformat()
-    (final_dir / "final-post.md").write_text(
+    (final_dir / f"final-post{suffix}.md").write_text(
         "\n".join([
-            f"# StoreNext LinkedIn {week}",
+            f"# {brand_label} LinkedIn {week}",
             "",
             "**Status:** approved",
             f"**Category:** {visual.get('category', article.get('category', ''))}",
@@ -502,25 +536,26 @@ def main() -> int:
         ]),
         encoding="utf-8",
     )
-    article_md = final_dir / "article.md"
+    article_md = final_dir / f"article{suffix}.md"
     article_md.write_text(article.get("markdown", ""), encoding="utf-8")
-    article_docx = final_dir / "article.docx"
+    article_docx = final_dir / f"article{suffix}.docx"
     if not markdown_to_docx(article.get("markdown", ""), article_docx):
         article_docx = None
-    (process_dir / "research-brief.md").write_text(
-        f"# Research Brief — {week} ({publish_str})\n\n```json\n{json.dumps(brief, ensure_ascii=False, indent=2)}\n```\n",
+    (process_dir / f"research-brief{suffix}.md").write_text(
+        f"# Research Brief — {week} ({publish_str}) — {brand_label}\n\n```json\n{json.dumps(brief, ensure_ascii=False, indent=2)}\n```\n",
         encoding="utf-8",
     )
-    (process_dir / "gatekeeper-review.md").write_text(
-        f"# Gatekeeper Review — {week}\n\n**Verdict:** {review.get('verdict')}\n\n"
+    (process_dir / f"gatekeeper-review{suffix}.md").write_text(
+        f"# Gatekeeper Review — {week} — {brand_label}\n\n**Verdict:** {review.get('verdict')}\n\n"
         + "\n".join(f"- {n}" for n in review.get("review_notes", [])) + "\n",
         encoding="utf-8",
     )
-    (process_dir / "content-process-log.md").write_text(
+    (process_dir / f"content-process-log{suffix}.md").write_text(
         "\n".join([
-            f"# Content Process Log — {week}",
+            f"# Content Process Log — {week} — {brand_label}",
             "",
             f"- Date: {publish_str}",
+            f"- Brand: {brand_label}",
             f"- Topic: {brief.get('topic')}",
             f"- Pillar: {brief.get('pillar')} | Product focus: {brief.get('product_focus')}",
             "- Pipeline: automated (Researcher -> Copywriter -> Gatekeeper -> Artist -> Email)",
@@ -534,6 +569,7 @@ def main() -> int:
     history.append({
         "date": publish_str,
         "week": week,
+        "brand": brand,
         "topic": brief.get("topic"),
         "pillar": brief.get("pillar"),
         "product_focus": brief.get("product_focus"),
@@ -541,16 +577,17 @@ def main() -> int:
     save_topic_history(history)
 
     attachments = [article_md, article_docx, png]
-    send_email(week, brief, review, [a for a in attachments if a])
+    send_email(week, brief, review, [a for a in attachments if a], brand_label)
 
     gh_output = os.environ.get("GITHUB_OUTPUT")
     if gh_output:
         with open(gh_output, "a", encoding="utf-8") as f:
             f.write(f"week={week}\n")
+            f.write(f"brand={brand}\n")
             f.write(f"topic={brief.get('topic')}\n")
             f.write(f"verdict={review.get('verdict')}\n")
 
-    print(f"\nDone. {week}: {brief.get('topic')}")
+    print(f"\nDone. {week} ({brand_label}): {brief.get('topic')}")
     return 0
 
 
