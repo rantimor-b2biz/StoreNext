@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W29",
+      "visual_type": "stat_card",
+      "category": "Financial Operations",
+      "topic": "The Fraud Recovery Gap",
+      "key_metric": "22%",
+      "hook": "Fraud attempts hit 79% of businesses. Only 22% recovered the funds afterward.",
+      "key_stat": "79% faced fraud attempts; 22% recovered funds (AFP 2026 survey, 465 practitioners)",
+      "source": "Association of Finance Professionals, 2026 Payments Fraud and Control Survey",
+      "visual_direction": "Bold two-stat contrast card pairing 79% attempts against 22% recovery to frame the exposure as a timing gap, not a detection gap."
+    }
+  ]
+}
