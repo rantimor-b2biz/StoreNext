@@ -22,22 +22,50 @@ DARK_TEXT     = "#1A1A2E"   # headlines on light bg
 MUTED_TEXT    = "#6B7280"   # body / captions
 WHITE         = "#FFFFFF"
 
-LOGO_SVG_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "C-core", "storenext-logo.svg")
+CORE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "C-core")
+LOGO_SVG_PATH   = os.path.join(CORE_DIR, "storenext-logo.svg")
+METEOR_SVG_PATH = os.path.join(CORE_DIR, "meteor-logo.svg")
 
-def load_logo(dark_bg=True, width=220):
-    """Render SVG logo to PIL Image. On dark bg: wordmark becomes white."""
+def _render_svg(path, dark_bg=True, width=220, recolor=("fill: #432f45", "fill: #FFFFFF")):
+    """Render an SVG file to a PIL RGBA image. On dark bg, recolor dark wordmark to white."""
     try:
         import cairosvg
         from lxml import etree
-        with open(LOGO_SVG_PATH) as f:
+        with open(path) as f:
             svg_content = f.read()
         parser = etree.XMLParser(recover=True)
         tree = etree.fromstring(svg_content.encode(), parser)
         svg_str = etree.tostring(tree).decode()
-        if dark_bg:
-            svg_str = svg_str.replace("fill: #432f45", "fill: #FFFFFF")
+        if dark_bg and recolor:
+            svg_str = svg_str.replace(recolor[0], recolor[1])
         png_data = cairosvg.svg2png(bytestring=svg_str.encode(), output_width=width)
         return Image.open(io.BytesIO(png_data)).convert("RGBA")
+    except Exception:
+        return None
+
+def load_logo(dark_bg=True, width=220):
+    """Render the StoreNext SVG logo. On dark bg: wordmark becomes white."""
+    return _render_svg(LOGO_SVG_PATH, dark_bg=dark_bg, width=width)
+
+def load_meteor_logo(dark_bg=True, width=240):
+    """Render the official Meteor SVG logo if present in C-core; else None.
+    On dark backgrounds, recolors the dark-purple wordmark shades to white while
+    leaving the coral accent (reds) untouched."""
+    if not os.path.exists(METEOR_SVG_PATH):
+        return None
+    try:
+        import cairosvg
+        from lxml import etree
+        with open(METEOR_SVG_PATH) as f:
+            svg = f.read()
+        svg = etree.tostring(
+            etree.fromstring(svg.encode(), etree.XMLParser(recover=True))).decode()
+        if dark_bg:
+            for dark in ("#3a2a3d", "#432f45", "#2b1e2e", "#3A2A3D", "#432F45",
+                         "#2B1E2E", "#231018", "#1e1030", "#1E1030"):
+                svg = svg.replace(dark, "#FFFFFF")
+        png = cairosvg.svg2png(bytestring=svg.encode(), output_width=width)
+        return Image.open(io.BytesIO(png)).convert("RGBA")
     except Exception:
         return None
 
@@ -212,7 +240,11 @@ def _draw_footer(img, draw, brand="storenext"):
     brand='meteor' switches to the Meteor wordmark and the /meteor domain."""
     footer_y = H - 110
     if brand == "meteor":
-        draw_meteor_logo(draw, MARGIN, footer_y + 6, height=46)
+        logo = load_meteor_logo(dark_bg=True, width=230)
+        if logo:
+            img.paste(logo, (MARGIN, footer_y + 8), logo)
+        else:
+            draw_meteor_logo(draw, MARGIN, footer_y + 6, height=46)
         domain = "storenext.co.il/meteor"
     else:
         paste_logo(img, dark_bg=True, x=MARGIN, y=footer_y, width=180)
