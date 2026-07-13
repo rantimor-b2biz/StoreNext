@@ -25,11 +25,11 @@ European treasurers already understand this. Per the EACT survey cited by Cygnet
 
 They are sequencing correctly. Visibility first, intelligence second.
 
-This is exactly where real-time connectivity becomes critical. Before AI can produce measurable ROI, the data underneath it has to be current and reconciled.
+This is exactly where automated, continuously updated bank connectivity becomes critical. Before AI can produce measurable ROI, the data underneath it has to be current and reconciled.
 
 That means:
 
-- Bank connectivity in real time, not batch downloads
+- Automated, continuously updated bank connectivity, not manual downloads
 - ERP integration without manual export cycles
 - Reconciliation that runs continuously, not at month-end
 - Exception rates you can actually measure
@@ -46,4 +46,4 @@ Heading into 2026 budget season, which comes first in your plan: the AI use case
 
 **First comment:** Full analysis here: https://storenext.com/insights/ai-top-cfo-priority-2026-real-time-treasury — including a four-point connectivity checklist for CFOs entering budget season.
 
-**Article:** AI Is Now a Top-3 CFO Priority for 2026. Real-Time Treasury Is the Proving Ground (attached to the email; upload to the website)
+**Article:** AI Is Now a Top-3 CFO Priority for 2026. Up-to-Date Treasury Visibility Is the Proving Ground (attached to the email; upload to the website — align the article's "real-time" claims to the same precise wording before publishing)

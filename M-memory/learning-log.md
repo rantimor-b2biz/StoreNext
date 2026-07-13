@@ -44,6 +44,21 @@ Embedded in `A-agents/copywriter-agent.md` → "Lead With Pain" section.
 
 ---
 
+## Ran's Feedback — No Overstated Tech Claims (2026-07-13)
+
+From the W28 Meteor post review: do not repeat "real-time" for capabilities that are
+not literally real-time. Precise alternatives Ran approved:
+- "Automated, continuously updated bank connectivity"
+- "Up-to-date financial visibility across banks and systems"
+
+Third-party quotes (surveys, analysts) that say "real-time" may stay, clearly attributed.
+The rule applies to OUR capability claims (StoreNext / Meteor). When unsure what the
+product actually delivers, ask Ran before publishing.
+
+Embedded in `A-agents/copywriter-agent.md` → "No Overstated Technology Claims" section.
+
+---
+
 ## Why Memory Matters
 
 > "Brain is what you feed the system. Memory is what the system learns."

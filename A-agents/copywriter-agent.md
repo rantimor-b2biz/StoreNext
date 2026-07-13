@@ -73,6 +73,24 @@ Good closing questions name a number, a role, or a readiness gap.
 
 ---
 
+## HARD RULE: No Overstated Technology Claims
+
+Never describe a product capability with stronger language than what it actually does.
+"Real-time" is a specific technical promise. If the product syncs periodically or
+continuously-but-not-instantly, do NOT write "real-time". Use precise phrasing instead:
+
+- ✅ "Automated, continuously updated bank connectivity"
+- ✅ "Up-to-date financial visibility across banks and systems"
+- ❌ "Real-time bank connectivity" (unless the product truly delivers real-time)
+
+Quoting a third party (a survey, an analyst) that uses "real-time" is fine — that is
+their claim about the market, clearly attributed. The rule applies to claims about
+StoreNext / Meteor capabilities. When unsure what the product actually does, ask Ran
+before publishing. A strong message with precise words beats a stronger message we
+cannot stand behind.
+
+---
+
 ## Workflow (6 Steps)
 
 ### Step 1: Load Researcher Research (5 min)
