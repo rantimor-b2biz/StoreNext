@@ -255,7 +255,7 @@ def _draw_footer(img, draw, brand="storenext"):
         logo = load_meteor_logo(dark_bg=True, width=380, include_tagline=False)
         if logo:
             # scale the METEOR wordmark to a fixed footer width
-            target_w = 210
+            target_w = 150   # visually matched to the 180px StoreNext footer logo
             ratio = target_w / logo.width
             logo = logo.resize((target_w, max(1, int(logo.height * ratio))),
                                Image.LANCZOS)
