@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W30-meteor",
+      "visual_type": "stat_card",
+      "category": "Financial Operations & Treasury",
+      "topic": "The Treasury AI Performance Gap",
+      "key_metric": "75%",
+      "hook": "Process-led AI transformation, not bolt-on tools, separates finance leaders from laggards.",
+      "key_stat": "Up to 75% performance advantage for process-led AI adopters. Workloads up 3.2%, headcount down 2.1%.",
+      "source": "The Hackett Group, AI World Class Finance benchmarks and 2026 Finance Key Issues Study",
+      "visual_direction": "Bold 75% stat card contrasting process-led adopters against a widening 5.3% productivity gap, clean enterprise styling.",
+      "brand": "meteor"
+    }
+  ]
+}
