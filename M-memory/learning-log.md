@@ -44,6 +44,30 @@ Embedded in `A-agents/copywriter-agent.md` → "Lead With Pain" section.
 
 ---
 
+## Ran's Feedback — Cross-Brand Topic Collision (W30, 2026-07-23)
+
+Ran caught that the W30 StoreNext post ("The Governance Gap... Agentic AI") landed
+3 days after the W30 Meteor post ("The AI Performance Gap in Treasury") — same
+"AI + Gap + Finance" theme and title formula, to the same CFO audience. Zooming
+out further: 4 posts in a row across both brands (W28, W29, W30 Meteor, W30
+StoreNext) all centered on AI-in-finance, and 3 of the last 4 titles used "The
+[X] Gap" as the headline formula.
+
+Root cause: topic dedup in `generate_article_and_post.py` was per-brand only —
+the StoreNext researcher never saw what Meteor published that same week, so it
+could not detect the collision even though both brands publish 3 days apart to
+overlapping readers.
+
+Fix: `stage1_research` now also passes the last 8 posts across BOTH brands as a
+"cross-brand check" the researcher must actively avoid echoing — same theme,
+same headline formula ("The [X] Gap"), or the same macro-topic (AI adoption/
+governance in finance) more than 2-3 weeks running. When AI-in-finance has
+dominated recently, the researcher is told to prefer pillar 1 (Supplier Portal
+core) or pillar 3 (procurement/CFO agenda, non-AI) instead, even if an AI
+angle is trending — variety across pillars beats chasing the same macro-theme.
+
+---
+
 ## Ran's Feedback — Post Structure + Correctness (W30, 2026-07-23)
 
 Ran scored the fully-automated W30 StoreNext post 8.5/10 — the auto-pipeline is
