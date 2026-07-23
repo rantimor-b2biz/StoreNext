@@ -42,3 +42,19 @@ Root-cause fix: `C-core/product-capabilities.md` now lists approved numbers
 for Supplier Portal (it previously only listed Meteor's, which the
 generator borrowed by proximity). Feedback embedded in
 `A-agents/copywriter-agent.md` and `M-memory/learning-log.md` for future runs.
+
+## Final polish round (2026-07-23, per Ran's line-edit)
+
+Ran line-edited the revised draft to 9.5/10: sharper opener ("Gartner made one
+thing clear" vs "warned"), removed the vague "three press releases" reference,
+replaced "sequencing" with the concrete "deployed AI before building the
+operational foundations", softened "most Enterprise organizations" to "many
+enterprise organizations" (unprovable superlative), reformatted the checkmark
+bullets onto separate lines for LinkedIn readability, and closed on "Trusted
+business context isn't another AI capability. It's the foundation every
+autonomous decision depends on."
+
+One HARD RULE violation caught before saving: the line-edited version
+reintroduced 3 em dashes ("transactions—but", "control gate—not", "posting—not
+audited"). Replaced with periods/commas per the zero-em-dash rule. Everything
+else adopted verbatim.
