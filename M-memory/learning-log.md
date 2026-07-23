@@ -44,6 +44,39 @@ Embedded in `A-agents/copywriter-agent.md` → "Lead With Pain" section.
 
 ---
 
+## Ran's Feedback — Post Structure + Correctness (W30, 2026-07-23)
+
+Ran scored the fully-automated W30 StoreNext post 8.5/10 — the auto-pipeline is
+working well, but flagged real issues plus one bug found independently in review:
+
+1. **Correctness bug (Gatekeeper miss):** the post/article used Meteor's approved
+   numbers (1,000+ ERP integrations / 400+ clients) for a Supplier Portal post.
+   Root cause: `C-core/product-capabilities.md` only listed approved numbers for
+   Meteor, so the model borrowed them by proximity. Fixed by adding Supplier
+   Portal's own numbers (300+ clients / 3M transactions/day) to that file, plus a
+   hard rule that numbers never cross products.
+2. **False attribution:** "The insight Gartner drew but did not name" attributed
+   the author's own conclusion to the cited source. Say "Our takeaway is simple"
+   instead — never imply a source said something it did not say.
+3. **Abrupt product pivot:** jumping straight from the macro insight to "This is
+   exactly where [product] becomes critical" reads as a pitch on cue. Bridge with:
+   name the reader-facing question the insight implies -> name the strongest
+   general candidate -> only then the product.
+4. **State the business-value thesis as a sentence**, not just an implication
+   (e.g. "AI creates value only when every autonomous decision can be trusted,
+   explained, and audited").
+5. **Bullets in business-outcome language**, not mechanism language (translate
+   "OCR validation" -> "every invoice validated before it reaches the ERP", etc).
+6. **Strategic positioning:** when relevant, close by pointing to StoreNext's
+   broader "trusted business context" thesis with the specific product as one
+   proof point, not the whole pitch — before the tactical closing question.
+
+Embedded in `A-agents/copywriter-agent.md` → "Your Interpretation Is Not Their
+Quote" and "Bridge Before the Product, Don't Jump" sections, plus the Gatekeeper
+checklist. Root-cause fix in `C-core/product-capabilities.md`.
+
+---
+
 ## Ran's Feedback — No Overstated Tech Claims (2026-07-13)
 
 From the W28 Meteor post review: do not repeat "real-time" for capabilities that are
