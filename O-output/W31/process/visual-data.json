@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W31-meteor",
+      "visual_type": "stat_card",
+      "category": "Financial Operations & Treasury",
+      "topic": "Fraud Prevention Rose. Losses Rose Too.",
+      "key_metric": "£1.28B",
+      "hook": "Record fraud prevention did not stop losses from rising. The gap is timing, not rules.",
+      "key_stat": "UK fraud losses hit £1.28B in 2025, up 4% despite £1.68B prevented.",
+      "source": "UK Finance Annual Fraud Report 2026, via Neopay",
+      "visual_direction": "Clean stat card contrasting record prevention against still-rising losses to frame detection lag as the real problem.",
+      "brand": "meteor"
+    }
+  ]
+}

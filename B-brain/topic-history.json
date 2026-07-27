@@ -63,5 +63,13 @@
     "topic": "The Governance Gap: Why Auditable Control Gates Must Precede Agentic AI in Finance",
     "pillar": "4. AI in enterprise finance & procurement — adoption, ROI, governance (with ties to Pillar 1, supplier document/compliance infrastructure)",
     "product_focus": "Supplier Portal"
+  },
+  {
+    "date": "2026-07-27",
+    "week": "W31",
+    "brand": "meteor",
+    "topic": "AI-Powered Payment Fraud Is Outrunning Treasury's Detection Speed",
+    "pillar": "Financial operations & treasury (Pillar 2)",
+    "product_focus": "Meteor"
   }
 ]
