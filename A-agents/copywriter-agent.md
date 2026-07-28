@@ -138,6 +138,18 @@ that product only. Never use Meteor's numbers in a Supplier Portal post or vice
 versa, and never borrow a number set because it is the only one in the file that
 looks close.
 
+**The core capability itself must be approved, not just its attribution.**
+Checking that a number or topic is attributed to the right product is a
+different check from verifying the product can do the thing being pitched at
+all. Before drafting, confirm the central claim (not just numbers or topic
+ownership) appears in `C-core/product-capabilities.md` for that exact
+product. A post can correctly avoid crediting the wrong product for a
+capability while still crediting the right product with a capability it does
+not have (e.g. pitching Meteor as fraud detection/prevention when Meteor has
+no such capability). If the capability is not listed, do not build a post
+around it, even if it fits the trending topic well. Flag it and pick another
+angle instead.
+
 **Close on strategic positioning before the tactical question**, when the topic
 supports StoreNext's broader "trusted business data / context layer" positioning —
 not only the specific product being featured. Frame the product as one proof point
@@ -208,6 +220,7 @@ For each angle provide:
 - [ ] A bridging beat connects the macro insight to the product, no abrupt pivot
 - [ ] Product bullets state business outcomes, not mechanisms
 - [ ] Any product proof numbers match that exact product in `C-core/product-capabilities.md`
+- [ ] The central capability being pitched (not just numbers/topic ownership) is explicitly listed for that product in `C-core/product-capabilities.md`
 - [ ] Solution-focused
 - [ ] Enterprise terminology
 - [ ] Mobile formatting applied
