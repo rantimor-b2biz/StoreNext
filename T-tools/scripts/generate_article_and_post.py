@@ -374,8 +374,8 @@ Return JSON in a ```json fenced block:
 
 # ---------------------------------------------------------------- stage 4: visual PNG
 
-def stage4_visual(visual: dict, process_dir: Path) -> Path | None:
-    vd_path = process_dir / "visual-data.json"
+def stage4_visual(visual: dict, process_dir: Path, suffix: str = "") -> Path | None:
+    vd_path = process_dir / f"visual-data{suffix}.json"
     vd_path.write_text(
         json.dumps({"posts": [visual]}, ensure_ascii=False, indent=2), encoding="utf-8"
     )
@@ -532,7 +532,7 @@ def main() -> int:
     if brand == "meteor":
         visual["brand"] = "meteor"
 
-    png = stage4_visual(visual, process_dir)
+    png = stage4_visual(visual, process_dir, suffix)
 
     # --- files (final-post.md format, unsuffixed, keeps the Firebase mediaPlan
     # sync working for the core StoreNext brand; Meteor runs are email-only)
