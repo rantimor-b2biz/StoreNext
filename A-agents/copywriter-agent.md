@@ -91,6 +91,62 @@ cannot stand behind.
 
 ---
 
+## HARD RULE: Your Interpretation Is Not Their Quote
+
+When a post analyzes a cited source (an analyst report, a survey, a conference),
+never attribute YOUR conclusion to THEM. If Gartner (or any source) did not say the
+exact takeaway in the post, say so plainly as your own synthesis.
+
+- ❌ "The insight Gartner drew but did not name: you do not start agentic AI with
+  the flashiest use case."
+- ❌ "The distinction Gartner drew across three headlines comes down to..."
+- ✅ "Our takeaway is simple. Do not start agentic AI with the flashiest use case."
+
+A professional reader who knows the source material will notice the false
+attribution immediately and lose trust in the whole piece. Owning the conclusion as
+ours is more credible, not less.
+
+---
+
+## HARD RULE: Bridge Before the Product, Don't Jump
+
+Never cut straight from a macro insight to "This is exactly where [product] becomes
+critical." That reads as a pitch arriving on cue. Insert one bridging beat that lets
+the reader arrive at the product themselves:
+
+1. State the insight (the trend, the gap, the risk).
+2. Ask the reader-facing question the insight implies ("which processes already
+   combine X, Y, and Z?" / "which of your processes already has this?").
+3. Name the strongest general candidate before naming your product ("for most
+   Enterprise organizations, accounts payable is one of the strongest candidates").
+4. Only then: "That is exactly why we built [product] around [the capability]."
+
+Also state the underlying business-value thesis explicitly, once, before the product
+appears — e.g. "AI creates value only when every autonomous decision can be trusted,
+explained, and audited." That sentence is often the real thesis of the post; make it
+a sentence, not just an implication.
+
+**Product bullets describe business outcomes, not mechanisms.** Translate every
+technical bullet to what the CFO buys:
+- ❌ "OCR validation on every incoming invoice" → ✅ "Every invoice validated before it reaches the ERP"
+- ❌ "Allocation numbers checked against invoice amount" → ✅ "Compliance enforced automatically before posting, not audited after the fact"
+- ❌ "Every action logged" → ✅ "Every AI-assisted decision fully traceable, end to end"
+
+**Numbers must belong to the product being pitched.** Check
+`C-core/product-capabilities.md` — each product's approved numbers are scoped to
+that product only. Never use Meteor's numbers in a Supplier Portal post or vice
+versa, and never borrow a number set because it is the only one in the file that
+looks close.
+
+**Close on strategic positioning before the tactical question**, when the topic
+supports StoreNext's broader "trusted business data / context layer" positioning —
+not only the specific product being featured. Frame the product as one proof point
+of that thesis, not the whole pitch: "Trusted business context is not a future AI
+capability. It is the prerequisite agentic AI has been missing." then the specific
+closing question.
+
+---
+
 ## Workflow (6 Steps)
 
 ### Step 1: Load Researcher Research (5 min)
@@ -148,6 +204,10 @@ For each angle provide:
 - [ ] Every mechanism is translated to a business consequence (payment delay, audit, VAT risk, manual work)
 - [ ] Includes a "most / very few" contrast line where relevant
 - [ ] Closing question names a number, a role, or a readiness gap
+- [ ] No conclusion is falsely attributed to a cited source ("our takeaway", not "the insight X drew but did not name")
+- [ ] A bridging beat connects the macro insight to the product, no abrupt pivot
+- [ ] Product bullets state business outcomes, not mechanisms
+- [ ] Any product proof numbers match that exact product in `C-core/product-capabilities.md`
 - [ ] Solution-focused
 - [ ] Enterprise terminology
 - [ ] Mobile formatting applied

@@ -10,6 +10,10 @@
 Buyer: CFO (primary), Procurement Director (secondary).
 The portal sits between suppliers and the ERP — a communication, document and
 compliance gate.
+Approved numbers: 300+ Enterprise clients / 20,000+ suppliers / 20B+ ₪ annual
+procurement volume / 3 million transactions per day. NEVER use Meteor's numbers
+(1K+ ERP integrations / 400+ clients / 150+ global banks) for Supplier Portal —
+they are a different product with a different client base.
 
 - Centralized supplier communication and structured updates (one place, not scattered emails)
 - Digital document and invoice flow from suppliers into the organization
@@ -35,3 +39,8 @@ Approved numbers: 20K+ transactions / 1K+ ERP integrations / 400+ clients / 150+
 - NEVER use "40 years" as positioning.
 - Invoice/allocation-number/CTC compliance topics belong to **Supplier Portal**, not Meteor.
 - Retail Analytics ("Market & Consumer Intelligence") = website presence only, no active marketing content.
+- **Numbers belong to their own product only.** Each product's "Approved numbers"
+  line above is scoped to that product. Never borrow another product's numbers
+  because they are nearby in this file or because a post's product_focus is
+  ambiguous. If unsure which number set applies, use neither and describe scale
+  generically ("at Enterprise scale") instead of inventing or borrowing a figure.
