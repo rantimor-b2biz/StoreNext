@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W30-meteor",
+      "visual_type": "stat_card",
+      "brand": "meteor",
+      "category": "Financial Operations & Treasury",
+      "topic": "The Treasury AI Performance Gap",
+      "key_metric": "75%",
+      "hook": "Process-led AI transformation, not bolt-on tools, separates finance leaders from laggards.",
+      "source": "The Hackett Group, AI World Class Finance benchmarks and 2026 Finance Key Issues Study",
+      "visual_direction": "Bold stat card leading with the 75% performance advantage Hackett measured for process-led AI transformation over bolt-on adoption."
+    }
+  ]
+}

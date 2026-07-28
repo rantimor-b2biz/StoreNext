@@ -7,11 +7,11 @@
 
 ---
 
-The Hackett Group just gave the treasury AI gap a number.
+Bank balances that update on a lag. Forecasts built by hand in Excel from exports that were already stale on export. Systems that do not talk to each other, so the real work still lands on one person and a spreadsheet.
+
+Most treasury teams know this gap firsthand. Now the Hackett Group has given it a number.
 
 And it is not a technology gap. It is a performance gap.
-
-For two years, CFOs suspected that AI adoption was splitting finance teams into leaders and laggards. Now there is a benchmark for it.
 
 Hackett's new AI World Class Finance benchmarks cover order-to-cash, account-to-report, treasury and risk, and FP&A. Their finding is consistent. Process-led AI transformation delivers performance advantages of up to 75% over peers who bolt AI onto existing workflows.
 
@@ -21,17 +21,23 @@ Those four processes look separate. They share one root cause when they underper
 
 Treasury forecasting from batch bank feeds works on stale risk. FP&A forecasting from disconnected systems inherits every upstream delay. AI applied to that data does not close the gap. It reveals it faster.
 
-This is exactly where real-time bank and ERP connectivity becomes critical. Not as a feature, but as the prerequisite.
+AI in treasury is only as effective as the financial data and processes beneath it.
 
-- Real-time visibility across every connected bank account, not periodic feeds
-- Deep ERP integration as the source of truth, not exported snapshots
-- Process redesign around the data layer, not around the AI tool
+Real-time bank connectivity and deep ERP integration are not the feature. They are the prerequisite for the outcomes CFOs actually want:
+
+- A cash position you can trust in the moment, not reconstructed at month-end
+- Forecasts built on what is happening now, not on last week's export
+- Risk and exposure visible as they emerge, so decisions happen before they compound
 
 Hackett's 2026 study frames the urgency. Finance workloads rise 3.2% while headcount falls 2.1% and budgets fall 1.7%. That 5.3% productivity gap does not close through headcount.
 
-The insight is simple. Better AI models will not close this gap. The data infrastructure underneath them will.
+Better infrastructure alone will not close it either. It takes the data layer, the process built around it, and the governance to trust what it produces.
 
-Which comes first in your 2026 plan: the AI tool, or the real-time data it depends on?
+The real question for finance leaders is not whether to adopt AI. It is whether their treasury data is ready for it.
+
+Without real-time bank connectivity, reliable ERP integration, and a unified cash position, AI is working on yesterday's financial reality.
+
+In treasury, better decisions begin with better visibility.
 
 #Treasury #FinancialOperations #CFO #FinanceTransformation #ERP #TreasuryManagement #Fintech
 
