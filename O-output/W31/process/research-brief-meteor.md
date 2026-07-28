@@ -2,49 +2,41 @@
 
 ```json
 {
-  "topic": "AI-Powered Payment Fraud Is Outrunning Treasury's Detection Speed",
+  "topic": "Why Most Treasury Forecasts Are Wrong Before AI Ever Touches Them",
   "pillar": "Financial operations & treasury (Pillar 2)",
   "product_focus": "Meteor",
-  "angle": "Fraud losses are rising not because controls are absent, but because detection still runs in batches while attacks run in real time. StoreNext's angle: the CFO's real defense isn't another fraud rule engine, it's closing the time gap between a payment leaving the bank and its reconciliation against ERP records. AI-native, real-time reconciliation and bank connectivity turn detection from a next-day discovery into a same-session control.",
-  "why_now": "Three independent 2026 fraud reports (AFP/Truist, UK Finance, Trustpair) and a Federal Reserve risk-officer survey have all published within the same window, each confirming that AI-powered fraud attempts are accelerating faster than manual and batch-based treasury controls can respond. This is a live, converging news cycle, not a single report.",
+  "angle": "The constraint on better treasury forecasting is rarely the AI model, it is the data feeding it. Most Enterprise treasuries still consolidate cash positions across many banks by hand, and PwC's 2025 Global Treasury Survey shows this is closer to the median than the exception. Meteor's angle: bank aggregation (direct connectivity to every Israeli bank and 150+ global banks) is the prerequisite for any forecasting or AI initiative in treasury, not an optional upgrade to it.",
+  "why_now": "AI-in-treasury is the dominant 2026 finance conversation, but PwC's 2025 Global Treasury Survey (still the most current authoritative data point on manual vs automated treasury data collection) shows the underlying data problem is unresolved. This grounds an AI-adjacent post in Meteor's actual core capability (bank aggregation) rather than a capability Meteor does not have.",
   "key_facts": [
     {
-      "fact": "76% of organizations reported being a victim of an attempted or actual payment fraud attack, per the 2026 AFP Payments Fraud and Control Report, underwritten by Truist.",
-      "source": "AFP (Association for Financial Professionals) — financialprofessionals.org"
+      "fact": "38% to 52% of organizations still collect forecasting data manually.",
+      "source": "PwC 2025 Global Treasury Survey — pwc.com/us/en/services/consulting/finance-accounting-transformation/library/2025-global-treasury-survey.html"
     },
     {
-      "fact": "71% of companies reported an increase in AI-powered fraud attempts over the past year, yet nearly half still rely on manual validation methods to protect payments.",
-      "source": "Trustpair 2026 U.S. Fraud Report — trustpair.com"
+      "fact": "Only 57% of respondents use a treasury management system (TMS) at all.",
+      "source": "PwC 2025 Global Treasury Survey"
     },
     {
-      "fact": "Criminals stole £1.28 billion through payment fraud in the UK in 2025, a four percent year-over-year increase, despite £1.68 billion in fraud prevented.",
-      "source": "UK Finance Annual Fraud Report 2026, via Neopay — neopay.co.uk"
+      "fact": "36% still incorporate manual processes even in how currency exposure is captured and hedged.",
+      "source": "PwC 2025 Global Treasury Survey"
     },
     {
-      "fact": "Federal Reserve Financial Services surveyed more than 400 risk professionals at financial institutions in Q4 2025 and found fraud challenges rising across all payment types.",
-      "source": "Federal Reserve Financial Services, 2026 Risk Officer Report — frbservices.org"
-    },
-    {
-      "fact": "Automation across core treasury functions averages only 48%, leaving a significant manual gap that fraud and errors can exploit.",
-      "source": "Euromoney, 2026 Economic Outlook: Impact on Treasury — euromoney.com"
-    },
-    {
-      "fact": "Moving from batch-based SWIFT messaging to real-time APIs enables intraday cash positioning, described as the baseline for effective liquidity management and control in 2026.",
-      "source": "The Global Treasurer, 'A 3-Step Blueprint for Closing the Cash Visibility Gap' — theglobaltreasurer.com"
+      "fact": "Open banking and account aggregation adoption is accelerating broadly: the account aggregation market is valued at $4.7B in 2026, and 35% of SMB owners now use open banking for cash flow monitoring, up from 27% the prior year.",
+      "source": "CoinLaw / SQ Magazine open banking adoption statistics, 2026 (market-sizing context only, not used as a claim about Meteor)"
     }
   ],
   "article_outline": [
-    "The Fraud Surge No CFO Can Ignore: what the 2026 reports actually show",
-    "Why Traditional Controls Are Losing the Race: batch cycles, manual validation, and the 48% automation ceiling",
-    "The Detection Lag: how fraud exploits the gap between payment execution and reconciliation",
-    "Real-Time Bank Connectivity as the New Control Layer: from batch SWIFT to live APIs",
-    "From Detection to Prevention: continuous, AI-native reconciliation at enterprise scale",
-    "What CFOs Should Do Now: a control checklist for closing the reconciliation gap"
+    "The Manual Step Nobody Budgets For: PwC's manual-collection and TMS-adoption figures",
+    "Why One Bank Can Never See the Whole Picture: multi-bank, multi-entity fragmentation",
+    "Where AI Fits, and Where It Does Not: sequencing data before models",
+    "What Bank Aggregation Actually Requires: direct connectivity, ERP integration, open banking",
+    "Where Meteor Fits: bank aggregation, ERP integration, payments, treasury/cash flow forecasting, IFRS 16 lease accounting, FX rate automation",
+    "A Checklist for Treasury Leaders"
   ],
   "candidates_considered": [
-    "Gartner's finance AI value-creation gap (84% adoption, 7% high impact) — too similar to recently covered Hackett AI-performance-gap piece",
-    "Real-time bank connectivity and the cash visibility gap in treasury — strong product fit, but framed as evergreen rather than this-week news",
-    "AI-powered payment fraud outrunning treasury's detection speed — selected: converging fresh 2026 reports, strong Meteor capability match"
+    "Why Most Treasury Forecasts Are Wrong Before AI Ever Touches Them (bank aggregation / data fragmentation) — SELECTED",
+    "AI-Powered Payment Fraud Is Outrunning Treasury's Detection Speed — REJECTED: fraud detection/prevention is not an approved Meteor capability (see C-core/product-capabilities.md). The entire W31 draft was rebuilt from this rejected angle on 2026-07-27 per Ran's direction.",
+    "IFRS 16 lease accounting compliance complexity as a standalone angle"
   ]
 }
 ```

@@ -7,38 +7,36 @@
 
 ---
 
-Fraud prevention in the UK hit a record £1.68 billion in 2025.
+Most treasury teams do not bank with one institution. They bank with many, across accounts, currencies, and entities.
 
-Losses still rose to £1.28 billion.
+They still build the consolidated cash position by hand.
 
-Better rules are not closing the gap. Timing is the problem.
+PwC's 2025 Global Treasury Survey found that 38% to 52% of organizations still collect forecasting data manually. Only 57% use a treasury management system at all. More than a third still fall back on manual work even when hedging live currency exposure.
 
-Here is why this keeps happening.
+Here is what that costs.
 
-Most treasury controls still run on a schedule. Payments execute in real time. Reconciliation runs overnight, or the next morning.
+A forecast built from exports and email is a forecast built on what was true yesterday. Every bank added, every entity opened, adds one more manual step between a transaction and the number a CFO actually sees.
 
-That window between execution and reconciliation is where fraud lives. By the time a discrepancy surfaces, the funds have often moved again.
+The problem is not effort. Treasury teams are not careless. The problem is that no single bank can give a multi-bank company a complete view, and stitching that view together by hand does not scale past a handful of accounts.
 
-The 2026 data makes the structural gap clear:
+That is the real question behind every AI-in-treasury conversation this year. AI can forecast faster. It cannot forecast on data nobody has consolidated yet.
 
-Euromoney reports treasury automation averages only 48%. Trustpair found 71% of companies saw more AI-powered fraud attempts this year, yet nearly half still rely on manual validation.
+For most Enterprise treasuries, the starting point is not a smarter model. It is connecting every bank account into one place.
 
-Real-time attacks are running through half-automated infrastructure.
+That is what Meteor's bank aggregation was built for:
 
-This is exactly where real-time bank connectivity and continuous reconciliation become critical:
+- Direct connectivity to every Israeli bank and 150+ of the largest banks worldwide, not a subset stitched together manually
+- One consolidated, current cash position instead of a spreadsheet rebuilt from exports
+- Forecasts and ERP data drawn from the same connected source, not two systems reconciled by hand
 
-- Payments reconciled against ERP records in the same session, not the next day
-- Live connectivity across 150+ global banks, not a subset
-- Continuous matching that surfaces a mismatch as it settles
+A forecast is only as current as the accounts feeding it. Most treasuries are still forecasting on a lag they built themselves.
 
-The insight for CFOs is simple. A rule that flags an anomaly 18 hours late is not a control. It is a record of what already happened.
+How many banks does your team log into by hand before it can answer what your cash position is today?
 
-How many hours pass today between a payment leaving your bank and its reconciliation against your ERP?
-
-#TreasuryManagement #FinancialOperations #PaymentFraud #CFO #FraudPrevention #FinTech #Reconciliation
+#TreasuryManagement #CashManagement #FinancialOperations #CFO #OpenBanking #Fintech #TreasuryTechnology
 
 ---
 
-**First comment:** Full analysis of the 2026 fraud reports and the detection lag here: [link to storenext.co.il/insights]. The section on treating reconciliation as a control, not an audit step, is where most treasury teams find their gap.
+**First comment:** Full analysis of PwC's 2025 Global Treasury Survey and what multi-bank fragmentation costs forecast accuracy here: [link to storenext.co.il/insights]. Includes a checklist for auditing how many manual steps sit between your banks and your forecast.
 
-**Article:** Payment Fraud Now Moves Faster Than Treasury Can Detect It (attached to the email; upload to the website)
+**Article:** Why Most Treasury Forecasts Are Wrong Before AI Ever Touches Them (attached to the email; upload to the website)

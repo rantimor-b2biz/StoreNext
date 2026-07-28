@@ -1,82 +1,60 @@
-# Payment Fraud Now Moves Faster Than Treasury Can Detect It
+# Why Most Treasury Forecasts Are Wrong Before AI Ever Touches Them
 
-Fraud losses are not rising because controls are missing. They are rising because detection still runs on a schedule, while attacks do not.
+Most Enterprise treasury teams do not bank with one institution. They bank with many, across entities, currencies, and countries. Every one of those relationships adds a login, an export, and a manual step between a transaction and the number a CFO ultimately sees.
 
-Multiple independent reports published within the same window in 2026 confirm this pattern. Each one shows AI-powered fraud accelerating faster than the manual and batch-based controls built to stop it.
+PwC's 2025 Global Treasury Survey puts a figure on how widespread that manual layer still is. Between 38% and 52% of organizations still collect forecasting data manually. Only 57% of respondents use a treasury management system at all, and more than a third still fall back on manual processes even when hedging live currency exposure.
 
-For CFOs, this is not a security footnote. It is a treasury operations problem with a direct line to cash, reconciliation, and audit exposure.
+For CFOs evaluating where to invest in AI, this is the finding that matters most. The constraint on better forecasting is rarely the model. It is the data feeding it.
 
-## The Fraud Surge No CFO Can Ignore
+## The Manual Step Nobody Budgets For
 
-The numbers are no longer abstract.
+Treasury teams are not careless. The manual work is a rational response to a structural problem: no single bank can give a multi-bank company a complete view of its own cash.
 
-According to the 2026 AFP Payments Fraud and Control Report, underwritten by Truist, 76% of organizations reported being the target of an attempted or actual payment fraud attack. That is not a niche risk. It is a majority experience.
+A treasurer managing accounts across five banks and three currencies typically logs into each banking portal separately, exports a balance, and reconciles it by hand against the ERP. That process repeats daily or weekly, depending on how much risk the organization is willing to carry on stale numbers.
 
-The UK Finance Annual Fraud Report 2026, cited via Neopay, puts a figure on the damage. Criminals stole £1.28 billion through payment fraud in the UK in 2025. That is a four percent year-over-year increase, despite £1.68 billion in fraud prevented over the same period.
+PwC's data shows this is not an edge case. It is closer to the median. Manual data collection at the rate PwC measured means that for roughly half of organizations surveyed, a treasury forecast is, in practice, a spreadsheet assembled from several other spreadsheets.
 
-Prevention is improving. Losses are still growing. That gap is the story.
+## Why One Bank Can Never See the Whole Picture
 
-The Federal Reserve Financial Services 2026 Risk Officer Report reinforces the trend from the institutional side. The Fed surveyed more than 400 risk professionals at financial institutions in Q4 2025. Fraud challenges were reported as rising across all payment types, not concentrated in one channel.
+The fragmentation problem compounds with scale. Every additional legal entity, every new banking relationship opened for local currency or regulatory reasons, adds another manual step to the consolidation process.
 
-Different sources. Different methodologies. One converging signal: fraud is accelerating faster than the systems meant to catch it.
+This is why cash visibility, not AI capability, is the recurring theme in 2026 treasury technology coverage. Industry discussion has increasingly framed the challenge as one of orchestration: connecting payments, collections, liquidity, and risk management into a single, current view, rather than layering another point tool on top of a fragmented one.
 
-## Why Traditional Controls Are Losing the Race
+A forecast built from that fragmented view inherits every delay in the consolidation process. If a balance is a day old by the time it reaches a spreadsheet, the forecast built on it is a day behind before anyone has done anything wrong.
 
-The reason is structural, not a failure of any single vendor or team.
+## Where AI Fits, and Where It Does Not
 
-The Trustpair 2026 U.S. Fraud Report found that 71% of companies saw an increase in AI-powered fraud attempts over the past year. Yet nearly half still rely on manual validation to protect payments.
+AI is entering nearly every part of enterprise finance, and treasury forecasting is no exception. Better models can identify seasonality, flag anomalies, and tighten forecast ranges faster than a human analyst working in a spreadsheet.
 
-Manual validation was built for a world of predictable fraud patterns and periodic review cycles. AI-generated fraud does not wait for a review cycle. It adapts within it.
+None of that helps if the model is trained on data that was already stale when it was collected. An AI forecasting engine pointed at a manually assembled, day-old cash position will produce a fast, confident answer to the wrong question.
 
-Euromoney's 2026 Economic Outlook: Impact on Treasury found that automation across core treasury functions averages only 48%. That leaves more than half of treasury operations exposed to the exact manual gaps that fraud and reconciliation errors exploit.
+This is the sequencing question CFOs should be asking before funding an AI initiative in treasury: is the account data feeding the model current and complete, or is it still assembled by hand from a subset of the organization's banking relationships? Better AI models will not close a data gap that was never about the model.
 
-This is the structural problem. Treasury teams are running real-time risk through half-automated infrastructure.
+## What Bank Aggregation Actually Requires
 
-## The Detection Lag: Where Fraud Actually Lives
+Closing this gap requires direct bank connectivity, not another dashboard sitting on top of manual exports. Three requirements recur across how treasury technology is being rebuilt in 2026.
 
-Fraud does not succeed at the moment a payment is authorized. It succeeds in the window before anyone notices the payment was wrong.
+**Direct connectivity across every banking relationship, not a subset.** A treasury platform that connects to a handful of major banks still leaves regional and local accounts to manual consolidation. Coverage has to match the organization's actual banking footprint.
 
-That window is the detection lag. It is the time between a payment leaving the bank and its reconciliation against ERP records.
+**ERP integration as the source of truth.** Bank data and ERP data need to reconcile from a connected source, not from two systems updated on different schedules by different people.
 
-In a batch-based environment, that window can span a full business day. A payment executes in the morning. Reconciliation runs that night, or the next morning. By the time a discrepancy surfaces, the funds have often moved again.
+**Open banking as the delivery mechanism.** Direct, API-based connectivity replaces the manual export-and-upload cycle that PwC's data shows is still the default for roughly half of organizations.
 
-This is not a fraud rule problem. Most organizations already have fraud rules. The problem is timing. A rule engine that flags an anomaly 18 hours after the fact is not a control. It is a record of what already happened.
+## Where Meteor Fits
 
-Closing the detection lag, not adding another rule layer, is the more defensible control for CFOs to fund in 2026.
+Meteor was built around this specific problem: giving Enterprise treasury teams one consolidated, current view of cash across every banking relationship they hold.
 
-## Real-Time Bank Connectivity as the New Control Layer
+Meteor connects directly to every Israeli bank and to more than 150 of the largest banks worldwide, operating under an Israel Securities Authority license and built on open banking connectivity rather than manual exports. It integrates with the leading ERP systems an organization already runs, so bank data and ERP data draw from the same connected source. On top of that foundation sit the capabilities treasury teams build their forecasts and controls around: a treasury and cash flow forecasting system, payments initiated directly from the ERP and routed to banks or via SWIFT, IFRS 16 lease accounting management, and automatic FX rate import so reporting reflects current exchange rates rather than a rate imported last week.
 
-The infrastructure shift required here is already underway in leading treasury functions.
+AI is being integrated across these capabilities as the connected data layer matures, from forecasting to reconciliation. That sequencing matters. AI improves a forecast. It does not create the consolidated, current account data a forecast depends on in the first place.
 
-The Global Treasurer's 2026 blueprint for closing the cash visibility gap identifies the move from batch-based SWIFT messaging to real-time APIs as the baseline for effective liquidity management and control. Not an advantage. A baseline.
+## A Checklist for Treasury Leaders
 
-Real-time bank connectivity does two things at once. It gives treasury intraday visibility into cash positions. It also gives treasury the ability to reconcile a payment against ERP records in the same session it was executed, not the next business day.
+Before evaluating an AI tool for treasury forecasting, CFOs and treasury leaders should assess the data layer underneath it:
 
-StoreNext's Meteor platform connects to more than 150 global banks, enabling this kind of live connectivity across an organization's full banking relationships rather than a subset. For CFOs managing multiple entities and currencies, that breadth matters as much as the speed.
+- **Count the manual steps.** How many banking portals does your team log into by hand before assembling a consolidated cash position?
+- **Benchmark against PwC's findings.** If your organization collects forecasting data manually, you are not an outlier. You are the median, and the fix is a data problem, not a modeling problem.
+- **Check coverage, not just connectivity.** A platform connected to your largest banks but not your regional or local accounts still leaves a manual gap.
+- **Sequence AI investment correctly.** Fund the bank aggregation and ERP integration layer first. A forecasting model is only as current as the accounts feeding it.
 
-## From Detection to Prevention: Continuous, AI-Native Reconciliation
-
-Detection speed is only half the answer. The other half is what reconciliation does with that speed.
-
-Batch reconciliation treats matching as a periodic audit function, something that happens after the fact to confirm what already occurred. AI-native reconciliation treats matching as a continuous control, running against every transaction as it settles.
-
-At enterprise scale, this distinction compounds. Meteor processes more than 20,000 transactions across 1,000-plus ERP integrations for 400-plus enterprise clients. At that volume, a same-day discrepancy is not a minor delay. It is a fraud window.
-
-Continuous reconciliation closes that window by design. A mismatch between a bank record and an ERP entry surfaces within the same session, not the next cycle. That turns fraud detection from a forensic exercise into an operational one.
-
-Your ERP remains the source of truth. Real-time reconciliation does not replace it. It keeps that source of truth current, transaction by transaction, instead of updated once a day.
-
-## What CFOs Should Do Now
-
-The 2026 fraud data points to a specific, actionable gap, not a call for more vendor tools.
-
-CFOs and treasury leaders should assess four things:
-
-- **Measure the current detection lag.** Know exactly how many hours pass between payment execution and ERP reconciliation today.
-- **Audit automation coverage.** Compare your treasury automation rate against the 48% industry average cited by Euromoney. Identify which functions still depend on manual validation.
-- **Evaluate bank connectivity.** Determine whether your organization still relies on batch SWIFT messaging where real-time APIs are available.
-- **Treat reconciliation as a control, not an audit step.** Reconciliation frequency should match payment frequency, not a fixed daily or weekly schedule.
-
-Fraud losses rose in the UK despite record levels of prevention. That is the clearest evidence available that better rules alone are not closing the gap. Faster reconciliation is.
-
-StoreNext's Meteor platform was built for this specific problem. It connects real-time bank data to ERP reconciliation, so discrepancies surface in the same session a payment settles, not the next business cycle. For organizations still measuring detection in days, closing that window is the control that matters most in 2026.
+The treasury teams closing this gap in 2026 are not the ones with the most sophisticated forecasting models. They are the ones who stopped assembling their cash position by hand.
