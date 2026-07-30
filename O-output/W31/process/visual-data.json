@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W31",
+      "visual_type": "process_flow",
+      "category": "Procurement Compliance",
+      "topic": "From Annual Audits to Continuous Documentation",
+      "key_metric": "Point-in-time to continuous",
+      "hook": "The compliance perimeter is moving from the finance close to the supplier file.",
+      "key_stat": "Continuous supplier risk monitoring is replacing periodic reviews as the 2026 baseline.",
+      "source": "Kodiak Hub, 2026 Procurement Trends",
+      "visual_direction": "A two-stage flow contrasting an annual snapshot audit against a centralized, timestamped, ERP-connected documentation model."
+    }
+  ]
+}
