@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W32-meteor",
+      "visual_type": "stat_card",
+      "category": "Treasury & Liquidity",
+      "topic": "CFOs' Top 2026 Liquidity Risk",
+      "key_metric": "38%",
+      "hook": "Cash flow forecasting is now CFOs' top liquidity risk for 2026, ahead of market volatility.",
+      "key_stat": "38% of CFOs and treasurers rank forecasting first. Market volatility ranks second, at 35%.",
+      "source": "J.P. Morgan, 2026 CFO Outlook survey",
+      "visual_direction": "Clean stat card leading with 38%, contrasting forecasting versus 35% market volatility to frame the inward shift in CFO risk focus.",
+      "brand": "meteor"
+    }
+  ]
+}
