@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W33-meteor",
+      "visual_type": "stat_card",
+      "category": "Financial Operations & Treasury",
+      "topic": "The November 2026 Payments Deadline",
+      "key_metric": "Nov 2026",
+      "hook": "Unstructured postal addresses stop clearing cross-border payment messages.",
+      "key_stat": "Structured Country and Town Name fields become mandatory for RTGS and cross-border transfers.",
+      "source": "Kyriba, State Street",
+      "visual_direction": "Clean stat card anchored on the Nov 2026 date, with a short subline stating structured fields become mandatory and the burden originates in the ERP.",
+      "brand": "meteor"
+    }
+  ]
+}
