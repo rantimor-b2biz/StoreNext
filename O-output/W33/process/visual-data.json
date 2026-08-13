@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W33",
+      "visual_type": "stat_card",
+      "category": "Procurement & CFO Agenda",
+      "topic": "Payment Terms Decided Without Supplier Data",
+      "key_metric": "15%",
+      "hook": "Only 15% of organizations weigh supplier financial health when setting payment terms.",
+      "key_stat": "66% rate the 2026 supply environment high-risk, yet only 15% integrate supplier financial health into terms decisions.",
+      "source": "RapidRatings Annual Risk Report 2026",
+      "visual_direction": "Clean stat card foregrounding 15% against the 66% risk-perception figure, framing payment-terms extension as a blind decision."
+    }
+  ]
+}
