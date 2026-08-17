@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W34-meteor",
+      "visual_type": "stat_card",
+      "category": "Financial Operations",
+      "topic": "One Lease Change, Five Financial Outputs",
+      "key_metric": "5",
+      "hook": "A single lease amendment moves liability, ROU asset, depreciation, interest, and disclosures at once.",
+      "key_stat": "One change touches 5 outputs simultaneously across the balance sheet.",
+      "source": "House of Control, 2026",
+      "visual_direction": "Bold '5' at center with five connected output labels radiating from a single lease-change icon, clean enterprise palette, high white space.",
+      "brand": "meteor"
+    }
+  ]
+}
