@@ -44,6 +44,63 @@ Embedded in `A-agents/copywriter-agent.md` → "Lead With Pain" section.
 
 ---
 
+## Ran's Feedback — Cross-Brand Topic Collision (W30, 2026-07-23)
+
+Ran caught that the W30 StoreNext post ("The Governance Gap... Agentic AI") landed
+3 days after the W30 Meteor post ("The AI Performance Gap in Treasury") — same
+"AI + Gap + Finance" theme and title formula, to the same CFO audience. Zooming
+out further: 4 posts in a row across both brands (W28, W29, W30 Meteor, W30
+StoreNext) all centered on AI-in-finance, and 3 of the last 4 titles used "The
+[X] Gap" as the headline formula.
+
+Root cause: topic dedup in `generate_article_and_post.py` was per-brand only —
+the StoreNext researcher never saw what Meteor published that same week, so it
+could not detect the collision even though both brands publish 3 days apart to
+overlapping readers.
+
+Fix: `stage1_research` now also passes the last 8 posts across BOTH brands as a
+"cross-brand check" the researcher must actively avoid echoing — same theme,
+same headline formula ("The [X] Gap"), or the same macro-topic (AI adoption/
+governance in finance) more than 2-3 weeks running. When AI-in-finance has
+dominated recently, the researcher is told to prefer pillar 1 (Supplier Portal
+core) or pillar 3 (procurement/CFO agenda, non-AI) instead, even if an AI
+angle is trending — variety across pillars beats chasing the same macro-theme.
+
+---
+
+## Ran's Feedback — Post Structure + Correctness (W30, 2026-07-23)
+
+Ran scored the fully-automated W30 StoreNext post 8.5/10 — the auto-pipeline is
+working well, but flagged real issues plus one bug found independently in review:
+
+1. **Correctness bug (Gatekeeper miss):** the post/article used Meteor's approved
+   numbers (1,000+ ERP integrations / 400+ clients) for a Supplier Portal post.
+   Root cause: `C-core/product-capabilities.md` only listed approved numbers for
+   Meteor, so the model borrowed them by proximity. Fixed by adding Supplier
+   Portal's own numbers (300+ clients / 3M transactions/day) to that file, plus a
+   hard rule that numbers never cross products.
+2. **False attribution:** "The insight Gartner drew but did not name" attributed
+   the author's own conclusion to the cited source. Say "Our takeaway is simple"
+   instead — never imply a source said something it did not say.
+3. **Abrupt product pivot:** jumping straight from the macro insight to "This is
+   exactly where [product] becomes critical" reads as a pitch on cue. Bridge with:
+   name the reader-facing question the insight implies -> name the strongest
+   general candidate -> only then the product.
+4. **State the business-value thesis as a sentence**, not just an implication
+   (e.g. "AI creates value only when every autonomous decision can be trusted,
+   explained, and audited").
+5. **Bullets in business-outcome language**, not mechanism language (translate
+   "OCR validation" -> "every invoice validated before it reaches the ERP", etc).
+6. **Strategic positioning:** when relevant, close by pointing to StoreNext's
+   broader "trusted business context" thesis with the specific product as one
+   proof point, not the whole pitch — before the tactical closing question.
+
+Embedded in `A-agents/copywriter-agent.md` → "Your Interpretation Is Not Their
+Quote" and "Bridge Before the Product, Don't Jump" sections, plus the Gatekeeper
+checklist. Root-cause fix in `C-core/product-capabilities.md`.
+
+---
+
 ## Ran's Feedback — No Overstated Tech Claims (2026-07-13)
 
 From the W28 Meteor post review: do not repeat "real-time" for capabilities that are
@@ -542,3 +599,64 @@ Every content sprint is 5 days (Thursday-Monday), not flexible. Plan accordingly
 > **© Tom Even**
 > Workshops & future dates: [www.getagents.today](https://www.getagents.today)
 > Newsletter: [www.agentsandme.com](https://www.agentsandme.com)
+
+---
+
+## Ran's Feedback — W34 StoreNext, Supplier Onboarding (2026-08-20)
+
+Ran called the base and the hook strong, but would not have published as-is. He
+independently verified the source before reviewing, which is worth noting: he checks.
+
+**1. A statistic supports only what it measured.**
+The post said single/sole-source supplier loss rose 7% domestically and 11%
+internationally, then concluded "Concentration risk is rising exactly where onboarding
+controls are weakest." Vital Signs 2026 measures supplier loss and visibility. It never
+examined onboarding practices and never tested a link between them. The numbers were
+right and the sentence built on them was not.
+
+Fix: state what the source measured, then state our inference in a separate sentence and
+own it as ours. Watch the smuggling words: *exactly where*, *because*, *which is why*,
+*driven by*.
+
+**2. Absolute claims break on contact with an expert reader, and vendor sources cannot
+carry them.**
+"The only window with full leverage is before the first purchase order" came from
+LeanLinking, a procurement software vendor's guidance page. Any procurement director can
+name contract renewal, periodic review and re-tendering as counter-examples. Ran's
+rewrite: onboarding is "one of the most important opportunities to build control and
+visibility before operational dependency forms."
+
+Two rules from this: no absolutes, and check the *source type* before letting a
+categorical claim rest on it. A vendor blog is market colour, never proof.
+
+**3. Product bullets must answer the problem the post established.**
+Ran: "זה מרגיש כאילו התאמתם את הבעיה לפיצ'רים של StoreNext." The post argued onboarding
+and supplier risk, then the first bullet jumped to invoices and allocation numbers.
+
+The root cause is the important part. Revision 1's Gatekeeper correctly stripped the
+unapproved onboarding capabilities (sanctions screening, beneficial-ownership
+verification, conditional activation, continuous refresh). That left the CTC invoice gate
+as the only approved capability that could fill the bullets, and the draft kept the
+premise and swapped the feature in. The existing rule catches claiming what we cannot do.
+It did not catch keeping a premise the product does not answer.
+
+**New rule:** when the Gatekeeper strips an unapproved capability, re-check the premise,
+not just the bullets. If what remains does not answer the post's problem, the topic was
+built on something we do not have. Change the angle, or frame the argument generically
+and name StoreNext only for what it genuinely does. Never backfill with the nearest
+approved feature.
+
+**Pattern across W30, W31, W34.** All three failed at the seam between market argument
+and product. W30 was a false attribution and an abrupt pivot. W31 pitched a capability
+Meteor does not have. W34 kept a premise the Supplier Portal does not answer. The
+product-market bridge is where this system breaks, and each fix has been narrower than
+the failure class. The general principle: the product tie-in must answer the exact
+problem the post opened with, using only capabilities listed in
+`C-core/product-capabilities.md`. If those two cannot both be true, the topic is wrong.
+
+**Structural note:** supplier onboarding is not a listed Supplier Portal capability. The
+topic was selected by the automated Researcher without checking that. Topic selection,
+not just drafting, should test the premise against `product-capabilities.md`.
+
+Rules added to `A-agents/copywriter-agent.md` (two new HARD RULE sections plus checklist
+items) and `A-agents/gatekeeper-agent.md` (six accuracy-checklist items).

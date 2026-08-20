@@ -4,12 +4,12 @@
       "post_id": "W34",
       "visual_type": "stat_card",
       "category": "Supply Chain Resilience",
-      "topic": "Single-Source Supplier Loss Is Rising",
+      "topic": "Single-Source Supplier Dependency Is Rising",
       "key_metric": "7% / 11%",
-      "hook": "Concentration risk is rising exactly where onboarding controls are weakest.",
-      "key_stat": "Domestic single-source supplier loss up 7%, international up 11% year over year.",
-      "source": "National Defense Magazine, Vital Signs 2026",
-      "visual_direction": "Clean stat card contrasting the 7% domestic and 11% international loss figures, framing onboarding as the control point before dependency locks in."
+      "hook": "Single-source dependency is rising. Visibility into supplier challenges is not.",
+      "key_stat": "Domestic single or sole-source supplier loss up 7%, international up 11%. 37% call single or sole-source suppliers a pressing vulnerability.",
+      "source": "NDIA, Vital Signs 2026",
+      "visual_direction": "Clean stat card contrasting the 7% domestic and 11% international loss figures, framing onboarding as the point where a structured supplier record is created."
     }
   ]
 }

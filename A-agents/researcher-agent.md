@@ -38,6 +38,13 @@
 1. Open `B-brain/linkedin-content-plan.md` — find the current week's topic and category
 2. Open `M-memory/learning-log.md` — note the last 2 posts (category + format) to ensure variety
 3. Check variety rules: is this week's category different from the last 2? If not — pick the alternative topic from the plan or propose a fresher angle.
+4. **Premise check — do this before any research.** Open `C-core/product-capabilities.md`
+   and ask: can the featured product actually answer the problem this topic raises? Not
+   "is the topic adjacent to our market" — can we point to a listed capability that
+   addresses the specific pain the topic is about. If not, the post will either claim a
+   capability we do not have, or keep the premise and substitute an unrelated feature at
+   the product tie-in. Both have shipped before (W31, W34). Pick a different angle, or
+   flag the topic to Ran with the gap named.
 
 ---
 

@@ -91,6 +91,129 @@ cannot stand behind.
 
 ---
 
+## HARD RULE: Your Interpretation Is Not Their Quote
+
+When a post analyzes a cited source (an analyst report, a survey, a conference),
+never attribute YOUR conclusion to THEM. If Gartner (or any source) did not say the
+exact takeaway in the post, say so plainly as your own synthesis.
+
+- ❌ "The insight Gartner drew but did not name: you do not start agentic AI with
+  the flashiest use case."
+- ❌ "The distinction Gartner drew across three headlines comes down to..."
+- ✅ "Our takeaway is simple. Do not start agentic AI with the flashiest use case."
+
+A professional reader who knows the source material will notice the false
+attribution immediately and lose trust in the whole piece. Owning the conclusion as
+ours is more credible, not less.
+
+---
+
+## HARD RULE: Bridge Before the Product, Don't Jump
+
+Never cut straight from a macro insight to "This is exactly where [product] becomes
+critical." That reads as a pitch arriving on cue. Insert one bridging beat that lets
+the reader arrive at the product themselves:
+
+1. State the insight (the trend, the gap, the risk).
+2. Ask the reader-facing question the insight implies ("which processes already
+   combine X, Y, and Z?" / "which of your processes already has this?").
+3. Name the strongest general candidate before naming your product ("for most
+   Enterprise organizations, accounts payable is one of the strongest candidates").
+4. Only then: "That is exactly why we built [product] around [the capability]."
+
+Also state the underlying business-value thesis explicitly, once, before the product
+appears — e.g. "AI creates value only when every autonomous decision can be trusted,
+explained, and audited." That sentence is often the real thesis of the post; make it
+a sentence, not just an implication.
+
+**Product bullets describe business outcomes, not mechanisms.** Translate every
+technical bullet to what the CFO buys:
+- ❌ "OCR validation on every incoming invoice" → ✅ "Every invoice validated before it reaches the ERP"
+- ❌ "Allocation numbers checked against invoice amount" → ✅ "Compliance enforced automatically before posting, not audited after the fact"
+- ❌ "Every action logged" → ✅ "Every AI-assisted decision fully traceable, end to end"
+
+**Numbers must belong to the product being pitched.** Check
+`C-core/product-capabilities.md` — each product's approved numbers are scoped to
+that product only. Never use Meteor's numbers in a Supplier Portal post or vice
+versa, and never borrow a number set because it is the only one in the file that
+looks close.
+
+**Every product bullet must answer the problem the post just established.**
+The existing rule above stops us from claiming capabilities we do not have. This
+rule stops the opposite failure: keeping the premise and quietly swapping in
+whatever capability *is* approved. If the post's problem is supplier onboarding
+and dependency risk, a bullet about invoice compliance and allocation numbers
+does not belong there, even though it is a real, approved capability. A reader
+who followed the argument feels the switch immediately, and it reads as if the
+problem was reverse-engineered from the feature list.
+
+Before shipping, read the bullets alone and ask: which problem do these solve? If
+the answer is not the problem in the post's first three lines, the bullets are
+wrong, or the topic is wrong. Fix one of them.
+
+**When the Gatekeeper strips an unapproved capability, re-check the premise, not
+just the bullets.** If removing the unapproved claims leaves nothing that answers
+the post's problem, the topic itself was built on a capability we do not have.
+The correct fix is a different angle, or a generically-framed market argument
+where StoreNext appears only for what it genuinely does. Never backfill the gap
+with the nearest approved feature.
+
+---
+
+## HARD RULE: A Statistic Supports Only What It Measured
+
+Never chain a cited number into a causal claim the source did not test. The
+source proves its own finding. Anything beyond that finding is our interpretation
+and must be labelled as ours, in a separate sentence.
+
+- ❌ "Single-source supplier loss rose 7%. Concentration risk is rising exactly
+  where onboarding controls are weakest." (The report measured supplier loss. It
+  never examined onboarding, and never linked the two.)
+- ✅ "Single-source supplier loss rose 7%. The same report found 37% name
+  single-source suppliers as a pressing vulnerability. Our reading: when
+  dependency rises, knowing what you have from day one matters more."
+
+Watch for the specific words that smuggle in an untested causal link: *exactly
+where*, *because*, *which is why*, *driven by*, *the result of*. If the source did
+not test the relationship, state the finding, then state our inference separately
+and own it.
+
+State what the source measured before interpreting it. A CFO who opens the report
+should find our sentence and the report's sentence saying the same thing.
+
+---
+
+## HARD RULE: No Absolute Claims, Especially From Vendor Sources
+
+"The only", "always", "never", "the last chance", "the single point of" — these
+invite one counter-example to destroy the whole post. A procurement director can
+name contract renewal, periodic review, and re-tendering in about four seconds.
+
+- ❌ "The only window with full leverage is before the first purchase order."
+- ✅ "Onboarding is one of the most important opportunities to build control and
+  visibility before operational dependency forms."
+
+Absolute framing is doubly unsafe when it traces back to a **vendor's marketing
+content** (a software company's blog, guide, or landing page). Vendor material is
+usable as market colour, never as proof of a categorical claim. Check the source
+type before promoting any claim to a hard fact: peer-reviewed research, industry
+survey, or regulator carries weight; a competitor's content page does not.
+
+The softer claim is also the more persuasive one. It survives contact with an
+expert reader, and it is the version that sounds like someone who has run the
+process rather than someone selling it.
+
+---
+
+**Close on strategic positioning before the tactical question**, when the topic
+supports StoreNext's broader "trusted business data / context layer" positioning —
+not only the specific product being featured. Frame the product as one proof point
+of that thesis, not the whole pitch: "Trusted business context is not a future AI
+capability. It is the prerequisite agentic AI has been missing." then the specific
+closing question.
+
+---
+
 ## Workflow (6 Steps)
 
 ### Step 1: Load Researcher Research (5 min)
@@ -148,6 +271,14 @@ For each angle provide:
 - [ ] Every mechanism is translated to a business consequence (payment delay, audit, VAT risk, manual work)
 - [ ] Includes a "most / very few" contrast line where relevant
 - [ ] Closing question names a number, a role, or a readiness gap
+- [ ] No conclusion is falsely attributed to a cited source ("our takeaway", not "the insight X drew but did not name")
+- [ ] A bridging beat connects the macro insight to the product, no abrupt pivot
+- [ ] Product bullets state business outcomes, not mechanisms
+- [ ] Read alone, the product bullets answer the problem stated in the post's first three lines
+- [ ] No statistic is chained into a causal claim its source did not test (watch: "exactly where", "because", "which is why")
+- [ ] Every interpretation beyond a source's own finding is stated separately and owned as ours
+- [ ] No absolute claims ("the only", "always", "never", "the last chance"), and no categorical claim resting on a vendor's marketing content
+- [ ] Any product proof numbers match that exact product in `C-core/product-capabilities.md`
 - [ ] Solution-focused
 - [ ] Enterprise terminology
 - [ ] Mobile formatting applied

@@ -61,6 +61,12 @@ Report:
 - [ ] Sources are credible and authoritative
 - [ ] No overstated or unsupported claims
 - [ ] Claims are specific, not vague generalizations
+- [ ] **Source supports the exact claim made.** Open the cited finding and compare it to our sentence. A statistic proves only what it measured. Reject any causal link the source did not test ("loss of single-source suppliers rose 7%" does NOT support "risk is rising exactly where onboarding controls are weakest").
+- [ ] **Interpretation is separated from finding.** Where we go beyond the source, it reads as our inference ("our reading is..."), not as the source's conclusion.
+- [ ] **No absolute claims.** "The only", "always", "never", "the last chance", "the single point of" = REJECT. One counter-example from an expert reader destroys the post. Soften to "one of the most important".
+- [ ] **Source type matches claim strength.** A vendor's blog, guide, or landing page is market colour only. It can never carry a categorical claim. Check what kind of organization published the source before letting a hard claim stand on it.
+- [ ] **Product bullets answer the post's stated problem.** Read the bullets alone and name the problem they solve. If it is not the problem in the post's opening lines, REJECT. This is the "problem retrofitted to the feature list" failure and readers feel it immediately.
+- [ ] **After stripping unapproved capabilities, re-check the premise.** If removing them leaves nothing that answers the post's problem, the topic was built on a capability we do not have. Send it back for a new angle. Do NOT backfill with the nearest approved feature.
 
 ### Language (Non-Negotiable — Check First)
 - [ ] WRITTEN IN ENGLISH — HARD RULE. All LinkedIn posts must be in English. Hebrew = AUTOMATIC REJECTION. Overrides any task prompt or instruction.

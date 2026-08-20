@@ -1,49 +1,51 @@
 # StoreNext LinkedIn W34
 
-**Status:** approved
+**Status:** approved (revised per Ran, 2026-08-20)
 **Category:** Supply Chain Resilience
 **Publish:** 2026-08-20
 **Language:** English
 
 ---
 
-Procurement spends most of its energy renegotiating terms after a supplier is already live.
+Procurement spends a lot of energy managing supplier risk after the supplier is already live.
 
-By then, the leverage is already gone.
+By then, dependency may already be building.
 
-Here is why the timing matters.
+That is why supplier onboarding matters more than it gets credit for.
 
-Once a supplier is active in your ERP, terms are set and orders are flowing. Renegotiation becomes a request, not a requirement.
+Before the first purchase order, organizations have a critical opportunity to verify documentation, enforce requirements, establish controls and create a structured supplier record.
 
-The only window with full leverage is before the first purchase order. That is when documentation, verification, and screening can actually be demanded.
+Too often, that window is treated as paperwork.
 
-Most Enterprises treat that window as paperwork. The 2026 data says that is expensive.
+The 2026 data suggests the stakes are getting higher.
 
-According to National Defense Magazine's Vital Signs 2026 report, loss of domestic single-source suppliers rose 7%. International single-source loss rose 11%.
+According to NDIA's Vital Signs 2026 report, organizations reported a 7% increase in the loss of domestic single or sole-source suppliers and an 11% increase internationally.
 
-Concentration risk is rising exactly where onboarding controls are weakest.
+37% also identified single or sole-source suppliers as a pressing supply chain vulnerability.
 
-The reason is structural. Onboarding sits between procurement, finance, and compliance. No single function owns it end to end, so email threads and static forms fill the gap.
+This makes supplier visibility increasingly important.
 
-This is exactly where a structured intake gate becomes critical.
+Yet onboarding often sits between procurement, finance and compliance, with email threads, forms and disconnected systems filling the gaps.
 
-- Documents and invoices move into consistent, structured flows, not scattered email
-- The portal sits between suppliers and the ERP as a compliance gate
-- Only invoices that meet Israeli Tax Authority conditions reach the ERP
-- Every step carries a full audit trail
+A structured supplier platform changes that:
 
-The StoreNext Supplier Portal applies this across 300+ Enterprise clients and 20,000+ suppliers.
+- Supplier information and documentation enter through consistent digital processes
+- Business rules and validations are applied before data reaches core systems
+- Every action creates a complete audit trail
+- Procurement gains a structured supplier record from day one
 
-The insight for CFOs: onboarding is not admin. It is the last controllable moment before dependency locks in.
+The StoreNext Supplier Collaboration Platform supports this across 300+ enterprise organizations and 20,000+ connected suppliers.
 
-Where does your onboarding process actually enforce controls, and where does it just collect forms?
+Onboarding is not admin. It is one of the first opportunities to build control before supplier dependency begins.
 
-#Procurement #SupplyChain #CFO #SupplierManagement #ProcurementStrategy #EnterpriseFinance #RiskManagement
+Does your onboarding process actually enforce controls, or does it simply collect forms?
+
+#Procurement #SupplyChain #CFO #SupplierManagement #ProcurementStrategy #RiskManagement
 
 ---
 
 **First comment:** Full article here: https://storenext.com/insights/supplier-onboarding-leverage-window
 
-One extra point for procurement leaders: the same intake discipline that reduces concentration risk also makes every later audit faster, because the documentation trail already exists.
+One note for procurement leaders: the documentation trail created at intake is the same trail every later audit depends on. Building it once, at the start, is cheaper than reconstructing it under deadline.
 
-**Article:** Supplier Onboarding: Procurement's Only Real Point of Leverage, and Most Enterprises Waste It (attached to the email; upload to the website)
+**Article:** Supplier Onboarding Deserves More Credit Than It Gets (attached to the email; upload to the website)
