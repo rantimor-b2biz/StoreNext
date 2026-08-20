@@ -47,6 +47,19 @@ def _render_svg(path, dark_bg=True, width=220, recolor=("fill: #432f45", "fill: 
     so svglib+reportlab (pure Python) is the fallback. Without it, Windows runs
     silently fell back to a plain text wordmark with no StoreNext symbol.
     """
+    # Renderer 0: a cached PNG next to the SVG. Preferred, because it is the only
+    # path that is guaranteed identical in CI and on Windows. Regenerate with
+    # T-tools/scripts/cache-brand-logos.py whenever a logo SVG changes.
+    stem = os.path.splitext(path)[0]
+    cached = stem + ("-white.png" if dark_bg else ".png")
+    if os.path.exists(cached):
+        try:
+            img = Image.open(cached).convert("RGBA")
+            ratio = img.size[1] / float(img.size[0])
+            return img.resize((width, max(1, int(round(width * ratio)))), Image.LANCZOS)
+        except Exception:
+            pass
+
     try:
         svg_str = _prepare_svg(path, dark_bg=dark_bg, recolor=recolor)
     except Exception:
