@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W31-meteor",
+      "visual_type": "stat_card",
+      "category": "Financial Operations & Treasury",
+      "topic": "Treasury data still collected by hand",
+      "key_metric": "Up to 52%",
+      "badge": "150+ banks connected directly",
+      "hook": "Still collect forecasting data manually. AI cannot forecast on data nobody has consolidated yet.",
+      "source": "PwC 2025 Global Treasury Survey",
+      "brand": "meteor",
+      "visual_direction": "Bold stat card leading with PwC's manual-data-collection figure, badge naming Meteor's direct bank connectivity as the fix."
+    }
+  ]
+}

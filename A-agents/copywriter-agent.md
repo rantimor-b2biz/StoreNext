@@ -138,6 +138,18 @@ that product only. Never use Meteor's numbers in a Supplier Portal post or vice
 versa, and never borrow a number set because it is the only one in the file that
 looks close.
 
+**The core capability itself must be approved, not just its attribution.**
+Checking that a number or topic is attributed to the right product is a
+different check from verifying the product can do the thing being pitched at
+all. Before drafting, confirm the central claim (not just numbers or topic
+ownership) appears in `C-core/product-capabilities.md` for that exact
+product. A post can correctly avoid crediting the wrong product for a
+capability while still crediting the right product with a capability it does
+not have (e.g. pitching Meteor as fraud detection/prevention when Meteor has
+no such capability). If the capability is not listed, do not build a post
+around it, even if it fits the trending topic well. Flag it and pick another
+angle instead.
+
 **Every product bullet must answer the problem the post just established.**
 The existing rule above stops us from claiming capabilities we do not have. This
 rule stops the opposite failure: keeping the premise and quietly swapping in

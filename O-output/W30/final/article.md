@@ -32,7 +32,7 @@ A 2026 CFO guide puts the practical implication plainly. CFOs should demand incr
 
 CFOs who are slow to hand over autonomy are not behind. They are reading the risk correctly.
 
-## The Prerequisite Gartner Doesn't Name Directly
+## The Prerequisite Beyond Gartner's Guidance
 
 Gartner's guidance names governance, controls, and cross-functional collaboration as prerequisites for scaling agentic AI. What it does not spell out is the infrastructure that makes those prerequisites operational.
 
@@ -52,7 +52,7 @@ Every invoice carries a vendor identity, an amount, an allocation number, and a 
 
 StoreNext's Supplier Portal reflects that structure directly. Every incoming invoice passes an OCR validation step. The portal reads the allocation number and validates it against the invoice amount and the thresholds defined by Israeli law. Non-compliant invoices are stopped inside the portal and never reach the ERP. Every action, from submission to validation to routing, is logged and auditable.
 
-That sequence is the control gate Gartner describes, applied to the process where CFOs have the most transaction volume and the least tolerance for error. StoreNext supports more than 1,000 ERP integrations and serves 400+ Enterprise clients on this infrastructure. The audit trail exists at scale before any AI capability touches it.
+That sequence is what a control gate looks like in practice, applied to the process where CFOs have the most transaction volume and the least tolerance for error. StoreNext runs this infrastructure across 300+ Enterprise clients and 3 million transactions a day. The audit trail exists at scale before any AI capability touches it.
 
 The lesson generalizes beyond invoices. Any process being considered for agentic AI should be evaluated the same way. Does it already have a validated data structure, a compliance checkpoint, and a full record of who did what, when? If yes, it is a candidate. If no, governance has to come first, not the agent.
 
@@ -68,6 +68,6 @@ CFOs who can answer yes to all three are positioned to scale agentic AI the way 
 
 CFOs who cannot answer yes to all three have a governance project ahead of them, not an AI deployment.
 
-The distinction Gartner drew across three headlines at one conference comes down to a single operating principle. AI deployment is not value creation. Governance, applied to a process with an existing audit trail, is what turns deployment into competitive advantage.
+Our takeaway from three headlines at one conference comes down to a single operating principle. AI deployment is not value creation. Governance, applied to a process with an existing audit trail, is what turns deployment into competitive advantage.
 
 Supplier documents and invoices are where that governance already lives for most finance organizations. That makes them the starting point, not the afterthought, for CFOs building an agentic AI strategy that holds up under scrutiny.

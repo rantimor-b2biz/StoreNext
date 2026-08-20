@@ -156,6 +156,10 @@ def stage1_research(topic_override: str | None, brand: str = "storenext") -> dic
     history = load_topic_history()
     same_brand_history = [h for h in history if h.get("brand", "storenext") == brand]
     recent = [h.get("topic", "") for h in same_brand_history[-RECENT_TOPICS_SHOWN:]]
+    cross_brand_recent = [
+        f"{h.get('week', '')} ({h.get('brand', 'storenext')}): {h.get('topic', '')}"
+        for h in history[-8:]
+    ]
 
     system = f"""You are the Researcher for StoreNext (enterprise B2B: supplier management +
 financial operations for Israeli enterprises).
@@ -186,6 +190,24 @@ HARD RULES: never frame the two products as one "unified platform"; never use
 
 AVOID repeating these recently covered topics:
 {json.dumps(recent, ensure_ascii=False, indent=2)}
+
+CROSS-BRAND CHECK: StoreNext and Meteor publish in the same week folder to
+overlapping CFO audiences. Dedup above is per-brand only, so also check these
+recent posts from BOTH brands (most recent last):
+{json.dumps(cross_brand_recent, ensure_ascii=False, indent=2)}
+Do NOT pick a topic, angle, or headline formula that echoes these. A reader who
+follows both brands should never see two "AI is changing finance" posts or two
+"The [X] Gap" headlines in the same week or back-to-back weeks.
+
+TITLE FORMULA VARIETY: if 2 or more of the recent posts above already used "The
+[X] Gap" as the headline pattern, do NOT use it again. Vary structure: a
+question, a number-led headline, a contrarian statement, a "Why X" framing.
+
+THEME SATURATION CHECK: if the last 2-3 posts above all centered on "AI
+adoption/readiness/governance in finance," prefer pillar 1 (Supplier Portal
+core: supply chain/supplier management) or pillar 3 (procurement/CFO agenda,
+non-AI) this run instead, even if an AI angle is trending. Variety across
+pillars matters more than chasing the same macro-theme a fourth week running.
 """
 
     if topic_override:
@@ -352,8 +374,8 @@ Return JSON in a ```json fenced block:
 
 # ---------------------------------------------------------------- stage 4: visual PNG
 
-def stage4_visual(visual: dict, process_dir: Path) -> Path | None:
-    vd_path = process_dir / "visual-data.json"
+def stage4_visual(visual: dict, process_dir: Path, suffix: str = "") -> Path | None:
+    vd_path = process_dir / f"visual-data{suffix}.json"
     vd_path.write_text(
         json.dumps({"posts": [visual]}, ensure_ascii=False, indent=2), encoding="utf-8"
     )
@@ -510,7 +532,7 @@ def main() -> int:
     if brand == "meteor":
         visual["brand"] = "meteor"
 
-    png = stage4_visual(visual, process_dir)
+    png = stage4_visual(visual, process_dir, suffix)
 
     # --- files (final-post.md format, unsuffixed, keeps the Firebase mediaPlan
     # sync working for the core StoreNext brand; Meteor runs are email-only)

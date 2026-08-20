@@ -602,6 +602,45 @@ Every content sprint is 5 days (Thursday-Monday), not flexible. Plan accordingly
 
 ---
 
+## Ran's Feedback — Pitched a Capability Meteor Doesn't Have (W31, 2026-07-27)
+
+The automated W31 Meteor draft was built entirely around fraud detection and
+prevention through continuous reconciliation. Meteor has no fraud detection
+or prevention product. This is a more serious miss than a numbers mixup: the
+whole post's premise was an unapproved capability, not just a misattributed
+number.
+
+The Gatekeeper pass on the original draft checked numbers (correct) and
+cross-product topic ownership (correct: framed as Meteor, not Supplier
+Portal) but never checked whether the core capability existed for either
+product. Attribution-correctness and capability-existence are different
+checks; the first passing does not mean the second passed.
+
+Fix:
+1. `C-core/product-capabilities.md` Meteor section rewritten from a vague
+   one-liner ("payments, reconciliation, bank connectivity at scale") to the
+   precise, complete list: bank account aggregation (direct connectivity to
+   every Israeli bank and 150+ global banks), ERP integration, ERP-initiated
+   payments via banks/SWIFT, treasury and cash flow forecasting, IFRS 16
+   lease accounting, automatic FX rate import, ISA license, open banking.
+   Explicit exclusion added: fraud detection/prevention is NOT approved.
+2. New Gatekeeper checklist item: verify the central capability being
+   pitched is explicitly listed for that product, not just that numbers and
+   topic ownership are correctly attributed.
+3. The entire W31 post, article, and visual were rebuilt around bank
+   aggregation and treasury data fragmentation (PwC 2025 Global Treasury
+   Survey), Meteor's actual core capability, with the AI-in-finance trend
+   angle preserved as requested but sequenced correctly (AI needs
+   consolidated data, not the other way around).
+
+Embedded in `A-agents/copywriter-agent.md` → "The core capability itself must
+be approved, not just its attribution" and the matching Gatekeeper checklist
+item.
+
+---
+
+---
+
 ## Ran's Feedback — W34 StoreNext, Supplier Onboarding (2026-08-20)
 
 Ran called the base and the hook strong, but would not have published as-is. He

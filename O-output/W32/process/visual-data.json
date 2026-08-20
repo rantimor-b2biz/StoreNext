@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W32",
+      "visual_type": "stat_card",
+      "category": "Procurement & the CFO Agenda",
+      "topic": "Tariffs Are Now a Permanent Cost Line",
+      "key_metric": "25%",
+      "hook": "CFOs say price growth would be 25% lower in 2026 without tariff impact.",
+      "key_stat": "Median CFO expects 3.5% price growth; Grant Thornton expects 4.5% unit cost growth in 2026.",
+      "source": "Fed Bank of Richmond / Duke Fuqua CFO Survey; Grant Thornton Q1 2026",
+      "visual_direction": "Clean stat card leading with 25% in large type, supporting cost-growth figures beneath, formal enterprise palette with no decorative hype."
+    }
+  ]
+}
