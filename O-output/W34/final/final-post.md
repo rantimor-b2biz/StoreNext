@@ -1,51 +1,51 @@
 # StoreNext LinkedIn W34
 
-**Status:** approved (revised per Ran, 2026-08-20)
-**Category:** Supply Chain Resilience
+**Status:** approved (rebuilt per Ran, 2026-08-20. Premise changed from supplier onboarding to supplier inquiry load)
+**Category:** Operational Efficiency
 **Publish:** 2026-08-20
 **Language:** English
 
 ---
 
-Procurement spends a lot of energy managing supplier risk after the supplier is already live.
+AP teams outside the Best-in-Class spend 26.9% of their staff time responding to supplier inquiries.
 
-By then, dependency may already be building.
+That is more than one day a week, every week.
 
-That is why supplier onboarding matters more than it gets credit for.
+One day absorbed by status questions, document follow-up and repeat requests for information the organization already holds.
 
-Before the first purchase order, organizations have a critical opportunity to verify documentation, enforce requirements, establish controls and create a structured supplier record.
+The instinct is to treat this as a communication problem.
 
-Too often, that window is treated as paperwork.
+It is not.
 
-The 2026 data suggests the stakes are getting higher.
+The issue is not that suppliers ask too many questions. It is that the answers live in inboxes, spreadsheets and people.
 
-According to NDIA's Vital Signs 2026 report, organizations reported a 7% increase in the loss of domestic single or sole-source suppliers and an 11% increase internationally.
+When every answer requires someone to look it up, the process was probably not designed for self-service.
 
-37% also identified single or sole-source suppliers as a pressing supply chain vulnerability.
+Ardent Partners' 2025 AP benchmarks put Best-in-Class organizations at 13.4%, about half the staff time.
 
-This makes supplier visibility increasingly important.
+Their suppliers do not ask less. More of the interaction is structured and self-service.
 
-Yet onboarding often sits between procurement, finance and compliance, with email threads, forms and disconnected systems filling the gaps.
+That is the real variable. Not communication volume. Operating model.
 
-A structured supplier platform changes that:
+The StoreNext Supplier Collaboration Platform is built for that model:
 
-- Supplier information and documentation enter through consistent digital processes
-- Business rules and validations are applied before data reaches core systems
-- Every action creates a complete audit trail
-- Procurement gains a structured supplier record from day one
+- One structured channel for supplier interaction, connected to the ERP
+- Self-service visibility into status, documents and history
+- Automated notifications in place of manual follow-up
+- Requests and documents tied to the business processes behind them, with a complete audit trail
 
-The StoreNext Supplier Collaboration Platform supports this across 300+ enterprise organizations and 20,000+ connected suppliers.
+300+ enterprise organizations and 20,000+ connected suppliers already work this way.
 
-Onboarding is not admin. It is one of the first opportunities to build control before supplier dependency begins.
+The goal is not fewer supplier relationships. It is fewer supplier interactions that require human intervention.
 
-Does your onboarding process actually enforce controls, or does it simply collect forms?
+If supplier inquiries disappeared from your team's inbox tomorrow, how much time would you get back?
 
-#Procurement #SupplyChain #CFO #SupplierManagement #ProcurementStrategy #RiskManagement
+#Procurement #AccountsPayable #CFO #SupplierManagement #FinanceOperations
 
 ---
 
-**First comment:** Full article here: https://storenext.com/insights/supplier-onboarding-leverage-window
+**First comment:** Full article here: https://storenext.com/insights/supplier-inquiries-process-design
 
-One note for procurement leaders: the documentation trail created at intake is the same trail every later audit depends on. Building it once, at the start, is cheaper than reconstructing it under deadline.
+Source for both figures: Ardent Partners, Accounts Payable Metrics that Matter in 2025. Best-in-Class AP organizations spend 13.4% of staff time on supplier inquiries. All others spend 26.9%.
 
-**Article:** Supplier Onboarding Deserves More Credit Than It Gets (attached to the email; upload to the website)
+**Article:** Supplier Inquiries Are a Process-Design Problem, Not a Communication Problem (attached to the email; upload to the website)

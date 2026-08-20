@@ -158,6 +158,23 @@ The correct fix is a different angle, or a generically-framed market argument
 where StoreNext appears only for what it genuinely does. Never backfill the gap
 with the nearest approved feature.
 
+**Know which stage of the lifecycle the product actually operates in.** A capability
+check is not a scope check. The Supplier Collaboration Platform's territory begins
+**after** a supplier is already approved and working with the organization. It does
+not select suppliers, qualify them, screen them pre-contract, or gate the first
+purchase order. See the NOT-approved list in `C-core/product-capabilities.md`.
+
+Note the trap that produced the W34 rewrite: **"onboarding" means two different
+things.** In the market it means bringing a new supplier into the organization. At
+StoreNext it means onboarding an already approved supplier into the platform and into
+the organization's digital working process. A post can use the right word and still
+describe a product we do not sell. When a term has a common industry meaning and a
+narrower internal one, write the narrow one out in full or avoid the term.
+
+Before drafting, state in one sentence which stage of the customer's process the post
+lives in, and confirm the product operates there. If the argument's centre of gravity
+sits in a stage we do not serve, the topic is wrong no matter how good the data is.
+
 ---
 
 ## HARD RULE: A Statistic Supports Only What It Measured

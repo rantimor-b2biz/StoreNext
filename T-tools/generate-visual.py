@@ -26,20 +26,72 @@ CORE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "C-core")
 LOGO_SVG_PATH   = os.path.join(CORE_DIR, "storenext-logo.svg")
 METEOR_SVG_PATH = os.path.join(CORE_DIR, "meteor-logo.svg")
 
+def _prepare_svg(path, dark_bg=True, recolor=("fill: #432f45", "fill: #FFFFFF")):
+    """Read an SVG and apply the dark-background recolor. Returns the SVG string."""
+    from lxml import etree
+    with open(path) as f:
+        svg_content = f.read()
+    parser = etree.XMLParser(recover=True)
+    tree = etree.fromstring(svg_content.encode(), parser)
+    svg_str = etree.tostring(tree).decode()
+    if dark_bg and recolor:
+        svg_str = svg_str.replace(recolor[0], recolor[1])
+    return svg_str
+
+
 def _render_svg(path, dark_bg=True, width=220, recolor=("fill: #432f45", "fill: #FFFFFF")):
-    """Render an SVG file to a PIL RGBA image. On dark bg, recolor dark wordmark to white."""
+    """Render an SVG file to a PIL RGBA image. On dark bg, recolor dark wordmark to white.
+
+    Two renderers are tried in order. cairosvg is preferred and is what CI uses.
+    It needs the native libcairo library, which is absent on a stock Windows box,
+    so svglib+reportlab (pure Python) is the fallback. Without it, Windows runs
+    silently fell back to a plain text wordmark with no StoreNext symbol.
+    """
+    try:
+        svg_str = _prepare_svg(path, dark_bg=dark_bg, recolor=recolor)
+    except Exception:
+        return None
+
+    # Renderer 1: cairosvg (used by CI)
     try:
         import cairosvg
-        from lxml import etree
-        with open(path) as f:
-            svg_content = f.read()
-        parser = etree.XMLParser(recover=True)
-        tree = etree.fromstring(svg_content.encode(), parser)
-        svg_str = etree.tostring(tree).decode()
-        if dark_bg and recolor:
-            svg_str = svg_str.replace(recolor[0], recolor[1])
         png_data = cairosvg.svg2png(bytestring=svg_str.encode(), output_width=width)
         return Image.open(io.BytesIO(png_data)).convert("RGBA")
+    except Exception:
+        pass
+
+    # Renderer 2: svglib + reportlab, pure Python, no native dependency
+    try:
+        import tempfile
+        from svglib.svglib import svg2rlg
+        from reportlab.graphics import renderPM
+
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".svg", delete=False,
+                                         encoding="utf-8") as tmp:
+            tmp.write(svg_str)
+            tmp_path = tmp.name
+        try:
+            drawing = svg2rlg(tmp_path)
+            if drawing is None or not drawing.width or not drawing.height:
+                return None
+            # renderPM has no direct width target, so scale the drawing first.
+            scale = float(width) / float(drawing.width)
+            drawing.width  = drawing.width * scale
+            drawing.height = drawing.height * scale
+            drawing.scale(scale, scale)
+            png_data = renderPM.drawToString(drawing, fmt="PNG", bg=0x000000,
+                                             configPIL={"transparent": (0, 0, 0)})
+            img = Image.open(io.BytesIO(png_data)).convert("RGBA")
+            # renderPM cannot write real alpha, so knock out the black matte.
+            pixels = img.getdata()
+            img.putdata([(r, g, b, 0) if (r, g, b) == (0, 0, 0) else (r, g, b, a)
+                         for r, g, b, a in pixels])
+            return img
+        finally:
+            try:
+                os.unlink(tmp_path)
+            except OSError:
+                pass
     except Exception:
         return None
 

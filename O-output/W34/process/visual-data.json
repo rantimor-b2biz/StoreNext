@@ -3,13 +3,13 @@
     {
       "post_id": "W34",
       "visual_type": "stat_card",
-      "category": "Supply Chain Resilience",
-      "topic": "Single-Source Supplier Dependency Is Rising",
-      "key_metric": "7% / 11%",
-      "hook": "Single-source dependency is rising. Visibility into supplier challenges is not.",
-      "key_stat": "Domestic single or sole-source supplier loss up 7%, international up 11%. 37% call single or sole-source suppliers a pressing vulnerability.",
-      "source": "NDIA, Vital Signs 2026",
-      "visual_direction": "Clean stat card contrasting the 7% domestic and 11% international loss figures, framing onboarding as the point where a structured supplier record is created."
+      "category": "Operational Efficiency",
+      "topic": "Supplier Inquiries Consume AP Capacity",
+      "key_metric": "26.9%",
+      "hook": "Supplier inquiries are not a communication problem. They are a process-design problem.",
+      "key_stat": "AP teams outside the Best-in-Class spend 26.9% of staff time on supplier inquiries. Best-in-Class spend 13.4%.",
+      "source": "Ardent Partners, AP Metrics that Matter 2025",
+      "visual_direction": "Clean stat card leading with 26.9% of AP staff time, contrasted against the 13.4% Best-in-Class benchmark, framing supplier self-service as the operating-model difference."
     }
   ]
 }

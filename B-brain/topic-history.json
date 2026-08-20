@@ -63,5 +63,70 @@
     "topic": "The Governance Gap: Why Auditable Control Gates Must Precede Agentic AI in Finance",
     "pillar": "4. AI in enterprise finance & procurement — adoption, ROI, governance (with ties to Pillar 1, supplier document/compliance infrastructure)",
     "product_focus": "Supplier Portal"
+  },
+  {
+    "date": "2026-07-27",
+    "week": "W31",
+    "brand": "meteor",
+    "topic": "AI-Powered Payment Fraud Is Outrunning Treasury's Detection Speed",
+    "pillar": "Financial operations & treasury (Pillar 2)",
+    "product_focus": "Meteor"
+  },
+  {
+    "date": "2026-07-30",
+    "week": "W31",
+    "brand": "storenext",
+    "topic": "From Point-in-Time Audits to Continuous Supplier Documentation: The New Compliance Baseline for Procurement",
+    "pillar": "Pillar 1 — Supply chain resilience & supplier management (Supplier Portal)",
+    "product_focus": "Supplier Portal"
+  },
+  {
+    "date": "2026-08-03",
+    "week": "W32",
+    "brand": "meteor",
+    "topic": "Cash Flow Forecasting Is Now CFOs' #1 Liquidity Risk for 2026 — And the Cause Is Fragmented Bank and ERP Data, Not a Volatility Problem Alone",
+    "pillar": "Financial operations & treasury (Pillar 2)",
+    "product_focus": "Meteor"
+  },
+  {
+    "date": "2026-08-06",
+    "week": "W32",
+    "brand": "storenext",
+    "topic": "Tariffs Have Become a Permanent Cost Line, Not a One-Time Shock — Procurement's Renegotiation Speed Now Decides Margin",
+    "pillar": "3 (Procurement & the CFO agenda — cost pressure, efficiency, risk)",
+    "product_focus": "Supplier Portal"
+  },
+  {
+    "date": "2026-08-10",
+    "week": "W33",
+    "brand": "meteor",
+    "topic": "Why November 2026 Is a Payments Deadline for CFOs, Not Just Banks (SWIFT ISO 20022 Structured-Address Mandate)",
+    "pillar": "2. Financial operations & treasury (Meteor)",
+    "product_focus": "Meteor"
+  },
+  {
+    "date": "2026-08-13",
+    "week": "W33",
+    "brand": "storenext",
+    "topic": "The Working Capital Illusion: Cash Gains From Payment Terms Are Quietly Rebuilding Supply Chain Risk",
+    "pillar": "Pillar 3 — Procurement & the CFO agenda (cost pressure, efficiency, risk) with Pillar 1 crossover (supplier resilience)",
+    "product_focus": "Supplier Portal"
+  },
+  {
+    "date": "2026-08-17",
+    "week": "W34",
+    "brand": "meteor",
+    "topic": "IFRS 16 Lease Accounting Has Quietly Become a Control Problem, Not a Compliance Checklist",
+    "pillar": "Financial operations & treasury (Pillar 2)",
+    "product_focus": "Meteor"
+  },
+  {
+    "date": "2026-08-20",
+    "week": "W34",
+    "brand": "storenext",
+    "topic": "Supplier Inquiries Are a Process-Design Problem, Not a Communication Problem",
+    "pillar": "1. Supply chain resilience & supplier management (Supplier Collaboration Platform) | operational efficiency angle",
+    "product_focus": "Supplier Collaboration Platform",
+    "note": "Rebuilt 2026-08-20 per Ran. Original onboarding/leverage premise retired: it implied StoreNext manages supplier selection and pre-contract screening, which it does not."
   }
 ]

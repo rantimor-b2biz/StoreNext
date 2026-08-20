@@ -45,6 +45,14 @@
    capability we do not have, or keep the premise and substitute an unrelated feature at
    the product tie-in. Both have shipped before (W31, W34). Pick a different angle, or
    flag the topic to Ran with the gap named.
+5. **Pick data that supports the operational problem the product solves.** A statistic
+   can be accurate, recent and on-theme and still build a weak bridge, because it
+   describes a problem we do not address. W34 cited real single-source supplier loss
+   data, which is about supply-chain concentration, a stage the platform does not
+   operate in. The Ardent Partners AP benchmarks (share of AP staff time spent on
+   supplier inquiries) are the kind of data that lands directly on our territory.
+   Prefer benchmarks about supplier interaction load, manual finance and procurement
+   work, self-service, traceability and process efficiency.
 
 ---
 

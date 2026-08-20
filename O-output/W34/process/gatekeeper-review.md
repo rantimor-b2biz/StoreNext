@@ -48,3 +48,47 @@ Collaboration Platform"; `C-core/product-capabilities.md` calls it "Supplier Por
 Confirm which name is canonical. Separately, supplier onboarding is not currently a
 listed Supplier Portal capability, which is why this topic strained. Confirm whether
 it should be added.
+
+---
+
+## Revision 3 — 2026-08-20, per Ran's full strategic feedback
+
+**Verdict:** REBUILT. Premise replaced, not edited.
+
+Revision 2 fixed accuracy defects inside a premise that was itself wrong. Ran's full
+review established that the entire onboarding framing overstated the product.
+
+**The scope error.** The post positioned StoreNext in the pre-contract stage: selecting
+suppliers, verifying them before the first PO, screening, building commercial leverage,
+controlling dependency before it forms. StoreNext does none of this. The platform's
+territory begins after a supplier is already approved and working with the organization.
+
+**The terminology trap.** "Onboarding" carries a market meaning (bringing a new supplier
+into the organization) and a narrower StoreNext meaning (onboarding an already approved
+supplier into the platform and the digital working process). The draft used the word and
+inherited the market meaning.
+
+**The data error.** NDIA's single-source supplier loss data is accurate, but it describes
+supply-chain concentration, a problem the platform does not solve. Replaced with Ardent
+Partners' Accounts Payable Metrics that Matter in 2025: AP organizations outside the
+Best-in-Class spend 26.9% of staff time on supplier inquiries, Best-in-Class spend 13.4%.
+Verified independently against the source before use.
+
+**New thesis:** supplier inquiries are a process-design problem, not a communication
+problem. The argument runs hook, interpretation, reframe, strategic insight, product,
+proof, closing insight, question, per Ran's recommended structure.
+
+**Terminology:** Supplier Collaboration Platform for strategic value, Supplier Portal as
+the product name. Applied across post, article and `C-core/product-capabilities.md`.
+
+**Rebuilt:** `final-post.md`, `article.md`, `visual-data.json`, `W34-visual.png`,
+`article.docx`, `B-brain/topic-history.json` entry.
+
+**Source-of-truth updated:** `C-core/product-capabilities.md` now carries the value
+territory, the positioning principle, the precise definition of onboarding, and an
+explicit NOT-approved list for the pre-contract stage. New scope rules added to
+copywriter, gatekeeper and researcher agents.
+
+**Note on precision:** the hook says "AP teams outside the Best-in-Class spend 26.9%"
+rather than "26.9% of AP staff time", because 26.9% is the non-Best-in-Class figure, not
+an all-respondent average. Ran's own section 4 used the precise form.

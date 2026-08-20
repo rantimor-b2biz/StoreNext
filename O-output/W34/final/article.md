@@ -1,103 +1,81 @@
-# Supplier Onboarding Deserves More Credit Than It Gets: The Control Window Before Dependency Begins
+# Supplier Inquiries Are a Process-Design Problem, Not a Communication Problem
 
-Procurement teams spend most of their energy after the fact.
+Ask a finance leader where accounts payable loses time, and the answer is usually invoice processing. The benchmarks tell a different story.
 
-They renegotiate terms. They chase cost reductions. They escalate disputes once a supplier is already live in the ERP.
+According to Ardent Partners' Accounts Payable Metrics that Matter in 2025, AP organizations outside the Best-in-Class spend 26.9% of their staff time responding to supplier inquiries. Best-in-Class organizations spend 13.4%, about half the staff time.
 
-By that point, operational dependency is already building.
+Read the first number again. More than a quarter of AP capacity goes to answering questions. In a five-day week, that is over one full day, every week, absorbed by status checks, document requests and follow-up on information the organization already holds somewhere.
 
-Supplier onboarding is the stage before that dependency exists. It is when documentation can be verified, requirements enforced, and a structured supplier record created. Vendors in the procurement software market, LeanLinking among them, argue that the window between first contact and first purchase order is where procurement holds the most influence. That framing is directional rather than proven, but the underlying mechanics are hard to dispute. Requirements are easier to enforce before a supplier begins transacting than after.
+That is not a rounding error in the operating budget. It is a structural allocation of skilled finance capacity to lookup work.
 
-Most Enterprises treat this window as paperwork. The 2026 data suggests the stakes are rising.
+## Why Suppliers Ask
 
-## The Administrative Myth: Why Onboarding Gets Treated as a Formality, Not a Control Point
+The reflex is to treat inquiry volume as a supplier behaviour problem. Some suppliers are persistent. Some are disorganised. Both are true and neither is the cause.
 
-Onboarding is usually owned by whoever has time, not whoever has authority.
+Suppliers ask because they cannot see. They do not know whether an invoice arrived, whether it passed validation, where it sits in approval, or when it will be paid. Every one of those questions has an answer inside the organization's systems. The supplier has no way to reach it.
 
-Procurement teams focus on sourcing and negotiation. Finance focuses on payment setup. Compliance reviews come later, often after the supplier is already transacting.
+So they call. They email. They email again, to a different person, because the first one did not reply.
 
-This sequencing is structural, not accidental. Onboarding sits between departments. No single function owns the full process end to end.
+Inquiry volume is a leading indicator of process opacity. A high rate does not mean suppliers are difficult. It means the process is creating uncertainty, and that uncertainty is being resolved manually, one conversation at a time.
 
-According to Apex Analytix, manual and email-based onboarding creates delays, weak controls, and inconsistent supplier data. These are not edge cases. They are the default outcome when onboarding has no clear owner and no enforced checkpoints.
+## The Cost Is Larger Than the Time
 
-The result: risk checks that exist on paper but fail under pressure.
+The 26.9% figure captures the hours. It understates the cost.
 
-## The Data: Single-Source Dependency Is Rising, and Visibility Is Lagging
+Every manual inquiry response carries a chain of overhead. Someone stops focused work. Someone searches an inbox, a spreadsheet, or a screen in the ERP. Someone interprets what they find and composes a reply. If the answer requires another department, the question becomes an internal thread as well as an external one.
 
-Supplier concentration risk is not theoretical. It is measurable, and it is moving.
+The same question then arrives again next month, from a different supplier, about a different invoice, and the whole sequence repeats. Nothing accumulates. No answer given today makes tomorrow's answer cheaper.
 
-According to NDIA's Vital Signs 2026 report, published in National Defense Magazine, respondents recorded a 7% increase in the loss of domestic single- or sole-source suppliers. International single- or sole-source supplier loss rose 11% over the same period.
+There is a second cost, harder to see on a timesheet. Skilled AP staff hired for exception handling, controls and analysis spend a quarter of their capacity on retrieval. That is a retention problem as much as an efficiency one.
 
-The same report found that 37% of respondents identified single- or sole-source suppliers as a pressing supply chain vulnerability. A further 21% cited insufficient visibility into supplier challenges.
+## What Best-in-Class Organizations Do Differently
 
-Read those figures carefully. The report measures dependency and visibility. It does not test onboarding practices, and it does not establish that weak intake caused these losses. What it does establish is that more organizations are exposed to suppliers they cannot easily replace, and that a meaningful share cannot see supplier problems coming.
+The Ardent benchmark shows a roughly 50% gap between Best-in-Class AP organizations and everyone else. It is worth being precise about what the benchmark does and does not establish.
 
-Our reading is straightforward. When dependency is rising and visibility is lagging, the value of knowing what you have, from day one, goes up. Onboarding is where that record is either created or lost.
+It measures the share of staff time spent on supplier inquiries, and it shows the gap. It does not itemise the practices that produce it. What follows is our reading of the mechanism, not a finding of the report.
 
-At the same time, risk exposure is no longer isolated to one category. According to the Inverto Risk and Resilience Study 2026, 83% of companies report ongoing supply bottlenecks. Risk has fragmented across geopolitical, cyber, cost, and supply dimensions simultaneously.
+Organizations at the top of that benchmark are not negotiating with suppliers to ask fewer questions. They have changed where the answer lives. When status, documents and history are available to the supplier directly, the question never becomes a task. The interaction still happens. It stops consuming a person.
 
-Onboarding is one of the few stages where these risks can be assessed together, before a contract locks in terms.
+That is the distinction worth holding onto. The objective is not to suppress supplier communication or route it into a queue where it is answered more efficiently. It is to make the majority of it self-serving, so that human attention goes to the exceptions that genuinely need judgment.
 
-## The Intake Window: Why Requirements Are Easier to Enforce Before Activation
+## Self-Service Is an Operating Model, Not a Convenience Feature
 
-Once a supplier is active in the ERP, the relationship dynamic changes.
+Supplier self-service is often filed under convenience, a nicety offered to keep suppliers content. That framing undersells it considerably.
 
-Terms are set. Purchase orders are flowing. Operational dependency begins building immediately. Renegotiation becomes a request rather than a condition of doing business.
+Self-service changes the unit economics of supplier communication. In a manual model, cost scales with the number of interactions. Doubling supplier count doubles the inquiry load and, eventually, the headcount required to absorb it. In a structured model, cost scales with the number of exceptions, which is a far smaller and slower-growing number.
 
-Before activation, procurement can require:
+For an enterprise operating with thousands of suppliers, that difference compounds. It determines whether supplier growth is an operational burden or an operational non-event.
 
-- Verified business registration documentation
-- Compliance and identity screening
-- Financial stability evidence
-- Insurance and compliance certifications
-- Data protection and security attestations
+Building that model requires a few things to be true at once:
 
-After activation, these become harder asks. A supplier already fulfilling orders has less incentive to complete paperwork retroactively, and procurement has less practical recourse if they do not.
+1. **One channel.** Supplier interaction has a single structured destination, not several inboxes and phone numbers.
+2. **Direct visibility.** Suppliers can see status, documents and history themselves, without asking.
+3. **Connection to the systems of record.** What the supplier sees comes from the ERP and the business process, not from a copy that drifts.
+4. **Proactive notification.** The system tells the supplier what changed, rather than waiting to be asked.
+5. **Traceability.** Every exchange is recorded, so the audit question and the dispute question both have an answer.
 
-This is not the only point of control in the supplier lifecycle. Contract renewal, periodic review, and category re-tendering all create leverage. But onboarding is the first of them, and the only one that happens before dependency exists.
+Point three is the one organizations underestimate. A supplier-facing screen disconnected from the ERP does not reduce inquiries. It relocates them, because nobody trusts what it shows.
 
-## Third-Party Risk Doesn't Start With the Invoice. It Starts With Weak Intake
+## Where StoreNext Fits
 
-Third-party risk is now a board-level concern, not a procurement afterthought.
+This is the territory the StoreNext Supplier Collaboration Platform is built for.
 
-According to the WEF Global Cybersecurity Outlook 2026, cited by Michigan State University Online's Supply Chain Resilience 2026 report, 65% of large companies identify third-party and supply-chain vulnerabilities as a leading cybersecurity challenge.
+The platform provides a structured digital collaboration layer between suppliers and enterprise systems. Supplier communication moves out of scattered email and into consistent digital workflows. Suppliers get self-service access to the information they would otherwise call about. Documents and requests are connected to the business processes behind them, and to the ERP, so what a supplier sees reflects the system of record.
 
-That exposure is not created at invoice reconciliation. It is created at intake, when a new supplier's systems, data practices, and compliance posture first enter the picture.
+Validations and controls are applied before information reaches core systems. In the Israeli market that includes e-invoicing compliance: only invoices meeting the Tax Authority's e-invoicing and allocation-number conditions are passed through to the ERP, and non-compliant invoices are stopped before they create downstream work. Every exchange carries an audit trail.
 
-Sustainability adds another layer. According to Gartner's April 2026 Market Guide for Sustainable Procurement Applications, cited by IntegrityNext, ESG ranks among the top five themes CPOs expect to become urgent within 6 to 18 months.
+The platform supports 300+ enterprise organizations and 20,000+ connected suppliers.
 
-Each new compliance requirement, cyber, ESG, financial, adds a documentation demand. Enterprises that treat onboarding as a one-time form are structurally unprepared to absorb these requirements as they arrive.
+The principle underneath it is worth stating plainly. StoreNext does not reduce supplier communication by hiding it. It turns supplier communication into structured, traceable, self-service business processes.
 
-## What a Structured Onboarding Gate Looks Like at Enterprise Scale
+## The CFO Takeaway
 
-A control gate is not extra bureaucracy. It is a sequence that cannot be skipped.
+Most AP efficiency programmes target invoice throughput. Throughput matters, and it is also the part of the process that has already absorbed the most investment.
 
-At Enterprise scale, a structured onboarding gate includes:
+The inquiry load is the quieter line. It rarely appears in a business case, because no single conversation looks expensive. Ardent's benchmark is useful precisely because it aggregates what those conversations cost: more than a quarter of staff time for organizations that have not restructured the interaction, half that for those who have.
 
-1. **Standardized intake.** Every supplier submits the same documentation set, structured and stored consistently.
-2. **Verification before activation.** Required checks are completed before a supplier begins transacting, not after.
-3. **Conditional activation.** No purchase order issues until required documentation is complete.
-4. **Continuous refresh.** Documentation expires and requires renewal, rather than sitting static after initial approval.
-5. **Audit trail.** Every step is logged, timestamped, and retrievable for compliance and audit purposes.
+For a CFO, the question is not how to make the AP team faster at answering suppliers. It is how much of that answering should require a person at all.
 
-This is infrastructure, not a form. It requires the same rigor Enterprises apply to financial controls, applied instead to supplier intake.
+The goal is not fewer supplier relationships. It is fewer supplier interactions that require human intervention.
 
-Most of that list is market best practice, and organizations assemble it from several systems. The common prerequisite underneath all five points is the same: a structured channel between suppliers and internal systems, where information arrives in a consistent format and every exchange is recorded.
-
-That prerequisite is where StoreNext's Supplier Portal operates. The portal centralizes supplier communication and moves documents and invoices into structured, consistent flows rather than scattered email threads. It sits between suppliers and the ERP as a document and compliance gate, applying business rules and validations before data reaches core systems. In the Israeli market, that gate includes e-invoicing compliance: only invoices meeting the Tax Authority's e-invoicing and allocation-number conditions are pushed to the ERP, and non-compliant invoices are stopped inside the portal. Every exchange carries an audit trail of supplier documents and invoice handling.
-
-The Supplier Portal supports 300+ Enterprise clients and 20,000+ suppliers, across more than 20 billion shekels in annual procurement volume. That is a structured supplier channel operating at Enterprise scale.
-
-## The CFO Takeaway: Fund Intake Controls Now, Not Renegotiation Later
-
-Most cost-cutting initiatives target the late stages of the supplier lifecycle.
-
-Renegotiation happens after dependency has formed. Cost reduction targets suppliers who already know their position is secure. Neither addresses the underlying exposure: concentration risk and compliance gaps that were never visible at intake.
-
-The data points in one direction. Single-source dependency is rising. Visibility into supplier challenges is incomplete. Third-party risk is a top-tier cyber concern. ESG requirements are adding new documentation demands. All four raise the value of a supplier record that is complete from day one.
-
-CFOs evaluating procurement technology spend in 2026 should ask a different question. Not "how do we get better renegotiation outcomes," but "what do we actually know about a supplier before the first purchase order, and where is that written down."
-
-That question has a clearer answer, and a clearer ROI case, than another round of cost negotiation.
-
-If your organization is still onboarding suppliers through email threads and static forms, the record you will need during the next disruption is not being created. It is worth reviewing where the control gaps sit, before a single-source loss forces the conversation.
+That is a process-design decision, and it is worth knowing which side of the benchmark your organization currently sits on.

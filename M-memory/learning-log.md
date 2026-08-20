@@ -660,3 +660,69 @@ not just drafting, should test the premise against `product-capabilities.md`.
 
 Rules added to `A-agents/copywriter-agent.md` (two new HARD RULE sections plus checklist
 items) and `A-agents/gatekeeper-agent.md` (six accuracy-checklist items).
+
+---
+
+## Ran's Full Strategic Feedback — W34 Rebuild (2026-08-20, same day)
+
+Ran's first W34 review fixed accuracy defects. His second review established that the
+premise underneath them was wrong, and the post was rebuilt from scratch. Both rounds
+matter, and the second is the more important lesson.
+
+**The failure: we described a product StoreNext does not sell.**
+The post positioned supplier onboarding as the stage where the organization selects the
+supplier, verifies it before the first PO, performs screening, establishes commercial
+leverage and controls dependency before it begins. StoreNext does none of that. The
+platform's territory starts **after** a supplier is already approved and working with the
+organization, when the thousands of operational interactions begin.
+
+**The mechanism: a word with two meanings.**
+"Onboarding" in the market means bringing a new supplier into the organization. At
+StoreNext it means onboarding an **already approved** supplier into the platform and the
+digital working process. The draft used the correct internal word and inherited the wrong
+external meaning. Nobody in the chain caught it, because every individual sentence was
+defensible.
+
+Generalise this: when a term has a common industry meaning and a narrower internal one,
+write the narrow one out in full or avoid the term.
+
+**Accurate data can still build a weak bridge.**
+The NDIA single-source loss figures were real, recent and on-theme. They describe
+supply-chain concentration, which is not a problem this platform solves. Ran's
+replacement, Ardent Partners' AP Metrics that Matter in 2025, lands directly on our
+territory: AP organizations outside the Best-in-Class spend 26.9% of staff time on
+supplier inquiries, Best-in-Class spend 13.4%. Verified against the source before use.
+
+**New topic-selection test:** does the data describe a problem the product operates on,
+not merely a problem our buyer has? Those are different questions, and only the first
+produces a credible bridge.
+
+**Positioning, in Ran's words.** StoreNext does not reduce supplier communication by
+hiding it. It turns supplier communication into structured, traceable, self-service
+business processes. The goal is not fewer supplier relationships. It is fewer supplier
+interactions that require human intervention.
+
+**Terminology.** Prefer **Supplier Collaboration Platform** when discussing strategic
+value. "Portal" reads as an access point. "Collaboration Platform" carries process,
+interaction, workflow, visibility, integration and scale. **Supplier Portal** stays valid
+as the product name.
+
+**Structure that works** (Ran's, now the default for product-adjacent posts): hook on one
+strong number, interpretation of what that number means in practice, reframe from
+behaviour to operating model, strategic insight about what good organizations do
+differently, only then the product, then proof at scale, then a business takeaway rather
+than a CTA, then a discussion question.
+
+**The escalating pattern, W30 through W34.** W30: false attribution and an abrupt pivot.
+W31: pitched a capability Meteor does not have. W34 round one: kept a premise the product
+does not answer. W34 round two: described a stage of the customer lifecycle the product
+does not operate in. Each round has been a wider version of the same error, and each fix
+has been narrower than the failure class. The controlling question is not "is this claim
+approved" but **"is this the problem our product actually operates on, at the stage it
+actually operates in."**
+
+**Source of truth updated.** `C-core/product-capabilities.md` now carries the value
+territory the product owns, the positioning principle, the precise definition of
+onboarding, and an explicit NOT-approved list for the entire pre-contract stage. Scope
+rules added to `A-agents/copywriter-agent.md`, `A-agents/gatekeeper-agent.md` and
+`A-agents/researcher-agent.md`.

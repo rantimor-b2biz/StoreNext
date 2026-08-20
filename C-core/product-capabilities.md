@@ -6,15 +6,37 @@
 > without naming a product. Update this file when capabilities ship.
 > Last updated: 2026-07-03 (per Ran).
 
-## Supplier Portal ("Supply Chain Automations")
+## Supplier Collaboration Platform ("Supply Chain Automations")
+**Naming (per Ran, 2026-08-20):** use **Supplier Collaboration Platform** when
+discussing strategic value. "Portal" sounds like an access point; "Collaboration
+Platform" communicates process, interaction, workflow, visibility, integration and
+scale. **Supplier Portal** remains valid as the product name where appropriate.
+
 Buyer: CFO (primary), Procurement Director (secondary).
-The portal sits between suppliers and the ERP — a communication, document and
-compliance gate.
+A structured digital collaboration layer between suppliers and enterprise systems.
+It sits between suppliers and the ERP — a communication, document and compliance gate.
 Approved numbers: 300+ Enterprise clients / 20,000+ suppliers / 20B+ ₪ annual
 procurement volume / 3 million transactions per day. NEVER use Meteor's numbers
 (1K+ ERP integrations / 400+ clients / 150+ global banks) for Supplier Portal —
 they are a different product with a different client base.
 
+### The value territory this product owns
+This is the ground content should stand on:
+- Moving supplier communication into structured digital workflows
+- Supplier self-service access to information (status, documents, history)
+- Connecting supplier interactions to ERP and business processes
+- Improving transparency and traceability
+- Reducing repetitive supplier inquiries into procurement and finance
+- Reducing manual work for procurement and finance teams
+- Creating a complete audit trail
+- Applying validations and controls before information enters core systems
+
+**Positioning principle (per Ran):** StoreNext does not reduce supplier communication
+by hiding it. It turns supplier communication into structured, traceable, self-service
+business processes. The goal is not fewer supplier relationships. It is fewer supplier
+interactions that require human intervention.
+
+### Capabilities
 - Centralized supplier communication and structured updates (one place, not scattered emails)
 - Digital document and invoice flow from suppliers into the organization
 - **Israeli e-invoicing / CTC compliance gate:** only invoices that meet the Tax
@@ -25,6 +47,24 @@ they are a different product with a different client base.
   - or, where permitted, obtains an allocation number and stamps it on the invoice itself
 - Operational continuity during supply disruptions (structured supplier status, mass communication)
 - Audit trail of supplier documents and invoice handling
+
+**"Onboarding" means something specific here. Do not confuse the two.**
+When StoreNext says supplier onboarding, it means onboarding an **already approved**
+supplier into the Supplier Collaboration Platform and into the organization's digital
+working process. It does NOT mean bringing a new supplier into the organization.
+
+**NOT approved capabilities — do not pitch, imply, or build a post around these:**
+- Selecting suppliers, or any role in supplier choice
+- Qualifying or approving suppliers on the organization's behalf
+- Pre-contract supplier screening, sanctions screening, or beneficial-ownership verification
+- Financial-stability vetting of prospective suppliers
+- Conditional activation gating the first purchase order
+- Controlling supplier dependency or concentration risk before the commercial relationship begins
+- Establishing commercial leverage during supplier selection
+
+Any post implying StoreNext owns the pre-contract stage of the supplier lifecycle
+overstates the product. The platform's territory starts **after** a supplier is
+already working with the organization, when the operational interactions begin.
 
 ## Meteor ("Financial Operations")
 Buyer: CFO. AI-native financial operations. Direct competitor: NILUS.

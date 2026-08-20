@@ -66,6 +66,8 @@ Report:
 - [ ] **No absolute claims.** "The only", "always", "never", "the last chance", "the single point of" = REJECT. One counter-example from an expert reader destroys the post. Soften to "one of the most important".
 - [ ] **Source type matches claim strength.** A vendor's blog, guide, or landing page is market colour only. It can never carry a categorical claim. Check what kind of organization published the source before letting a hard claim stand on it.
 - [ ] **Product bullets answer the post's stated problem.** Read the bullets alone and name the problem they solve. If it is not the problem in the post's opening lines, REJECT. This is the "problem retrofitted to the feature list" failure and readers feel it immediately.
+- [ ] **Lifecycle scope check.** Name the stage of the customer's process the post lives in. The Supplier Collaboration Platform operates AFTER a supplier is approved and working with the organization. Any implication that StoreNext selects, qualifies, screens or approves suppliers, or gates the first PO, = REJECT. See the NOT-approved list in `C-core/product-capabilities.md`.
+- [ ] **"Onboarding" used precisely, or not at all.** Industry meaning: bringing a new supplier into the organization (not ours). StoreNext meaning: onboarding an already approved supplier into the platform. If the post uses the word, the narrow sense must be explicit.
 - [ ] **After stripping unapproved capabilities, re-check the premise.** If removing them leaves nothing that answers the post's problem, the topic was built on a capability we do not have. Send it back for a new angle. Do NOT backfill with the nearest approved feature.
 
 ### Language (Non-Negotiable — Check First)
