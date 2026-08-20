@@ -765,3 +765,27 @@ territory the product owns, the positioning principle, the precise definition of
 onboarding, and an explicit NOT-approved list for the entire pre-contract stage. Scope
 rules added to `A-agents/copywriter-agent.md`, `A-agents/gatekeeper-agent.md` and
 `A-agents/researcher-agent.md`.
+
+---
+
+## Process Failure — An Approved Rule Never Reached main (found 2026-08-20)
+
+While merging, the W31 rule "the core capability itself must be approved, not just its
+attribution" turned out to be missing from `origin/main` entirely. It was never active in
+the automation.
+
+Cause: commit `dfa0da8` was pushed to `claude/w30-post-fixes-and-rules` **after** PR #12
+merged an earlier state of that branch. The PR closed, the branch kept a newer commit, and
+nobody merged it. The rule sat on an orphaned branch for three weeks.
+
+This is not a small bookkeeping issue. That rule was written specifically to stop the
+"pitching a capability we do not have" failure, and W34 then failed in exactly that family.
+The guardrail existed only in a place nothing reads.
+
+Both halves of `dfa0da8` (the copywriter rule and the W31 learning-log entry) were restored
+on 2026-08-20.
+
+**How to avoid a repeat:** after a rules PR merges, confirm the rule is present on `main`,
+not just that the PR was approved. `git log origin/main -S "<distinctive phrase>"` answers
+it in one command. Never push a follow-up commit to a branch whose PR has already merged.
+Open a new branch instead.
