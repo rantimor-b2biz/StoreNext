@@ -18,7 +18,7 @@ ROOT = Path(r"C:\Users\rant\Documents\ran-workspace\StoreNext")
 WEEK = ROOT / "O-output" / "W34"
 FINAL = WEEK / "final"
 PROCESS = WEEK / "process"
-SOURCE_MOCKUP = Path(r"C:\Users\rant\AppData\Local\Temp\codex-clipboard-966f5802-ec45-45ce-b245-9ba1e4f1b6ba.png")
+SOURCE_WATCH = Path(r"C:\Users\rant\Downloads\apple watch.png")
 LOGO_SVG = Path(r"C:\Users\rant\Downloads\Meteor logo-white.svg")
 
 MM = 72 / 25.4
@@ -40,31 +40,13 @@ pdfmetrics.registerFont(TTFont("Arial-Bold", r"C:\Windows\Fonts\arialbd.ttf"))
 
 
 def prepare_watch():
-    """Crop the exact supplied watch from the user's reference and prepare CMYK print asset."""
-    out = PROCESS / "meteor-watch-from-supplied-reference.jpg"
-    im = Image.open(SOURCE_MOCKUP).convert("RGB")
-    # Exact watch region from the supplied 1536 x 1024 reference.
-    crop = im.crop((970, 378, 1206, 632))
-    # Remove surrounding off-white while retaining the soft product shadow.
-    bg = Image.new("RGB", crop.size, (255, 255, 255))
-    px = crop.load()
-    mask = Image.new("L", crop.size, 0)
-    mp = mask.load()
-    for y in range(crop.height):
-        for x in range(crop.width):
-            r, g, b = px[x, y]
-            delta = max(abs(r-g), abs(g-b), abs(r-b))
-            darkness = 255 - min(r, g, b)
-            a = max(0, min(255, int((darkness - 5) * 5.8 + delta * 1.5)))
-            mp[x, y] = a
-    mask = mask.filter(ImageFilter.GaussianBlur(1.2))
-    rgba = Image.new("RGBA", crop.size, (255, 255, 255, 0))
-    rgba.paste(crop, (0, 0), mask)
-    rgba = rgba.resize((1758, 1770), Image.Resampling.LANCZOS)
-    sharp = ImageEnhance.Sharpness(rgba).enhance(1.35)
-    # Composite onto white because rollup artwork is intentionally light.
+    """Prepare the user's standalone transparent watch as a CMYK print asset."""
+    out = PROCESS / "meteor-apple-watch-print-cmyk.jpg"
+    rgba = Image.open(SOURCE_WATCH).convert("RGBA")
+    rgba = rgba.resize((2768, 2880), Image.Resampling.LANCZOS)
+    sharp = ImageEnhance.Sharpness(rgba).enhance(1.18)
     white = Image.new("RGB", sharp.size, "white")
-    white.paste(sharp, mask=sharp.getchannel("A"))
+    white.paste(sharp.convert("RGB"), mask=sharp.getchannel("A"))
     white.convert("CMYK").save(out, quality=96, dpi=(300, 300), subsampling=0)
     return out
 

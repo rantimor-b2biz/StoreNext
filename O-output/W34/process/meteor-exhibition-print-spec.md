@@ -19,5 +19,4 @@ Date: 2026-08-22
 
 ## Watch asset note
 
-The watch is the exact watch supplied in the user's composite reference. No substitute or redrawing was used. Because no standalone product file was supplied, the watch was cropped and carefully upscaled from the reference image. It is suitable for visual proofing and normal viewing distance, but a standalone high-resolution watch file should replace it before final press output when available.
-
+The rollup uses the standalone transparent Apple Watch PNG supplied by the user. No substitute, crop from the composite, or redrawing is used. The source was carefully upscaled and converted to CMYK for print placement while preserving its proportions.
