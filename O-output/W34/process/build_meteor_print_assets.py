@@ -153,18 +153,29 @@ def wave(c, x0, y0, width, amp, colors=(TEAL, BLUE, RED), count=18):
 
 def hex_icon(c, cx, cy, r, color, kind):
     pts = [(cx+r*math.cos(math.radians(60*i+30)), cy+r*math.sin(math.radians(60*i+30))) for i in range(6)]
-    c.setStrokeColor(color); c.setLineWidth(2.5)
+    # Soft vector glow and dark hexagonal tile, matching the supplied sketch.
+    for grow, width in ((1.10, 7), (1.05, 4)):
+        glow = [(cx+r*grow*math.cos(math.radians(60*i+30)), cy+r*grow*math.sin(math.radians(60*i+30))) for i in range(6)]
+        c.setStrokeColor(color); c.setLineWidth(width)
+        gp = c.beginPath(); gp.moveTo(*glow[0])
+        for pt in glow[1:]: gp.lineTo(*pt)
+        gp.close(); c.drawPath(gp, stroke=1, fill=0)
+    c.setFillColor(PCMYKColor(100,76,45,68)); c.setStrokeColor(color); c.setLineWidth(7)
     p = c.beginPath(); p.moveTo(*pts[0])
     for pt in pts[1:]: p.lineTo(*pt)
-    p.close(); c.drawPath(p, stroke=1, fill=0)
-    c.setStrokeColor(WHITE); c.setLineWidth(2)
+    p.close(); c.drawPath(p, stroke=1, fill=1)
+    c.setStrokeColor(WHITE); c.setFillColor(WHITE); c.setLineWidth(7)
     if kind == 0:
         c.circle(cx, cy, r*.30, stroke=1, fill=0); c.line(cx+r*.2, cy-r*.22, cx+r*.44, cy-r*.47)
         c.line(cx-r*.18, cy-r*.08, cx-r*.05, cy+r*.07); c.line(cx-r*.05, cy+r*.07, cx+r*.08, cy-r*.02); c.line(cx+r*.08, cy-r*.02, cx+r*.22, cy+r*.22)
+        c.circle(cx-r*.18,cy-r*.08,r*.025,stroke=0,fill=1); c.circle(cx+r*.22,cy+r*.22,r*.025,stroke=0,fill=1)
     elif kind == 1:
-        for i, h in enumerate((.25,.45,.67)):
-            c.rect(cx-r*.34+i*r*.25, cy-r*.33, r*.16, r*h, stroke=1, fill=0)
-        c.line(cx-r*.38, cy-r*.38, cx+r*.38, cy-r*.38)
+        # AI spark: a four-point primary sparkle plus two supporting sparks.
+        def spark(sx, sy, rr):
+            sp=c.beginPath(); sp.moveTo(sx,sy+rr); sp.lineTo(sx+rr*.22,sy+rr*.22); sp.lineTo(sx+rr,sy)
+            sp.lineTo(sx+rr*.22,sy-rr*.22); sp.lineTo(sx,sy-rr); sp.lineTo(sx-rr*.22,sy-rr*.22)
+            sp.lineTo(sx-rr,sy); sp.lineTo(sx-rr*.22,sy+rr*.22); sp.close(); c.drawPath(sp,stroke=1,fill=0)
+        spark(cx,cy,r*.38); spark(cx+r*.42,cy+r*.39,r*.14); spark(cx-r*.43,cy-r*.32,r*.10)
     else:
         p=c.beginPath(); p.moveTo(cx-r*.34,cy+r*.22); p.lineTo(cx+r*.36,cy+r*.40); p.lineTo(cx+r*.06,cy-r*.38); p.lineTo(cx-r*.03,cy-r*.05); p.close(); c.drawPath(p,stroke=1,fill=0)
 
@@ -199,23 +210,22 @@ def make_pdf(path, trim_w, trim_h, draw_fn):
 def draw_wall(c, pw, ph, city_path):
     b=BLEED*MM; w=2000*MM; h=2200*MM
     c.drawImage(str(city_path),0,0,width=pw,height=ph,preserveAspectRatio=False)
-    logo(c, b+135*MM, b+h-300*MM, 560*MM)
-    c.setFillColor(WHITE); c.setFont("Arial-Bold", 142)
-    c.drawString(b+135*MM, b+h-560*MM, "Connected Finance.")
-    c.setFillColor(TEAL); c.setFont("Arial-Bold", 136)
-    c.drawString(b+135*MM, b+h-735*MM, "From Insight to Action.")
-    c.setFillColor(WHITE); c.setFont("Arial", 49)
-    c.drawString(b+140*MM, b+h-855*MM, "Treasury. Payments. Financial Operations.")
-    labels=[("SEE","Real-time visibility",TEAL,0),("DECIDE","AI-supported insight",BLUE,1),("EXECUTE","From decision to action",RED,2)]
-    for i,(title,sub,col,kind) in enumerate(labels):
+    logo(c, b+135*MM, b+h-300*MM, 600*MM)
+    c.setFillColor(WHITE); c.setFont("Arial-Bold", 130*MM)
+    c.drawString(b+135*MM, b+h-585*MM, "Connected Finance.")
+    c.setFillColor(TEAL); c.setFont("Arial-Bold", 125*MM)
+    c.drawString(b+135*MM, b+h-755*MM, "From Insight to Action.")
+    c.setFillColor(WHITE); c.setFont("Arial", 38*MM)
+    c.drawString(b+140*MM, b+h-865*MM, "Treasury. Payments. Financial Operations.")
+    labels=[("SEE",("Real-time visibility","across cash and banks"),TEAL,0),("DECIDE",("AI-powered insights","to optimize and plan"),BLUE,1),("EXECUTE",("From decisions","to financial action"),RED,2)]
+    for i,(title,subs,col,kind) in enumerate(labels):
         cx=b+(390+i*610)*MM; cy=b+850*MM
-        c.setFillColor(PCMYKColor(95,70,40,60)); c.circle(cx,cy,155*MM,stroke=0,fill=1)
         hex_icon(c,cx,cy,125*MM,col,kind)
-        c.setFillColor(col); c.setFont("Arial-Bold",64); c.drawCentredString(cx,cy-192*MM,title)
-        c.setFillColor(WHITE); c.setFont("Arial",37); c.drawCentredString(cx,cy-258*MM,sub)
+        c.setFillColor(col); c.setFont("Arial-Bold",46*MM); c.drawCentredString(cx,cy-190*MM,title)
+        c.setFillColor(WHITE); c.setFont("Arial",24*MM); c.drawCentredString(cx,cy-250*MM,subs[0]); c.drawCentredString(cx,cy-290*MM,subs[1])
     c.setStrokeColor(TEAL); c.setDash(7,5); c.setLineWidth(2)
     c.line(b+320*MM,b+210*MM,b+1680*MM,b+210*MM)
-    c.setDash(); c.setFillColor(WHITE); c.setFont("Arial-Bold",70)
+    c.setDash(); c.setFillColor(WHITE); c.setFont("Arial-Bold",42*MM)
     c.drawString(b+120*MM,b+175*MM,"ERP")
     c.drawCentredString(b+w/2,b+175*MM,"METEOR")
     c.drawRightString(b+w-120*MM,b+175*MM,"BANKS")
@@ -224,36 +234,36 @@ def draw_wall(c, pw, ph, city_path):
 def draw_counter(c, pw, ph, city_path):
     b=BLEED*MM; w=1200*MM; h=900*MM
     c.drawImage(str(city_path),0,0,width=pw,height=ph,preserveAspectRatio=False)
-    logo(c,b+80*MM,b+h-215*MM,430*MM)
-    c.setFillColor(WHITE); c.setFont("Arial-Bold",82)
-    c.drawString(b+80*MM,b+h-375*MM,"Connected Finance.")
-    c.setFillColor(TEAL); c.setFont("Arial-Bold",78)
-    c.drawString(b+80*MM,b+h-475*MM,"From Insight to Action.")
-    c.setFillColor(WHITE); c.setFont("Arial",31)
-    c.drawString(b+82*MM,b+70*MM,"Treasury. Payments. Financial Operations.")
+    logo(c,b+365*MM,b+h-220*MM,470*MM)
+    c.setFillColor(WHITE); c.setFont("Arial-Bold",60*MM)
+    c.drawCentredString(b+w/2,b+h-390*MM,"Connected Finance.")
+    c.setFillColor(TEAL); c.setFont("Arial-Bold",58*MM)
+    c.drawCentredString(b+w/2,b+h-485*MM,"From Insight to Action.")
+    c.setFillColor(WHITE); c.setFont("Arial",22*MM)
+    c.drawCentredString(b+w/2,b+65*MM,"Treasury. Payments. Financial Operations.")
 
 
 def draw_rollup(c, pw, ph, watch_path):
     background(c, 850, 2000, False)
     b=BLEED*MM; w=850*MM; h=2000*MM
-    c.setFillColor(NAVY); c.rect(0,b+h-370*MM,pw,375*MM,stroke=0,fill=1)
-    logo(c,b+110*MM,b+h-275*MM,630*MM)
+    c.setFillColor(NAVY); c.rect(0,b+h-330*MM,pw,335*MM,stroke=0,fill=1)
+    logo(c,b+175*MM,b+h-245*MM,500*MM)
     c.setFillColor(TEAL); c.rect(b+70*MM,b+h-410*MM,180*MM,9*MM,stroke=0,fill=1)
-    c.setFillColor(BLACK); c.setFont("Arial-Bold",112)
-    c.drawString(b+70*MM,b+h-555*MM,"Treasury.")
-    c.setFillColor(TEAL_DARK); c.setFont("Arial-Bold",108)
-    c.drawString(b+70*MM,b+h-690*MM,"Anywhere.")
-    c.setFillColor(BLACK); c.setFont("Arial",41)
+    c.setFillColor(BLACK); c.setFont("Arial-Bold",88*MM)
+    c.drawString(b+70*MM,b+h-545*MM,"Treasury.")
+    c.setFillColor(TEAL_DARK); c.setFont("Arial-Bold",88*MM)
+    c.drawString(b+70*MM,b+h-670*MM,"Anywhere.")
+    c.setFillColor(BLACK); c.setFont("Arial",25*MM)
     c.drawString(b+72*MM,b+h-790*MM,"Stay connected to your cash from anywhere.")
     c.setFillColor(PCMYKColor(0,0,0,16)); c.ellipse(b+165*MM,b+500*MM,b+700*MM,b+590*MM,stroke=0,fill=1)
     c.drawImage(str(watch_path), b+115*MM, b+525*MM, width=620*MM, height=646*MM, preserveAspectRatio=True, mask='auto')
     c.setFillColor(NAVY); c.roundRect(b+65*MM,b+385*MM,720*MM,150*MM,18*MM,stroke=0,fill=1)
-    c.setFillColor(WHITE); c.setFont("Arial-Bold",62)
+    c.setFillColor(WHITE); c.setFont("Arial-Bold",38*MM)
     c.drawString(b+105*MM,b+455*MM,"Win an")
-    c.setFillColor(TEAL); c.setFont("Arial-Bold",62); c.drawString(b+310*MM,b+455*MM,"Apple Watch")
+    c.setFillColor(TEAL); c.setFont("Arial-Bold",38*MM); c.drawString(b+310*MM,b+455*MM,"Apple Watch")
     # Deliberately blank QR zone for later insertion.
     c.setStrokeColor(TEAL_DARK); c.setLineWidth(2); c.roundRect(b+275*MM,b+95*MM,300*MM,250*MM,15*MM,stroke=1,fill=0)
-    c.setFillColor(MUTED); c.setFont("Arial",28)
+    c.setFillColor(MUTED); c.setFont("Arial",18*MM)
     c.drawCentredString(b+w/2,b+55*MM,"Scan to enter")
 
 

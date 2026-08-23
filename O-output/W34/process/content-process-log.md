@@ -14,3 +14,7 @@
 - Strengthened typography, logo scale, contrast, icon framing, skyline depth, financial data ribbons, and the ERP-to-Meteor-to-banks flow.
 - Redesigned the rollup with a stronger navy brand header, teal accent rule, larger watch, integrated prize panel, and refined QR reservation.
 - Re-rendered and visually inspected all three revised PDFs. Corrected the remaining rollup text/image overlap before final export.
+- Reworked typography after direct feedback: converted display type sizing to physical millimetre-based proportions matching the supplied exhibition sketch, enlarged the wall hierarchy, centered the counter hierarchy, and strengthened the rollup hierarchy.
+- Rebuilt the three vector icon tiles with dark hexagonal fills, colored outlines, layered vector glow, and more detailed line artwork.
+- Replaced the DECIDE bar-chart symbol with a dedicated AI Spark symbol.
+- Verified that every visible "A StoreNext Company" tagline is part of the original Meteor SVG logo paths. No separate tagline text layer is created.
