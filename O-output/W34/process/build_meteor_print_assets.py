@@ -3,7 +3,7 @@ import math
 import re
 import xml.etree.ElementTree as ET
 
-from PIL import Image, ImageEnhance, ImageFilter
+from PIL import Image, ImageEnhance, ImageFilter, ImageOps, ImageDraw
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import PCMYKColor
 from reportlab.pdfbase import pdfmetrics
@@ -19,6 +19,7 @@ WEEK = ROOT / "O-output" / "W34"
 FINAL = WEEK / "final"
 PROCESS = WEEK / "process"
 SOURCE_WATCH = Path(r"C:\Users\rant\Downloads\apple watch.png")
+SOURCE_CITY = PROCESS / "meteor-city-data-background-v2.png"
 LOGO_SVG = Path(r"C:\Users\rant\Downloads\Meteor logo-white.svg")
 
 MM = 72 / 25.4
@@ -49,6 +50,34 @@ def prepare_watch():
     white.paste(sharp.convert("RGB"), mask=sharp.getchannel("A"))
     white.convert("CMYK").save(out, quality=96, dpi=(300, 300), subsampling=0)
     return out
+
+
+def prepare_city_backgrounds():
+    """Prepare dark, high-resolution CMYK city compositions for wall and counter."""
+    source = Image.open(SOURCE_CITY).convert("RGB")
+    outputs = {}
+    for name, size, city_top in (
+        ("wall", (4000, 4400), 1550),
+        ("counter", (4000, 3000), 470),
+    ):
+        base = Image.new("RGB", size, (7, 24, 39))
+        city_h = size[1] - city_top
+        fitted = ImageOps.fit(source, (size[0], city_h), method=Image.Resampling.LANCZOS, centering=(0.57, 0.56))
+        fitted = ImageEnhance.Contrast(fitted).enhance(1.05)
+        base.paste(fitted, (0, city_top))
+        # Smooth navy fade protects the headline and logo area.
+        overlay = Image.new("RGBA", size, (4, 18, 31, 0))
+        od = ImageDraw.Draw(overlay)
+        fade_end = city_top + int(city_h * .30)
+        for y in range(max(0, city_top-200), fade_end):
+            t = (y - (city_top-200)) / max(1, fade_end-(city_top-200))
+            alpha = int(235 * (1-t))
+            od.line((0, y, size[0], y), fill=(4, 18, 31, alpha))
+        base = Image.alpha_composite(base.convert("RGBA"), overlay).convert("RGB")
+        out = PROCESS / f"meteor-{name}-background-cmyk-v2.jpg"
+        base.convert("CMYK").save(out, quality=95, dpi=(150,150), subsampling=0)
+        outputs[name] = out
+    return outputs
 
 
 def load_logo_drawing(target_w, target_h):
@@ -167,68 +196,73 @@ def make_pdf(path, trim_w, trim_h, draw_fn):
     assert abs(float(page0.mediabox.height) / MM - (trim_h + 2*BLEED)) < .1
 
 
-def draw_wall(c, pw, ph):
-    background(c, 2000, 2200, True)
+def draw_wall(c, pw, ph, city_path):
     b=BLEED*MM; w=2000*MM; h=2200*MM
-    logo(c, b+120*MM, b+h-310*MM, 600*MM)
-    c.setFillColor(WHITE); c.setFont("Arial-Bold", 128)
-    c.drawString(b+120*MM, b+h-610*MM, "Connected Finance.")
-    c.setFillColor(TEAL); c.drawString(b+120*MM, b+h-775*MM, "From Insight to Action.")
-    c.setFillColor(WHITE); c.setFont("Arial", 52)
-    c.drawString(b+120*MM, b+h-900*MM, "Treasury. Payments. Financial Operations.")
-    wave(c, b, b+500*MM, w, 300*MM)
+    c.drawImage(str(city_path),0,0,width=pw,height=ph,preserveAspectRatio=False)
+    logo(c, b+135*MM, b+h-300*MM, 560*MM)
+    c.setFillColor(WHITE); c.setFont("Arial-Bold", 142)
+    c.drawString(b+135*MM, b+h-560*MM, "Connected Finance.")
+    c.setFillColor(TEAL); c.setFont("Arial-Bold", 136)
+    c.drawString(b+135*MM, b+h-735*MM, "From Insight to Action.")
+    c.setFillColor(WHITE); c.setFont("Arial", 49)
+    c.drawString(b+140*MM, b+h-855*MM, "Treasury. Payments. Financial Operations.")
     labels=[("SEE","Real-time visibility",TEAL,0),("DECIDE","AI-supported insight",BLUE,1),("EXECUTE","From decision to action",RED,2)]
     for i,(title,sub,col,kind) in enumerate(labels):
-        cx=b+(390+i*610)*MM; cy=b+920*MM
+        cx=b+(390+i*610)*MM; cy=b+850*MM
+        c.setFillColor(PCMYKColor(95,70,40,60)); c.circle(cx,cy,155*MM,stroke=0,fill=1)
         hex_icon(c,cx,cy,125*MM,col,kind)
-        c.setFillColor(col); c.setFont("Arial-Bold",58); c.drawCentredString(cx,cy-190*MM,title)
-        c.setFillColor(WHITE); c.setFont("Arial",36); c.drawCentredString(cx,cy-255*MM,sub)
+        c.setFillColor(col); c.setFont("Arial-Bold",64); c.drawCentredString(cx,cy-192*MM,title)
+        c.setFillColor(WHITE); c.setFont("Arial",37); c.drawCentredString(cx,cy-258*MM,sub)
     c.setStrokeColor(TEAL); c.setDash(7,5); c.setLineWidth(2)
-    c.line(b+300*MM,b+250*MM,b+1700*MM,b+250*MM)
+    c.line(b+320*MM,b+210*MM,b+1680*MM,b+210*MM)
     c.setDash(); c.setFillColor(WHITE); c.setFont("Arial-Bold",70)
-    c.drawString(b+120*MM,b+215*MM,"ERP")
-    c.drawCentredString(b+w/2,b+215*MM,"METEOR")
-    c.drawRightString(b+w-120*MM,b+215*MM,"BANKS")
+    c.drawString(b+120*MM,b+175*MM,"ERP")
+    c.drawCentredString(b+w/2,b+175*MM,"METEOR")
+    c.drawRightString(b+w-120*MM,b+175*MM,"BANKS")
 
 
-def draw_counter(c, pw, ph):
-    background(c, 1200, 900, True)
+def draw_counter(c, pw, ph, city_path):
     b=BLEED*MM; w=1200*MM; h=900*MM
-    logo(c,b+90*MM,b+h-230*MM,470*MM)
-    c.setFillColor(WHITE); c.setFont("Arial-Bold",72)
-    c.drawString(b+90*MM,b+h-390*MM,"Connected Finance.")
-    c.setFillColor(TEAL); c.drawString(b+90*MM,b+h-490*MM,"From Insight to Action.")
-    wave(c,b-10*MM,b+205*MM,w+20*MM,180*MM,(TEAL,BLUE),22)
-    c.setFillColor(WHITE); c.setFont("Arial",30)
-    c.drawString(b+90*MM,b+95*MM,"Treasury. Payments. Financial Operations.")
+    c.drawImage(str(city_path),0,0,width=pw,height=ph,preserveAspectRatio=False)
+    logo(c,b+80*MM,b+h-215*MM,430*MM)
+    c.setFillColor(WHITE); c.setFont("Arial-Bold",82)
+    c.drawString(b+80*MM,b+h-375*MM,"Connected Finance.")
+    c.setFillColor(TEAL); c.setFont("Arial-Bold",78)
+    c.drawString(b+80*MM,b+h-475*MM,"From Insight to Action.")
+    c.setFillColor(WHITE); c.setFont("Arial",31)
+    c.drawString(b+82*MM,b+70*MM,"Treasury. Payments. Financial Operations.")
 
 
 def draw_rollup(c, pw, ph, watch_path):
     background(c, 850, 2000, False)
     b=BLEED*MM; w=850*MM; h=2000*MM
-    # Dark logo panel preserves the official white/red vector mark.
-    c.setFillColor(NAVY); c.roundRect(b+65*MM,b+h-330*MM,720*MM,230*MM,18*MM,stroke=0,fill=1)
-    logo(c,b+115*MM,b+h-285*MM,620*MM)
-    c.setFillColor(BLACK); c.setFont("Arial-Bold",105)
-    c.drawString(b+70*MM,b+h-535*MM,"Treasury.")
-    c.setFillColor(TEAL_DARK); c.drawString(b+70*MM,b+h-670*MM,"Anywhere.")
-    c.setFillColor(BLACK); c.setFont("Arial",40)
-    c.drawString(b+70*MM,b+h-770*MM,"Stay connected to your cash from anywhere.")
-    c.drawImage(str(watch_path), b+145*MM, b+560*MM, width=560*MM, height=603*MM, preserveAspectRatio=True, mask='auto')
-    c.setFillColor(BLACK); c.setFont("Arial-Bold",68)
-    c.drawString(b+90*MM,b+590*MM,"Win an")
-    c.setFillColor(TEAL_DARK); c.drawString(b+90*MM,b+505*MM,"Apple Watch")
+    c.setFillColor(NAVY); c.rect(0,b+h-370*MM,pw,375*MM,stroke=0,fill=1)
+    logo(c,b+110*MM,b+h-275*MM,630*MM)
+    c.setFillColor(TEAL); c.rect(b+70*MM,b+h-410*MM,180*MM,9*MM,stroke=0,fill=1)
+    c.setFillColor(BLACK); c.setFont("Arial-Bold",112)
+    c.drawString(b+70*MM,b+h-555*MM,"Treasury.")
+    c.setFillColor(TEAL_DARK); c.setFont("Arial-Bold",108)
+    c.drawString(b+70*MM,b+h-690*MM,"Anywhere.")
+    c.setFillColor(BLACK); c.setFont("Arial",41)
+    c.drawString(b+72*MM,b+h-790*MM,"Stay connected to your cash from anywhere.")
+    c.setFillColor(PCMYKColor(0,0,0,16)); c.ellipse(b+165*MM,b+500*MM,b+700*MM,b+590*MM,stroke=0,fill=1)
+    c.drawImage(str(watch_path), b+115*MM, b+525*MM, width=620*MM, height=646*MM, preserveAspectRatio=True, mask='auto')
+    c.setFillColor(NAVY); c.roundRect(b+65*MM,b+385*MM,720*MM,150*MM,18*MM,stroke=0,fill=1)
+    c.setFillColor(WHITE); c.setFont("Arial-Bold",62)
+    c.drawString(b+105*MM,b+455*MM,"Win an")
+    c.setFillColor(TEAL); c.setFont("Arial-Bold",62); c.drawString(b+310*MM,b+455*MM,"Apple Watch")
     # Deliberately blank QR zone for later insertion.
-    c.setStrokeColor(TEAL_DARK); c.setLineWidth(2); c.roundRect(b+235*MM,b+150*MM,380*MM,300*MM,15*MM,stroke=1,fill=0)
+    c.setStrokeColor(TEAL_DARK); c.setLineWidth(2); c.roundRect(b+275*MM,b+95*MM,300*MM,250*MM,15*MM,stroke=1,fill=0)
     c.setFillColor(MUTED); c.setFont("Arial",28)
-    c.drawCentredString(b+w/2,b+110*MM,"Scan to enter")
+    c.drawCentredString(b+w/2,b+55*MM,"Scan to enter")
 
 
 def main():
     FINAL.mkdir(parents=True, exist_ok=True); PROCESS.mkdir(parents=True, exist_ok=True)
     watch = prepare_watch()
-    make_pdf(FINAL / "W34-meteor-wall-200x220-print.pdf", 2000, 2200, draw_wall)
-    make_pdf(FINAL / "W34-meteor-counter-120x90-print.pdf", 1200, 900, draw_counter)
+    city = prepare_city_backgrounds()
+    make_pdf(FINAL / "W34-meteor-wall-200x220-print.pdf", 2000, 2200, lambda c,pw,ph: draw_wall(c,pw,ph,city["wall"]))
+    make_pdf(FINAL / "W34-meteor-counter-120x90-print.pdf", 1200, 900, lambda c,pw,ph: draw_counter(c,pw,ph,city["counter"]))
     make_pdf(FINAL / "W34-meteor-rollup-85x200-print.pdf", 850, 2000, lambda c,pw,ph: draw_rollup(c,pw,ph,watch))
     print("Created 3 PDFs")
 
