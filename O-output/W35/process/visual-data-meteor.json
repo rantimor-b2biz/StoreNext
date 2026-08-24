@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W35-meteor",
+      "visual_type": "stat_card",
+      "category": "Financial Operations",
+      "topic": "The Treasury Shortage Nobody Is Hiring To Fix",
+      "key_metric": "61%",
+      "hook": "61% of finance leaders report a talent shortage. Only 8% are hiring to solve it.",
+      "key_stat": "61% report treasury talent shortages; only 8% respond by hiring internationally.",
+      "source": "Controllers Council, Corporate Finance & Accounting Talent Study 2026",
+      "visual_direction": "Bold 61% as the dominant figure with a smaller contrasting 8% beside it, clean enterprise stat card emphasizing the gap between the problem and the hiring response.",
+      "brand": "meteor"
+    }
+  ]
+}

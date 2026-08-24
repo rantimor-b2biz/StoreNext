@@ -128,5 +128,13 @@
     "pillar": "1. Supply chain resilience & supplier management (Supplier Collaboration Platform) | operational efficiency angle",
     "product_focus": "Supplier Collaboration Platform",
     "note": "Rebuilt 2026-08-20 per Ran. Original onboarding/leverage premise retired: it implied StoreNext manages supplier selection and pre-contract screening, which it does not."
+  },
+  {
+    "date": "2026-08-24",
+    "week": "W35",
+    "brand": "meteor",
+    "topic": "The Treasury Talent Shortage Isn't a Hiring Problem. It's a Workflow Problem.",
+    "pillar": "Financial operations & treasury (Pillar 2)",
+    "product_focus": "Meteor"
   }
 ]
