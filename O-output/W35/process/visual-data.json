@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W35",
+      "visual_type": "stat_card",
+      "category": "Procurement & Finance",
+      "topic": "Procurement ROI Is Proven. Data Foundation Isn't.",
+      "key_metric": "2.7x-6.6x",
+      "hook": "Procurement digitization already delivers median ROI. Most organizations still can't capture it.",
+      "key_stat": "2.7x-6.6x median ROI across 200+ projects, yet 74% say their data is not AI-ready.",
+      "source": "JAGGAER 2026 Benchmark; The Hackett Group",
+      "visual_direction": "Clean stat card leading with 2.7x-6.6x, contrasting the proven ROI figure against the 74% AI-readiness gap in a secondary line."
+    }
+  ]
+}
