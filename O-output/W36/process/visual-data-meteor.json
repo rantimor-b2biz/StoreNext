@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W36-meteor",
+      "visual_type": "stat_card",
+      "category": "Treasury & FX Risk",
+      "topic": "The FX Visibility Gap in 2026",
+      "key_metric": "89%",
+      "hook": "CFOs expect more FX volatility, but most cannot see exposure in real time.",
+      "key_stat": "63% expect FX volatility to rise in 2026. 89% do not stress-test FX forecasts.",
+      "source": "Alpha Group / Corpay, Countdown to 2026",
+      "visual_direction": "Clean stat card contrasting rising FX concern (63%) against the stress-testing gap (89%), reinforcing that the bottleneck is data visibility, not hedging strategy.",
+      "brand": "meteor"
+    }
+  ]
+}
