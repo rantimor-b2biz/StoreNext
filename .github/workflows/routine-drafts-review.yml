@@ -58,10 +58,11 @@ jobs:
             echo "❌ Invalid folder name: $FOLDER — must be O-output/W[NN]"
           fi
 
-      - name: Open PR to master
+      - name: Open PR to main
         if: steps.find_post.outputs.skip == 'false'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+          POST_FILE: ${{ steps.find_post.outputs.post_file }}
         run: |
           WEEK="${{ steps.find_post.outputs.week }}"
           VALID="${{ steps.validate.outputs.valid }}"
@@ -71,24 +72,30 @@ jobs:
             TITLE="⚠️ [$WEEK] LinkedIn post — FOLDER NAME INVALID"
           fi
 
+          # The PR body is assembled with printf so that no body line sits at
+          # column 0. A line at column 0 terminates this YAML block scalar and
+          # makes the whole workflow file invalid.
+          BODY=$(printf '%s\n' \
+            "## תוכן שבועי — ממתין לאישורך" \
+            "" \
+            "שבוע: $WEEK" \
+            "קובץ: $POST_FILE" \
+            "" \
+            "### לפני merge לבדוק:" \
+            "- [ ] שם התיקייה בפורמט O-output/W[NN]/" \
+            "- [ ] final-post.md קיים ב-final/" \
+            "- [ ] שני הפוסטים עברו Gatekeeper" \
+            "- [ ] visual-data.json קיים ב-process/" \
+            "" \
+            "Merge לmain יפעיל אוטומטית את שליחת האימייל.")
+
           # Check if PR already exists
           EXISTING=$(gh pr list --head routine-drafts --base main --json number --jq '.[0].number' 2>/dev/null)
 
           if [ -z "$EXISTING" ]; then
             gh pr create \
               --title "$TITLE" \
-              --body "## תוכן שבועי — ממתין לאישורך
-
-שבוע: $WEEK
-קובץ: ${{ steps.find_post.outputs.post_file }}
-
-### לפני merge לבדוק:
-- [ ] שם התיקייה בפורמט O-output/W[NN]/
-- [ ] final-post.md קיים ב-final/
-- [ ] שני הפוסטים עברו Gatekeeper
-- [ ] visual-data.json קיים ב-process/
-
-Merge לmain יפעיל אוטומטית את שליחת האימייל." \
+              --body "$BODY" \
               --base main \
               --head routine-drafts
           else
