@@ -73,8 +73,9 @@ def text(c, x, top, s, font="A", size=T_BODY, color=INK, align="l", track=0):
     t = c.beginText(x0, y(top))
     t.setFont(font, size)
     t.setFillColor(color)
-    if track:
-        t.setCharSpace(track)
+    # Tc is graphics state and survives BT/ET, so always emit it or a previous
+    # tracked line silently widens every run that follows.
+    t.setCharSpace(track)
     t.textOut(s)
     c.drawText(t)
 
@@ -188,22 +189,24 @@ def footer(c, s, dark=False, color=None):
 
 # =============================================================================
 # SLIDES
+# Colour rule, applied everywhere:
+#   BLUE = the ERP / decision side.  TEAL = visibility and the bank side.
+#   RED  = Meteor's own layer, and the point where action happens.
 # =============================================================================
 def s01_cover(c):
     bg(c, True)
     d, h = logo_drawing(300, True)
-    renderPDF.draw(d, c, W / 2 - 150, y(150) - h)
+    renderPDF.draw(d, c, W / 2 - 150, y(160) - h)
     kicker(c, W / 2 - 60, 300, TEAL, 120)
     text(c, W / 2, 400, "Connected Treasury.", font="AB", size=T_HERO, color=WHITE, align="c")
     text(c, W / 2, 510, "From Insight to Action.", font="AB", size=T_HERO, color=TEAL, align="c")
-    text(c, W / 2, 585, "Treasury. Payments. Financial Operations.", font="A",
+    text(c, W / 2, 580, "Treasury. Payments. Financial Operations.", font="A",
          size=T_LEAD, color=MUTED_D, align="c")
+    caps(c, W / 2, 675, "See  ·  Decide  ·  Execute", size=T_LABEL, color=TEAL, align="c", track=5)
 
-    caps(c, W / 2, 690, "See  ·  Decide  ·  Execute", size=T_LABEL, color=TEAL, align="c", track=5)
-
-    rule(c, MARGIN, W - MARGIN, 760, NAVY_3, 1.5)
-    caps(c, MARGIN, 800, "Treasury Conference 2026", size=T_MIN, color=MUTED_D, track=3)
-    text(c, W - MARGIN, 800, "Limor Carmeli   ·   Shiran Shapira", font="AB",
+    rule(c, MARGIN, W - MARGIN, 745, NAVY_3, 1.5)
+    caps(c, MARGIN, 790, "Treasury Conference 2026", size=T_MIN, color=MUTED_D, track=3)
+    text(c, W - MARGIN, 790, "Limor Carmeli   ·   Shiran Shapira", font="AB",
          size=T_MIN, color=WHITE, align="r")
 
 
@@ -211,158 +214,160 @@ def s02_who(c):
     bg(c, True)
     logo(c, MARGIN, 90, 170, True)
     kicker(c, MARGIN, 235, TEAL)
-    text(c, MARGIN, 320, "Financial infrastructure", font="AB", size=T_H1, color=WHITE)
-    text(c, MARGIN, 400, "for enterprise finance.", font="AB", size=T_H1, color=TEAL)
-    wrap(c, MARGIN, 470, "Meteor centralises bank data, treasury, payments and lease "
+    text(c, MARGIN, 315, "Financial infrastructure", font="AB", size=T_H1, color=WHITE)
+    text(c, MARGIN, 395, "for enterprise finance.", font="AB", size=T_H1, color=TEAL)
+    wrap(c, MARGIN, 465, "Meteor centralizes bank data, treasury, payments and lease "
                          "accounting in one system, integrated with your ERP.",
-         W - 2 * MARGIN - 380, "A", T_LEAD, MUTED_D)
+         1000, "A", T_LEAD, MUTED_D, lead=48)
 
     stats = [("400+", "enterprise clients", TEAL),
-             ("150+", "global banks, plus every Israeli bank", BLUE),
-             ("1K+", "ERP integrations", TEAL),
+             ("150+", "global banks, plus every Israeli bank", TEAL),
+             ("1K+", "ERP integrations", BLUE),
              ("ISA", "licensed by the Israel Securities Authority", RED)]
     col = (W - 2 * MARGIN) / 4
     rule(c, MARGIN, W - MARGIN, 620, NAVY_3, 1.5)
     for i, (n, lab, col_c) in enumerate(stats):
         x = MARGIN + i * col
-        text(c, x, 720, n, font="AB", size=76, color=col_c)
-        wrap(c, x, 760, lab, col - 40, "A", T_MIN, MUTED_D, lead=30)
+        text(c, x, 710, n, font="AB", size=72, color=col_c)
+        wrap(c, x, 752, lab, col - 55, "A", T_MIN, MUTED_D, lead=30)
 
 
 def s03_whynow(c):
     bg(c, False)
     logo(c, MARGIN, 90, 150, False)
     kicker(c, MARGIN, 235, RED)
-    text(c, MARGIN, 320, "Why this matters in 2026.", font="AB", size=T_H1, color=INK)
+    text(c, MARGIN, 315, "Why this matters in 2026.", font="AB", size=T_H1, color=INK)
 
     stats = [("63%", "of senior finance leaders expect FX volatility to rise in 2026.",
               "Alpha Group / Corpay, Countdown to 2026", BLUE),
-             ("89%", "are not systematically stress-testing their FX forecasts.",
+             ("89%", "of those surveyed do not systematically stress-test their FX forecasts.",
               "Alpha Group / Corpay, Countdown to 2026", RED),
              ("61%", "of finance leaders report finance and accounting talent shortages.",
               "Corporate Finance & Accounting Talent Study 2026", TEAL)]
     col = (W - 2 * MARGIN) / 3
     for i, (n, lab, src, col_c) in enumerate(stats):
         x = MARGIN + i * col
-        text(c, x, 500, n, font="AB", size=T_STAT, color=col_c)
-        wrap(c, x, 550, lab, col - 60, "A", T_BODY, INK, lead=38)
-        wrap(c, x, 690, src, col - 60, "A", T_MIN, MUTED_L, lead=30)
+        text(c, x, 480, n, font="AB", size=T_STAT, color=col_c)
+        wrap(c, x, 530, lab, col - 80, "A", T_BODY, INK, lead=38)
+        wrap(c, x, 668, src, col - 80, "A", T_MIN, MUTED_L, lead=30)
 
-    rule(c, MARGIN, W - MARGIN, 790, RULE_L)
-    text(c, MARGIN, 838, "More volatility. Less certainty. No additional headcount.",
+    rule(c, MARGIN, W - MARGIN, 740, RULE_L)
+    text(c, MARGIN, 790, "More volatility. Less certainty. No additional headcount.",
          font="AB", size=T_LEAD, color=INK)
 
 
 def s04_challenge(c):
     bg(c, False)
     logo(c, MARGIN, 90, 150, False)
-    kicker(c, MARGIN, 235, RED)
-    text(c, MARGIN, 310, "The Treasury Challenge", font="AB", size=T_H1, color=INK)
-    text(c, MARGIN, 375, "Decisions have to be faster. The information behind them is still apart.",
+    kicker(c, MARGIN, 225, RED)
+    text(c, MARGIN, 300, "The Treasury Challenge", font="AB", size=T_H1, color=INK)
+    text(c, MARGIN, 358, "Decisions have to be faster. The information behind them is still in pieces.",
          font="A", size=T_LEAD, color=MUTED_L)
 
-    # Deliberately broken: four islands at different heights, severed links.
-    nodes = [(300, 500, "ERP", BLUE), (640, 560, "Spreadsheets", MUTED_L),
-             (1000, 495, "Banks", TEAL), (1330, 565, "Treasury", RED)]
+    # Deliberately broken: four islands at different heights, links severed.
+    nodes = [(300, 452, "ERP", BLUE), (630, 500, "Spreadsheets", MUTED_L),
+             (980, 448, "Banks", TEAL), (1300, 502, "Treasury", RED)]
     for cx, cy, lab, col_c in nodes:
-        hexagon(c, cx, cy, 58, stroke=col_c, fill=None, lw=4)
-        caps(c, cx, cy + 105, lab, size=T_MIN, color=INK, align="c", track=2)
-    # severed connectors with a visible red break
-    for (x1, y1), (x2, y2) in (((358, 500), (582, 560)), ((698, 560), (942, 495)),
-                               ((1058, 495), (1272, 565))):
+        hexagon(c, cx, cy, 46, stroke=col_c, fill=None, lw=4)
+        caps(c, cx, cy + 88, lab, size=T_MIN, color=INK, align="c", track=2)
+    for (x1, y1), (x2, y2) in (((346, 452), (584, 500)), ((676, 500), (934, 448)),
+                               ((1026, 448), (1254, 502))):
         mx, my = (x1 + x2) / 2, (y1 + y2) / 2
         c.setStrokeColor(RULE_L)
         c.setLineWidth(3)
         c.setDash(9, 11)
-        c.line(x1, y(y1), mx - 26, y(my - 5))
-        c.line(mx + 26, y(my + 5), x2, y(y2))
+        c.line(x1, y(y1), mx - 26, y(my - 4))
+        c.line(mx + 26, y(my + 4), x2, y(y2))
         c.setDash()
         c.setStrokeColor(RED)
         c.setLineWidth(5)
-        c.line(mx - 14, y(my - 20), mx + 14, y(my + 20))
-        c.line(mx - 14, y(my + 20), mx + 14, y(my - 20))
+        c.line(mx - 13, y(my - 17), mx + 13, y(my + 17))
+        c.line(mx - 13, y(my + 17), mx + 13, y(my - 17))
 
-    rule(c, MARGIN, W - MARGIN, 690, RULE_L)
-    pains = [("Fragmented information", "Balances and exposure live in banks, ERP and spreadsheets."),
+    rule(c, MARGIN, W - MARGIN, 618, RULE_L)
+    pains = [("Fragmented information", "Balances and exposure sit in banks, ERP and spreadsheets."),
              ("Limited foresight", "What is coming next still takes manual analysis."),
-             ("Disconnected execution", "Acting on the decision is a separate process, in another system.")]
+             ("Disconnected execution", "Acting on the decision is a separate job, in another system.")]
     col = (W - 2 * MARGIN) / 3
     for i, (t_, b_) in enumerate(pains):
         x = MARGIN + i * col
-        caps(c, x, 740, t_, size=T_LABEL, color=INK, track=1.6)
-        wrap(c, x, 790, b_, col - 50, "A", T_MIN, MUTED_L, lead=32)
+        caps(c, x, 662, t_, size=T_LABEL, color=INK, track=1.6)
+        wrap(c, x, 706, b_, col - 80, "A", T_MIN, MUTED_L, lead=32)
+
+    text(c, MARGIN, 795, "The gap is not the data. It is the distance between information, "
+                         "decision and execution.", font="AB", size=T_BODY, color=INK)
 
 
 def s05_connected(c):
     bg(c, True)
     logo(c, MARGIN, 90, 170, True)
     kicker(c, W / 2 - 60, 225, TEAL, 120)
-    text(c, W / 2, 320, "Connected Treasury. End to end.", font="AB", size=T_H1,
+    text(c, W / 2, 300, "Connected Treasury. End to end.", font="AB", size=T_H1,
          color=WHITE, align="c")
 
-    nodes = [(330, "ERP", BLUE, "SAP · Oracle · Priority · NetSuite · Dynamics"),
-             (800, "METEOR", TEAL, "Aggregation · Treasury · Payments · IFRS 16"),
-             (1270, "BANKS", RED, "150+ global banks · every Israeli bank · SWIFT")]
+    nodes = [(320, "ERP", BLUE, "SAP · Oracle · Priority · NetSuite · Dynamics"),
+             (800, "METEOR", RED, "Aggregation · Treasury · Payments · IFRS 16"),
+             (1280, "BANKS", TEAL, "150+ global banks · every Israeli bank · SWIFT")]
     for cx, lab, col_c, sub in nodes:
-        hexagon(c, cx, 500, 96, stroke=col_c, fill=None, lw=6)
-        caps(c, cx, 512, lab, size=T_LABEL + 6, color=WHITE, align="c", track=3)
-        wrap(c, cx, 640, sub, 400, "A", T_MIN, MUTED_D, lead=32, align="c")
+        hexagon(c, cx, 470, 92, stroke=col_c, fill=None, lw=6)
+        caps(c, cx, 482, lab, size=T_LABEL + 6, color=WHITE, align="c", track=3)
+        wrap(c, cx, 610, sub, 350, "A", T_MIN, MUTED_D, lead=32, align="c")
 
-    arrow(c, 440, 690, 495, TEAL, 5)
-    arrow(c, 910, 1160, 495, TEAL, 5)
-    caps(c, 565, 455, "real time", size=T_MIN, color=TEAL, align="c", track=2.6, font="A")
-    caps(c, 1035, 455, "controlled", size=T_MIN, color=TEAL, align="c", track=2.6, font="A")
+    arrow(c, 425, 680, 466, TEAL, 5)
+    arrow(c, 905, 1160, 466, TEAL, 5)
+    caps(c, 552, 428, "real time", size=T_MIN, color=TEAL, align="c", track=2.6, font="A")
+    caps(c, 1032, 428, "controlled", size=T_MIN, color=TEAL, align="c", track=2.6, font="A")
 
-    rule(c, MARGIN, W - MARGIN, 780, NAVY_3, 1.5)
-    text(c, W / 2, 838, "One system between your ERP and your banks. No re-keying in between.",
-         font="AB", size=T_LEAD, color=WHITE, align="c")
+    rule(c, MARGIN, W - MARGIN, 730, NAVY_3, 1.5)
+    text(c, W / 2, 790, "One system between your ERP and your banks. No re-keying in between.",
+         font="AB", size=32, color=WHITE, align="c")
 
 
 def s06_sde(c):
     bg(c, False)
     logo(c, MARGIN, 90, 150, False)
     kicker(c, W / 2 - 60, 225, TEAL, 120)
-    text(c, W / 2, 315, "See. Decide. Execute.", font="AB", size=T_H1, color=INK, align="c")
-    text(c, W / 2, 378, "The same three steps the booth is built around.", font="A",
-         size=T_LEAD, color=MUTED_L, align="c")
+    text(c, W / 2, 300, "See. Decide. Execute.", font="AB", size=T_H1, color=INK, align="c")
+    text(c, W / 2, 358, "Three steps. One system.", font="A", size=T_LEAD, color=MUTED_L, align="c")
 
-    cards = [(330, "See", TEAL, "Real-time visibility across cash, banks and ERP."),
-             (800, "Decide", BLUE, "AI-supported insight to forecast, optimise and plan."),
-             (1270, "Execute", RED, "From the decision to the payment, in one flow.")]
-    for cx, lab, col_c, body in cards:
-        hexagon(c, cx, 510, 82, stroke=col_c, fill=None, lw=6)
-        caps(c, cx, 640, lab, size=T_LABEL + 8, color=col_c, align="c", track=3)
-        wrap(c, cx, 700, body, 400, "A", T_BODY, INK, lead=38, align="c")
+    cards = [(320, "1", "See", TEAL, "Real-time visibility across cash, banks and ERP."),
+             (800, "2", "Decide", BLUE, "AI-supported insight to forecast, optimize and plan."),
+             (1280, "3", "Execute", RED, "From the decision to the payment, in one flow.")]
+    for cx, num, lab, col_c, body in cards:
+        hexagon(c, cx, 462, 76, stroke=col_c, fill=None, lw=6)
+        text(c, cx, 480, num, font="AB", size=52, color=col_c, align="c")
+        caps(c, cx, 592, lab, size=T_LABEL + 8, color=col_c, align="c", track=3)
+        wrap(c, cx, 646, body, 370, "A", T_BODY, INK, lead=38, align="c")
 
-    rule(c, MARGIN, W - MARGIN, 800, RULE_L)
-    text(c, W / 2, 848, "Approvals, controls and a full audit trail at every step.",
+    rule(c, MARGIN, W - MARGIN, 740, RULE_L)
+    text(c, W / 2, 792, "Approvals, controls and a full audit trail at every step.",
          font="AB", size=T_BODY, color=INK, align="c")
 
 
 def s07_bankonnect(c):
     bg(c, False)
     logo(c, MARGIN, 90, 150, False)
-    kicker(c, MARGIN, 235, RED)
-    text(c, MARGIN, 315, "Execution runs on BANKONNECT.", font="AB", size=T_H1, color=INK)
-    text(c, MARGIN, 380, "Meteor is the platform. BANKONNECT is the execution layer inside it.",
+    kicker(c, MARGIN, 225, RED)
+    text(c, MARGIN, 300, "Execution runs on BANKONNECT.", font="AB", size=T_H1, color=INK)
+    text(c, MARGIN, 358, "Meteor is the platform. BANKONNECT is the execution layer inside it.",
          font="A", size=T_LEAD, color=MUTED_L)
 
-    boxes = [(MARGIN, "METEOR", "Decides", TEAL),
+    boxes = [(MARGIN, "METEOR", "Decides", INK),
              (MARGIN + 470, "BANKONNECT", "Executes", RED),
-             (MARGIN + 940, "BANKS", "Settle", BLUE)]
+             (MARGIN + 940, "BANKS", "Settles", TEAL)]
     for x, lab, sub, col_c in boxes:
         c.setStrokeColor(col_c)
         c.setLineWidth(4)
-        c.rect(x, y(620), 440, 150, stroke=1, fill=0)
-        caps(c, x + 34, 505, lab, size=T_LABEL + 4, color=INK, track=2.4)
-        text(c, x + 34, 570, sub, font="A", size=T_BODY, color=col_c)
-    arrow(c, MARGIN + 448, MARGIN + 462, 545, MUTED_L, 4)
-    arrow(c, MARGIN + 918, MARGIN + 932, 545, MUTED_L, 4)
+        c.rect(x, y(580), 440, 140, stroke=1, fill=0)
+        caps(c, x + 34, 484, lab, size=T_LABEL + 2, color=INK, track=2.4)
+        text(c, x + 34, 545, sub, font="A", size=T_BODY, color=col_c)
+    arrow(c, MARGIN + 448, MARGIN + 462, 512, MUTED_L, 4)
+    arrow(c, MARGIN + 918, MARGIN + 932, 512, MUTED_L, 4)
 
-    rule(c, MARGIN, W - MARGIN, 700, RULE_L)
-    text(c, MARGIN, 760, "One layer, three jobs: bank connectivity, payment initiation from the ERP, "
-                         "and the approval trail behind both.", font="A", size=T_BODY, color=MUTED_L)
-    text(c, MARGIN, 830, "You already know the name. It now sits inside a full treasury platform.",
+    rule(c, MARGIN, W - MARGIN, 640, RULE_L)
+    wrap(c, MARGIN, 690, "One layer, three jobs: bank connectivity, payment initiation from the "
+                         "ERP, and the approval trail behind both.", 1300, "A", T_BODY, MUTED_L, lead=36)
+    text(c, MARGIN, 788, "You already know the name. It now sits inside a full treasury platform.",
          font="AB", size=T_LEAD, color=INK)
 
 
@@ -370,29 +375,35 @@ def s08_intelligence(c):
     bg(c, False)
     logo(c, MARGIN, 90, 150, False)
     kicker(c, W / 2 - 60, 225, BLUE, 120)
-    text(c, W / 2, 312, "Intelligence where decisions happen.", font="AB", size=T_H1,
+    text(c, W / 2, 300, "Intelligence where decisions happen.", font="AB", size=T_H1,
          color=INK, align="c")
 
+    # Lay the pipeline out from measured label widths so arrows never collide.
     steps = [("DATA", MUTED_L), ("INSIGHT", BLUE), ("RECOMMENDATION", BLUE), ("ACTION", RED)]
-    xs = [330, 640, 1010, 1330]
-    for (lab, col_c), x in zip(steps, xs):
-        caps(c, x, 410, lab, size=T_LABEL, color=col_c, align="c", track=2.4)
-    for i in range(3):
-        arrow(c, xs[i] + 120, xs[i + 1] - 120, 402, BLUE if i < 2 else RED, 3.5, 13)
+    gap = 90
+    widths = [tw(s_.upper(), "AB", T_MIN, 2.4) for s_, _ in steps]
+    total = sum(widths) + gap * (len(steps) - 1)
+    x = W / 2 - total / 2
+    for i, ((lab, col_c), w_) in enumerate(zip(steps, widths)):
+        text(c, x, 392, lab, font="AB", size=T_MIN, color=col_c, track=2.4)
+        if i < len(steps) - 1:
+            arrow(c, x + w_ + 22, x + w_ + gap - 22, 384,
+                  BLUE if i < len(steps) - 2 else RED, 3.5, 12)
+        x += w_ + gap
 
     c.setFillColor(WHITE)
-    c.rect(MARGIN + 40, y(640), W - 2 * MARGIN - 80, 180, stroke=0, fill=1)
+    c.rect(MARGIN + 40, y(610), W - 2 * MARGIN - 80, 170, stroke=0, fill=1)
     c.setStrokeColor(BLUE)
     c.setLineWidth(7)
-    c.line(MARGIN + 40, y(640), MARGIN + 40, y(460))
-    wrap(c, W / 2, 530, "Where will we face a liquidity gap in the next seven days, "
+    c.line(MARGIN + 40, y(610), MARGIN + 40, y(440))
+    wrap(c, W / 2, 505, "Where will we face a liquidity gap in the next seven days, "
                         "and what should we do about it?", W - 2 * MARGIN - 220,
-         "AB", 44, INK, lead=58, align="c")
+         "AB", 42, INK, lead=56, align="c")
 
-    rule(c, MARGIN, W - MARGIN, 720, RULE_L)
-    text(c, W / 2, 780, "AI is being built across forecasting, reconciliation and payments.",
+    rule(c, MARGIN, W - MARGIN, 670, RULE_L)
+    text(c, W / 2, 722, "AI is being built across forecasting, reconciliation and payments.",
          font="A", size=T_BODY, color=MUTED_L, align="c")
-    text(c, W / 2, 840, "Meteor recommends. Your approvals still govern every action.",
+    text(c, W / 2, 792, "Meteor recommends. Your approvals still govern every action.",
          font="AB", size=T_LEAD, color=INK, align="c")
 
 
@@ -408,33 +419,33 @@ def s09_demo(c):
              "A seven-day liquidity forecast, built from live data.",
              "One payment initiated from the ERP, start to finish."]
     for i, it in enumerate(items):
-        top = 410 + i * 78
-        hexagon(c, 918, top - 8, 12, stroke=None, fill=TEAL)
-        wrap(c, 960, top, it, 540, "A", T_BODY, WHITE, lead=36)
+        top = 410 + i * 86
+        hexagon(c, 916, top - 8, 11, stroke=None, fill=TEAL)
+        wrap(c, 956, top, it, 500, "A", T_BODY, WHITE, lead=36)
 
-    rule(c, MARGIN, W - MARGIN, 780, NAVY_3, 1.5)
-    caps(c, MARGIN, 838, "See  ·  Decide  ·  Execute", size=T_MIN, color=MUTED_D, track=4)
+    rule(c, MARGIN, W - MARGIN, 740, NAVY_3, 1.5)
+    caps(c, MARGIN, 790, "See  ·  Decide  ·  Execute", size=T_MIN, color=MUTED_D, track=4)
 
 
 def s10_close(c):
     bg(c, True)
     d, h = logo_drawing(260, True)
-    renderPDF.draw(d, c, W / 2 - 130, y(140) - h)
+    renderPDF.draw(d, c, W / 2 - 130, y(150) - h)
     kicker(c, W / 2 - 60, 265, TEAL, 120)
-    text(c, W / 2, 370, "Connected Treasury.", font="AB", size=T_H1, color=WHITE, align="c")
-    text(c, W / 2, 450, "From Insight to Action.", font="AB", size=T_H1, color=TEAL, align="c")
+    text(c, W / 2, 355, "Connected Treasury.", font="AB", size=T_H1, color=WHITE, align="c")
+    text(c, W / 2, 435, "From Insight to Action.", font="AB", size=T_H1, color=TEAL, align="c")
 
-    # QR placeholder, matching the booth's "Scan to enter" mechanic
+    # QR placeholder, same mechanic as the booth rollup
     c.setStrokeColor(TEAL)
     c.setLineWidth(3)
-    c.rect(W / 2 - 90, y(700), 180, 180, stroke=1, fill=0)
-    text(c, W / 2, 740, "QR", font="A", size=T_MIN, color=MUTED_D, align="c")
-    caps(c, W / 2, 762, "Scan to enter  ·  Win an Apple Watch", size=T_MIN, color=TEAL,
+    c.rect(W / 2 - 75, y(645), 150, 150, stroke=1, fill=0)
+    text(c, W / 2, 578, "QR", font="A", size=T_MIN, color=MUTED_D, align="c")
+    caps(c, W / 2, 692, "Scan to enter  ·  Win an Apple Watch", size=T_MIN, color=TEAL,
          align="c", track=2.6)
 
-    rule(c, MARGIN, W - MARGIN, 800, NAVY_3, 1.5)
-    caps(c, MARGIN, 848, "Booth [ 00 ]", size=T_MIN, color=MUTED_D, track=3)
-    text(c, W - MARGIN, 848, "Limor Carmeli   ·   Shiran Shapira", font="AB",
+    rule(c, MARGIN, W - MARGIN, 745, NAVY_3, 1.5)
+    caps(c, MARGIN, 792, "Booth [ 00 ]", size=T_MIN, color=MUTED_D, track=3)
+    text(c, W - MARGIN, 792, "Limor Carmeli   ·   Shiran Shapira", font="AB",
          size=T_MIN, color=WHITE, align="r")
 
 
