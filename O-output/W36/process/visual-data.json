@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W36",
+      "visual_type": "stat_card",
+      "category": "Procurement 2026",
+      "topic": "Continuity Overtakes Cost Savings",
+      "key_metric": "#1",
+      "hook": "For the first time in years, supply continuity outranks cost reduction on procurement's 2026 agenda.",
+      "key_stat": "Supply continuity is procurement's top 2026 objective, surpassing cost reduction (Hackett Group). Supplier enablement is now 1 of 5 core benchmarks across 311 CPOs (GEP).",
+      "source": "The Hackett Group 2026 Procurement Agenda (via Ironclad); GEP Procurement Metrics That Matter in 2026",
+      "visual_direction": "Clean stat card contrasting continuity rising to #1 over cost reduction, with supplier enablement flagged as a new formal benchmark below."
+    }
+  ]
+}
