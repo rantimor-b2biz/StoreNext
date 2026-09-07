@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W37-meteor",
+      "visual_type": "stat_card",
+      "category": "Financial Operations",
+      "topic": "The Underestimated Migration Risk",
+      "key_metric": "60%",
+      "hook": "Most ECC customers have not started deep migration work, and the 2027 deadline is compressing timelines.",
+      "key_stat": "More than 60% of SAP ECC customers have not begun deep migration work; only 40% of treasury teams run fully integrated ERP and TMS ecosystems.",
+      "source": "Gartner via Qestit; DXC Technology",
+      "visual_direction": "A clean stat card leading with 60% as the dominant figure, with the 40% treasury-integration stat as supporting context, framing bank connectivity as the underestimated migration risk.",
+      "brand": "meteor"
+    }
+  ]
+}

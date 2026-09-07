@@ -160,5 +160,13 @@
     "topic": "Supply Continuity Has Overtaken Cost Reduction as Procurement's Top 2026 Priority — For the First Time in Years",
     "pillar": "Pillar 3 (Procurement & the CFO agenda), crossing into Pillar 1 (supply chain resilience / supplier management)",
     "product_focus": "Supplier Portal"
+  },
+  {
+    "date": "2026-09-07",
+    "week": "W37",
+    "brand": "meteor",
+    "topic": "The Hidden Risk in Every S/4HANA Migration: Bank Connections and Payments, Not the Ledger",
+    "pillar": "Pillar 2 — Financial operations & treasury",
+    "product_focus": "Meteor"
   }
 ]
