@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W37",
+      "visual_type": "stat_card",
+      "category": "Supplier Onboarding",
+      "topic": "Manual vs Automated Onboarding Time",
+      "key_metric": "25 days vs 1-5 days",
+      "hook": "The onboarding gap is mostly verification time, not approval time.",
+      "key_stat": "Manual vendor onboarding runs ~25 days. Structured, automated onboarding runs 1 to 5 days.",
+      "source": "SpecLens 2026 Procurement KPI Stack, citing Procurify 2026 Procurement Benchmark Report",
+      "visual_direction": "Clean split stat card contrasting 25 days against 1-5 days, with a small caption noting the gap is validation time, not workflow speed."
+    }
+  ]
+}
