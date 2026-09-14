@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W38-meteor",
+      "visual_type": "stat_card",
+      "category": "Financial Operations & Treasury",
+      "topic": "Instant Payments Overtook ACH And Wire",
+      "key_metric": "15+ pts",
+      "hook": "Money moves continuously now. Most treasury operations still run on banking hours.",
+      "key_stat": "Instant payments led ACH and wire by more than 15 percentage points as the most-used US business payment method in 2025.",
+      "source": "DXC, Treasury Management Trends and Priorities for 2026",
+      "visual_direction": "Clean stat card foregrounding the 15+ percentage-point lead, framing the batch-era-to-continuous-settlement gap for a CFO audience.",
+      "brand": "meteor"
+    }
+  ]
+}
