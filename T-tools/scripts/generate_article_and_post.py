@@ -115,6 +115,43 @@ def call_model(model: str, system: str, user_prompt: str, max_tokens: int = 8000
         return stream.get_final_message()
 
 
+def _cache_tail(blocks):
+    """
+    Put a single prompt-cache breakpoint at the end of the conversation prefix.
+
+    The web-search loop re-sends the ENTIRE accumulated transcript on every
+    continuation, and a research turn accumulates tens of thousands of tokens of
+    search results. Uncached, turn 4 pays full input price for everything turns
+    1-3 already sent. One breakpoint at the tail makes each continuation read the
+    previous turn's prefix at the cache rate (~10% of input price) and write the
+    new one.
+
+    Exactly one breakpoint, always at the tail: a cache read matches the longest
+    cached prefix regardless of where this request's breakpoints sit, so carrying
+    the older ones forward buys nothing and burns the 4-breakpoint budget.
+    """
+    out = []
+    for b in blocks:
+        d = b if isinstance(b, dict) else b.model_dump(exclude_none=True)
+        d.pop("cache_control", None)
+        out.append(d)
+    if out:
+        out[-1]["cache_control"] = {"type": "ephemeral"}
+    return out
+
+
+def _strip_cache(content):
+    """Drop a breakpoint from an older turn so only the tail one survives."""
+    if isinstance(content, str):
+        return content
+    out = []
+    for b in content:
+        d = b if isinstance(b, dict) else b.model_dump(exclude_none=True)
+        d.pop("cache_control", None)
+        out.append(d)
+    return out
+
+
 def run_with_web_search(system: str, user_prompt: str, max_continuations: int = 5):
     messages = [{"role": "user", "content": user_prompt}]
     tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 8}]
@@ -125,7 +162,10 @@ def run_with_web_search(system: str, user_prompt: str, max_continuations: int = 
         )
         if response.stop_reason != "pause_turn":
             return response
-        messages.append({"role": "assistant", "content": response.content})
+        # Cached tail: the next call re-sends everything above at the cache rate.
+        for m in messages:
+            m["content"] = _strip_cache(m["content"])
+        messages.append({"role": "assistant", "content": _cache_tail(response.content)})
     return response
 
 
