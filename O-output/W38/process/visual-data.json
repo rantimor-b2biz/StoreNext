@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W38",
+      "visual_type": "stat_card",
+      "category": "Supply Chain Resilience",
+      "topic": "Diversification Multiplies Procurement Workload",
+      "key_metric": "$165B",
+      "hook": "Trade redirection is real. So is the manual work every new supplier adds.",
+      "key_stat": "US-China trade fell ~30% in 2025, with $165B redirected to new partners.",
+      "source": "Procurement Magazine; The Hackett Group via Ironclad",
+      "visual_direction": "Bold $165B stat card with a subordinate line contrasting rising supplier count against flat procurement headcount."
+    }
+  ]
+}
