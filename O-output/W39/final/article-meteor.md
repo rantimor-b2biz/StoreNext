@@ -4,7 +4,7 @@ Every CFO owns a bank fee line. Few can fully reconcile it.
 
 According to the Association for Financial Professionals' 2026 Commercial Account Analysis Benchmarks report, managing commercial bank fees remains a critical, increasingly complex task. Banks are now pushing fees back up after several years of smaller increases. AFP calls this a "rubber-band effect."
 
-The timing matters. CFO Dive reports that a Clearing House executive said finance and treasury leaders are prioritizing deeper visibility into payment rails and treasury systems, as business increasingly runs in real time. Fees are rising at the exact moment scrutiny is rising faster.
+The timing matters. CFO Dive reports that a Clearing House executive said finance and treasury leaders are prioritizing deeper visibility into payment rails and treasury systems, as business increasingly runs in real time. That broader visibility push reinforces the same pressure on bank fees, even though it is not fee-specific research on its own.
 
 This is not a fraud story. It is not an AI story. It is a structural visibility gap in a cost line every finance organization already carries.
 
@@ -46,26 +46,26 @@ The combination is unforgiving. Fees are rising at a moment when the tolerance f
 
 The structural problem has a structural answer. Direct connectivity to every banking relationship, feeding one consolidated, comparable data layer.
 
-This is exactly where direct bank aggregation becomes critical. Meteor connects directly to all Israeli banks and to more than 150 global banks. That connectivity converts scattered, bank-by-bank statement formats into a single, real-time ledger of fees, transactions, and account activity.
+This is exactly where direct bank aggregation becomes critical. Meteor connects directly to all Israeli banks and to more than 150 global banks. That connectivity brings scattered, bank-by-bank statements into one consolidated, current view of transactions and account activity, the foundation treasury needs before it can compare fees at all.
 
-The difference this makes is not cosmetic. It changes what treasury can actually see:
+The difference this makes is not cosmetic. It changes what treasury can actually work with:
 
-- **Fee categories become comparable across banks**, instead of trapped in each institution's own taxonomy.
-- **Fee trends become visible over time**, instead of discovered retroactively at quarter-end reconciliation.
-- **Fee increases become identifiable within days**, instead of buried in a stack of PDFs reviewed once a quarter.
-- **Multi-entity, multi-currency exposure becomes one view**, instead of a spreadsheet stitched together manually.
+- **All banking activity in one place**, instead of statements trapped in each institution's own format.
+- **Current account data, not a quarter-end snapshot**, so a fee change does not wait for the next reconciliation cycle to surface.
+- **Multi-entity, multi-currency activity in one view**, instead of a spreadsheet stitched together manually.
+- **A consistent data foundation treasury teams can build fee comparisons and analysis on**, rather than starting from scratch with every banking relationship.
 
 This is not about automating a task away. It is about giving treasury a data foundation that the underlying banking infrastructure never provided on its own.
 
 ## Turning Fee Visibility Into Negotiating Leverage, Not Just an Audit Trail
 
-Visibility alone is a compliance outcome. Leverage is a commercial outcome. The gap between them is what most fee transparency initiatives miss.
+Consolidated fee data is a negotiating position. Scattered statements are not. The gap between them is what most fee transparency initiatives miss.
 
-A consolidated fee ledger lets treasury do three things that scattered statements do not support:
+A consolidated, current view of banking activity lets treasury do three things that scattered statements do not support:
 
-1. **Benchmark internally.** Compare fee structures across banking relationships for functionally similar services, using the same categorization.
+1. **Benchmark internally.** Compare costs across banking relationships for functionally similar services, working from one consistent data source instead of reconciling formats bank by bank.
 2. **Benchmark externally.** Reference industry data, such as AFP's NDepth-based benchmarks, to confirm whether pricing sits inside or outside a reasonable range.
-3. **Negotiate from evidence.** Bring specific, dated, categorized fee data into a renewal conversation, rather than a general sense that costs feel high.
+3. **Negotiate from evidence.** Bring specific, dated fee data into a renewal conversation, rather than a general sense that costs feel high.
 
 This is the practical difference between an audit trail and a negotiating position. An audit trail documents what happened. A negotiating position changes what happens next.
 
@@ -86,4 +86,4 @@ If the honest answer to any of these is no, the underlying issue is rarely the b
 
 Bank fees are not going away, and based on AFP's 2026 data, they are not shrinking either. The organizations that manage this line item well in 2026 will not be the ones with the most aggressive negotiators. They will be the ones with the clearest data.
 
-Meteor's direct connectivity across Israeli and 150+ global banks exists to close exactly that gap. It turns scattered statements into one real-time ledger treasury teams can act on.
+Meteor's direct connectivity across Israeli and 150+ global banks exists to close exactly that gap. It replaces scattered, bank-by-bank statements with one consolidated, current view treasury teams can build fee comparisons and renewal conversations on.
