@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W39",
+      "visual_type": "stat_card",
+      "category": "Procurement 2026",
+      "topic": "Partnership Priority Meets Capacity Reality",
+      "key_metric": "71%",
+      "hook": "CPOs want strategic partnership. Most teams lack the capacity to deliver it.",
+      "key_stat": "61% face rising expectations while 71% report capacity-constrained teams.",
+      "source": "ProcureAbility 2026 CPO Benchmark Study; Icertis 2026 ProcureCon CPO Report",
+      "visual_direction": "Clean stat card contrasting 61% rising expectations against 71% capacity-constrained teams, framing the partnership-versus-bandwidth gap."
+    }
+  ]
+}
