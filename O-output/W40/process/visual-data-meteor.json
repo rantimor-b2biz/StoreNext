@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "post_id": "W40-meteor",
+      "visual_type": "stat_card",
+      "category": "Financial Operations",
+      "topic": "Rising Budgets, Flat Treasury Automation",
+      "key_metric": "48%",
+      "hook": "CFOs are raising 2026 tech budgets, but treasury automation has held near 48% for years.",
+      "key_stat": "Most CFOs plan higher 2026 tech spend, yet core treasury automation averages 48%.",
+      "source": "Gartner CFO Budget Priorities Survey; Euromoney 2026 Economic Outlook",
+      "visual_direction": "Contrast a rising budget arrow against a flat 48% automation line to show the spend-automation mismatch.",
+      "brand": "meteor"
+    }
+  ]
+}
