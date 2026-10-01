@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "post_id": "W40",
+      "visual_type": "stat_card",
+      "category": "Supply Chain Resilience",
+      "topic": "Leaders See Disruption as Permanent",
+      "key_metric": "78%",
+      "hook": "The pressure index is easing, but the people running supply chains are not convinced.",
+      "key_stat": "78% of 900+ supply chain leaders expect disruption to persist for two more years.",
+      "source": "Maersk, November 2025; GSCPI via EY",
+      "visual_direction": "Bold 78% stat card contrasting easing index (-0.16) against practitioner sentiment, clean enterprise palette with white space."
+    }
+  ]
+}
